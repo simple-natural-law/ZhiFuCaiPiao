@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  ZhiFuCaiPiao
+
+  Created by 张诗健 on 2017/6/13.
+  Copyright © 2017年 张诗健. All rights reserved.
+*/
+
+/// 桌面显示APP名称
+"CFBundleDisplayName" = "中彩票-手机买PK拾、时时彩、PC蛋蛋";

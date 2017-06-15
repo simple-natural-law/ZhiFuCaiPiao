@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--开奖信息-->
+        <scene sceneID="yza-kP-Llj">
+            <objects>
+                <navigationController id="jO7-N5-Is0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="开奖信息" image="kaijiangxinxi" id="JJE-Gh-7d2"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xjZ-f9-Ktl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wMC-iV-26d" kind="relationship" relationship="rootViewController" id="5Q5-Td-LBy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jng-0a-BXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-321" y="-650"/>
+        </scene>
+        <!--开奖信息-->
+        <scene sceneID="mHz-Pb-Xrw">
+            <objects>
+                <viewController storyboardIdentifier="LotteryInformationViewController" title="开奖信息" id="wMC-iV-26d" customClass="LotteryInformationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ePv-Rz-Nko"/>
+                        <viewControllerLayoutGuide type="bottom" id="NFT-kX-qDB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cQy-1R-xEw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O9u-dl-0uF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CUr-lF-B0M">
+                                    <size key="itemSize" width="375" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="i4V-b2-pY4">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G17-ja-6tR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="G17-ja-6tR" firstAttribute="leading" secondItem="i4V-b2-pY4" secondAttribute="leading" id="RIS-3E-GAN"/>
+                                            <constraint firstItem="G17-ja-6tR" firstAttribute="top" secondItem="i4V-b2-pY4" secondAttribute="top" id="TJf-Ol-MV2"/>
+                                            <constraint firstAttribute="bottom" secondItem="G17-ja-6tR" secondAttribute="bottom" id="U1L-SQ-dR8"/>
+                                            <constraint firstAttribute="trailing" secondItem="G17-ja-6tR" secondAttribute="trailing" id="d5K-5d-kIA"/>
+                                        </constraints>
+                                        <size key="customSize" width="375" height="120"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hlL-Gy-Bab">
+                                        <rect key="frame" x="128" y="130" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="120" height="120"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wMC-iV-26d" id="bw3-qB-Xtc"/>
+                                    <outlet property="delegate" destination="wMC-iV-26d" id="oNO-cg-qew"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O9u-dl-0uF" firstAttribute="top" secondItem="ePv-Rz-Nko" secondAttribute="bottom" id="J5h-jJ-zI1"/>
+                            <constraint firstAttribute="trailing" secondItem="O9u-dl-0uF" secondAttribute="trailing" id="P6Q-bp-9FJ"/>
+                            <constraint firstItem="NFT-kX-qDB" firstAttribute="top" secondItem="O9u-dl-0uF" secondAttribute="bottom" id="jIf-bA-quj"/>
+                            <constraint firstItem="O9u-dl-0uF" firstAttribute="leading" secondItem="cQy-1R-xEw" secondAttribute="leading" id="rzw-V5-P21"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="开奖信息" id="Dkh-DL-JRH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mq6-0D-iB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552.79999999999995" y="-651.72413793103453"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="Yi1-nb-0Q2">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarViewController" id="377-II-0D4" customClass="TabBarViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1Oc-jT-8d7"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ivi-Dj-gU5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jO7-N5-Is0" kind="relationship" relationship="viewControllers" id="mbK-Bw-pmM"/>
+                        <segue destination="JHB-0H-nHd" kind="relationship" relationship="viewControllers" id="9pp-uo-llW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPn-lq-Cl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1271" y="-231"/>
+        </scene>
+        <!--彩票走势-->
+        <scene sceneID="0tt-Vz-GoZ">
+            <objects>
+                <navigationController id="JHB-0H-nHd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="彩票走势" image="zoushi" id="hef-yL-G0L"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e2m-bX-VjR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Hcq-gv-xw9" kind="relationship" relationship="rootViewController" id="vQs-6L-gib"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml6-Ss-3Dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322" y="9"/>
+        </scene>
+        <!--彩票走势-->
+        <scene sceneID="OBY-4Y-tg6">
+            <objects>
+                <viewController storyboardIdentifier="LotteryTrendViewController" title="彩票走势" id="Hcq-gv-xw9" customClass="LotteryTrendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="krn-q4-Ada"/>
+                        <viewControllerLayoutGuide type="bottom" id="roH-K9-ljZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9tb-Qj-Gjx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="彩票走势" id="a69-W4-veb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btF-00-aaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="9"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="kaijiangxinxi" width="32" height="32"/>
+        <image name="zoushi" width="32" height="32"/>
+    </resources>
+</document>
