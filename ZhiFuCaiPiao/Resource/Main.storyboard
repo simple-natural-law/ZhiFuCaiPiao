@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,59 +38,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O9u-dl-0uF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9g-3b-GxI">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CUr-lF-B0M">
-                                    <size key="itemSize" width="375" height="120"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="i4V-b2-pY4">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xem-lX-Sb4">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xem-lX-Sb4" id="LB0-Uk-52Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G17-ja-6tR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="G17-ja-6tR" firstAttribute="leading" secondItem="i4V-b2-pY4" secondAttribute="leading" id="RIS-3E-GAN"/>
-                                            <constraint firstItem="G17-ja-6tR" firstAttribute="top" secondItem="i4V-b2-pY4" secondAttribute="top" id="TJf-Ol-MV2"/>
-                                            <constraint firstAttribute="bottom" secondItem="G17-ja-6tR" secondAttribute="bottom" id="U1L-SQ-dR8"/>
-                                            <constraint firstAttribute="trailing" secondItem="G17-ja-6tR" secondAttribute="trailing" id="d5K-5d-kIA"/>
-                                        </constraints>
-                                        <size key="customSize" width="375" height="120"/>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hlL-Gy-Bab">
-                                        <rect key="frame" x="128" y="130" width="120" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <size key="customSize" width="120" height="120"/>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="wMC-iV-26d" id="bw3-qB-Xtc"/>
-                                    <outlet property="delegate" destination="wMC-iV-26d" id="oNO-cg-qew"/>
-                                </connections>
-                            </collectionView>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="O9u-dl-0uF" firstAttribute="top" secondItem="ePv-Rz-Nko" secondAttribute="bottom" id="J5h-jJ-zI1"/>
-                            <constraint firstAttribute="trailing" secondItem="O9u-dl-0uF" secondAttribute="trailing" id="P6Q-bp-9FJ"/>
-                            <constraint firstItem="NFT-kX-qDB" firstAttribute="top" secondItem="O9u-dl-0uF" secondAttribute="bottom" id="jIf-bA-quj"/>
-                            <constraint firstItem="O9u-dl-0uF" firstAttribute="leading" secondItem="cQy-1R-xEw" secondAttribute="leading" id="rzw-V5-P21"/>
+                            <constraint firstItem="B9g-3b-GxI" firstAttribute="leading" secondItem="cQy-1R-xEw" secondAttribute="leading" id="Azr-tJ-wDU"/>
+                            <constraint firstItem="NFT-kX-qDB" firstAttribute="top" secondItem="B9g-3b-GxI" secondAttribute="bottom" id="Z0W-To-Oca"/>
+                            <constraint firstAttribute="trailing" secondItem="B9g-3b-GxI" secondAttribute="trailing" id="jay-iM-H04"/>
+                            <constraint firstItem="B9g-3b-GxI" firstAttribute="top" secondItem="ePv-Rz-Nko" secondAttribute="bottom" id="ufI-Aj-6gT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="开奖信息" id="Dkh-DL-JRH"/>
