@@ -8,9 +8,13 @@
 
 #import "LotteryHistoryViewController.h"
 #import "LotteryHistoryCell.h"
+#import "CPHttpRequest.h"
 
 
 @interface LotteryHistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
@@ -19,24 +23,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [CPHttpRequest POST:@"http://route.showapi.com/44-2" parameters:@{@"showapi_appid":@"40668",@"showapi_sign":@"11b78d3201e244168488b95fd4c16af4",@"showapi_timestamp":[[NSDate date] toDateString],@"showapi_sign_method":@"md5",@"showapi_res_gzip":@"0",@"code":self.param,@"endTime":@"",@"count":@"10"} target:self callBack:@selector(lotteryhistoryCallBack:)];
 }
 
+#pragma mark-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LotteryHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryHistoryCell" forIndexPath:indexPath];
+    [cell setLotteryInfo:self.dataArray[indexPath.row]];
     return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90.0;
+    return 120.0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -44,6 +52,21 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark-
+- (void)lotteryhistoryCallBack:(NSDictionary *)dic
+{
+    NSLog(@"%@",dic);
+    
+    if ([dic[@"showapi_res_code"] integerValue] == 0)
+    {
+        self.dataArray = dic[@"showapi_res_body"][@"result"];
+        
+        [self.tableview reloadData];
+    }else
+    {
+        
+    }
+}
 
 
 - (void)didReceiveMemoryWarning {

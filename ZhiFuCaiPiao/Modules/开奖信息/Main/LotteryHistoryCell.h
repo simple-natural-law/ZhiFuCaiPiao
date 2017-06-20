@@ -10,4 +10,7 @@
 
 @interface LotteryHistoryCell : UITableViewCell
 
+
+- (void)setLotteryInfo:(NSDictionary *)dic;
+
 @end

@@ -19,6 +19,10 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = COLOR_BACKGROUND;
+    
+    UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"";
+    self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {

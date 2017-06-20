@@ -7,7 +7,6 @@
 //
 
 #import "LotteryInformationViewController.h"
-#import "CPHttpRequest.h"
 #import "LotteryInfoCell.h"
 
 
@@ -27,7 +26,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [CPHttpRequest POST:@"http://route.showapi.com/44-3" parameters:@{@"showapi_appid":@"40668",@"showapi_sign":@"11b78d3201e244168488b95fd4c16af4",@"showapi_timestamp":[[NSDate date] toDateString],@"showapi_sign_method":@"md5",@"showapi_res_gzip":@"0",@"code":@"ssq"} target:self callBack:@selector(lotteryInfoCallBack:)];
 }
 
 
@@ -83,17 +81,9 @@
         
     }else
     {
-        [self pushViewControllerKey:@"LotteryHistoryViewController" param:@"ssq" animated:YES];
+        [self pushViewControllerKey:@"LotteryHistoryViewController" param:self.dataArr[indexPath.row-1][@"code"] animated:YES];
     }
 }
-
-
-// 开奖信息查询
-- (void)lotteryInfoCallBack:(NSDictionary *)result
-{
-    NSLog(@"------ %@",result);
-}
-
 
 - (NSMutableArray *)dataArr
 {
