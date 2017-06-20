@@ -81,7 +81,7 @@
         
     }else
     {
-        [self pushViewControllerKey:@"LotteryHistoryViewController" param:self.dataArr[indexPath.row-1][@"caipiaoid"] animated:YES];
+        [self pushViewControllerKey:@"LotteryHistoryViewController" param:@{@"id":self.dataArr[indexPath.row-1][@"caipiaoid"],@"title":self.dataArr[indexPath.row-1][@"title"]} animated:YES];
 //        [self pushViewControllerKey:@"LotteryHistoryViewController" param:self.dataArr[indexPath.row-1][@"code"] animated:YES];
     }
 }

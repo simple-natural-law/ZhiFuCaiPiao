@@ -11,7 +11,7 @@
 
 // 颜色
 #define COLOR_BACKGROUND  [UIColor colorWithHexString:@"#f4f4f4"] //背景色
-#define RED               [UIColor colorWithRed:206/225.0 green:9/225.0 blue:26/225.0 alpha:1.0f]
+#define COLOR_RED         [UIColor colorWithRed:206/225.0 green:9/225.0 blue:26/225.0 alpha:1.0f]
 #define COLOR_BLUE        [UIColor colorWithHexString:@"#2891F0"]
 
 // 常量

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -71,7 +71,7 @@
                                         </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LotteryInfoCell" id="AgV-lN-IWW" customClass="LotteryInfoCell">
-                                        <rect key="frame" x="96.5" y="152" width="182" height="90"/>
+                                        <rect key="frame" x="97" y="152" width="182" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="90"/>
@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="552.79999999999995" y="-651.72413793103453"/>
         </scene>
-        <!--开奖历史-->
+        <!--Lottery History View Controller-->
         <scene sceneID="miy-QU-KRC">
             <objects>
-                <viewController storyboardIdentifier="LotteryHistoryViewController" title="开奖历史" id="pxL-Rj-5pd" customClass="LotteryHistoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LotteryHistoryViewController" id="pxL-Rj-5pd" customClass="LotteryHistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U8X-3B-yAO"/>
                         <viewControllerLayoutGuide type="bottom" id="6Nu-0w-Ghk"/>
@@ -166,17 +166,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXF-rM-ezZ">
-                                                    <rect key="frame" x="15" y="15" width="0.0" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="UJS-ai-Rmr"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUz-7t-trS">
-                                                    <rect key="frame" x="35" y="15" width="0.0" height="21"/>
+                                                    <rect key="frame" x="15" y="15" width="0.0" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Gif-0I-qoT"/>
                                                     </constraints>
@@ -185,7 +176,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNj-36-Wod">
-                                                    <rect key="frame" x="55" y="15" width="0.0" height="21"/>
+                                                    <rect key="frame" x="35" y="15" width="0.0" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="XXx-jk-9rq"/>
                                                     </constraints>
@@ -285,14 +276,12 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="kXF-rM-ezZ" firstAttribute="top" secondItem="6GJ-Vx-Ux8" secondAttribute="top" constant="15" id="FIm-co-v1g"/>
                                                 <constraint firstAttribute="bottom" secondItem="nK6-Gk-YpT" secondAttribute="bottom" id="GKb-Sz-xLO"/>
                                                 <constraint firstItem="NNj-36-Wod" firstAttribute="leading" secondItem="oUz-7t-trS" secondAttribute="trailing" constant="20" id="Hfe-t4-5F1"/>
-                                                <constraint firstItem="oUz-7t-trS" firstAttribute="leading" secondItem="kXF-rM-ezZ" secondAttribute="trailing" constant="20" id="JTR-cB-oVk"/>
                                                 <constraint firstAttribute="trailing" secondItem="nK6-Gk-YpT" secondAttribute="trailing" id="NiT-EC-Wdv"/>
-                                                <constraint firstItem="nK6-Gk-YpT" firstAttribute="top" secondItem="kXF-rM-ezZ" secondAttribute="bottom" id="gyJ-iF-yWJ"/>
                                                 <constraint firstItem="NNj-36-Wod" firstAttribute="top" secondItem="6GJ-Vx-Ux8" secondAttribute="top" constant="15" id="lRg-NW-mji"/>
-                                                <constraint firstItem="kXF-rM-ezZ" firstAttribute="leading" secondItem="6GJ-Vx-Ux8" secondAttribute="leading" constant="15" id="rJR-WH-o5D"/>
+                                                <constraint firstItem="oUz-7t-trS" firstAttribute="leading" secondItem="6GJ-Vx-Ux8" secondAttribute="leading" constant="15" id="lnd-RV-zg1"/>
+                                                <constraint firstItem="nK6-Gk-YpT" firstAttribute="top" secondItem="oUz-7t-trS" secondAttribute="bottom" id="pCg-xN-uCd"/>
                                                 <constraint firstItem="oUz-7t-trS" firstAttribute="top" secondItem="6GJ-Vx-Ux8" secondAttribute="top" constant="15" id="www-hP-oac"/>
                                                 <constraint firstItem="nK6-Gk-YpT" firstAttribute="leading" secondItem="6GJ-Vx-Ux8" secondAttribute="leading" constant="15" id="yyR-Rx-Tb4"/>
                                             </constraints>
@@ -301,7 +290,6 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="NNj-36-Wod" id="Wz1-kZ-tBA"/>
                                             <outlet property="expectLabel" destination="oUz-7t-trS" id="PNA-Wm-8u6"/>
-                                            <outlet property="nameLabel" destination="kXF-rM-ezZ" id="zM1-QH-x8Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

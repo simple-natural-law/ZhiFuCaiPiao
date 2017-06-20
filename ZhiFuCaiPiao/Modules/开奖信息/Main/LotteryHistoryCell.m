@@ -10,7 +10,6 @@
 
 @interface LotteryHistoryCell ()
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
@@ -35,7 +34,7 @@
     {
         UILabel *label = [self.contentView viewWithTag:10086+i];
         label.text     = numberArray[i];
-        label.backgroundColor = COLOR_BLUE;
+        label.backgroundColor = COLOR_RED;
         label.layer.cornerRadius    = 15.0;
         label.layer.masksToBounds   = YES;
         label.layer.shouldRasterize = YES;
@@ -53,7 +52,7 @@
         {
             UILabel *label = [self.contentView viewWithTag:10086+i+offset];
             label.text     = referNumberArr[i];
-            label.backgroundColor = [UIColor colorWithHexString:@"#37b761"];
+            label.backgroundColor = COLOR_BLUE;
             label.layer.cornerRadius    = 15.0;
             label.layer.masksToBounds   = YES;
             label.layer.shouldRasterize = YES;
