@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,30 +39,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9g-3b-GxI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dNT-La-U7s">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xem-lX-Sb4">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xem-lX-Sb4" id="LB0-Uk-52Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2g-Qc-gvj">
+                                    <size key="itemSize" width="375" height="142"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="DTR-Hx-qrD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="Flh-mi-5m9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Flh-mi-5m9" firstAttribute="top" secondItem="DTR-Hx-qrD" secondAttribute="top" id="Egs-YH-oci"/>
+                                            <constraint firstAttribute="trailing" secondItem="Flh-mi-5m9" secondAttribute="trailing" id="F2N-z4-sZE"/>
+                                            <constraint firstItem="Flh-mi-5m9" firstAttribute="leading" secondItem="DTR-Hx-qrD" secondAttribute="leading" id="Puu-J3-c3d"/>
+                                            <constraint firstAttribute="bottom" secondItem="Flh-mi-5m9" secondAttribute="bottom" id="zQZ-Wt-V5j"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LotteryInfoCell" id="AgV-lN-IWW" customClass="LotteryInfoCell">
+                                        <rect key="frame" x="96.5" y="152" width="182" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="182" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuangseqiu" translatesAutoresizingMaskIntoConstraints="NO" id="1yx-pJ-ej0">
+                                                    <rect key="frame" x="10" y="15" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="9Bb-KZ-3hS"/>
+                                                        <constraint firstAttribute="height" constant="60" id="fVx-uX-8ZE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双色球" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-e9-HyR">
+                                                    <rect key="frame" x="78" y="24" width="99" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="bXq-4M-nky"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每周二、四、日的21:15开奖" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgt-dc-51D">
+                                                    <rect key="frame" x="78" y="45" width="99" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dgt-dc-51D" secondAttribute="bottom" constant="5" id="2Zc-d6-WUw"/>
+                                            <constraint firstItem="AM1-e9-HyR" firstAttribute="leading" secondItem="1yx-pJ-ej0" secondAttribute="trailing" constant="8" id="5fz-NS-RdT"/>
+                                            <constraint firstItem="1yx-pJ-ej0" firstAttribute="leading" secondItem="AgV-lN-IWW" secondAttribute="leading" constant="10" id="G2Z-Ph-QMH"/>
+                                            <constraint firstAttribute="trailing" secondItem="dgt-dc-51D" secondAttribute="trailing" constant="5" id="Gc0-u7-bkB"/>
+                                            <constraint firstItem="1yx-pJ-ej0" firstAttribute="centerY" secondItem="AgV-lN-IWW" secondAttribute="centerY" id="H0s-ZF-YYL"/>
+                                            <constraint firstItem="dgt-dc-51D" firstAttribute="leading" secondItem="1yx-pJ-ej0" secondAttribute="trailing" constant="8" id="Ib7-5b-K0d"/>
+                                            <constraint firstItem="dgt-dc-51D" firstAttribute="top" secondItem="AM1-e9-HyR" secondAttribute="bottom" id="bw4-gE-UGz"/>
+                                            <constraint firstAttribute="trailing" secondItem="AM1-e9-HyR" secondAttribute="trailing" constant="5" id="itj-Rg-ybk"/>
+                                            <constraint firstAttribute="centerY" secondItem="AM1-e9-HyR" secondAttribute="bottom" id="u8d-wq-esP"/>
+                                        </constraints>
+                                        <size key="customSize" width="182" height="90"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="dgt-dc-51D" id="PNz-iW-FkL"/>
+                                            <outlet property="iconImageView" destination="1yx-pJ-ej0" id="r4Y-j7-lRc"/>
+                                            <outlet property="titleLabel" destination="AM1-e9-HyR" id="xuj-0r-cok"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wMC-iV-26d" id="skK-T3-10M"/>
+                                    <outlet property="delegate" destination="wMC-iV-26d" id="wVb-0U-g6G"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="B9g-3b-GxI" firstAttribute="leading" secondItem="cQy-1R-xEw" secondAttribute="leading" id="Azr-tJ-wDU"/>
-                            <constraint firstItem="NFT-kX-qDB" firstAttribute="top" secondItem="B9g-3b-GxI" secondAttribute="bottom" id="Z0W-To-Oca"/>
-                            <constraint firstAttribute="trailing" secondItem="B9g-3b-GxI" secondAttribute="trailing" id="jay-iM-H04"/>
-                            <constraint firstItem="B9g-3b-GxI" firstAttribute="top" secondItem="ePv-Rz-Nko" secondAttribute="bottom" id="ufI-Aj-6gT"/>
+                            <constraint firstItem="dNT-La-U7s" firstAttribute="leading" secondItem="cQy-1R-xEw" secondAttribute="leading" id="YbB-SR-71B"/>
+                            <constraint firstItem="NFT-kX-qDB" firstAttribute="top" secondItem="dNT-La-U7s" secondAttribute="bottom" id="hNg-wU-Vyv"/>
+                            <constraint firstItem="dNT-La-U7s" firstAttribute="top" secondItem="cQy-1R-xEw" secondAttribute="top" id="hwK-Ha-7wW"/>
+                            <constraint firstAttribute="trailing" secondItem="dNT-La-U7s" secondAttribute="trailing" id="xxH-Lm-yU6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="开奖信息" id="Dkh-DL-JRH"/>
+                    <connections>
+                        <outlet property="collectionView" destination="dNT-La-U7s" id="iNf-fQ-Dza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mq6-0D-iB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,7 +198,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="banner" width="600" height="354"/>
         <image name="kaijiangxinxi" width="32" height="32"/>
+        <image name="shuangseqiu" width="142" height="142"/>
         <image name="zoushi" width="32" height="32"/>
     </resources>
 </document>

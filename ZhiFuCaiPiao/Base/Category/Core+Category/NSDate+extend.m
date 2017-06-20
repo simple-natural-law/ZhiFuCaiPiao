@@ -18,7 +18,7 @@
 
 - (NSString *)toDateString
 {
-    return [self toStringWithFormat:@"yyyy/MM/dd"];
+    return [self toStringWithFormat:@"yyyyMMddHHmmss"];
 }
 
 - (NSString *)toString {

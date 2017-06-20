@@ -9,7 +9,6 @@
 #import "CPHttpRequest.h"
 #import <AFNetworking/AFNetworking.h>
 #import "CPHttpTaskInfo.h"
-#import "CPHttpResult.h"
 
 
 @interface CPHttpRequest ()
@@ -149,9 +148,8 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
     
     if (dataTask.state == NSURLSessionTaskStateCompleted)
     {
-        
         // 回调
-        [self callBackTask:taskInfo result:nil];
+        [self callBackTask:taskInfo result:responseObject];
     }
     
     // 清除已经完成的任务
@@ -160,13 +158,13 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
 }
 
 
-- (void)callBackTask:(CPHttpTaskInfo *)taskInfo result:(CPHttpResult *)result
+- (void)callBackTask:(CPHttpTaskInfo *)taskInfo result:(id)result
 {
     [self callBackTarget:taskInfo.target selector:taskInfo.callBack result:result];
 }
 
 
-- (void)callBackTarget:(id)target selector:(SEL)selector result:(CPHttpResult *)result
+- (void)callBackTarget:(id)target selector:(SEL)selector result:(id)result
 {
     if (!target) return;
     
