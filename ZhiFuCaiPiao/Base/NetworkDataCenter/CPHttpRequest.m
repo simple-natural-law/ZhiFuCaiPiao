@@ -9,6 +9,7 @@
 #import "CPHttpRequest.h"
 #import <AFNetworking/AFNetworking.h>
 #import "CPHttpTaskInfo.h"
+#import "AlertCenter.h"
 
 
 @interface CPHttpRequest ()
@@ -65,6 +66,8 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
                     // 暂停
                     [operationQueue setSuspended:YES];
                     
+                    [AlertCenter showWithTitle:@"连接服务器失败,请检查网络连接" message:nil];
+                    
                     break;
                     
                 default:
@@ -106,6 +109,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
                 taskInfo.dataTask = nil;
                 [[CPHttpRequest shared].taskItems removeObject:taskInfo];
                 [[CPHttpRequest shared] callBackTask:taskInfo result:nil];
+                [AlertCenter showWithTitle:@"提示" message:error.localizedDescription];
                 break;
             }
         }

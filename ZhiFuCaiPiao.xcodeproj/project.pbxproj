@@ -42,6 +42,7 @@
 		341FED161EF17E1600CA37A9 /* CPObjectProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FED151EF17E1600CA37A9 /* CPObjectProperty.m */; };
 		341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FED321EF2D10600CA37A9 /* LotteryInformationViewController.m */; };
 		341FED361EF2D13500CA37A9 /* LotteryTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FED351EF2D13500CA37A9 /* LotteryTrendViewController.m */; };
+		342384BA1EF94E3E0074DAE1 /* AlertCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384B91EF94E3E0074DAE1 /* AlertCenter.m */; };
 		343973D61EEB952000C183D8 /* ZhiFuCaiPiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */; };
 		343973E11EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */; };
 		D41BF99CC9788D7ACC6F84D2 /* libPods-ZhiFuCaiPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C933D092E076852C2A341D70 /* libPods-ZhiFuCaiPiao.a */; };
@@ -137,6 +138,8 @@
 		341FED321EF2D10600CA37A9 /* LotteryInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryInformationViewController.m; sourceTree = "<group>"; };
 		341FED341EF2D13500CA37A9 /* LotteryTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendViewController.h; sourceTree = "<group>"; };
 		341FED351EF2D13500CA37A9 /* LotteryTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendViewController.m; sourceTree = "<group>"; };
+		342384B81EF94E3E0074DAE1 /* AlertCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertCenter.h; sourceTree = "<group>"; };
+		342384B91EF94E3E0074DAE1 /* AlertCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertCenter.m; sourceTree = "<group>"; };
 		343973B81EEB952000C183D8 /* ZhiFuCaiPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiFuCaiPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		343973D11EEB952000C183D8 /* ZhiFuCaiPiaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhiFuCaiPiaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhiFuCaiPiaoTests.m; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 		341FECB61EF01C2600CA37A9 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				342384B71EF94E120074DAE1 /* AlertCenter */,
 				1A091C171EF7D57800B1A028 /* NetworkDataCenter */,
 				341FED101EF17D3F00CA37A9 /* CPObject */,
 				341FECDC1EF17BA300CA37A9 /* Category */,
@@ -390,6 +394,15 @@
 				1A8FEB041EF8F85F009E4A39 /* LotteryHistoryViewController.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		342384B71EF94E120074DAE1 /* AlertCenter */ = {
+			isa = PBXGroup;
+			children = (
+				342384B81EF94E3E0074DAE1 /* AlertCenter.h */,
+				342384B91EF94E3E0074DAE1 /* AlertCenter.m */,
+			);
+			path = AlertCenter;
 			sourceTree = "<group>";
 		};
 		343973AF1EEB952000C183D8 = {
@@ -604,7 +617,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C96B557359AF7D28461A8147 /* [CP] Copy Pods Resources */ = {
@@ -645,6 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341FED0F1EF17BA300CA37A9 /* UIViewController+Nav.m in Sources */,
+				342384BA1EF94E3E0074DAE1 /* AlertCenter.m in Sources */,
 				341FED001EF17BA300CA37A9 /* NSData+extend.m in Sources */,
 				341FED071EF17BA300CA37A9 /* UIDevice+extend.m in Sources */,
 				341FED051EF17BA300CA37A9 /* UIButton+extend.m in Sources */,

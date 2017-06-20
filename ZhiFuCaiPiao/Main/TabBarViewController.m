@@ -14,6 +14,11 @@
 
 @implementation TabBarViewController
 
++ (instancetype)shared
+{
+    return (TabBarViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

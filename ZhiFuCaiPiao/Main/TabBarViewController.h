@@ -10,4 +10,6 @@
 
 @interface TabBarViewController : UITabBarController
 
++ (instancetype)shared;
+
 @end
