@@ -27,7 +27,9 @@
     
     [self showHUD];
     
-    [NetworkDataCenter POST:@"http://route.showapi.com/44-2" parameters:@{@"showapi_appid":@"40668",@"showapi_sign":@"11b78d3201e244168488b95fd4c16af4",@"showapi_timestamp":[[NSDate date] toDateString],@"showapi_sign_method":@"md5",@"showapi_res_gzip":@"0",@"code":self.param,@"endTime":@"",@"count":@"10"} target:self callBack:@selector(lotteryhistoryCallBack:)];
+//    [NetworkDataCenter POST:@"http://route.showapi.com/44-2" parameters:@{@"showapi_appid":@"40668",@"showapi_sign":@"11b78d3201e244168488b95fd4c16af4",@"showapi_timestamp":[[NSDate date] toDateString],@"showapi_sign_method":@"md5",@"showapi_res_gzip":@"0",@"code":self.param,@"endTime":@"",@"count":@"10"} target:self callBack:@selector(lotteryhistoryCallBack:)];
+    
+    [NetworkDataCenter GET:@"http://jisucpkj.market.alicloudapi.com/caipiao/history" parameters:@{@"caipiaoid":@([self.param integerValue]),@"issueno":@"",@"num":@(10)} target:self callBack:@selector(lotteryhistoryCallBack:)];
 }
 
 #pragma mark-
@@ -56,13 +58,30 @@
 }
 
 #pragma mark-
+//- (void)lotteryhistoryCallBack:(NSDictionary *)dic
+//{
+//    [self hideHUD];
+//    
+//    if ([dic[@"showapi_res_code"] integerValue] == 0)
+//    {
+//        self.dataArray = dic[@"showapi_res_body"][@"result"];
+//        
+//        [self.tableview reloadData];
+//    }else
+//    {
+//        
+//    }
+//}
+
 - (void)lotteryhistoryCallBack:(NSDictionary *)dic
 {
     [self hideHUD];
     
-    if ([dic[@"showapi_res_code"] integerValue] == 0)
+    NSLog(@"%@",dic);
+    
+    if ([dic[@"status"] integerValue] == 0)
     {
-        self.dataArray = dic[@"showapi_res_body"][@"result"];
+        self.dataArray = dic[@"result"][@"list"];
         
         [self.tableview reloadData];
     }else
@@ -70,6 +89,7 @@
         
     }
 }
+
 
 
 - (void)didReceiveMemoryWarning {

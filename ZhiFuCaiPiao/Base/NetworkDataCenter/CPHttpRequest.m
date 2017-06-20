@@ -82,6 +82,56 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
     return self;
 }
 
+
++ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters target:(id)target callBack:(SEL)callBack
+{
+    NSURLSessionDataTask *dataTask = nil;
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    AFHTTPSessionManager *manager = [CPHttpRequest shared].manager;
+    
+    [manager.requestSerializer setValue:@"APPCODE c63ad401f15d451593652310a1905c0c" forHTTPHeaderField:@"Authorization"];
+    
+    dataTask = [manager GET:path parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        [[CPHttpRequest shared] requestDataTask:task responseObject:responseObject];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        for (NSInteger i = (NSInteger)[CPHttpRequest shared].taskItems.count-1; i >= 0; i--)
+        {
+            CPHttpTaskInfo *taskInfo = [CPHttpRequest shared].taskItems[i];
+            
+            if (taskInfo.dataTask == task)
+            {
+                taskInfo.dataTask = nil;
+                [[CPHttpRequest shared].taskItems removeObject:taskInfo];
+                [[CPHttpRequest shared] callBackTask:taskInfo result:nil];
+                [AlertCenter showWithTitle:@"提示" message:error.localizedDescription];
+                break;
+            }
+        }
+#ifdef DEBUG_MODE
+        NSLog(@"NetworkError->%@",error.userInfo);
+#endif
+    }];
+    
+    // 记录请求任务
+    CPHttpTaskInfo *taskInfo = [[CPHttpTaskInfo alloc] init];
+    taskInfo.target   = target;
+    taskInfo.callBack = callBack;
+    taskInfo.dataTask = dataTask;
+    taskInfo.parameters  = parameters;
+    
+    [[[CPHttpRequest shared] taskItems] addObject:taskInfo];
+}
+
+
 + (void)POST:(NSString *)path parameters:(NSDictionary *)parameters target:(id)target callBack:(SEL)callBack
 {
     NSURLSessionDataTask *dataTask = nil;

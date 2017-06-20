@@ -19,7 +19,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
     // 设置状态栏字体颜色为白色(在info.plist中，将View controller-based status bar appearance设为NO)
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
-    [[UINavigationBar appearance] setBarTintColor:COLOR_MAIN];
+    [[UINavigationBar appearance] setBarTintColor:COLOR_BLUE];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0],NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }

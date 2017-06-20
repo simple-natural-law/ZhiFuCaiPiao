@@ -15,6 +15,12 @@
       target:(id)target
     callBack:(SEL)callBack;
 
++ (void)GET:(NSString *)path
+  parameters:(NSDictionary *)parameters
+      target:(id)target
+    callBack:(SEL)callBack;
+
+
 + (void)cancelRequestWithTarget:(id)target;
 
 @end
