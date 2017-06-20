@@ -13,15 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-// 中奖号码
-@property (weak, nonatomic) IBOutlet UILabel *label1;
-@property (weak, nonatomic) IBOutlet UILabel *label2;
-@property (weak, nonatomic) IBOutlet UILabel *label3;
-@property (weak, nonatomic) IBOutlet UILabel *label4;
-@property (weak, nonatomic) IBOutlet UILabel *label5;
-@property (weak, nonatomic) IBOutlet UILabel *label6;
-@property (weak, nonatomic) IBOutlet UILabel *label7;
-@property (weak, nonatomic) IBOutlet UILabel *label8;
 
 @end
 
@@ -41,15 +32,56 @@
     
     NSArray *codeArray = [dic[@"openCode"] componentsSeparatedByString:@","];
     
+    int offset = 0;
+    
     for (int i = 0; i < codeArray.count; i++)
     {
         NSString *string = codeArray[i];
         
         if ([string containsString:@"+"])
         {
+            NSArray *array = [string componentsSeparatedByString:@"+"];
             
+            UILabel *label1 = [self.contentView viewWithTag:10086+i
+                              +offset];
+            label1.text     = string;
+            label1.backgroundColor     = [UIColor colorWithHexString:@"#37b761"];
+            label1.layer.cornerRadius  = 15.0;
+            label1.layer.masksToBounds = YES;
+            label1.text     = array[0];
+            label1.layer.shouldRasterize = YES;
+            
+            offset = 1;
+            
+            UILabel *label2 = [self.contentView viewWithTag:10086+i
+                              +offset];
+            label2.text     = string;
+            label2.backgroundColor     = [UIColor colorWithHexString:@"#37b761"];
+            label2.layer.cornerRadius  = 15.0;
+            label2.layer.masksToBounds = YES;
+            label2.text     = array[1];
+            label2.layer.shouldRasterize = YES;
+            
+        }else
+        {
+            UILabel *label = [self.contentView viewWithTag:10086+i+offset];
+            label.text     = string;
+            label.backgroundColor = COLOR_MAIN;
+            label.layer.cornerRadius    = 15.0;
+            label.layer.masksToBounds   = YES;
+            label.layer.shouldRasterize = YES;
         }
     }
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    [super setHighlighted:highlighted animated:animated];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        self.backgroundColor = highlighted ? [UIColor colorWithHexString:@"f0f0f0"] : [UIColor whiteColor];
+    }];
 }
 
 
