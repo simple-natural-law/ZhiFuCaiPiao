@@ -26,7 +26,14 @@
 - (void)setLotteryInfo:(NSDictionary *)dic
 {
     self.expectLabel.text = [NSString stringWithFormat:@"第%@期",dic[@"issueno"]];
-    self.dateLabel.text   = dic[@"opendate"];
+    NSString *dateStr     = dic[@"opendate"];
+    if (dateStr.length > 10)
+    {
+        self.dateLabel.text   = dateStr;
+    }else
+    {
+        self.dateLabel.text   = [NSString stringWithFormat:@"%@ (%@)",dateStr,[[NSDate dateWithString:dateStr withFormat:@"yyyy-MM-dd"] getWeekString]];
+    }
     
     NSArray *numberArray  = [dic[@"number"] componentsSeparatedByString:@" "];
     
