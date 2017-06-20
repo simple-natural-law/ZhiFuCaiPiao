@@ -77,6 +77,14 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 0)
+    {
+        
+    }else
+    {
+        [self pushViewControllerKey:@"LotteryHistoryViewController" param:@"ssq" animated:YES];
+    }
 }
 
 
