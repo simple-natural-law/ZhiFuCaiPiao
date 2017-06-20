@@ -10,4 +10,15 @@
 
 @implementation LotteryInfoCell
 
+
+- (void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        self.backgroundColor = highlighted ? [UIColor colorWithHexString:@"f0f0f0"] : [UIColor whiteColor];
+    }];
+}
+
 @end

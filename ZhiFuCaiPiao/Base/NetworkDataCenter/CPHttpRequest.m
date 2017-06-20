@@ -36,7 +36,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
     if (self)
     {
         self.manager = [[AFHTTPSessionManager alloc]init];
-        self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+        self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain",nil];
         self.taskItems = [NSMutableArray array];
         self.networkStatus = AFNetworkReachabilityStatusUnknown;
         

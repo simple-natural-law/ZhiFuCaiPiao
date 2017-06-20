@@ -87,13 +87,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="bXq-4M-nky"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgt-dc-51D">
-                                                    <rect key="frame" x="78" y="45" width="99" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="78" y="50" width="99" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -106,7 +106,7 @@
                                             <constraint firstAttribute="trailing" secondItem="dgt-dc-51D" secondAttribute="trailing" constant="5" id="Gc0-u7-bkB"/>
                                             <constraint firstItem="1yx-pJ-ej0" firstAttribute="centerY" secondItem="AgV-lN-IWW" secondAttribute="centerY" id="H0s-ZF-YYL"/>
                                             <constraint firstItem="dgt-dc-51D" firstAttribute="leading" secondItem="1yx-pJ-ej0" secondAttribute="trailing" constant="8" id="Ib7-5b-K0d"/>
-                                            <constraint firstItem="dgt-dc-51D" firstAttribute="top" secondItem="AM1-e9-HyR" secondAttribute="bottom" id="bw4-gE-UGz"/>
+                                            <constraint firstItem="dgt-dc-51D" firstAttribute="top" secondItem="AM1-e9-HyR" secondAttribute="bottom" constant="5" id="bw4-gE-UGz"/>
                                             <constraint firstAttribute="trailing" secondItem="AM1-e9-HyR" secondAttribute="trailing" constant="5" id="itj-Rg-ybk"/>
                                             <constraint firstAttribute="centerY" secondItem="AM1-e9-HyR" secondAttribute="bottom" id="u8d-wq-esP"/>
                                         </constraints>
