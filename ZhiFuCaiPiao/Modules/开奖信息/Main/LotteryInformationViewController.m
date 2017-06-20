@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (strong, nonatomic) NSMutableArray *dataArr;
+
 @end
 
 
@@ -31,7 +33,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArr.count+1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -43,6 +45,10 @@
     }else
     {
         LotteryInfoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LotteryInfoCell" forIndexPath:indexPath];
+        NSDictionary *info = self.dataArr[indexPath.row - 1];
+        cell.iconImageView.image   = [UIImage imageNamed:info[@"icon"]];
+        cell.titleLabel.text       = info[@"title"];
+        cell.descriptionLabel.text = info[@"description"];
         return cell;
     }
 }
@@ -78,6 +84,16 @@
 - (void)lotteryInfoCallBack:(NSDictionary *)result
 {
     NSLog(@"------ %@",result);
+}
+
+
+- (NSMutableArray *)dataArr
+{
+    if (_dataArr == nil)
+    {
+        _dataArr = [[NSMutableArray alloc] initWithObjects:@{@"title":@"双色球",@"description":@"每周二 四 日的21:15开奖",@"icon":@"shuangseqiu",@"code":@"ssq"}, @{@"title":@"超级大乐透",@"description":@"每周一 三 六的20:30开奖",@"icon":@"daletou",@"code":@"dlt"},@{@"title":@"福彩3D",@"description":@"每天的21:20开奖",@"icon":@"shuangseqiu",@"code":@"fc3d"},@{@"title":@"排列3",@"description":@"每天的20:30开奖",@"icon":@"pailiesan",@"code":@"pl3"},@{@"title":@"排列5",@"description":@"每天的20:30开奖",@"icon":@"paliewu",@"code":@"pl5"},@{@"title":@"七乐彩",@"description":@"每周一 三 五的21:15开奖",@"icon":@"7lecai",@"code":@"qlc"},@{@"title":@"七星彩",@"description":@"每周二 五 日的20:30开奖",@"icon":@"7cai",@"code":@"qxc"},@{@"title":@"六场半全场",@"description":@"不定期开奖",@"icon":@"shuangseqiu",@"code":@"zcbqc"},@{@"title":@"四场进球彩",@"description":@"不定期开奖",@"icon":@"shuangseqiu",@"code":@"zcjqc"},@{@"title":@"十四场胜负彩(任9)",@"description":@"不定期开奖",@"icon":@"shuangseqiu",@"code":@"zcsfc"},nil];
+    }
+    return _dataArr;
 }
 
 
