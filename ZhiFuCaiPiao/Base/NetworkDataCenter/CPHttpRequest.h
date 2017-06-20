@@ -15,4 +15,6 @@
       target:(id)target
     callBack:(SEL)callBack;
 
++ (void)cancelRequestWithTarget:(id)target;
+
 @end

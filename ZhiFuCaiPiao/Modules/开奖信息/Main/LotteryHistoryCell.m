@@ -13,6 +13,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+// 中奖号码
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UILabel *label4;
+@property (weak, nonatomic) IBOutlet UILabel *label5;
+@property (weak, nonatomic) IBOutlet UILabel *label6;
+@property (weak, nonatomic) IBOutlet UILabel *label7;
+@property (weak, nonatomic) IBOutlet UILabel *label8;
 
 @end
 
@@ -29,6 +38,18 @@
     self.nameLabel.text   = dic[@"name"];
     self.expectLabel.text = [NSString stringWithFormat:@"第%@期",dic[@"expect"]];
     self.dateLabel.text   = dic[@"time"];
+    
+    NSArray *codeArray = [dic[@"openCode"] componentsSeparatedByString:@","];
+    
+    for (int i = 0; i < codeArray.count; i++)
+    {
+        NSString *string = codeArray[i];
+        
+        if ([string containsString:@"+"])
+        {
+            
+        }
+    }
 }
 
 

@@ -7,22 +7,37 @@
 //
 
 #import "BaseViewController.h"
+#import "NetworkDataCenter.h"
+
 
 @interface BaseViewController ()
+{
+    __weak id mWeakSelf; ///< 用于取消网络请求
+}
 
 @end
 
 @implementation BaseViewController
+
+- (void)dealloc
+{
+#ifdef DEBUG_MODE
+    NSLog(@"\n *** dealloc *** : %@", self);
+#endif
+    [NetworkDataCenter cancelRequestWithTarget:mWeakSelf]; //取消网络请求
+    mWeakSelf = nil;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = COLOR_BACKGROUND;
-    
     UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] init];
     backButtonItem.title = @"";
     self.navigationItem.backBarButtonItem = backButtonItem;
+    mWeakSelf = self;
 }
 
 - (void)didReceiveMemoryWarning {
