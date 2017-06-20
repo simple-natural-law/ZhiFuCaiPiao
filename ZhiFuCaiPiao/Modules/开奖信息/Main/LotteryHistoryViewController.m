@@ -57,6 +57,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self pushViewControllerKey:@"LotteryDetailViewController" param:@{@"data":self.dataArray,@"index":@(indexPath.row)} animated:YES];
 }
 
 #pragma mark-
