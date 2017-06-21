@@ -15,7 +15,7 @@ static const char* WillToBeViewControllerItems = "WillToBeViewControllerItems";
 /**
  *  UIViewController push pop 动画扩展
  */
-@interface UIViewController (pop) <UINavigationControllerDelegate,CAAnimationDelegate>
+@interface UIViewController (pop) <CAAnimationDelegate>
 
 @property (nonatomic, assign) UINavigationControllerAnimation pushType;
 

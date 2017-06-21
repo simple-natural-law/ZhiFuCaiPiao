@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, UINavigationControllerAnimation) {
 /**
  *  扩展 UINavigationController，实现push时动画选择，实现替换堆栈中的UIViewController
  */
-@interface UINavigationController (extend)
+@interface UINavigationController (extend)<UINavigationControllerDelegate>
 
 /**
  *  push 推出UIViewController，并选择动画

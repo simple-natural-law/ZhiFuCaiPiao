@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dNT-La-U7s">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2g-Qc-gvj">
                                     <size key="itemSize" width="375" height="142"/>
@@ -71,7 +71,7 @@
                                         </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LotteryInfoCell" id="AgV-lN-IWW" customClass="LotteryInfoCell">
-                                        <rect key="frame" x="96.5" y="152" width="182" height="90"/>
+                                        <rect key="frame" x="97" y="152" width="182" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="90"/>
@@ -128,8 +128,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dNT-La-U7s" secondAttribute="bottom" id="JCH-a9-Fol"/>
                             <constraint firstItem="dNT-La-U7s" firstAttribute="leading" secondItem="cQy-1R-xEw" secondAttribute="leading" id="YbB-SR-71B"/>
-                            <constraint firstItem="NFT-kX-qDB" firstAttribute="top" secondItem="dNT-La-U7s" secondAttribute="bottom" id="hNg-wU-Vyv"/>
                             <constraint firstItem="dNT-La-U7s" firstAttribute="top" secondItem="cQy-1R-xEw" secondAttribute="top" id="hwK-Ha-7wW"/>
                             <constraint firstAttribute="trailing" secondItem="dNT-La-U7s" secondAttribute="trailing" id="xxH-Lm-yU6"/>
                         </constraints>
@@ -301,8 +301,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6Nu-0w-Ghk" firstAttribute="top" secondItem="f3q-h8-7I0" secondAttribute="bottom" id="6Il-IX-igu"/>
                             <constraint firstItem="f3q-h8-7I0" firstAttribute="top" secondItem="Ak6-mV-cwJ" secondAttribute="top" id="Tqq-R1-84C"/>
+                            <constraint firstAttribute="bottom" secondItem="f3q-h8-7I0" secondAttribute="bottom" id="cbZ-pa-NMZ"/>
                             <constraint firstItem="f3q-h8-7I0" firstAttribute="leading" secondItem="Ak6-mV-cwJ" secondAttribute="leading" id="fjX-Pv-TFJ"/>
                             <constraint firstAttribute="trailing" secondItem="f3q-h8-7I0" secondAttribute="trailing" id="gnp-xj-HGp"/>
                         </constraints>
@@ -623,10 +623,10 @@
                             <constraint firstItem="7ap-aF-HHf" firstAttribute="leading" secondItem="2Kb-Ko-aV4" secondAttribute="leading" id="2dP-CN-1Qz"/>
                             <constraint firstItem="7ap-aF-HHf" firstAttribute="top" secondItem="2Kb-Ko-aV4" secondAttribute="top" id="4RF-I5-kcH"/>
                             <constraint firstAttribute="trailing" secondItem="7ap-aF-HHf" secondAttribute="trailing" id="4fi-m9-nEo"/>
-                            <constraint firstItem="XYU-cx-2zs" firstAttribute="top" secondItem="7ap-aF-HHf" secondAttribute="bottom" constant="44" id="Lyt-7h-QQe"/>
+                            <constraint firstAttribute="bottom" secondItem="7ap-aF-HHf" secondAttribute="bottom" constant="44" id="cW3-jY-1KY"/>
+                            <constraint firstAttribute="bottom" secondItem="NGT-eu-RrS" secondAttribute="bottom" id="eTe-mx-2UH"/>
                             <constraint firstAttribute="trailing" secondItem="NGT-eu-RrS" secondAttribute="trailing" id="qIX-Gg-5Wz"/>
                             <constraint firstItem="NGT-eu-RrS" firstAttribute="leading" secondItem="2Kb-Ko-aV4" secondAttribute="leading" id="s8T-bj-oL3"/>
-                            <constraint firstItem="XYU-cx-2zs" firstAttribute="top" secondItem="NGT-eu-RrS" secondAttribute="bottom" id="wVQ-8g-O9A"/>
                         </constraints>
                     </view>
                     <connections>
