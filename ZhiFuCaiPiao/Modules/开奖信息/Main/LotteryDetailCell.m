@@ -62,6 +62,71 @@
     }
 }
 
+@end
+
+
+@interface LotteryDetailInfoCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *issuenoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *numberBackgroundWidthCons;
+@property (weak, nonatomic) IBOutlet UILabel *saleamountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalMoneyLabel;
+
+@end
+
+
+@implementation LotteryDetailInfoCell
+
+- (void)setLotteryInfo:(NSDictionary *)dic
+{
+    self.issuenoLabel.text = [NSString stringWithFormat:@"第%@期",dic[@"issueno"]];
+    NSString *dateStr      = dic[@"opendate"];
+    if (dateStr.length > 10)
+    {
+        self.dateLabel.text   = dateStr;
+    }else
+    {
+        self.dateLabel.text   = [NSString stringWithFormat:@"%@ (%@)",dateStr,[[NSDate dateWithString:dateStr withFormat:@"yyyy-MM-dd"] getWeekString]];
+    }
+    
+    NSArray *numberArray        = [dic[@"number"] componentsSeparatedByString:@" "];
+    NSString *referNumberString = dic[@"refernumber"];
+    NSInteger numberCount       = [numberArray count];
+    NSArray *referNumberArr     = [referNumberString componentsSeparatedByString:@" "];
+    NSInteger referNumberCount  = [referNumberArr count];
+    
+    NSInteger count     = numberCount+referNumberCount;
+    CGFloat totalMargin = (count - 1) > 0 ? (count - 1)*5.0 : 0.0;
+    self.numberBackgroundWidthCons.constant = count*30.0+totalMargin;
+    [self.contentView layoutIfNeeded];
+    
+    for (int i = 0; i < numberArray.count; i++)
+    {
+        UILabel *label = [self.contentView viewWithTag:30000+i];
+        label.text     = numberArray[i];
+        label.backgroundColor = COLOR_RED;
+        label.layer.cornerRadius    = 15.0;
+        label.layer.masksToBounds   = YES;
+        label.layer.shouldRasterize = YES;
+    }
+    
+    if (referNumberString.length > 0)
+    {
+        for (int i = 0; i < referNumberCount; i++)
+        {
+            UILabel *label = [self.contentView viewWithTag:30000+i+numberCount];
+            label.text     = referNumberArr[i];
+            label.backgroundColor = COLOR_BLUE;
+            label.layer.cornerRadius    = 15.0;
+            label.layer.masksToBounds   = YES;
+            label.layer.shouldRasterize = YES;
+        }
+    }
+}
+
 
 @end
 

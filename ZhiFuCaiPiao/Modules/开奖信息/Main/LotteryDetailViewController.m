@@ -57,9 +57,9 @@
     {
         if (indexPath.row == 0)
         {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"issuenoCell" forIndexPath:indexPath];
+            LotteryDetailInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryDetailInfoCell" forIndexPath:indexPath];
             
-            cell.textLabel.text   = [NSString stringWithFormat:@"第%@期",self.currentLotteryInfo[@"issueno"]];
+            [cell setLotteryInfo:self.currentLotteryInfo];
             
             return cell;
             
@@ -75,11 +75,11 @@
     {
         LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
         cell.fLabel.text = @"奖项";
-        cell.fLabel.backgroundColor = [UIColor lightGrayColor];
-        cell.sLabel.text = @"中奖人数";
-        cell.sLabel.backgroundColor = [UIColor colorWithHexString:@"#babbbc"];
+        cell.fLabel.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
+        cell.sLabel.text = @"中奖注数";
+        cell.sLabel.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
         cell.tLabel.text = @"每注奖金";
-        cell.tLabel.backgroundColor = [UIColor lightGrayColor];
+        cell.tLabel.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
         
         return cell;
     }else
@@ -112,7 +112,7 @@
         case 0:
             if (indexPath.row == 0)
             {
-                return 55.0;
+                return 150.0;
             }else
             {
                 return 44.0;

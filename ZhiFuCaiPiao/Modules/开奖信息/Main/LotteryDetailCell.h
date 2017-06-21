@@ -18,6 +18,13 @@
 @end
 
 
+@interface LotteryDetailInfoCell : UITableViewCell
+
+- (void)setLotteryInfo:(NSDictionary *)dic;
+
+@end
+
+
 
 @interface LotteryPrizeCell : UITableViewCell
 
