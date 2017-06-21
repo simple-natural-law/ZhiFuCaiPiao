@@ -8,19 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface LotteryDetailCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
-- (void)updateUIWithLotteryInfo:(NSDictionary *)info row:(NSInteger)row;
-
-@end
-
-
-@interface LotteryDetailInfoCell : UITableViewCell
-
-- (void)setLotteryInfo:(NSDictionary *)dic;
+- (void)setLotteryInfo:(NSDictionary *)dic name:(NSString *)name;
 
 @end
 

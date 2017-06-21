@@ -58,7 +58,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self pushViewControllerKey:@"LotteryDetailViewController" param:@{@"data":self.dataArray,@"index":@(indexPath.row)} animated:YES];
+    [self pushViewControllerKey:@"LotteryDetailViewController" param:@{@"data":self.dataArray,@"index":@(indexPath.row),@"name":SAVE_STRING(self.title)} animated:YES];
 }
 
 #pragma mark-
@@ -80,8 +80,6 @@
 - (void)lotteryhistoryCallBack:(NSDictionary *)dic
 {
     [self hideHUD];
-    
-    NSLog(@"%@",dic);
     
     if ([dic[@"status"] integerValue] == 0)
     {

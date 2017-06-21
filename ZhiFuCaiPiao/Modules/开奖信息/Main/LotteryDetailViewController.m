@@ -37,8 +37,6 @@
     switch (section)
     {
         case 0:
-            return 5;
-            break;
         case 1:
             return 1;
             break;
@@ -55,31 +53,21 @@
 {
     if (indexPath.section == 0)
     {
-        if (indexPath.row == 0)
-        {
-            LotteryDetailInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryDetailInfoCell" forIndexPath:indexPath];
-            
-            [cell setLotteryInfo:self.currentLotteryInfo];
-            
-            return cell;
-            
-        }else
-        {
-            LotteryDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryDetailCell" forIndexPath:indexPath];
-            
-            [cell updateUIWithLotteryInfo:self.currentLotteryInfo row:indexPath.row];
-            
-            return cell;
-        }
+        LotteryDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryDetailCell" forIndexPath:indexPath];
+        
+        [cell setLotteryInfo:self.currentLotteryInfo name:self.param[@"name"]];
+        
+        return cell;
+        
     }else if (indexPath.section == 1)
     {
         LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
         cell.fLabel.text = @"奖项";
-        cell.fLabel.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
         cell.sLabel.text = @"中奖注数";
-        cell.sLabel.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
-        cell.tLabel.text = @"每注奖金";
-        cell.tLabel.backgroundColor = [UIColor colorWithHexString:@"#cccccc"];
+        cell.tLabel.text = @"每注奖金(元)";
+        cell.fLabel.textColor = [UIColor lightGrayColor];
+        cell.sLabel.textColor = [UIColor lightGrayColor];
+        cell.tLabel.textColor = [UIColor lightGrayColor];
         
         return cell;
     }else
@@ -89,17 +77,9 @@
         cell.fLabel.text = dic[@"prizename"];
         cell.sLabel.text = dic[@"num"];
         cell.tLabel.text = dic[@"singlebonus"];
-        if (indexPath.row % 2 == 0)
-        {
-            cell.fLabel.backgroundColor =  [UIColor colorWithRed:209/225.0 green:210/225.0 blue:211/225.0 alpha:1.0f];
-            cell.sLabel.backgroundColor =  [UIColor colorWithRed:209/225.0 green:210/225.0 blue:211/225.0 alpha:1.0f];
-            cell.tLabel.backgroundColor =  [UIColor colorWithRed:209/225.0 green:210/225.0 blue:211/225.0 alpha:1.0f];
-        }else
-        {
-            cell.fLabel.backgroundColor = [UIColor whiteColor];
-            cell.sLabel.backgroundColor = [UIColor whiteColor];
-            cell.tLabel.backgroundColor = [UIColor whiteColor];
-        }
+        cell.fLabel.textColor = [UIColor blackColor];
+        cell.sLabel.textColor = [UIColor blackColor];
+        cell.tLabel.textColor = COLOR_RED;
         
         return cell;
     }
@@ -110,19 +90,11 @@
     switch (indexPath.section)
     {
         case 0:
-            if (indexPath.row == 0)
-            {
-                return 150.0;
-            }else
-            {
-                return 44.0;
-            }
+            return 150.0;
             break;
         case 1:
-            return 34.0;
-            break;
         case 2:
-            return 34.0;
+            return 30.0;
             break;
         default:
             return 0.0;
@@ -133,15 +105,14 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *header = [UIView new];
-    [header setBackgroundColor:[UIColor whiteColor]];
+    [header setBackgroundColor:COLOR_BACKGROUND];
     return header;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return section == 0 ? 0.0 : 15.0;
+    return section == 1 ? 15.0 : 0.0;
 }
-
 
 
 - (void)didReceiveMemoryWarning {
