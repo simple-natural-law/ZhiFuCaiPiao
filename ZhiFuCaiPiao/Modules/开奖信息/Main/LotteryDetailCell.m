@@ -30,6 +30,7 @@
             self.iconImageView.image = [UIImage imageNamed:@"opennumber"];
             self.titleLabel.text     = @"开奖号码:";
             self.contentLabel.text   = info[@"number"];
+            self.backgroundColor     = [UIColor whiteColor];
         }
             break;
         case 2:
@@ -37,6 +38,7 @@
             self.iconImageView.image = [UIImage imageNamed:@"opendate"];
             self.titleLabel.text     = @"开奖日期:";
             self.contentLabel.text   = info[@"opendate"];
+            self.backgroundColor     = [UIColor colorWithRed:214/225.0 green:215/225.0 blue:216/225.0 alpha:1.0];
         }
             break;
         case 3:
@@ -44,13 +46,15 @@
             self.iconImageView.image = [UIImage imageNamed:@"saleamount"];
             self.titleLabel.text     = @"本期销量:";
             self.contentLabel.text   = info[@"saleamount"];
+            self.backgroundColor     = [UIColor whiteColor];
         }
             break;
         case 4:
         {
             self.iconImageView.image = [UIImage imageNamed:@"prize"];
             self.titleLabel.text     = @"奖池奖金:";
-            self.contentLabel.text   = info[@"totalmoney"];
+            self.contentLabel.text   = [NSString stringWithFormat:@"¥%@",info[@"totalmoney"]];
+            self.backgroundColor     = [UIColor colorWithRed:214/225.0 green:215/225.0 blue:216/225.0 alpha:1.0];
         }
             break;
         default:

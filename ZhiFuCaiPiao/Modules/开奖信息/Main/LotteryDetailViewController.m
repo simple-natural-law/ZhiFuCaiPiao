@@ -27,22 +27,53 @@
     self.currentLotteryInfo = [self.param[@"data"] objectAtIndex:[self.param[@"index"] integerValue]];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6+[self.currentLotteryInfo[@"prize"] count];
+    switch (section)
+    {
+        case 0:
+            return 5;
+            break;
+        case 1:
+            return 1;
+            break;
+        case 2:
+            return [self.currentLotteryInfo[@"prize"] count];
+            break;
+        default:
+            return 0;
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
+    if (indexPath.section == 0)
     {
-        return [UITableViewCell new];
-        
-    }else if (indexPath.row > 0 && indexPath.row < 5)
+        if (indexPath.row == 0)
+        {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"issuenoCell" forIndexPath:indexPath];
+            
+            cell.textLabel.text   = [NSString stringWithFormat:@"第%@期",self.currentLotteryInfo[@"issueno"]];
+            
+            return cell;
+            
+        }else
+        {
+            LotteryDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryDetailCell" forIndexPath:indexPath];
+            
+            [cell updateUIWithLotteryInfo:self.currentLotteryInfo row:indexPath.row];
+            
+            return cell;
+        }
+    }else if (indexPath.section == 1)
     {
-        LotteryDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryDetailCell" forIndexPath:indexPath];
-        
-        [cell updateUIWithLotteryInfo:self.currentLotteryInfo row:indexPath.row];
+        LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
         
         return cell;
     }else
@@ -55,7 +86,27 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44.0;
+    switch (indexPath.section)
+    {
+        case 0:
+            if (indexPath.row == 0)
+            {
+                return 55.0;
+            }else
+            {
+                return 44.0;
+            }
+            break;
+        case 1:
+            return 60.0;
+            break;
+        case 2:
+            return 44.0;
+            break;
+        default:
+            return 0.0;
+            break;
+    }
 }
 
 
