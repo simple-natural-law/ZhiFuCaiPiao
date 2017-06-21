@@ -31,6 +31,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+//    CGRect frame = self.navigationController.tabBarController.view.frame;
+//    frame.size.height -= 49;
+//    self.navigationController.tabBarController.view.frame = frame;
+    self.navigationController.tabBarController.tabBar.hidden = NO;
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    CGRect frame = self.navigationController.tabBarController.view.frame;
+    frame.size.height += 49;
+    self.navigationController.tabBarController.view.frame = frame;
+    self.navigationController.tabBarController.tabBar.hidden = YES;
 }
 
 
