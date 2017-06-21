@@ -7,8 +7,14 @@
 //
 
 #import "LotteryDetailViewController.h"
+#import "LotteryDetailCell.h"
+
 
 @interface LotteryDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+@property (strong, nonatomic) NSDictionary *currentLotteryInfo;
 
 @end
 
@@ -17,18 +23,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.currentLotteryInfo = [self.param[@"data"] objectAtIndex:[self.param[@"index"] integerValue]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 6+[self.currentLotteryInfo[@"prize"] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [UITableViewCell new];
-    
-    return cell;
+    if (indexPath.row == 0)
+    {
+        return [UITableViewCell new];
+        
+    }else if (indexPath.row > 0 && indexPath.row < 5)
+    {
+        LotteryDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryDetailCell" forIndexPath:indexPath];
+        
+        [cell updateUIWithLotteryInfo:self.currentLotteryInfo row:indexPath.row];
+        
+        return cell;
+    }else
+    {
+        LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
+        
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

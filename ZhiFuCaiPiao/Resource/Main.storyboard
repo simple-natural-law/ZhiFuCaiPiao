@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="377-II-0D4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -71,7 +71,7 @@
                                         </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LotteryInfoCell" id="AgV-lN-IWW" customClass="LotteryInfoCell">
-                                        <rect key="frame" x="97" y="152" width="182" height="90"/>
+                                        <rect key="frame" x="96.5" y="152" width="182" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="90"/>
@@ -339,7 +339,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="SuK-Dn-mw0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LotteryDetailCell" rowHeight="44" id="SuK-Dn-mw0" customClass="LotteryDetailCell">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SuK-Dn-mw0" id="Lxg-Oy-W6t">
@@ -347,25 +347,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aKX-cg-1a6">
-                                                    <rect key="frame" x="5" y="9.5" width="25" height="25"/>
+                                                    <rect key="frame" x="10" y="12" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="0oz-KB-lmo"/>
-                                                        <constraint firstAttribute="height" constant="25" id="Frl-iS-tbB"/>
+                                                        <constraint firstAttribute="width" constant="20" id="0oz-KB-lmo"/>
+                                                        <constraint firstAttribute="height" constant="20" id="Frl-iS-tbB"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4S-93-vud">
-                                                    <rect key="frame" x="35" y="0.0" width="90" height="44"/>
+                                                    <rect key="frame" x="40" y="0.0" width="90" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="BZP-7f-wdt"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yur-zS-u79">
-                                                    <rect key="frame" x="130" y="0.0" width="240" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="150" y="0.0" width="220" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.15686274509803921" green="0.56862745098039214" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -375,14 +375,19 @@
                                                 <constraint firstAttribute="trailing" secondItem="Yur-zS-u79" secondAttribute="trailing" constant="5" id="9ea-QW-lQy"/>
                                                 <constraint firstItem="aKX-cg-1a6" firstAttribute="centerY" secondItem="Lxg-Oy-W6t" secondAttribute="centerY" id="RiZ-fv-ME0"/>
                                                 <constraint firstAttribute="bottom" secondItem="Yur-zS-u79" secondAttribute="bottom" id="TZh-Gk-fvd"/>
-                                                <constraint firstItem="aKX-cg-1a6" firstAttribute="leading" secondItem="Lxg-Oy-W6t" secondAttribute="leading" constant="5" id="W4a-9l-gcT"/>
-                                                <constraint firstItem="Yur-zS-u79" firstAttribute="leading" secondItem="g4S-93-vud" secondAttribute="trailing" constant="5" id="XDT-Km-e0S"/>
+                                                <constraint firstItem="aKX-cg-1a6" firstAttribute="leading" secondItem="Lxg-Oy-W6t" secondAttribute="leading" constant="10" id="W4a-9l-gcT"/>
+                                                <constraint firstItem="Yur-zS-u79" firstAttribute="leading" secondItem="g4S-93-vud" secondAttribute="trailing" constant="20" id="XDT-Km-e0S"/>
                                                 <constraint firstItem="g4S-93-vud" firstAttribute="top" secondItem="Lxg-Oy-W6t" secondAttribute="top" id="cCm-E4-dh6"/>
-                                                <constraint firstItem="g4S-93-vud" firstAttribute="leading" secondItem="aKX-cg-1a6" secondAttribute="trailing" constant="5" id="g00-DB-qM0"/>
+                                                <constraint firstItem="g4S-93-vud" firstAttribute="leading" secondItem="aKX-cg-1a6" secondAttribute="trailing" constant="10" id="g00-DB-qM0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="Yur-zS-u79" id="KpF-SI-5Sl"/>
+                                            <outlet property="iconImageView" destination="aKX-cg-1a6" id="3Qj-DC-KBW"/>
+                                            <outlet property="titleLabel" destination="g4S-93-vud" id="HrG-mE-crE"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Z55-tx-Eeb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LotteryPrizeCell" rowHeight="44" id="Z55-tx-Eeb" customClass="LotteryPrizeCell">
                                         <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z55-tx-Eeb" id="7Y7-df-hxi">
@@ -426,6 +431,11 @@
                                                 <constraint firstItem="IqI-Ru-43p" firstAttribute="width" secondItem="EWd-5a-5fk" secondAttribute="width" id="rbL-sD-RdY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fLabel" destination="e4l-Ay-cAW" id="uAH-uo-uAM"/>
+                                            <outlet property="sLabel" destination="EWd-5a-5fk" id="Wok-Hp-4ou"/>
+                                            <outlet property="tLabel" destination="IqI-Ru-43p" id="ofI-J5-NKM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -442,6 +452,9 @@
                             <constraint firstItem="XYU-cx-2zs" firstAttribute="top" secondItem="7ap-aF-HHf" secondAttribute="bottom" id="Lyt-7h-QQe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableview" destination="7ap-aF-HHf" id="3W3-Fu-nBH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3o-rI-KwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
