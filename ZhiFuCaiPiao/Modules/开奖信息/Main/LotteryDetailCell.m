@@ -74,6 +74,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.fLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.sLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.tLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    self.fLabel.layer.borderWidth = 0.50f;
+    self.sLabel.layer.borderWidth = 0.50f;
+    self.tLabel.layer.borderWidth = 0.50f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

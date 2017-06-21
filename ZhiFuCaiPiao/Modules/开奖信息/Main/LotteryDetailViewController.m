@@ -74,11 +74,32 @@
     }else if (indexPath.section == 1)
     {
         LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
+        cell.fLabel.text = @"奖项";
+        cell.fLabel.backgroundColor = [UIColor lightGrayColor];
+        cell.sLabel.text = @"中奖人数";
+        cell.sLabel.backgroundColor = [UIColor colorWithHexString:@"#babbbc"];
+        cell.tLabel.text = @"每注奖金";
+        cell.tLabel.backgroundColor = [UIColor lightGrayColor];
         
         return cell;
     }else
     {
         LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
+        NSDictionary *dic = self.currentLotteryInfo[@"prize"][indexPath.row];
+        cell.fLabel.text = dic[@"prizename"];
+        cell.sLabel.text = dic[@"num"];
+        cell.tLabel.text = dic[@"singlebonus"];
+        if (indexPath.row % 2 == 0)
+        {
+            cell.fLabel.backgroundColor =  [UIColor colorWithRed:209/225.0 green:210/225.0 blue:211/225.0 alpha:1.0f];
+            cell.sLabel.backgroundColor =  [UIColor colorWithRed:209/225.0 green:210/225.0 blue:211/225.0 alpha:1.0f];
+            cell.tLabel.backgroundColor =  [UIColor colorWithRed:209/225.0 green:210/225.0 blue:211/225.0 alpha:1.0f];
+        }else
+        {
+            cell.fLabel.backgroundColor = [UIColor whiteColor];
+            cell.sLabel.backgroundColor = [UIColor whiteColor];
+            cell.tLabel.backgroundColor = [UIColor whiteColor];
+        }
         
         return cell;
     }
@@ -98,15 +119,27 @@
             }
             break;
         case 1:
-            return 60.0;
+            return 34.0;
             break;
         case 2:
-            return 44.0;
+            return 34.0;
             break;
         default:
             return 0.0;
             break;
     }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = [UIView new];
+    [header setBackgroundColor:[UIColor whiteColor]];
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return section == 0 ? 0.0 : 15.0;
 }
 
 
