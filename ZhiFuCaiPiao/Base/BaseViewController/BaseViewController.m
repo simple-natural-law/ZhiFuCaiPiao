@@ -40,6 +40,26 @@
     mWeakSelf = self;
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.hidesBottomBarWhenPushed = YES;
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (self.navigationController.viewControllers.count == 2)
+    {
+        self.hidesBottomBarWhenPushed = NO;
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

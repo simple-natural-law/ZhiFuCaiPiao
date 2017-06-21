@@ -28,6 +28,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -82,7 +87,6 @@
     }else
     {
         [self pushViewControllerKey:@"LotteryHistoryViewController" param:@{@"id":self.dataArr[indexPath.row-1][@"caipiaoid"],@"title":self.dataArr[indexPath.row-1][@"title"]} animated:YES];
-//        [self pushViewControllerKey:@"LotteryHistoryViewController" param:self.dataArr[indexPath.row-1][@"code"] animated:YES];
     }
 }
 
@@ -95,15 +99,6 @@
     return _dataArr;
 }
 
-
-//- (NSMutableArray *)dataArr
-//{
-//    if (_dataArr == nil)
-//    {
-//        _dataArr = [[NSMutableArray alloc] initWithObjects:@{@"title":@"双色球",@"description":@"每周二 四 日的21:15开奖",@"icon":@"shuangseqiu",@"code":@"ssq"}, @{@"title":@"超级大乐透",@"description":@"每周一 三 六的20:30开奖",@"icon":@"daletou",@"code":@"dlt"},@{@"title":@"福彩3D",@"description":@"每天的21:20开奖",@"icon":@"fucai3d",@"code":@"fc3d"},@{@"title":@"排列3",@"description":@"每天的20:30开奖",@"icon":@"pailiesan",@"code":@"pl3"},@{@"title":@"排列5",@"description":@"每天的20:30开奖",@"icon":@"paliewu",@"code":@"pl5"},@{@"title":@"七乐彩",@"description":@"每周一 三 五的21:15开奖",@"icon":@"7lecai",@"code":@"qlc"},@{@"title":@"七星彩",@"description":@"每周二 五 日的20:30开奖",@"icon":@"7cai",@"code":@"qxc"},@{@"title":@"新疆时时彩",@"description":@"每天96期,10:10起每10分钟一期",@"icon":@"xjssc",@"code":@"xjssc"},@{@"title":@"快3-湖北",@"description":@"每天78期,09:10起每10分钟一期",@"icon":@"k3",@"code":@"hubk3"},@{@"title":@"11选5-广东",@"description":@"每天84期,09:10起每10分钟一期",@"icon":@"gd11x5",@"code":@"gd11x5"},nil];
-//    }
-//    return _dataArr;
-//}
 
 
 - (void)didReceiveMemoryWarning {
