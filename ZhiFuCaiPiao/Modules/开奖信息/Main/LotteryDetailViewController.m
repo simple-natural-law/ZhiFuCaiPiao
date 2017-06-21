@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) NSDictionary *currentLotteryInfo;
 
+@property (assign, nonatomic) BOOL hasPrizeInfo;
+
 @end
 
 @implementation LotteryDetailViewController
@@ -25,6 +27,14 @@
     // Do any additional setup after loading the view.
     
     self.currentLotteryInfo = [self.param[@"data"] objectAtIndex:[self.param[@"index"] integerValue]];
+    
+    if ([self.currentLotteryInfo[@"prize"] isKindOfClass:[NSArray class]])
+    {
+        self.hasPrizeInfo = YES;
+    }else
+    {
+        self.hasPrizeInfo = NO;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -41,7 +51,7 @@
             return 1;
             break;
         case 2:
-            return [self.currentLotteryInfo[@"prize"] count];
+            return self.hasPrizeInfo ? [self.currentLotteryInfo[@"prize"] count] : 0;
             break;
         default:
             return 0;
@@ -61,15 +71,28 @@
         
     }else if (indexPath.section == 1)
     {
-        LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
-        cell.fLabel.text = @"奖项";
-        cell.sLabel.text = @"中奖注数";
-        cell.tLabel.text = @"每注奖金(元)";
-        cell.fLabel.textColor = [UIColor lightGrayColor];
-        cell.sLabel.textColor = [UIColor lightGrayColor];
-        cell.tLabel.textColor = [UIColor lightGrayColor];
-        
-        return cell;
+        if (self.hasPrizeInfo)
+        {
+            LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];
+            cell.fLabel.text = @"奖项";
+            cell.sLabel.text = @"中奖注数";
+            cell.tLabel.text = @"每注奖金(元)";
+            cell.fLabel.textColor = [UIColor lightGrayColor];
+            cell.sLabel.textColor = [UIColor lightGrayColor];
+            cell.tLabel.textColor = [UIColor lightGrayColor];
+            
+            return cell;
+        }else
+        {
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
+            cell.textLabel.text = @"暂无详细数据,敬请谅解";
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.textLabel.textColor     = COLOR_RED;
+            cell.contentView.backgroundColor = [UIColor clearColor];
+            cell.backgroundColor = [UIColor clearColor];
+            
+            return cell;
+        }
     }else
     {
         LotteryPrizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LotteryPrizeCell" forIndexPath:indexPath];

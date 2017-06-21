@@ -44,8 +44,13 @@
     NSArray *numberArray        = [dic[@"number"] componentsSeparatedByString:@" "];
     NSString *referNumberString = dic[@"refernumber"];
     NSInteger numberCount       = [numberArray count];
-    NSArray *referNumberArr     = [referNumberString componentsSeparatedByString:@" "];
-    NSInteger referNumberCount  = [referNumberArr count];
+    NSArray *referNumberArr;
+    NSInteger referNumberCount = 0;
+    if (referNumberString.length > 0)
+    {
+        referNumberArr  = [referNumberString componentsSeparatedByString:@" "];
+        referNumberCount  = [referNumberArr count];
+    }
     
     NSInteger count     = numberCount+referNumberCount;
     CGFloat totalMargin = (count - 1) > 0 ? (count - 1)*5.0 : 0.0;
@@ -62,17 +67,14 @@
         label.layer.shouldRasterize = YES;
     }
     
-    if (referNumberString.length > 0)
+    for (int i = 0; i < referNumberCount; i++)
     {
-        for (int i = 0; i < referNumberCount; i++)
-        {
-            UILabel *label = [self.contentView viewWithTag:30000+i+numberCount];
-            label.text     = referNumberArr[i];
-            label.backgroundColor = COLOR_BLUE;
-            label.layer.cornerRadius    = 15.0;
-            label.layer.masksToBounds   = YES;
-            label.layer.shouldRasterize = YES;
-        }
+        UILabel *label = [self.contentView viewWithTag:30000+i+numberCount];
+        label.text     = referNumberArr[i];
+        label.backgroundColor = COLOR_BLUE;
+        label.layer.cornerRadius    = 15.0;
+        label.layer.masksToBounds   = YES;
+        label.layer.shouldRasterize = YES;
     }
 }
 

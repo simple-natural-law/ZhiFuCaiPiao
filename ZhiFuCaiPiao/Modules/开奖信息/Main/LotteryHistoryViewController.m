@@ -81,6 +81,8 @@
 {
     [self hideHUD];
     
+//    NSLog(@"--- %@",dic);
+    
     if ([dic[@"status"] integerValue] == 0)
     {
         self.dataArray = dic[@"result"][@"list"];
@@ -91,7 +93,6 @@
         
     }
 }
-
 
 
 - (void)didReceiveMemoryWarning {

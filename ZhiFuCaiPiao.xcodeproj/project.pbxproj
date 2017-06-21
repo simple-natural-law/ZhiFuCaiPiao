@@ -841,6 +841,14 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ZhiFuCaiPiao/Main/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"$(inherited)",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shijian.ZhiFuCaiPiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "96e79c56-a712-4ef3-a658-e24bd88f40f0";
@@ -861,6 +869,14 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ZhiFuCaiPiao/Main/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"$(inherited)",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shijian.ZhiFuCaiPiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "11704100-ad5d-440b-a6f7-e9f51df28248";
