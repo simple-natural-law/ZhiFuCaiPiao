@@ -589,21 +589,39 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrh-g9-uaz">
                                         <rect key="frame" x="20" y="5" width="157.5" height="34"/>
-                                        <color key="backgroundColor" red="0.88627450980392153" green="0.066666666666666666" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="YMK-lv-Uwc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="上一期"/>
+                                        <state key="disabled" title="上一期"/>
+                                        <state key="highlighted" title="上一期"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="lastIssueno:" destination="XyA-Jc-54t" eventType="touchUpInside" id="3Al-qB-E9t"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0e-eI-h1e">
                                         <rect key="frame" x="197.5" y="5" width="157.5" height="34"/>
-                                        <color key="backgroundColor" red="0.88627450980392153" green="0.066666666666666666" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="ajx-mz-68x"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="下一期"/>
+                                        <state key="disabled" title="下一期"/>
+                                        <state key="highlighted" title="下一期"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="nextIssueno:" destination="XyA-Jc-54t" eventType="touchUpInside" id="nQm-oY-Beb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.12941176470588234" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
@@ -630,6 +648,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lastButton" destination="hrh-g9-uaz" id="ges-q5-676"/>
+                        <outlet property="nextButton" destination="U0e-eI-h1e" id="Jfu-4o-4EC"/>
                         <outlet property="tableview" destination="7ap-aF-HHf" id="3W3-Fu-nBH"/>
                     </connections>
                 </viewController>

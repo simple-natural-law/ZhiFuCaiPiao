@@ -16,7 +16,7 @@
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.animationType = MBProgressHUDModeIndeterminate;
-    hud.minShowTime   = 0.27;
+    hud.minShowTime   = 0.4;
     self.view.userInteractionEnabled = NO;
 }
 
@@ -24,7 +24,7 @@
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.animationType = MBProgressHUDModeIndeterminate;
-    hud.minShowTime   = 0.27;
+    hud.minShowTime   = 0.4;
     hud.label.text = status;
     self.view.userInteractionEnabled = NO;
 }

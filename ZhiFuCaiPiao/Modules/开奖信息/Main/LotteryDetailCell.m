@@ -38,8 +38,22 @@
         self.dateLabel.text   = [NSString stringWithFormat:@"%@ (%@)",dateStr,[[NSDate dateWithString:dateStr withFormat:@"yyyy-MM-dd"] getWeekString]];
     }
     
-    self.totalMoneyLabel.text = [NSString stringWithFormat:@"%@",dic[@"totalmoney"]];
-    self.saleamountLabel.text = [NSString stringWithFormat:@"%@",dic[@"saleamount"]];
+    NSInteger totalmoney = [dic[@"totalmoney"] integerValue];
+    if (totalmoney == 0)
+    {
+        self.totalMoneyLabel.text = @"正在统计";
+    }else
+    {
+        self.totalMoneyLabel.text = [NSString stringWithFormat:@"%ld",totalmoney];
+    }
+    NSInteger saleamount = [dic[@"totalmoney"] integerValue];
+    if (saleamount == 0)
+    {
+        self.saleamountLabel.text = @"正在统计";
+    }else
+    {
+        self.saleamountLabel.text = [NSString stringWithFormat:@"%ld",saleamount];
+    }
     
     NSArray *numberArray        = [dic[@"number"] componentsSeparatedByString:@" "];
     NSString *referNumberString = dic[@"refernumber"];

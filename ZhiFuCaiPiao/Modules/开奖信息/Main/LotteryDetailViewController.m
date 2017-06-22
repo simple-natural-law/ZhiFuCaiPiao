@@ -14,7 +14,11 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
+@property (weak, nonatomic) IBOutlet UIButton *lastButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+
 @property (strong, nonatomic) NSDictionary *currentLotteryInfo;
+@property (assign, nonatomic) NSInteger currentIndex;
 
 @property (assign, nonatomic) BOOL hasPrizeInfo;
 
@@ -26,7 +30,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.currentLotteryInfo = [self.param[@"data"] objectAtIndex:[self.param[@"index"] integerValue]];
+    [self.lastButton setBackgroundImage:[UIImage imageWithColor:COLOR_RED] forState:UIControlStateNormal];
+    [self.lastButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:226/255.0 green:17/255.0 blue:0 alpha:0.7f]] forState:UIControlStateHighlighted];
+    [self.lastButton setBackgroundImage:[UIImage imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateDisabled];
+    [self.nextButton setBackgroundImage:[UIImage imageWithColor:COLOR_RED] forState:UIControlStateNormal];
+    [self.nextButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:226/255.0 green:17/255.0 blue:0 alpha:0.7f]] forState:UIControlStateHighlighted];
+    [self.nextButton setBackgroundImage:[UIImage imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateDisabled];
+    
+    self.currentIndex = [self.param[@"index"] integerValue];
+    self.currentLotteryInfo = [self.param[@"data"] objectAtIndex:self.currentIndex];
+    
+    if (self.currentIndex == 0)
+    {
+        self.lastButton.enabled = NO;
+    }else if (self.currentIndex == 19)
+    {
+        self.nextButton.enabled = NO;
+    }
     
     if ([self.currentLotteryInfo[@"prize"] isKindOfClass:[NSArray class]])
     {
@@ -135,6 +155,58 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return section == 1 ? 15.0 : 0.0;
+}
+
+#pragma mark- button action
+- (IBAction)lastIssueno:(id)sender
+{
+    [self showHUD];
+    self.currentIndex -= 1;
+    self.currentLotteryInfo = [self.param[@"data"] objectAtIndex:self.currentIndex];
+    [self.tableview beginUpdates];
+    [self.tableview reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableview reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableview endUpdates];
+    [self hideHUD];
+    if (self.currentIndex == 0)
+    {
+        self.lastButton.enabled = NO;
+    }else if (self.currentIndex == 19)
+    {
+        self.nextButton.enabled = NO;
+    }else if (self.currentIndex == 1)
+    {
+        self.lastButton.enabled = YES;
+    }else if (self.currentIndex == 18)
+    {
+        self.nextButton.enabled = YES;
+    }
+}
+
+- (IBAction)nextIssueno:(id)sender
+{
+    [self showHUD];
+    self.currentIndex += 1;
+    self.currentLotteryInfo = [self.param[@"data"] objectAtIndex:self.currentIndex];
+    [self.tableview beginUpdates];
+    [self.tableview reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableview reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableview endUpdates];
+    [self hideHUD];
+    
+    if (self.currentIndex == 0)
+    {
+        self.lastButton.enabled = NO;
+    }else if (self.currentIndex == 19)
+    {
+        self.nextButton.enabled = NO;
+    }else if (self.currentIndex == 1)
+    {
+        self.lastButton.enabled = YES;
+    }else if (self.currentIndex == 18)
+    {
+        self.nextButton.enabled = YES;
+    }
 }
 
 

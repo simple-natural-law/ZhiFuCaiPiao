@@ -29,7 +29,7 @@
     
     [self showHUD];
     
-    [NetworkDataCenter GET:@"http://jisucpkj.market.alicloudapi.com/caipiao/history" parameters:@{@"caipiaoid":@([self.param[@"id"] integerValue]),@"issueno":@"",@"num":@(10)} target:self callBack:@selector(lotteryhistoryCallBack:)];
+    [NetworkDataCenter GET:@"http://jisucpkj.market.alicloudapi.com/caipiao/history" parameters:@{@"caipiaoid":@([self.param[@"id"] integerValue]),@"issueno":@"",@"num":@(20)} target:self callBack:@selector(lotteryhistoryCallBack:)];
 }
 
 #pragma mark-
