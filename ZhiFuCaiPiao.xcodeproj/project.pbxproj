@@ -841,7 +841,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZhiFuCaiPiao/ZhiFuCaiPiao.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bing Wu (6AXX75C9J7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bing Wu (6AXX75C9J7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = TZ9R55GK8Q;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZhiFuCaiPiao/Main/CaiPiao_PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZhiFuCaiPiao/Main/Info.plist";
@@ -869,7 +869,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZhiFuCaiPiao/ZhiFuCaiPiao.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Bing Wu (TZ9R55GK8Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bing Wu (TZ9R55GK8Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = TZ9R55GK8Q;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZhiFuCaiPiao/Main/CaiPiao_PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZhiFuCaiPiao/Main/Info.plist";

@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JPush/JPUSHService.h>
 
-@interface EventCenter : NSObject
+static NSString *appKey = @"877833e96925869b1b38bf52";
+static NSString *channel = @"Publish channel";
+static BOOL isProduction = NO;
+
+@interface EventCenter : NSObject<JPUSHRegisterDelegate>
 
 
 + (instancetype)shared;
@@ -60,6 +65,7 @@
  */
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
 
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error;
 
 /**
  *  本地推送通知
@@ -72,5 +78,6 @@
  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 
 @end
