@@ -14,7 +14,7 @@
         <!--开奖信息-->
         <scene sceneID="yza-kP-Llj">
             <objects>
-                <navigationController id="jO7-N5-Is0" sceneMemberID="viewController">
+                <navigationController id="jO7-N5-Is0" customClass="CPNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="开奖信息" image="kaijiangxinxi" id="JJE-Gh-7d2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xjZ-f9-Ktl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -659,7 +659,7 @@
         <!--彩票走势-->
         <scene sceneID="0tt-Vz-GoZ">
             <objects>
-                <navigationController id="JHB-0H-nHd" sceneMemberID="viewController">
+                <navigationController id="JHB-0H-nHd" customClass="CPNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="彩票走势" image="zoushi" id="hef-yL-G0L"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e2m-bX-VjR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

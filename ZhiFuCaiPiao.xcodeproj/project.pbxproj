@@ -45,6 +45,7 @@
 		341FED361EF2D13500CA37A9 /* LotteryTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FED351EF2D13500CA37A9 /* LotteryTrendViewController.m */; };
 		342384BA1EF94E3E0074DAE1 /* AlertCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384B91EF94E3E0074DAE1 /* AlertCenter.m */; };
 		342384BD1EF975370074DAE1 /* LotteryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384BC1EF975370074DAE1 /* LotteryDetailViewController.m */; };
+		342384C01EFBF8D90074DAE1 /* CPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384BF1EFBF8D90074DAE1 /* CPNavigationController.m */; };
 		343973D61EEB952000C183D8 /* ZhiFuCaiPiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */; };
 		343973E11EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */; };
 		D41BF99CC9788D7ACC6F84D2 /* libPods-ZhiFuCaiPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C933D092E076852C2A341D70 /* libPods-ZhiFuCaiPiao.a */; };
@@ -146,6 +147,8 @@
 		342384B91EF94E3E0074DAE1 /* AlertCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertCenter.m; sourceTree = "<group>"; };
 		342384BB1EF975370074DAE1 /* LotteryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryDetailViewController.h; sourceTree = "<group>"; };
 		342384BC1EF975370074DAE1 /* LotteryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryDetailViewController.m; sourceTree = "<group>"; };
+		342384BE1EFBF8D90074DAE1 /* CPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNavigationController.h; sourceTree = "<group>"; };
+		342384BF1EFBF8D90074DAE1 /* CPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPNavigationController.m; sourceTree = "<group>"; };
 		343973B81EEB952000C183D8 /* ZhiFuCaiPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiFuCaiPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		343973D11EEB952000C183D8 /* ZhiFuCaiPiaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhiFuCaiPiaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhiFuCaiPiaoTests.m; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				341FECBC1EF01C2600CA37A9 /* main.m */,
 				341FECD51EF0327600CA37A9 /* TabBarViewController.h */,
 				341FECD61EF0327600CA37A9 /* TabBarViewController.m */,
+				342384BE1EFBF8D90074DAE1 /* CPNavigationController.h */,
+				342384BF1EFBF8D90074DAE1 /* CPNavigationController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -678,6 +683,7 @@
 				341FED021EF17BA300CA37A9 /* NSFileManager+extend.m in Sources */,
 				341FECD41EF0268600CA37A9 /* BaseViewController.m in Sources */,
 				341FECC61EF01C2600CA37A9 /* main.m in Sources */,
+				342384C01EFBF8D90074DAE1 /* CPNavigationController.m in Sources */,
 				341FED361EF2D13500CA37A9 /* LotteryTrendViewController.m in Sources */,
 				341FED0B1EF17BA300CA37A9 /* UINavigationController+extend.m in Sources */,
 				341FED131EF17D9600CA37A9 /* CPObject.m in Sources */,

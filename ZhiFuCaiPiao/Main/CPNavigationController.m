@@ -1,29 +1,31 @@
 //
-//  LotteryTrendViewController.m
+//  CPNavigationController.m
 //  ZhiFuCaiPiao
 //
-//  Created by 张诗健 on 2017/6/15.
+//  Created by 张诗健 on 2017/6/22.
 //  Copyright © 2017年 张诗健. All rights reserved.
 //
 
-#import "LotteryTrendViewController.h"
+#import "CPNavigationController.h"
 
-@interface LotteryTrendViewController ()
+@interface CPNavigationController ()
 
 @end
 
-@implementation LotteryTrendViewController
+@implementation CPNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    viewController.hidesBottomBarWhenPushed = YES;
+    
+    [super pushViewController:viewController animated:animated];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
