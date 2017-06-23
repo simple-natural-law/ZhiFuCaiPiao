@@ -13,6 +13,8 @@
 
 @interface LotteryTrendViewController ()
 
+@property (nonatomic, strong) LotteryTrendView *trendView;
+
 @end
 
 @implementation LotteryTrendViewController
@@ -27,6 +29,10 @@
     [self showHUD];
     
     [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"ssq"} authorization:nil target:self callBack:@selector(numberTrendCallBack:)];
+    
+    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight-213)];
+    
+    [self.view addSubview:self.trendView];
 }
 
 
@@ -42,9 +48,9 @@
     
     NSLog(@"--- %@",result);
     
-//    LotteryTrendView *trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight-213) listArray:result[@"data"]];
-//    
-//    [self.view addSubview:trendView];
+    NSArray *dataArray = result[@"data"];
+    
+    [self.trendView setListArray:[dataArray subarrayWithRange:NSMakeRange(0, 30)]];
 }
 
 

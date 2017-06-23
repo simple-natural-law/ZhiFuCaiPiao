@@ -11,6 +11,6 @@
 
 @interface LotteryTrendView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame listArray:(NSArray<NSDictionary *> *)listArray;
+@property (nonatomic, strong) NSArray *listArray;
 
 @end
