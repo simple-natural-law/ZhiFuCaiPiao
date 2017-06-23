@@ -11,5 +11,6 @@
 
 @interface LotteryTrendView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame listArray:(NSArray<NSDictionary *> *)listArray;
 
 @end

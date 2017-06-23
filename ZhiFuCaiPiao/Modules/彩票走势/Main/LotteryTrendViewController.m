@@ -8,6 +8,7 @@
 
 #import "LotteryTrendViewController.h"
 #import "NetworkDataCenter.h"
+#import "LotteryTrendView.h"
 
 
 @interface LotteryTrendViewController ()
@@ -16,7 +17,8 @@
 
 @implementation LotteryTrendViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -39,6 +41,10 @@
     [self hideHUD];
     
     NSLog(@"--- %@",result);
+    
+    LotteryTrendView *trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight-213) listArray:result[@"data"]];
+    
+    [self.view addSubview:trendView];
 }
 
 

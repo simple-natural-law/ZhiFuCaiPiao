@@ -15,38 +15,33 @@
 //期数
 @interface NumberPeriodsView : UIView
 
-- (instancetype)initWithPeriodsArray:(NSArray *)periodsArray;
-
 @property (nonatomic, strong) NSArray *periodsArray;
 
 @end
+
 //中间内容
 @interface NumberView : UIView
-
-- (instancetype)initWithNumberArray:(NSArray *)numberArray;
 
 @property (nonatomic, strong) NSArray *numberArray;
 
 @end
+
 //上层数字
 @interface TopNumberView : UIView
 
-- (instancetype)initWithNumber:(NSInteger)number;
-
 @property (nonatomic, assign) NSInteger number;
 
 @end
-//下面能选择的数字
 
+//下面能选择的数字
 @interface BottomNumberView : UIView
 
-- (instancetype)initWithNumber:(NSInteger)number;
-
 @property (nonatomic, assign) NSInteger number;
 
 @end
-//上和下悬浮的View
 
+
+//上和下悬浮的View
 @interface TopBottomView : UIView
 {
     BOOL hiddenFlag;
@@ -68,104 +63,48 @@
 
 @end
 
+
 @implementation LotteryTrendView
 
-- (instancetype)initWithFrame:(CGRect)frame listArray:(NSArray<NSDictionary *> *)listArray
+- (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame])
     {
-        self.listArray = listArray;
+        self.backgroundColor = [UIColor whiteColor];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
+        self.scrollView.delegate = self;
+        self.scrollView.showsHorizontalScrollIndicator = NO;
+        self.scrollView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:self.scrollView];
+        TopBottomView *top = [[TopBottomView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, kItemWidth) HiddenWrods:YES];
+        [self addSubview:top];
+        TopBottomView *bottom = [[TopBottomView alloc] initWithFrame:CGRectMake(0, frame.size.height-kItemWidth, kLeftViewWidth, kItemWidth) HiddenWrods:NO];
+        [self addSubview:bottom];
+        self.periodsView = [[NumberPeriodsView alloc] initWithFrame:CGRectMake(0, kItemWidth, kLeftViewWidth, frame.size.height-2*kItemWidth)];
+        [self.scrollView addSubview:self.periodsView];
+        self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, frame.size.width-kLeftViewWidth, kItemWidth)];
+        [self.scrollView addSubview:self.topView];
+        self.bottomView  = [[BottomNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, frame.size.height-kItemWidth, frame.size.width-kLeftViewWidth, kItemWidth)];
+        [self.scrollView addSubview:self.bottomView];
     }
     return self;
 }
 
-
-- (void)setFrame:(CGRect)frame
-{
-    [super setFrame:frame];
-    
-    [self addSubview:self.scrollView];
-}
-
-- (UIScrollView *)scrollView
-{
-    self.backgroundColor = [UIColor redColor];
-    
-    if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, [UIScreen mainScreen].bounds.size.width, self.frame.size.height - kItemWidth * 2)];
-        self.scrollView.delegate = self;
-        self.scrollView.showsHorizontalScrollIndicator = NO;
-        self.scrollView.backgroundColor = [UIColor grayColor];
-    }
-    return _scrollView;
-}
-
 - (void)setListArray:(NSArray *)listArray
 {
-    if (_listArray != listArray)
-    {
-        _listArray = listArray;
-        //获取数据中是多少位数
-        NSInteger numberCount = [[[listArray lastObject] objectForKey:@"number"] count];
-        //不包括左侧期数内容的大小
-        CGSize contentSize = CGSizeMake(numberCount * (kItemWidth + 1), kItemWidth * listArray.count);
-        //设置scroll内容大小
-        self.scrollView.contentSize = CGSizeMake(contentSize.width + kLeftViewWidth, contentSize.height);
-        //内容
-        NumberView *numView = [[NumberView alloc] initWithNumberArray:self.listArray];
-        numView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height);
-        [self.scrollView addSubview:numView];
-        
-        //期数
-        NSMutableArray *tempPeriodsArray = [NSMutableArray array];
-        for (NSDictionary *dic in listArray) {
-            //获取期数
-            [tempPeriodsArray addObject:[dic objectForKey:@"periods"]];
-        }
-        self.periodsView = [[NumberPeriodsView alloc] initWithPeriodsArray:tempPeriodsArray];
-        self.periodsView.frame = CGRectMake(0, 0, kLeftViewWidth, contentSize.height);
-        [self.scrollView addSubview:self.periodsView];
-        //通过懒加载创建TopView
-        self.topView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth);
-        self.bottomView.frame = CGRectMake(kLeftViewWidth, CGRectGetMaxY(self.scrollView.frame), contentSize.width, kItemWidth);
-        TopBottomView *top = [[TopBottomView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, kItemWidth) HiddenWrods:YES];
-        [self addSubview:top];
-        TopBottomView *Bottom = [[TopBottomView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.scrollView.frame), kLeftViewWidth, kItemWidth) HiddenWrods:NO];
-        [self addSubview:Bottom];
-    }
-}
-//懒加载上面的数字View
-- (TopNumberView *)topView
-{
-    if (!_topView)
-    {
-        //获取数据中是多少位数
-        NSInteger numberCount = [[[self.listArray lastObject] objectForKey:@"number"] count];
-        _topView = [[TopNumberView alloc] initWithNumber:numberCount];
-        [self addSubview:_topView];
-    }
-    return _topView;
+    _listArray = listArray;
 }
 
-//懒加载下方点击的View
-- (BottomNumberView *)bottomView
-{
-    if (!_bottomView)
-    {
-        //获取数据中是多少位数
-        NSInteger numberCount = [[[self.listArray lastObject] objectForKey:@"number"] count];
-        _bottomView = [[BottomNumberView alloc] initWithNumber:numberCount];
-        [self addSubview:_bottomView];
-    }
-    return _bottomView;
-}
 
 //用 bounces 属性
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if ((scrollView.contentOffset.x <= 0)) {
+    if ((scrollView.contentOffset.x <= 0))
+    {
         scrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
-    }else if (scrollView.contentOffset.x + scrollView.frame.size.width >= scrollView.contentSize.width) {
+        
+    }else if (scrollView.contentOffset.x + scrollView.frame.size.width >= scrollView.contentSize.width)
+    {
         scrollView.contentOffset = CGPointMake(scrollView.contentSize.width - scrollView.frame.size.width, scrollView.contentOffset.y);
     }
     
@@ -234,7 +173,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     NSInteger index = 0;
     //数字的个数
-    NSInteger listCount = [[self.numberArray[index] objectForKey:@"number"] count];
+    NSInteger listCount = [[[self.numberArray[index] objectForKey:@"missNumber"] objectForKey:@"general"] count];
     for (NSDictionary *dic in self.numberArray)
     {
         //设置背景颜色
@@ -243,16 +182,17 @@
         NSInteger numbIndex = 0;
         NSInteger selectIndex = 0;
         //绘制文字以及图片
-        NSArray *numberArr = [dic objectForKey:@"number"];
-        NSArray *awardArray = [dic objectForKey:@"award"];
-        for (NSString *numStr in numberArr)
+        NSArray *numberArr = [[dic objectForKey:@"missNumber"] objectForKey:@"general"];
+        NSArray *awardArray = [dic objectForKey:@"winnerNumber"];
+        for (id num in numberArr)
         {
+            
             if (!(numbIndex == [awardArray[selectIndex] integerValue]))
             {
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
                 para.alignment = NSTextAlignmentCenter;
                 //+4是因为文字的上下间距没有居中
-                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth + 1 * numbIndex,4 + index * kItemWidth,kItemWidth,kItemWidth)
+                [[num stringValue] drawInRect:CGRectMake(numbIndex * kItemWidth + 1 * numbIndex,4 + index * kItemWidth,kItemWidth,kItemWidth)
                     withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
             }else
             {
@@ -261,7 +201,7 @@
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
                 para.alignment = NSTextAlignmentCenter;
                 //+4是因为文字的上下间距没有居中
-                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth + 1 * numbIndex,4 + index * kItemWidth,kItemWidth,kItemWidth)
+                [[num stringValue] drawInRect:CGRectMake(numbIndex * kItemWidth + 1 * numbIndex,4 + index * kItemWidth,kItemWidth,kItemWidth)
                     withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName : para}];
                 if (selectIndex < 4)
                 {
