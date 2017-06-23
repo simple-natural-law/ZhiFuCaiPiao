@@ -16,9 +16,10 @@
     callBack:(SEL)callBack;
 
 + (void)GET:(NSString *)path
-  parameters:(NSDictionary *)parameters
-      target:(id)target
-    callBack:(SEL)callBack;
+ parameters:(NSDictionary *)parameters
+authorization:(NSString *)authorization
+     target:(id)target
+   callBack:(SEL)callBack;
 
 
 + (void)cancelRequestWithTarget:(id)target;

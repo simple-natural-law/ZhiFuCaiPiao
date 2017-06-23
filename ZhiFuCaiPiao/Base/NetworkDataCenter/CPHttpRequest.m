@@ -83,15 +83,20 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
 }
 
 
-+ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters target:(id)target callBack:(SEL)callBack
++ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters  authorization:(NSString *)authorization target:(id)target callBack:(SEL)callBack
 {
     NSURLSessionDataTask *dataTask = nil;
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     AFHTTPSessionManager *manager = [CPHttpRequest shared].manager;
-    
-    [manager.requestSerializer setValue:@"APPCODE c63ad401f15d451593652310a1905c0c" forHTTPHeaderField:@"Authorization"];
+    if (authorization.length > 0)
+    {
+        [manager.requestSerializer setValue:authorization forHTTPHeaderField:@"Authorization"];
+    }else
+    {
+        [manager.requestSerializer clearAuthorizationHeader];
+    }
     
     dataTask = [manager GET:path parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

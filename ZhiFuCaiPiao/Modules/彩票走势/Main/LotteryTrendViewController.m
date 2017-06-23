@@ -7,6 +7,8 @@
 //
 
 #import "LotteryTrendViewController.h"
+#import "NetworkDataCenter.h"
+
 
 @interface LotteryTrendViewController ()
 
@@ -17,6 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedLotteryType)];
+    
+    [self showHUD];
+    
+    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"ssq"} authorization:nil target:self callBack:@selector(numberTrendCallBack:)];
 }
 
 
@@ -24,6 +32,22 @@
 {
     [super viewWillAppear:animated];
 }
+
+
+- (void)numberTrendCallBack:(NSDictionary *)result
+{
+    [self hideHUD];
+    
+    NSLog(@"--- %@",result);
+}
+
+
+- (void)selectedLotteryType
+{
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
