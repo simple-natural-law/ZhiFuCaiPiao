@@ -105,7 +105,7 @@
         }else
         {
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
-            cell.textLabel.text = @"暂无详细数据,敬请谅解";
+            cell.textLabel.text = @"暂无中奖数据,敬请谅解";
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             cell.textLabel.textColor     = COLOR_RED;
             cell.contentView.backgroundColor = [UIColor clearColor];
