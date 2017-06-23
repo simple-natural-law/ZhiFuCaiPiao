@@ -42,9 +42,9 @@
     
     NSLog(@"--- %@",result);
     
-    LotteryTrendView *trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight-213) listArray:result[@"data"]];
-    
-    [self.view addSubview:trendView];
+//    LotteryTrendView *trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight-213) listArray:result[@"data"]];
+//    
+//    [self.view addSubview:trendView];
 }
 
 
