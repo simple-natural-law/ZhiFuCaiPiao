@@ -41,10 +41,8 @@
     {
         UILabel *label = [self.contentView viewWithTag:10086+i];
         label.text     = numberArray[i];
-        label.backgroundColor = COLOR_RED;
+        label.layer.backgroundColor = COLOR_RED.CGColor;
         label.layer.cornerRadius    = 15.0;
-        label.layer.masksToBounds   = YES;
-        label.layer.shouldRasterize = YES;
     }
     
     NSString *referNumberString = dic[@"refernumber"];
@@ -59,10 +57,8 @@
         {
             UILabel *label = [self.contentView viewWithTag:10086+i+offset];
             label.text     = referNumberArr[i];
-            label.backgroundColor = COLOR_BLUE;
+            label.layer.backgroundColor = COLOR_BLUE.CGColor;
             label.layer.cornerRadius    = 15.0;
-            label.layer.masksToBounds   = YES;
-            label.layer.shouldRasterize = YES;
         }
     }
 }

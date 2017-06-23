@@ -552,7 +552,7 @@
 					343973B71EEB952000C183D8 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = TZ9R55GK8Q;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -857,8 +857,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shijian.ZhiFuCaiPiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96e79c56-a712-4ef3-a658-e24bd88f40f0";
-				PROVISIONING_PROFILE_SPECIFIER = devProfile;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -869,7 +869,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZhiFuCaiPiao/ZhiFuCaiPiao.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Bing Wu (TZ9R55GK8Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = TZ9R55GK8Q;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZhiFuCaiPiao/Main/CaiPiao_PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZhiFuCaiPiao/Main/Info.plist";
@@ -885,8 +885,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shijian.ZhiFuCaiPiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11704100-ad5d-440b-a6f7-e9f51df28248";
-				PROVISIONING_PROFILE_SPECIFIER = productProfile;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

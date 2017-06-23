@@ -75,20 +75,16 @@
     {
         UILabel *label = [self.contentView viewWithTag:30000+i];
         label.text     = numberArray[i];
-        label.backgroundColor = COLOR_RED;
+        label.layer.backgroundColor = COLOR_RED.CGColor;
         label.layer.cornerRadius    = 15.0;
-        label.layer.masksToBounds   = YES;
-        label.layer.shouldRasterize = YES;
     }
     
     for (int i = 0; i < referNumberCount; i++)
     {
         UILabel *label = [self.contentView viewWithTag:30000+i+numberCount];
         label.text     = referNumberArr[i];
-        label.backgroundColor = COLOR_BLUE;
+        label.layer.backgroundColor = COLOR_BLUE.CGColor;
         label.layer.cornerRadius    = 15.0;
-        label.layer.masksToBounds   = YES;
-        label.layer.shouldRasterize = YES;
     }
 }
 
