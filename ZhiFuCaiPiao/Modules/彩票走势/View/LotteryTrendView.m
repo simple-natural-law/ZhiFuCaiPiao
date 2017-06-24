@@ -85,9 +85,8 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
         self.scrollView.delegate = self;
         self.scrollView.showsHorizontalScrollIndicator = NO;
-        self.scrollView.backgroundColor = [UIColor lightGrayColor];
-//        NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
-        NSInteger numberCount = 33;
+        self.scrollView.backgroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.87 alpha:1.0];
+        NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
         CGSize contentSize    = CGSizeMake(numberCount*kItemWidth, kItemWidth*dataArray.count);
         self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
         [self addSubview:self.scrollView];
@@ -162,7 +161,7 @@
     NSInteger index = 0;
     for (NSString *periods in self.periodsArray)
     {
-        index % 2 == 0 ? CGContextSetRGBFillColor(context, 0.87, 0.5, 0.87, 1) : CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
+        index % 2 == 0 ? CGContextSetRGBFillColor(context, 0.95, 0.93, 0.87, 1) : CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1);
         CGContextFillRect(context, CGRectMake(0,index * kItemWidth,kLeftViewWidth,kItemWidth));
         
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
@@ -174,7 +173,7 @@
     }
     NSInteger listCount = self.periodsArray.count;
     //画期数右侧线条
-    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 1);//线条颜色
+    CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
     CGContextMoveToPoint(context, kLeftViewWidth - 1, 0);
     CGContextAddLineToPoint(context, kLeftViewWidth - 1, listCount * kItemWidth);
     //绘制线方法
@@ -233,7 +232,7 @@
             }
             index++;
         }
-        CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 1);//线条颜色
+        CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
         for (NSInteger i = 0; i < listCount; i++)
         {
             //画期数竖着的线线条
@@ -263,7 +262,7 @@
     //获取上下文方法
     CGContextRef context = UIGraphicsGetCurrentContext();
     //填充背景颜色
-    CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
+    CGContextSetRGBFillColor(context, 0.95, 0.93, 0.87, 1);
     CGContextFillRect(context, CGRectMake(0,0,self.number * kItemWidth,kItemWidth));
     
     //绘制数字
@@ -277,6 +276,7 @@
         [numStr drawInRect:CGRectMake((i-1) * kItemWidth,4,kItemWidth,kItemWidth)
             withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
     }
+    CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
     for (NSInteger i = 1; i <= self.number; i++)
     {
         //画期数竖着的线线条
@@ -306,7 +306,7 @@
     //获取上下文方法
     CGContextRef context = UIGraphicsGetCurrentContext();
     //填充背景颜色
-    CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
+    CGContextSetRGBFillColor(context, 0.95, 0.93, 0.87, 1);
     CGContextFillRect(context, CGRectMake(0,0,self.number * kItemWidth,kItemWidth));
     
     //绘制数字
@@ -321,6 +321,7 @@
             withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
     }
     
+    CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
     for (NSInteger i = 1; i <= self.number; i++)
     {
         //画期数竖着的线线条
@@ -350,7 +351,7 @@
     //获取上下文方法
     CGContextRef context = UIGraphicsGetCurrentContext();
     //绘制背景色
-    CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
+    CGContextSetRGBFillColor(context, 0.95, 0.93, 0.87, 1);
     CGContextFillRect(context, CGRectMake(0, 0, kLeftViewWidth, kItemWidth));
     
     if (!hiddenFlag)
@@ -363,12 +364,7 @@
              withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor blackColor], NSParagraphStyleAttributeName : para}];
         //绘制方法
         CGContextStrokePath(context);
-        
     }
-    //绘制上方和下方末尾的分割线
-    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 1);//线条颜色
-    CGContextMoveToPoint(context, kLeftViewWidth - 1, 0);
-    CGContextAddLineToPoint(context, kLeftViewWidth - 1, kItemWidth);
     //绘制方法
     CGContextStrokePath(context);
 }

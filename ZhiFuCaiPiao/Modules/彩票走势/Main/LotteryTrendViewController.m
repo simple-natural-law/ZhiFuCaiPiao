@@ -26,9 +26,11 @@
     
     [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedLotteryType)];
     
+    self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
+    
     [self showHUD];
     
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"ssq"} authorization:nil target:self callBack:@selector(numberTrendCallBack:)];
+    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"ssq"} authorization:nil target:self callBack:@selector(ssqNumberTrendCallBack:)];
 }
 
 
@@ -38,14 +40,25 @@
 }
 
 
-- (void)numberTrendCallBack:(NSDictionary *)result
+- (void)ssqNumberTrendCallBack:(NSDictionary *)result
 {
     [self hideHUD];
     
     NSLog(@"--- %@",result);
     
-    NSArray *dataArray = result[@"data"];
+    NSArray *resultArray = [result[@"data"] subarrayWithRange:NSMakeRange(0, 30)];
     
+    NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:30];
+    
+    for (NSDictionary *dic in resultArray)
+    {
+        @autoreleasepool {
+            NSMutableDictionary *dataDic = [dic mutableCopy];
+            NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 33)];
+            [dataDic setObject:missNumArr forKey:@"missNumber"];
+            [dataArray addObject:dataDic];
+        }
+    }
     self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeSsqRed dataArray:dataArray];
     [self.view addSubview:self.trendView];
 }
