@@ -24,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.87 alpha:1.0];
+    
     [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedLotteryType)];
     
     self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
@@ -44,9 +46,7 @@
 {
     [self hideHUD];
     
-    NSLog(@"--- %@",result);
-    
-    NSArray *resultArray = [result[@"data"] subarrayWithRange:NSMakeRange(0, 30)];
+    NSArray *resultArray = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
     
     NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:30];
     
@@ -59,7 +59,7 @@
             [dataArray addObject:dataDic];
         }
     }
-    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeSsqRed dataArray:dataArray];
+    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeSsqRed dataArray:dataArray];
     [self.view addSubview:self.trendView];
 }
 

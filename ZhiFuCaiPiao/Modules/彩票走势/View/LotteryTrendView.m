@@ -26,6 +26,8 @@
 
 @property (nonatomic, strong) NSArray *numberArray;
 
+- (instancetype)initWithFrame:(CGRect)frame numberArray:(NSArray *)numberArray;
+
 @end
 
 //上层数字
@@ -91,7 +93,10 @@
         self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
         [self addSubview:self.scrollView];
         
-        
+        //内容
+        NumberView *numView = [[NumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height) numberArray:dataArray];
+        [self.scrollView addSubview:numView];
+
         self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth) number:numberCount];
         self.topView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.topView];
@@ -185,62 +190,69 @@
 #pragma mark - NumberView
 @implementation NumberView
 
+- (instancetype)initWithFrame:(CGRect)frame numberArray:(NSArray *)numberArray
+{
+    if (self = [super initWithFrame:frame])
+    {
+        self.numberArray = numberArray;
+    }
+    return self;
+}
 
 - (void)drawRect:(CGRect)rect
 {
-    if (self.numberArray.count > 0)
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    NSInteger index = 0;
+    //数字的个数
+    NSInteger listCount = [[self.numberArray[index] objectForKey:@"missNumber"] count];
+    for (NSDictionary *dic in self.numberArray)
     {
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        NSInteger index = 0;
-        //数字的个数
-        NSInteger listCount = [[[self.numberArray[index] objectForKey:@"missNumber"] objectForKey:@"general"] count];
-        for (NSDictionary *dic in self.numberArray)
+        //设置背景颜色
+        index % 2 == 0 ? CGContextSetRGBFillColor(context, 0.95, 0.93, 0.87, 1) : CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1);
+        CGContextFillRect(context, CGRectMake(0,index * kItemWidth,listCount*kItemWidth,kItemWidth));
+        NSInteger numbIndex = 0;
+        NSInteger selectIndex = 0;
+        //绘制文字以及图片
+        NSArray *numberArr  = [dic objectForKey:@"missNumber"];
+        NSArray *awardArray = [dic objectForKey:@"winnerNumber"];
+        
+        for (int i = 0; i < numberArr.count; i++)
         {
-            //设置背景颜色
-            index % 2 == 0 ? CGContextSetRGBFillColor(context, 0.87, 0.5, 0.87, 1) : CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
-            CGContextFillRect(context, CGRectMake(0,index * kItemWidth,listCount * (kItemWidth + 1),kItemWidth));
-            NSInteger numbIndex = 0;
-            NSInteger selectIndex = 0;
-            //绘制文字以及图片
-            NSArray *numberArr = [[dic objectForKey:@"missNumber"] objectForKey:@"general"];
-            NSArray *awardArray = [dic objectForKey:@"winnerNumber"];
-            for (id num in numberArr)
+            if (!((numbIndex+1) == [awardArray[selectIndex] integerValue]))
             {
-                
-                if (!(numbIndex == [awardArray[selectIndex] integerValue]))
+                NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
+                para.alignment = NSTextAlignmentCenter;
+                NSString *numStr = [NSString stringWithFormat:@"%02ld",[numberArr[i] integerValue]];
+                //+4是因为文字的上下间距没有居中
+                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,4 + index * kItemWidth,kItemWidth,kItemWidth)
+                               withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
+            }else
+            {
+                [[UIColor colorWithRed:0.886 green:0.067 blue:0.0 alpha:1.000] set];
+                CGContextFillEllipseInRect(context, CGRectMake(numbIndex * kItemWidth + 1,index * kItemWidth + 1, kItemWidth-2, kItemWidth-2));
+                NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
+                para.alignment = NSTextAlignmentCenter;
+                NSString *numStr = [NSString stringWithFormat:@"%02ld",[awardArray[selectIndex] integerValue]];
+                //+4是因为文字的上下间距没有居中
+                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,4 + index * kItemWidth,kItemWidth,kItemWidth)
+                               withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName : para}];
+                if (selectIndex < 6)
                 {
-                    NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
-                    para.alignment = NSTextAlignmentCenter;
-                    //+4是因为文字的上下间距没有居中
-                    [[num stringValue] drawInRect:CGRectMake(numbIndex * kItemWidth + 1 * numbIndex,4 + index * kItemWidth,kItemWidth,kItemWidth)
-                                   withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
-                }else
-                {
-                    [[UIColor colorWithRed:0.755 green:0.056 blue:0.081 alpha:1.000] set];
-                    CGContextFillEllipseInRect(context, CGRectMake(numbIndex * kItemWidth + 1 * numbIndex,index * kItemWidth, kItemWidth, kItemWidth));
-                    NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
-                    para.alignment = NSTextAlignmentCenter;
-                    //+4是因为文字的上下间距没有居中
-                    [[num stringValue] drawInRect:CGRectMake(numbIndex * kItemWidth + 1 * numbIndex,4 + index * kItemWidth,kItemWidth,kItemWidth)
-                                   withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName : para}];
-                    if (selectIndex < 4)
-                    {
-                        selectIndex++;
-                    }
+                    selectIndex++;
                 }
-                numbIndex++;
             }
-            index++;
+            numbIndex++;
         }
-        CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
-        for (NSInteger i = 0; i < listCount; i++)
-        {
-            //画期数竖着的线线条
-            CGContextMoveToPoint(context,kItemWidth + i * kItemWidth + 1 * i, 0);
-            CGContextAddLineToPoint(context,kItemWidth + i * kItemWidth + 1 * i, self.numberArray.count * kItemWidth);
-        }
-        CGContextStrokePath(context);
+        index++;
     }
+    CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
+    for (NSInteger i = 1; i <= listCount; i++)
+    {
+        //画期数竖着的线线条
+        CGContextMoveToPoint(context, i * kItemWidth, 0);
+        CGContextAddLineToPoint(context, i * kItemWidth, self.numberArray.count * kItemWidth);
+    }
+    CGContextStrokePath(context);
 }
 
 @end
