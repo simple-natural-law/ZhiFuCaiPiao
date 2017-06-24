@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
+typedef NS_ENUM(NSInteger,LotteryTrendType) {
+    LotteryTrendTypeSsqRed  = 0,    // 双色球红球走势图
+    LotteryTrendTypeSsqBlue = 1,    // 双色球蓝球走势图
+};
+
+
 @interface LotteryTrendView : UIView
 
-@property (nonatomic, strong) NSArray *listArray;
+- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type dataArray:(NSArray *)dataArray;
 
 @end

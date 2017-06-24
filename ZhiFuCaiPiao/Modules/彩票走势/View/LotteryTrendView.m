@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) NSArray *periodsArray;
 
+- (instancetype)initWithFrame:(CGRect)frame periodsArray:(NSArray *)periodsArray;
+
 @end
 
 //中间内容
@@ -31,12 +33,16 @@
 
 @property (nonatomic, assign) NSInteger number;
 
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number;
+
 @end
 
 //下面能选择的数字
 @interface BottomNumberView : UIView
 
 @property (nonatomic, assign) NSInteger number;
+
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number;
 
 @end
 
@@ -59,32 +65,49 @@
 @property (nonatomic, strong) NumberPeriodsView *periodsView;
 @property (nonatomic, strong) TopNumberView *topView;
 @property (nonatomic, strong) BottomNumberView *bottomView;
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, assign) LotteryTrendType type;
 
 @end
 
 
 @implementation LotteryTrendView
 
-- (instancetype)initWithFrame:(CGRect)frame
+
+- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type dataArray:(NSArray *)dataArray
 {
     if (self = [super initWithFrame:frame])
     {
         self.backgroundColor = [UIColor whiteColor];
+        self.type      = type;
+        self.dataArray = dataArray;
+        
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
         self.scrollView.delegate = self;
         self.scrollView.showsHorizontalScrollIndicator = NO;
-        self.scrollView.backgroundColor = [UIColor whiteColor];
+        self.scrollView.backgroundColor = [UIColor lightGrayColor];
+//        NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
+        NSInteger numberCount = 33;
+        CGSize contentSize    = CGSizeMake(numberCount*kItemWidth, kItemWidth*dataArray.count);
+        self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
         [self addSubview:self.scrollView];
-
-        self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, frame.size.width-kLeftViewWidth, kItemWidth)];
+        
+        
+        self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth) number:numberCount];
         self.topView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.topView];
         
-        self.periodsView = [[NumberPeriodsView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, frame.size.height-2*kItemWidth)];
+        
+        NSMutableArray *periodsArray = [[NSMutableArray alloc]init];
+        for (NSDictionary *dic in dataArray)
+        {
+            [periodsArray addObject:[dic[@"period"] substringFromIndex:4]];
+        }
+        self.periodsView = [[NumberPeriodsView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, contentSize.height) periodsArray:periodsArray];
         self.periodsView.backgroundColor = [UIColor whiteColor];
         [self.scrollView addSubview:self.periodsView];
         
-        self.bottomView  = [[BottomNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, frame.size.height-kItemWidth, frame.size.width-kLeftViewWidth, kItemWidth)];
+        self.bottomView  = [[BottomNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth) number:numberCount];
         self.bottomView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.bottomView];
         
@@ -97,32 +120,6 @@
     }
     return self;
 }
-
-- (void)setListArray:(NSArray *)listArray
-{
-    _listArray = listArray;
-    
-    NSInteger numberCount = 33;
-    CGSize contentSize    = CGSizeMake(numberCount*kItemWidth, kItemWidth*listArray.count);
-    self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
-    self.periodsView.frame = CGRectMake(0, 0, kLeftViewWidth, contentSize.height);
-    self.topView.frame     = CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth);
-    self.bottomView.frame  = CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth);
-    
-    NSMutableArray *periodsArray = [[NSMutableArray alloc]init];
-    
-    for (NSDictionary *dic in listArray)
-    {
-        [periodsArray addObject:[dic[@"period"] substringFromIndex:4]];
-    }
-    self.periodsView.periodsArray = [periodsArray copy];
-    
-    self.topView.number = 33;
-    
-    [self.periodsView setNeedsDisplay];
-    [self.topView setNeedsDisplay];
-}
-
 
 //用 bounces 属性
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -147,36 +144,43 @@
 #pragma mark - NumberPeriodsView
 @implementation NumberPeriodsView
 
+- (instancetype)initWithFrame:(CGRect)frame periodsArray:(NSArray *)periodsArray
+{
+    if (self = [super initWithFrame:frame])
+    {
+        self.periodsArray = periodsArray;
+    }
+    return self;
+}
+
 //使用drawRect的创建方式相同内容速度是用时2.101958 ms 内存占用4.3M 速度是普通创建方式的25倍
 - (void)drawRect:(CGRect)rect
 {
-    if (self.periodsArray.count > 0)
+    //获取上下文方法
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    NSInteger index = 0;
+    for (NSString *periods in self.periodsArray)
     {
-        //获取上下文方法
-        CGContextRef context = UIGraphicsGetCurrentContext();
+        index % 2 == 0 ? CGContextSetRGBFillColor(context, 0.87, 0.5, 0.87, 1) : CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
+        CGContextFillRect(context, CGRectMake(0,index * kItemWidth,kLeftViewWidth,kItemWidth));
         
-        NSInteger index = 0;
-        for (NSString *periods in self.periodsArray)
-        {
-            index % 2 == 0 ? CGContextSetRGBFillColor(context, 0.87, 0.5, 0.87, 1) : CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
-            CGContextFillRect(context, CGRectMake(0,index * kItemWidth,kLeftViewWidth,kItemWidth));
-            
-            NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
-            para.alignment = NSTextAlignmentCenter;
-            //+4是因为文字的上下间距没有居中
-            [[NSString stringWithFormat:@"%@期",periods] drawInRect:CGRectMake(0,4 + index * kItemWidth,kLeftViewWidth,kItemWidth)
-                                                    withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
-            index++;
-        }
-        NSInteger listCount = self.periodsArray.count;
-        //画期数右侧线条
-        CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 1);//线条颜色
-        CGContextMoveToPoint(context, kLeftViewWidth - 1, 0);
-        CGContextAddLineToPoint(context, kLeftViewWidth - 1, listCount * kItemWidth);
-        //绘制线方法
-        CGContextStrokePath(context);
+        NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
+        para.alignment = NSTextAlignmentCenter;
+        //+4是因为文字的上下间距没有居中
+        [[NSString stringWithFormat:@"%@期",periods] drawInRect:CGRectMake(0,4 + index * kItemWidth,kLeftViewWidth,kItemWidth)
+                                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
+        index++;
     }
+    NSInteger listCount = self.periodsArray.count;
+    //画期数右侧线条
+    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 1);//线条颜色
+    CGContextMoveToPoint(context, kLeftViewWidth - 1, 0);
+    CGContextAddLineToPoint(context, kLeftViewWidth - 1, listCount * kItemWidth);
+    //绘制线方法
+    CGContextStrokePath(context);
 }
+
 @end
 
 #pragma mark - NumberView
@@ -244,6 +248,16 @@
 #pragma mark - TopNumberView
 @implementation TopNumberView
 
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number
+{
+    if (self = [super initWithFrame:frame])
+    {
+        self.number = number;
+    }
+    return self;
+}
+
+
 - (void)drawRect:(CGRect)rect
 {
     //获取上下文方法
@@ -278,31 +292,41 @@
 #pragma mark - BottomNumberView
 @implementation BottomNumberView
 
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number
+{
+    if (self = [super initWithFrame:frame])
+    {
+        self.number = number;
+    }
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect
 {
     //获取上下文方法
     CGContextRef context = UIGraphicsGetCurrentContext();
     //填充背景颜色
     CGContextSetRGBFillColor(context, 0.87, 0.87, 0.5, 1);
-    CGContextFillRect(context, CGRectMake(0,0,self.number * (kItemWidth + 1),kItemWidth));
-    for (NSInteger i = 0; i < self.number; i++)
-    {
-        //画期数竖着的线线条
-        CGContextMoveToPoint(context,kItemWidth + i * kItemWidth + 1 * i, 0);
-        CGContextAddLineToPoint(context,kItemWidth + i * kItemWidth + 1 * i, kItemWidth);
-    }
+    CGContextFillRect(context, CGRectMake(0,0,self.number * kItemWidth,kItemWidth));
+    
     //绘制数字
-    for (NSInteger i = 0; i < self.number ; i++)
+    for (NSInteger i = 1; i <= self.number ; i++)
     {
-        NSString *numStr = [NSString stringWithFormat:@"%ld",i];
+        NSString *numStr = [NSString stringWithFormat:@"%02ld",i];
         
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
         para.alignment = NSTextAlignmentCenter;
         //+4是因为文字的上下间距没有居中
-        [numStr drawInRect:CGRectMake(i * kItemWidth + 1 * i,4,kItemWidth,kItemWidth)
+        [numStr drawInRect:CGRectMake((i-1) * kItemWidth,4,kItemWidth,kItemWidth)
             withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
     }
     
+    for (NSInteger i = 1; i <= self.number; i++)
+    {
+        //画期数竖着的线线条
+        CGContextMoveToPoint(context, i * kItemWidth, 0);
+        CGContextAddLineToPoint(context, i * kItemWidth, kItemWidth);
+    }
     //绘制线方法
     CGContextStrokePath(context);
 }
