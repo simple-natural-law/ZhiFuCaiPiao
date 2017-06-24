@@ -48,7 +48,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
 /// App进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    
+    application.applicationIconBadgeNumber = 0;
 }
 
 /// 进程中止
