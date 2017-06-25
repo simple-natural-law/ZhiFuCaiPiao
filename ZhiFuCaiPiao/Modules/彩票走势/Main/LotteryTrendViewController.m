@@ -9,11 +9,15 @@
 #import "LotteryTrendViewController.h"
 #import "NetworkDataCenter.h"
 #import "LotteryTrendView.h"
+#import "CPMenuView.h"
+#import "LineView.h"
 
 
-@interface LotteryTrendViewController ()
+@interface LotteryTrendViewController ()<CPMenuViewDelegate,CPMenuViewDataSource>
 
 @property (nonatomic, strong) LotteryTrendView *trendView;
+
+@property (nonatomic, strong) CPMenuView *menuView;
 
 @end
 
@@ -29,6 +33,13 @@
     [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedLotteryType)];
     
     self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
+    
+    self.menuView = [[CPMenuView alloc] initWithFrame:CGRectMake(0, 80, kScreenWidth, 30)];
+    self.menuView.delegate   = self;
+    self.menuView.dataSource = self;
+    self.menuView.lineColor  = COLOR_RED;
+    self.menuView.originIndex = 0;
+    [self.view addSubview:self.menuView];
     
     [self showHUD];
     
@@ -69,6 +80,60 @@
     
 }
 
+#pragma mark- GWCMenuViewDelegate
+- (void)menuView:(CPMenuView *)menuView didSelectIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex
+{
+    
+}
+
+- (CGFloat)itemsMarginOfMenuView:(CPMenuView *)menuView
+{
+    return 10.0;
+}
+
+- (CGFloat)menuView:(CPMenuView *)menuView widthForItemAtIndex:(NSInteger)index
+{
+    return 65.0;
+}
+
+- (UIColor *)menuView:(CPMenuView *)menuView titleColorForItemState:(CPMenuItemState)state
+{
+    if (state == CPMenuItemStateSelected)
+    {
+        return COLOR_RED;
+    }else
+    {
+        return [UIColor colorWithHexString:@"#333333"];
+    }
+}
+
+- (UIFont *)menuView:(CPMenuView *)menuView textFontForItemState:(CPMenuItemState)state
+{
+    return [UIFont systemFontOfSize:15.0];
+}
+
+#pragma mark- GWCMenuViewDataSource
+- (NSInteger)itemsCountOfMenuView:(CPMenuView *)menuView
+{
+    return 2;
+}
+
+- (NSString *)menuView:(CPMenuView *)menuView titleAtIndex:(NSInteger)index
+{
+    
+    switch (index)
+    {
+        case 0:
+            return @"红球走势";
+            break;
+        case 1:
+            return @"蓝球走势";
+            break;
+        default:
+            return @"";
+            break;
+    }
+}
 
 
 - (void)didReceiveMemoryWarning {
