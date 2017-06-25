@@ -282,12 +282,31 @@
         {
             if (!((numbIndex+1) == [awardArray[selectIndex] integerValue]))
             {
+                NSString *numStr = nil;
+                UIColor  *textColor = nil;
+                if (self.style == LotteryTrendStyleQlc)
+                {
+                    if ((numbIndex + 1) == [[awardArray lastObject] integerValue])
+                    {
+                        [COLOR_BLUE set];
+                        CGContextFillEllipseInRect(context, CGRectMake(numbIndex * kItemWidth + 1,index * kItemWidth + 1, kItemWidth-2, kItemWidth-2));
+                        numStr = [NSString stringWithFormat:@"%02ld",numbIndex+1];
+                        textColor = [UIColor whiteColor];
+                    }else
+                    {
+                        numStr = [NSString stringWithFormat:@"%02ld",[numberArr[i] integerValue]];
+                        textColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
+                    }
+                }else
+                {
+                    numStr = [NSString stringWithFormat:@"%02ld",[numberArr[i] integerValue]];
+                    textColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
+                }
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
                 para.alignment = NSTextAlignmentCenter;
-                NSString *numStr = [NSString stringWithFormat:@"%02ld",[numberArr[i] integerValue]];
                 //+4是因为文字的上下间距没有居中
                 [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,4 + index * kItemWidth,kItemWidth,kItemWidth)
-                               withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
+                               withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName : para}];
             }else
             {
                 // 绘制连线

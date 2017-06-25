@@ -22,8 +22,8 @@
 @property (nonatomic, assign) LotteryTrendType type;
 
 @property (nonatomic, strong) NSArray *ssqDataArr;
-
 @property (nonatomic, strong) NSArray *dltDataArr;
+@property (nonatomic, strong) NSArray *qlcDataArr;
 
 @end
 
@@ -41,7 +41,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
     
-    self.type = LotteryTrendTypeDlt;
+    self.type = LotteryTrendTypeQlc;
     
     self.menuView = [[CPMenuView alloc] initWithFrame:CGRectMake(0, 80, kScreenWidth, 35)];
     self.menuView.delegate   = self;
@@ -56,7 +56,7 @@
     [self.view addSubview:line];
     
 //    [self requestSsqData];
-    [self requestDltData];
+    [self requestQlcData];
 }
 
 
@@ -133,15 +133,32 @@
             [dataArray addObject:dataDic];
         }
     }
-//    [self.trendView displayWithType:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
-    
-    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
-    [self.view addSubview:self.trendView];
+    [self.trendView displayWithType:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
 }
 
 - (void)qlcNumberTrendCallBack:(NSDictionary *)result
 {
     [self hideHUD];
+    
+    self.qlcDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
+    
+    NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
+    
+    for (NSDictionary *dic in self.qlcDataArr)
+    {
+        @autoreleasepool {
+            NSMutableDictionary *dataDic = [dic mutableCopy];
+            NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"general"];
+            [dataDic setObject:missNumArr forKey:@"missNumber"];
+            
+            [dataArray addObject:dataDic];
+        }
+    }
+    
+//    [self.trendView displayWithType:LotteryTrendTypeQlc style:LotteryTrendStyleQlc dataArray:dataArray];
+    
+    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeQlc style:LotteryTrendStyleQlc dataArray:dataArray];
+    [self.view addSubview:self.trendView];
 }
 
 
