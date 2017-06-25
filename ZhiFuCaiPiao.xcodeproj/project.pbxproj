@@ -15,6 +15,9 @@
 		1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB071EF91582009E4A39 /* NetworkDataCenter.m */; };
 		1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB0A1EFA0611009E4A39 /* LotteryDetailCell.m */; };
 		1AE7CA7C1EFCFE7C00D65276 /* LotteryTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7CA7B1EFCFE7C00D65276 /* LotteryTrendView.m */; };
+		341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAA1EFF7FE100FA387E /* CPMenuItem.m */; };
+		341B2CB01EFF7FE100FA387E /* CPMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAC1EFF7FE100FA387E /* CPMenuView.m */; };
+		341B2CB11EFF7FE100FA387E /* CPProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAE1EFF7FE100FA387E /* CPProgressView.m */; };
 		341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FECBA1EF01C2600CA37A9 /* AppDelegate.m */; };
 		341FECC61EF01C2600CA37A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FECBC1EF01C2600CA37A9 /* main.m */; };
 		341FECC81EF01C2600CA37A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341FECC11EF01C2600CA37A9 /* Assets.xcassets */; };
@@ -88,6 +91,12 @@
 		1AE7CA7B1EFCFE7C00D65276 /* LotteryTrendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendView.m; sourceTree = "<group>"; };
 		1FF2304038C3D3FD117E55A6 /* Pods-ZhiFuCaiPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiFuCaiPiao.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiFuCaiPiao/Pods-ZhiFuCaiPiao.release.xcconfig"; sourceTree = "<group>"; };
 		322E82216E8BD4D934469DB8 /* Pods-ZhiFuCaiPiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiFuCaiPiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiFuCaiPiao/Pods-ZhiFuCaiPiao.debug.xcconfig"; sourceTree = "<group>"; };
+		341B2CA91EFF7FE100FA387E /* CPMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMenuItem.h; sourceTree = "<group>"; };
+		341B2CAA1EFF7FE100FA387E /* CPMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPMenuItem.m; sourceTree = "<group>"; };
+		341B2CAB1EFF7FE100FA387E /* CPMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMenuView.h; sourceTree = "<group>"; };
+		341B2CAC1EFF7FE100FA387E /* CPMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPMenuView.m; sourceTree = "<group>"; };
+		341B2CAD1EFF7FE100FA387E /* CPProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPProgressView.h; sourceTree = "<group>"; };
+		341B2CAE1EFF7FE100FA387E /* CPProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPProgressView.m; sourceTree = "<group>"; };
 		341FECB91EF01C2600CA37A9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		341FECBA1EF01C2600CA37A9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		341FECBB1EF01C2600CA37A9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -220,9 +229,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		341B2CA81EFF7FC100FA387E /* CPMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				341B2CA91EFF7FE100FA387E /* CPMenuItem.h */,
+				341B2CAA1EFF7FE100FA387E /* CPMenuItem.m */,
+				341B2CAB1EFF7FE100FA387E /* CPMenuView.h */,
+				341B2CAC1EFF7FE100FA387E /* CPMenuView.m */,
+				341B2CAD1EFF7FE100FA387E /* CPProgressView.h */,
+				341B2CAE1EFF7FE100FA387E /* CPProgressView.m */,
+			);
+			path = CPMenuView;
+			sourceTree = "<group>";
+		};
 		341FECB61EF01C2600CA37A9 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				341B2CA81EFF7FC100FA387E /* CPMenuView */,
 				342384B71EF94E120074DAE1 /* AlertCenter */,
 				1A091C171EF7D57800B1A028 /* NetworkDataCenter */,
 				341FED101EF17D3F00CA37A9 /* CPObject */,
@@ -689,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341FED0F1EF17BA300CA37A9 /* UIViewController+Nav.m in Sources */,
+				341B2CB01EFF7FE100FA387E /* CPMenuView.m in Sources */,
 				342384BA1EF94E3E0074DAE1 /* AlertCenter.m in Sources */,
 				341FED001EF17BA300CA37A9 /* NSData+extend.m in Sources */,
 				341FED071EF17BA300CA37A9 /* UIDevice+extend.m in Sources */,
@@ -709,6 +733,7 @@
 				341FED0C1EF17BA300CA37A9 /* UIView+extend.m in Sources */,
 				1A8FEB021EF8F84A009E4A39 /* LotteryHistoryCell.m in Sources */,
 				342384BD1EF975370074DAE1 /* LotteryDetailViewController.m in Sources */,
+				341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */,
 				1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */,
 				341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */,
 				341FED0E1EF17BA300CA37A9 /* UIViewController+HUD.m in Sources */,
@@ -724,6 +749,7 @@
 				341FED031EF17BA300CA37A9 /* NSObject+extend.m in Sources */,
 				1A091C1A1EF7D59600B1A028 /* CPHttpRequest.m in Sources */,
 				341FED091EF17BA300CA37A9 /* UIImage+extend.m in Sources */,
+				341B2CB11EFF7FE100FA387E /* CPProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -101,7 +101,6 @@
         self.topView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.topView];
         
-        
         NSMutableArray *periodsArray = [[NSMutableArray alloc]init];
         for (NSDictionary *dic in dataArray)
         {
