@@ -28,6 +28,8 @@
 
 @property (nonatomic, assign) LotteryTrendStyle style;
 
+@property (nonatomic, assign) NSInteger lastIndex;
+
 - (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type style:(LotteryTrendStyle)style numberArray:(NSArray *)numberArray;
 
 @end
@@ -255,6 +257,7 @@
         //设置背景颜色
         index % 2 == 0 ? CGContextSetRGBFillColor(context, 0.95, 0.93, 0.87, 1) : CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1);
         CGContextFillRect(context, CGRectMake(0,index * kItemWidth,listCount*kItemWidth,kItemWidth));
+        
         NSInteger numbIndex = 0;
         NSInteger selectIndex = 0;
         //绘制文字以及图片
@@ -273,6 +276,22 @@
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
             }else
             {
+                // 绘制连线
+                if (self.style == LotteryTrendStyleSsqBlue)
+                {
+                    CGContextSetStrokeColorWithColor(context, COLOR_BLUE.CGColor);
+                    CGContextSetLineWidth(context, 1.0);
+                    if (index > 0)
+                    {
+                        CGContextMoveToPoint(context, numbIndex*kItemWidth+12, index*kItemWidth+12);
+                        
+                        CGContextAddLineToPoint(context, self.lastIndex*kItemWidth+12, (index-1)*kItemWidth+12);
+                        
+                        CGContextStrokePath(context);
+                    }
+                    self.lastIndex = numbIndex;
+                }
+                
                 if (self.style == LotteryTrendStyleSsqBlue)
                 {
                     [COLOR_BLUE set];
@@ -287,6 +306,7 @@
                 //+4是因为文字的上下间距没有居中
                 [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,4 + index * kItemWidth,kItemWidth,kItemWidth)
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName : para}];
+                
                 if (selectIndex < awardArray.count - 1)
                 {
                     selectIndex++;

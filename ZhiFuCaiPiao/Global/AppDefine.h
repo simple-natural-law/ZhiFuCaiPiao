@@ -12,7 +12,7 @@
 // 颜色
 #define COLOR_BACKGROUND  [UIColor colorWithHexString:@"#f4f4f4"] //背景色
 #define COLOR_RED         [UIColor colorWithRed:226/255.0 green:17/255.0 blue:0 alpha:1.0f]
-#define COLOR_BLUE        [UIColor colorWithHexString:@"#2891F0"]
+#define COLOR_BLUE        [UIColor colorWithHexString:@"#4a89dc"]
 
 // 常量
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
