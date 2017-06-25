@@ -26,7 +26,9 @@
 
 @property (nonatomic, strong) NSArray *numberArray;
 
-- (instancetype)initWithFrame:(CGRect)frame numberArray:(NSArray *)numberArray;
+@property (nonatomic, assign) LotteryTrendStyle style;
+
+- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type style:(LotteryTrendStyle)style numberArray:(NSArray *)numberArray;
 
 @end
 
@@ -69,7 +71,6 @@
 @property (nonatomic, strong) BottomNumberView *bottomView;
 @property (nonatomic, strong) NumberView *numView;
 @property (nonatomic, assign) LotteryTrendType type;
-@property (nonatomic, assign) LotteryTrendStyle style;
 
 @end
 
@@ -83,7 +84,6 @@
     {
         self.backgroundColor = [UIColor whiteColor];
         self.type      = type;
-        self.style     = style;
         
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
         self.scrollView.delegate = self;
@@ -95,7 +95,7 @@
         [self addSubview:self.scrollView];
         
         //内容
-        self.numView = [[NumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height) numberArray:dataArray];
+        self.numView = [[NumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height) type:type style:style numberArray:dataArray];
         [self.scrollView addSubview:self.numView];
 
         self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth) number:numberCount];
@@ -142,6 +142,7 @@
     
     self.numView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height);
     self.numView.numberArray = dataArray;
+    self.numView.style = style;
     [self.numView setNeedsDisplay];
     
     self.topView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth);
@@ -165,7 +166,6 @@
     [self.bottomView setNeedsDisplay];
     
     self.type      = type;
-    self.style     = style;
 }
 
 
@@ -234,11 +234,12 @@
 #pragma mark - NumberView
 @implementation NumberView
 
-- (instancetype)initWithFrame:(CGRect)frame numberArray:(NSArray *)numberArray
+- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type style:(LotteryTrendStyle)style numberArray:(NSArray *)numberArray
 {
     if (self = [super initWithFrame:frame])
     {
         self.numberArray = numberArray;
+        self.style = style;
     }
     return self;
 }
@@ -272,7 +273,13 @@
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
             }else
             {
-                [[UIColor colorWithRed:0.886 green:0.067 blue:0.0 alpha:1.000] set];
+                if (self.style == LotteryTrendStyleSsqBlue)
+                {
+                    [COLOR_BLUE set];
+                }else
+                {
+                    [[UIColor colorWithRed:0.886 green:0.067 blue:0.0 alpha:1.000] set];
+                }
                 CGContextFillEllipseInRect(context, CGRectMake(numbIndex * kItemWidth + 1,index * kItemWidth + 1, kItemWidth-2, kItemWidth-2));
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
                 para.alignment = NSTextAlignmentCenter;

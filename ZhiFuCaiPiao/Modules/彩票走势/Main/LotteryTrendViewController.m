@@ -36,7 +36,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
     
-    self.menuView = [[CPMenuView alloc] initWithFrame:CGRectMake(0, 80, kScreenWidth, 30)];
+    self.menuView = [[CPMenuView alloc] initWithFrame:CGRectMake(0, 80, kScreenWidth, 35)];
     self.menuView.delegate   = self;
     self.menuView.dataSource = self;
     self.menuView.lineColor  = COLOR_RED;
