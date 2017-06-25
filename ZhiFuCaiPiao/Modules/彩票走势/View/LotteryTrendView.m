@@ -9,8 +9,11 @@
 #import "LotteryTrendView.h"
 
 
-#define kItemWidth 24
-#define kLeftViewWidth 60
+//#define kItemWidth 24
+//#define kLeftViewWidth 60
+
+static CGFloat kItemWidth = 24.0;
+static const CGFloat kLeftViewWidth = 60.0;
 
 //期数
 @interface NumberPeriodsView : UIView
@@ -89,12 +92,21 @@
         self.backgroundColor = backGroundColor;
         self.type      = type;
         
+        NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
+        
+        CGFloat contentWidth = numberCount*kItemWidth;
+        
+        if (contentWidth < frame.size.width - kLeftViewWidth)
+        {
+            contentWidth = frame.size.width - kLeftViewWidth;
+            kItemWidth   = contentWidth/(CGFloat)numberCount;
+        }
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
         self.scrollView.delegate = self;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.backgroundColor = backGroundColor;
-        NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
-        CGSize contentSize    = CGSizeMake(numberCount*kItemWidth, kItemWidth*dataArray.count);
+        
+        CGSize contentSize    = CGSizeMake(contentWidth, kItemWidth*dataArray.count);
         self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
         [self addSubview:self.scrollView];
         
@@ -145,7 +157,15 @@
     [self.layer addAnimation:transition forKey:@"transition"];
     
     NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
-    CGSize contentSize    = CGSizeMake(numberCount*kItemWidth, kItemWidth*dataArray.count);
+    
+    CGFloat contentWidth = numberCount*kItemWidth;
+    
+    if (contentWidth < self.frame.size.width - kLeftViewWidth)
+    {
+        contentWidth = self.frame.size.width - kLeftViewWidth;
+        kItemWidth   = contentWidth/(CGFloat)numberCount;
+    }
+    CGSize contentSize    = CGSizeMake(contentWidth, kItemWidth*dataArray.count);
     self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
     self.scrollView.contentOffset = CGPointMake(0, 0);
     [self.scrollView setNeedsDisplay];
@@ -232,7 +252,7 @@
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
         para.alignment = NSTextAlignmentCenter;
         //+4是因为文字的上下间距没有居中
-        [[NSString stringWithFormat:@"%@期",periods] drawInRect:CGRectMake(0,4 + index * kItemWidth,kLeftViewWidth,kItemWidth)
+        [[NSString stringWithFormat:@"%@期",periods] drawInRect:CGRectMake(0,kItemWidth/2.0-8 + index * kItemWidth,kLeftViewWidth,kItemWidth)
                                                 withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
         index++;
     }
@@ -305,7 +325,7 @@
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
                 para.alignment = NSTextAlignmentCenter;
                 //+4是因为文字的上下间距没有居中
-                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,4 + index * kItemWidth,kItemWidth,kItemWidth)
+                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,kItemWidth/2.0-8 + index * kItemWidth,kItemWidth,kItemWidth)
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName : para}];
             }else
             {
@@ -337,7 +357,7 @@
                 para.alignment = NSTextAlignmentCenter;
                 NSString *numStr = [NSString stringWithFormat:@"%02ld",[awardArray[selectIndex] integerValue]];
                 //+4是因为文字的上下间距没有居中
-                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,4 + index * kItemWidth,kItemWidth,kItemWidth)
+                [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,kItemWidth/2.0-8 + index * kItemWidth,kItemWidth,kItemWidth)
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName : para}];
                 
                 if (selectIndex < awardArray.count - 1)
@@ -389,7 +409,7 @@
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
         para.alignment = NSTextAlignmentCenter;
         //+4是因为文字的上下间距没有居中
-        [numStr drawInRect:CGRectMake((i-1) * kItemWidth,4,kItemWidth,kItemWidth)
+        [numStr drawInRect:CGRectMake((i-1) * kItemWidth,kItemWidth/2.0-8,kItemWidth,kItemWidth)
             withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
     }
     CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
@@ -433,7 +453,7 @@
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
         para.alignment = NSTextAlignmentCenter;
         //+4是因为文字的上下间距没有居中
-        [numStr drawInRect:CGRectMake((i-1) * kItemWidth,4,kItemWidth,kItemWidth)
+        [numStr drawInRect:CGRectMake((i-1) * kItemWidth,kItemWidth/2.0-8,kItemWidth,kItemWidth)
             withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1], NSParagraphStyleAttributeName : para}];
     }
     
@@ -476,7 +496,7 @@
         para.alignment = NSTextAlignmentCenter;
         //绘制下方文字
         //+4是因为文字的上下间距没有居中
-        [@"选  号" drawInRect:CGRectMake(0, 4, kLeftViewWidth, kItemWidth)
+        [@"选  号" drawInRect:CGRectMake(0, kItemWidth/2.0-8, kLeftViewWidth, kItemWidth)
              withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor blackColor], NSParagraphStyleAttributeName : para}];
         //绘制方法
         CGContextStrokePath(context);
