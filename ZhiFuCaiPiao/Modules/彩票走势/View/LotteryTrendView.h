@@ -10,13 +10,19 @@
 
 
 typedef NS_ENUM(NSInteger,LotteryTrendType) {
-    LotteryTrendTypeSsqRed  = 0,    // 双色球红球走势图
-    LotteryTrendTypeSsqBlue = 1,    // 双色球蓝球走势图
+    LotteryTrendTypeSsq  = 0,    // 双色球走势图
+};
+
+typedef NS_ENUM(NSInteger,LotteryTrendStyle) {
+    LotteryTrendStyleSsqRed  = 0,    // 双色球红球
+    LotteryTrendStyleSsqBlue = 1,    // 双色球蓝球
 };
 
 
 @interface LotteryTrendView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type dataArray:(NSArray *)dataArray;
+- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type style:(LotteryTrendStyle)style dataArray:(NSArray *)dataArray;
+
+- (void)displayWithType:(LotteryTrendType)type style:(LotteryTrendStyle)style dataArray:(NSArray *)dataArray;
 
 @end

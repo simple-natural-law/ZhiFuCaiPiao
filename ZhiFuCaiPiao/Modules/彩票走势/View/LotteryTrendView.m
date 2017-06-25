@@ -61,14 +61,15 @@
 
 
 // 全部内容的容器
-@interface LotteryTrendView ()<UIScrollViewDelegate>
+@interface LotteryTrendView ()<UIScrollViewDelegate,CAAnimationDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NumberPeriodsView *periodsView;
 @property (nonatomic, strong) TopNumberView *topView;
 @property (nonatomic, strong) BottomNumberView *bottomView;
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NumberView *numView;
 @property (nonatomic, assign) LotteryTrendType type;
+@property (nonatomic, assign) LotteryTrendStyle style;
 
 @end
 
@@ -76,13 +77,13 @@
 @implementation LotteryTrendView
 
 
-- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type dataArray:(NSArray *)dataArray
+- (instancetype)initWithFrame:(CGRect)frame type:(LotteryTrendType)type style:(LotteryTrendStyle)style dataArray:(NSArray *)dataArray
 {
     if (self = [super initWithFrame:frame])
     {
         self.backgroundColor = [UIColor whiteColor];
         self.type      = type;
-        self.dataArray = dataArray;
+        self.style     = style;
         
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
         self.scrollView.delegate = self;
@@ -94,8 +95,8 @@
         [self addSubview:self.scrollView];
         
         //内容
-        NumberView *numView = [[NumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height) numberArray:dataArray];
-        [self.scrollView addSubview:numView];
+        self.numView = [[NumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height) numberArray:dataArray];
+        [self.scrollView addSubview:self.numView];
 
         self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth) number:numberCount];
         self.topView.backgroundColor = [UIColor whiteColor];
@@ -123,6 +124,50 @@
     }
     return self;
 }
+
+- (void)displayWithType:(LotteryTrendType)type style:(LotteryTrendStyle)style dataArray:(NSArray *)dataArray
+{
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.2;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type     = kCATransitionFade;
+    transition.delegate = self;
+    [self.layer addAnimation:transition forKey:@"transition"];
+    
+    NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
+    CGSize contentSize    = CGSizeMake(numberCount*kItemWidth, kItemWidth*dataArray.count);
+    self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
+    self.scrollView.contentOffset = CGPointMake(0, 0);
+    [self.scrollView setNeedsDisplay];
+    
+    self.numView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height);
+    self.numView.numberArray = dataArray;
+    [self.numView setNeedsDisplay];
+    
+    self.topView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth);
+    self.topView.number = numberCount;
+    [self.topView setNeedsDisplay];
+    
+    if (self.type != type)
+    {
+        NSMutableArray *periodsArray = [[NSMutableArray alloc]init];
+        for (NSDictionary *dic in dataArray)
+        {
+            [periodsArray addObject:[dic[@"period"] substringFromIndex:4]];
+        }
+        self.periodsView.frame = CGRectMake(0, 0, kLeftViewWidth, contentSize.height);
+        self.periodsView.periodsArray = periodsArray;
+        [self.periodsView setNeedsDisplay];
+    }
+    
+    self.bottomView.frame = CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth);
+    self.bottomView.number = numberCount;
+    [self.bottomView setNeedsDisplay];
+    
+    self.type      = type;
+    self.style     = style;
+}
+
 
 //用 bounces 属性
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -235,7 +280,7 @@
                 //+4是因为文字的上下间距没有居中
                 [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,4 + index * kItemWidth,kItemWidth,kItemWidth)
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName : para}];
-                if (selectIndex < 6)
+                if (selectIndex < awardArray.count - 1)
                 {
                     selectIndex++;
                 }

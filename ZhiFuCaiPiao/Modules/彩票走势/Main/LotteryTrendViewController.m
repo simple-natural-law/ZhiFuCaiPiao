@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) CPMenuView *menuView;
 
+@property (nonatomic, strong) NSArray *ssqDataArr;
+
 @end
 
 @implementation LotteryTrendViewController
@@ -57,20 +59,24 @@
 {
     [self hideHUD];
     
-    NSArray *resultArray = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
+    self.ssqDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
     
-    NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:30];
+    NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
     
-    for (NSDictionary *dic in resultArray)
+    for (NSDictionary *dic in self.ssqDataArr)
     {
         @autoreleasepool {
             NSMutableDictionary *dataDic = [dic mutableCopy];
             NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 33)];
             [dataDic setObject:missNumArr forKey:@"missNumber"];
+            
+            NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 6)];
+            [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+            
             [dataArray addObject:dataDic];
         }
     }
-    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeSsqRed dataArray:dataArray];
+    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeSsq style:LotteryTrendStyleSsqRed dataArray:dataArray];
     [self.view addSubview:self.trendView];
 }
 
@@ -83,7 +89,44 @@
 #pragma mark- GWCMenuViewDelegate
 - (void)menuView:(CPMenuView *)menuView didSelectIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex
 {
-    
+    if (index == 0)
+    {
+        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
+        
+        for (NSDictionary *dic in self.ssqDataArr)
+        {
+            @autoreleasepool {
+                NSMutableDictionary *dataDic = [dic mutableCopy];
+                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 33)];
+                [dataDic setObject:missNumArr forKey:@"missNumber"];
+                
+                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 6)];
+                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                
+                [dataArray addObject:dataDic];
+            }
+        }
+        
+        [self.trendView displayWithType:LotteryTrendTypeSsq style:LotteryTrendStyleSsqRed dataArray:dataArray];
+    }else
+    {
+        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
+        
+        for (NSDictionary *dic in self.ssqDataArr)
+        {
+            @autoreleasepool {
+                NSMutableDictionary *dataDic = [dic mutableCopy];
+                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(33, 16)];
+                [dataDic setObject:missNumArr forKey:@"missNumber"];
+                
+                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(6, 1)];
+                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                [dataArray addObject:dataDic];
+            }
+        }
+        
+        [self.trendView displayWithType:LotteryTrendTypeSsq style:LotteryTrendStyleSsqBlue dataArray:dataArray];
+    }
 }
 
 - (CGFloat)itemsMarginOfMenuView:(CPMenuView *)menuView
