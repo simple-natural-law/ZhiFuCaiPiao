@@ -84,13 +84,15 @@
 {
     if (self = [super initWithFrame:frame])
     {
-        self.backgroundColor = [UIColor whiteColor];
+        UIColor *backGroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.87 alpha:1.0];
+        
+        self.backgroundColor = backGroundColor;
         self.type      = type;
         
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
         self.scrollView.delegate = self;
         self.scrollView.showsHorizontalScrollIndicator = NO;
-        self.scrollView.backgroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.87 alpha:1.0];
+        self.scrollView.backgroundColor = backGroundColor;
         NSInteger numberCount = [[[dataArray firstObject] objectForKey:@"missNumber"] count];
         CGSize contentSize    = CGSizeMake(numberCount*kItemWidth, kItemWidth*dataArray.count);
         self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
@@ -101,27 +103,33 @@
         [self.scrollView addSubview:self.numView];
 
         self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth) number:numberCount];
-        self.topView.backgroundColor = [UIColor whiteColor];
+        self.topView.backgroundColor = backGroundColor;
         [self addSubview:self.topView];
         
         NSMutableArray *periodsArray = [[NSMutableArray alloc]init];
         for (NSDictionary *dic in dataArray)
         {
-            [periodsArray addObject:[dic[@"period"] substringFromIndex:4]];
+            if (type == LotteryTrendTypeSsq)
+            {
+                [periodsArray addObject:[dic[@"period"] substringFromIndex:4]];
+            }else
+            {
+                [periodsArray addObject:dic[@"period"]];
+            }
         }
         self.periodsView = [[NumberPeriodsView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, contentSize.height) periodsArray:periodsArray];
         self.periodsView.backgroundColor = [UIColor whiteColor];
         [self.scrollView addSubview:self.periodsView];
         
         self.bottomView  = [[BottomNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth) number:numberCount];
-        self.bottomView.backgroundColor = [UIColor whiteColor];
+        self.bottomView.backgroundColor = backGroundColor;
         [self addSubview:self.bottomView];
         
         TopBottomView *top = [[TopBottomView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, kItemWidth) HiddenWrods:YES];
-        top.backgroundColor = [UIColor whiteColor];
+        top.backgroundColor = backGroundColor;
         [self addSubview:top];
         TopBottomView *bottom = [[TopBottomView alloc] initWithFrame:CGRectMake(0, frame.size.height-kItemWidth, kLeftViewWidth, kItemWidth) HiddenWrods:NO];
-        bottom.backgroundColor = [UIColor whiteColor];
+        bottom.backgroundColor = backGroundColor;
         [self addSubview:bottom];
     }
     return self;
@@ -156,7 +164,13 @@
         NSMutableArray *periodsArray = [[NSMutableArray alloc]init];
         for (NSDictionary *dic in dataArray)
         {
-            [periodsArray addObject:[dic[@"period"] substringFromIndex:4]];
+            if (type == LotteryTrendTypeSsq)
+            {
+                [periodsArray addObject:[dic[@"period"] substringFromIndex:4]];
+            }else
+            {
+                [periodsArray addObject:dic[@"period"]];
+            }
         }
         self.periodsView.frame = CGRectMake(0, 0, kLeftViewWidth, contentSize.height);
         self.periodsView.periodsArray = periodsArray;
@@ -292,7 +306,7 @@
                     self.lastIndex = numbIndex;
                 }
                 
-                if (self.style == LotteryTrendStyleSsqBlue)
+                if (self.style == LotteryTrendStyleSsqBlue || self.style == LotteryTrendStyleDltBack)
                 {
                     [COLOR_BLUE set];
                 }else

@@ -11,11 +11,16 @@
 
 typedef NS_ENUM(NSInteger,LotteryTrendType) {
     LotteryTrendTypeSsq  = 0,    // 双色球走势图
+    LotteryTrendTypeDlt  = 1,    // 大乐透走势图
+    LotteryTrendTypeQlc  = 2,    // 七乐彩走势图
 };
 
 typedef NS_ENUM(NSInteger,LotteryTrendStyle) {
-    LotteryTrendStyleSsqRed  = 0,    // 双色球红球
-    LotteryTrendStyleSsqBlue = 1,    // 双色球蓝球
+    LotteryTrendStyleSsqRed     = 0,    // 双色球红球
+    LotteryTrendStyleSsqBlue    = 1,    // 双色球蓝球
+    LotteryTrendStyleDltInFront = 2,    // 大乐透前区走势
+    LotteryTrendStyleDltBack    = 3,    // 大乐透后区走势
+    LotteryTrendStyleQlc        = 4,    // 七乐彩走势
 };
 
 

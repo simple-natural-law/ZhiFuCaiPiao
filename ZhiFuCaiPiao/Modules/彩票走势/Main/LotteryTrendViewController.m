@@ -23,8 +23,10 @@
 
 @property (nonatomic, strong) NSArray *ssqDataArr;
 
+@property (nonatomic, strong) NSArray *dltDataArr;
 
 @end
+
 
 @implementation LotteryTrendViewController
 
@@ -39,7 +41,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
     
-    self.type = LotteryTrendTypeSsq;
+    self.type = LotteryTrendTypeDlt;
     
     self.menuView = [[CPMenuView alloc] initWithFrame:CGRectMake(0, 80, kScreenWidth, 35)];
     self.menuView.delegate   = self;
@@ -53,8 +55,8 @@
     line.backgroundColor = [UIColor clearColor];
     [self.view addSubview:line];
     
-    [self showHUD];
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"ssq"} authorization:nil target:self callBack:@selector(ssqNumberTrendCallBack:)];
+//    [self requestSsqData];
+    [self requestDltData];
 }
 
 
@@ -64,6 +66,26 @@
 }
 
 
+- (void)requestSsqData
+{
+    [self showHUD];
+    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"ssq"} authorization:nil target:self callBack:@selector(ssqNumberTrendCallBack:)];
+}
+
+- (void)requestDltData
+{
+    [self showHUD];
+    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"dlt"} authorization:nil target:self callBack:@selector(dltNumberTrendCallBack:)];
+}
+
+- (void)requestQlcData
+{
+    [self showHUD];
+    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"qlc"} authorization:nil target:self callBack:@selector(qlcNumberTrendCallBack:)];
+}
+
+
+// 双色球
 - (void)ssqNumberTrendCallBack:(NSDictionary *)result
 {
     [self hideHUD];
@@ -87,6 +109,39 @@
     }
     self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeSsq style:LotteryTrendStyleSsqRed dataArray:dataArray];
     [self.view addSubview:self.trendView];
+}
+
+// 大乐透
+- (void)dltNumberTrendCallBack:(NSDictionary *)result
+{
+    [self hideHUD];
+    
+    self.dltDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
+    
+    NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
+    
+    for (NSDictionary *dic in self.dltDataArr)
+    {
+        @autoreleasepool {
+            NSMutableDictionary *dataDic = [dic mutableCopy];
+            NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 35)];
+            [dataDic setObject:missNumArr forKey:@"missNumber"];
+            
+            NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 5)];
+            [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+            
+            [dataArray addObject:dataDic];
+        }
+    }
+//    [self.trendView displayWithType:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
+    
+    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
+    [self.view addSubview:self.trendView];
+}
+
+- (void)qlcNumberTrendCallBack:(NSDictionary *)result
+{
+    [self hideHUD];
 }
 
 
@@ -138,6 +193,45 @@
             
             [self.trendView displayWithType:LotteryTrendTypeSsq style:LotteryTrendStyleSsqBlue dataArray:dataArray];
         }
+    }else if (self.type == LotteryTrendTypeDlt)
+    {
+        if (index == 0)
+        {
+            NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
+            
+            for (NSDictionary *dic in self.dltDataArr)
+            {
+                @autoreleasepool {
+                    NSMutableDictionary *dataDic = [dic mutableCopy];
+                    NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 35)];
+                    [dataDic setObject:missNumArr forKey:@"missNumber"];
+                    
+                    NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 5)];
+                    [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                    
+                    [dataArray addObject:dataDic];
+                }
+            }
+            
+            [self.trendView displayWithType:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
+        }else
+        {
+            NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
+            
+            for (NSDictionary *dic in self.dltDataArr)
+            {
+                @autoreleasepool {
+                    NSMutableDictionary *dataDic = [dic mutableCopy];
+                    NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(35, 12)];
+                    [dataDic setObject:missNumArr forKey:@"missNumber"];
+                    
+                    NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(5, 2)];
+                    [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                    [dataArray addObject:dataDic];
+                }
+            }
+            [self.trendView displayWithType:LotteryTrendTypeDlt style:LotteryTrendStyleDltBack dataArray:dataArray];
+        }
     }
 }
 
@@ -148,6 +242,10 @@
 
 - (CGFloat)menuView:(CPMenuView *)menuView widthForItemAtIndex:(NSInteger)index
 {
+    if (self.type == LotteryTrendTypeQlc)
+    {
+        return 100.0;
+    }
     return 65.0;
 }
 
@@ -173,6 +271,12 @@
     if (self.type == LotteryTrendTypeSsq)
     {
         return 2;
+    }else if (self.type == LotteryTrendTypeDlt)
+    {
+        return 2;
+    }else if (self.type == LotteryTrendTypeQlc)
+    {
+        return 1;
     }
     return 0;
 }
@@ -193,6 +297,23 @@
                 return @"";
                 break;
         }
+    }else if (self.type == LotteryTrendTypeDlt)
+    {
+        switch (index)
+        {
+            case 0:
+                return @"前区走势";
+                break;
+            case 1:
+                return @"后区走势";
+                break;
+            default:
+                return @"";
+                break;
+        }
+    }else if (self.type == LotteryTrendTypeQlc)
+    {
+        return @"开奖号码分布";
     }
     return @"";
 }
