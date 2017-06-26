@@ -11,11 +11,14 @@
 #import "LotteryTrendView.h"
 #import "CPMenuView.h"
 #import "LineView.h"
+#import "LotteryTrendTypeSelectView.h"
 
 
 @interface LotteryTrendViewController ()<CPMenuViewDelegate,CPMenuViewDataSource>
 
 @property (nonatomic, strong) LotteryTrendView *trendView;
+
+@property (nonatomic, strong) LotteryTrendTypeSelectView *typeView;
 
 @property (nonatomic, strong) CPMenuView *menuView;
 
@@ -191,7 +194,19 @@
 
 - (void)selectedLotteryType
 {
-    
+    if (self.typeView == nil)
+    {
+       self.typeView = [LotteryTrendTypeSelectView showInView:self.view];
+    }else
+    {
+        if (self.typeView.isShow)
+        {
+            [self.typeView hide];
+        }else
+        {
+            [self.typeView show];
+        }
+    }
 }
 
 #pragma mark- GWCMenuViewDelegate
