@@ -42,7 +42,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
     
-    self.type = LotteryTrendTypeQxc;
+    self.type = LotteryTrendTypeSsq;
     
     self.menuView = [[CPMenuView alloc] initWithFrame:CGRectMake(0, 80, kScreenWidth, 35)];
     self.menuView.delegate   = self;
@@ -56,8 +56,7 @@
     line.backgroundColor = [UIColor clearColor];
     [self.view addSubview:line];
     
-//    [self requestSsqData];
-    [self requestQxcData];
+    [self requestSsqData];
 }
 
 
@@ -187,10 +186,7 @@
         }
     }
 
-//    [self.trendView displayWithType:LotteryTrendTypeQxc style:LotteryTrendStyleQxcOne dataArray:dataArray];
-    
-    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeQxc style:LotteryTrendStyleQxcOne dataArray:dataArray];
-    [self.view addSubview:self.trendView];
+    [self.trendView displayWithType:LotteryTrendTypeQxc style:LotteryTrendStyleQxcOne dataArray:dataArray];
 }
 
 - (void)selectedLotteryType

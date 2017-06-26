@@ -29,6 +29,8 @@ static const CGFloat kLeftViewWidth = 60.0;
 
 @property (nonatomic, strong) NSArray *numberArray;
 
+@property (nonatomic, assign) LotteryTrendType type;
+
 @property (nonatomic, assign) LotteryTrendStyle style;
 
 @property (nonatomic, assign) NSInteger lastIndex;
@@ -40,18 +42,22 @@ static const CGFloat kLeftViewWidth = 60.0;
 //上层数字
 @interface TopNumberView : UIView
 
+@property (nonatomic, assign) LotteryTrendType type;
+
 @property (nonatomic, assign) NSInteger number;
 
-- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number;
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number type:(LotteryTrendType)type;
 
 @end
 
 //下面能选择的数字
 @interface BottomNumberView : UIView
 
+@property (nonatomic, assign) LotteryTrendType type;
+
 @property (nonatomic, assign) NSInteger number;
 
-- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number;
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number type:(LotteryTrendType)type;
 
 @end
 
@@ -114,7 +120,7 @@ static const CGFloat kLeftViewWidth = 60.0;
         self.numView = [[NumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height) type:type style:style numberArray:dataArray];
         [self.scrollView addSubview:self.numView];
 
-        self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth) number:numberCount];
+        self.topView     = [[TopNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth) number:numberCount type:type];
         self.topView.backgroundColor = backGroundColor;
         [self addSubview:self.topView];
         
@@ -133,7 +139,7 @@ static const CGFloat kLeftViewWidth = 60.0;
         self.periodsView.backgroundColor = [UIColor whiteColor];
         [self.scrollView addSubview:self.periodsView];
         
-        self.bottomView  = [[BottomNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth) number:numberCount];
+        self.bottomView  = [[BottomNumberView alloc] initWithFrame:CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth) number:numberCount type:type];
         self.bottomView.backgroundColor = backGroundColor;
         [self addSubview:self.bottomView];
         
@@ -173,10 +179,12 @@ static const CGFloat kLeftViewWidth = 60.0;
     self.numView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, contentSize.height);
     self.numView.numberArray = dataArray;
     self.numView.style = style;
+    self.numView.type  = type;
     [self.numView setNeedsDisplay];
     
     self.topView.frame = CGRectMake(kLeftViewWidth, 0, contentSize.width, kItemWidth);
     self.topView.number = numberCount;
+    self.topView.type   = type;
     [self.topView setNeedsDisplay];
     
     if (self.type != type)
@@ -276,6 +284,7 @@ static const CGFloat kLeftViewWidth = 60.0;
     {
         self.numberArray = numberArray;
         self.style = style;
+        self.type  = type;
     }
     return self;
 }
@@ -300,17 +309,25 @@ static const CGFloat kLeftViewWidth = 60.0;
         
         for (int i = 0; i < numberArr.count; i++)
         {
-            if (!((numbIndex+1) == [awardArray[selectIndex] integerValue]))
+            NSInteger num = 0;
+            if (self.type == LotteryTrendTypeQxc)
+            {
+                num = numbIndex;
+            }else
+            {
+                num = numbIndex + 1;
+            }
+            if (!(num == [awardArray[selectIndex] integerValue]))
             {
                 NSString *numStr = nil;
                 UIColor  *textColor = nil;
                 if (self.style == LotteryTrendStyleQlc)
                 {
-                    if ((numbIndex + 1) == [[awardArray lastObject] integerValue])
+                    if (num == [[awardArray lastObject] integerValue])
                     {
                         [COLOR_BLUE set];
                         CGContextFillEllipseInRect(context, CGRectMake(numbIndex * kItemWidth + 1,index * kItemWidth + 1, kItemWidth-2, kItemWidth-2));
-                        numStr = [NSString stringWithFormat:@"%02ld",numbIndex+1];
+                        numStr = [NSString stringWithFormat:@"%02ld",num];
                         textColor = [UIColor whiteColor];
                     }else
                     {
@@ -319,7 +336,13 @@ static const CGFloat kLeftViewWidth = 60.0;
                     }
                 }else
                 {
-                    numStr = [NSString stringWithFormat:@"%02ld",[numberArr[i] integerValue]];
+                    if (self.type == LotteryTrendTypeQxc)
+                    {
+                        numStr = [NSString stringWithFormat:@"%ld",[numberArr[i] integerValue]];
+                    }else
+                    {
+                        numStr = [NSString stringWithFormat:@"%02ld",[numberArr[i] integerValue]];
+                    }
                     textColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
                 }
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
@@ -329,33 +352,36 @@ static const CGFloat kLeftViewWidth = 60.0;
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName : para}];
             }else
             {
+                UIColor *color = [self colorWithStyle:self.style];
                 // 绘制连线
-                if (self.style == LotteryTrendStyleSsqBlue)
+                if (self.style == LotteryTrendStyleSsqBlue || self.type == LotteryTrendTypeQxc)
                 {
-                    CGContextSetStrokeColorWithColor(context, COLOR_BLUE.CGColor);
+                    CGContextSetStrokeColorWithColor(context, color.CGColor);
                     CGContextSetLineWidth(context, 1.0);
                     if (index > 0)
                     {
-                        CGContextMoveToPoint(context, numbIndex*kItemWidth+12, index*kItemWidth+12);
+                        CGContextMoveToPoint(context, numbIndex*kItemWidth+kItemWidth/2.0, index*kItemWidth+kItemWidth/2.0);
                         
-                        CGContextAddLineToPoint(context, self.lastIndex*kItemWidth+12, (index-1)*kItemWidth+12);
+                        CGContextAddLineToPoint(context, self.lastIndex*kItemWidth+kItemWidth/2.0, (index-1)*kItemWidth+kItemWidth/2.0);
                         
                         CGContextStrokePath(context);
                     }
                     self.lastIndex = numbIndex;
                 }
                 
-                if (self.style == LotteryTrendStyleSsqBlue || self.style == LotteryTrendStyleDltBack)
-                {
-                    [COLOR_BLUE set];
-                }else
-                {
-                    [[UIColor colorWithRed:0.886 green:0.067 blue:0.0 alpha:1.000] set];
-                }
+                [color set];
+                
                 CGContextFillEllipseInRect(context, CGRectMake(numbIndex * kItemWidth + 1,index * kItemWidth + 1, kItemWidth-2, kItemWidth-2));
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
                 para.alignment = NSTextAlignmentCenter;
-                NSString *numStr = [NSString stringWithFormat:@"%02ld",[awardArray[selectIndex] integerValue]];
+                NSString *numStr = nil;
+                if (self.type == LotteryTrendTypeQxc)
+                {
+                    numStr = [NSString stringWithFormat:@"%ld",[awardArray[selectIndex] integerValue]];
+                }else
+                {
+                    numStr = [NSString stringWithFormat:@"%02ld",[awardArray[selectIndex] integerValue]];
+                }
                 //+4是因为文字的上下间距没有居中
                 [numStr drawInRect:CGRectMake(numbIndex * kItemWidth,kItemWidth/2.0-8 + index * kItemWidth,kItemWidth,kItemWidth)
                                withAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor], NSParagraphStyleAttributeName : para}];
@@ -379,15 +405,63 @@ static const CGFloat kLeftViewWidth = 60.0;
     CGContextStrokePath(context);
 }
 
+- (UIColor *)colorWithStyle:(LotteryTrendStyle)style
+{
+    switch (style)
+    {
+        case LotteryTrendStyleSsqRed:
+            return COLOR_RED;
+            break;
+        case LotteryTrendStyleSsqBlue:
+            return COLOR_BLUE;
+            break;
+        case LotteryTrendStyleDltInFront:
+            return COLOR_RED;
+            break;
+        case LotteryTrendStyleDltBack:
+            return COLOR_BLUE;
+            break;
+        case LotteryTrendStyleQlc:
+            return COLOR_RED;
+            break;
+        case LotteryTrendStyleQxcOne:
+            return COLOR_RED;
+            break;
+        case LotteryTrendStyleQxcTwo:
+            return COLOR_BLUE;
+            break;
+        case LotteryTrendStyleQxcThree:
+            return COLOR_YELLOW;
+            break;
+        case LotteryTrendStyleQxcFour:
+            return COLOR_BROWN;
+            break;
+        case LotteryTrendStyleQxcFive:
+            return COLOR_GREEN;
+            break;
+        case LotteryTrendStyleQxcSix:
+            return COLOR_DAILAN;
+            break;
+        case LotteryTrendStyleQxcSeven:
+            return COLOR_DAILV;
+            break;
+        default:
+            return COLOR_RED;
+            break;
+    }
+}
+
+
 @end
 #pragma mark - TopNumberView
 @implementation TopNumberView
 
-- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number type:(LotteryTrendType)type
 {
     if (self = [super initWithFrame:frame])
     {
         self.number = number;
+        self.type = type;
     }
     return self;
 }
@@ -404,8 +478,14 @@ static const CGFloat kLeftViewWidth = 60.0;
     //绘制数字
     for (NSInteger i = 1; i <= self.number ; i++)
     {
-        NSString *numStr = [NSString stringWithFormat:@"%02ld",i];
-        
+        NSString *numStr = nil;
+        if (self.type == LotteryTrendTypeQxc)
+        {
+            numStr = [NSString stringWithFormat:@"%ld",i-1];
+        }else
+        {
+            numStr = [NSString stringWithFormat:@"%02ld",i];
+        }
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
         para.alignment = NSTextAlignmentCenter;
         //+4是因为文字的上下间距没有居中
@@ -428,11 +508,12 @@ static const CGFloat kLeftViewWidth = 60.0;
 #pragma mark - BottomNumberView
 @implementation BottomNumberView
 
-- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number
+- (instancetype)initWithFrame:(CGRect)frame number:(NSInteger)number type:(LotteryTrendType)type
 {
     if (self = [super initWithFrame:frame])
     {
         self.number = number;
+        self.type   = type;
     }
     return self;
 }
@@ -448,7 +529,14 @@ static const CGFloat kLeftViewWidth = 60.0;
     //绘制数字
     for (NSInteger i = 1; i <= self.number ; i++)
     {
-        NSString *numStr = [NSString stringWithFormat:@"%02ld",i];
+        NSString *numStr = nil;
+        if (self.type == LotteryTrendTypeQxc)
+        {
+            numStr = [NSString stringWithFormat:@"%ld",i-1];
+        }else
+        {
+            numStr = [NSString stringWithFormat:@"%02ld",i];
+        }
         
         NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
         para.alignment = NSTextAlignmentCenter;
