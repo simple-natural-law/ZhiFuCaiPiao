@@ -82,7 +82,8 @@ static const CGFloat kLeftViewWidth = 60.0;
 @property (nonatomic, strong) BottomNumberView *bottomView;
 @property (nonatomic, strong) NumberView *numView;
 @property (nonatomic, assign) LotteryTrendType type;
-
+@property (nonatomic, strong) TopBottomView *top;
+@property (nonatomic, strong) TopBottomView *bottom;
 @end
 
 
@@ -107,7 +108,7 @@ static const CGFloat kLeftViewWidth = 60.0;
             contentWidth = frame.size.width - kLeftViewWidth;
             kItemWidth   = contentWidth/(CGFloat)numberCount;
         }
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, self.frame.size.height-2*kItemWidth)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kItemWidth, frame.size.width, frame.size.height-2*kItemWidth)];
         self.scrollView.delegate = self;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.backgroundColor = backGroundColor;
@@ -143,12 +144,12 @@ static const CGFloat kLeftViewWidth = 60.0;
         self.bottomView.backgroundColor = backGroundColor;
         [self addSubview:self.bottomView];
         
-        TopBottomView *top = [[TopBottomView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, kItemWidth) HiddenWrods:YES];
-        top.backgroundColor = backGroundColor;
-        [self addSubview:top];
-        TopBottomView *bottom = [[TopBottomView alloc] initWithFrame:CGRectMake(0, frame.size.height-kItemWidth, kLeftViewWidth, kItemWidth) HiddenWrods:NO];
-        bottom.backgroundColor = backGroundColor;
-        [self addSubview:bottom];
+        self.top = [[TopBottomView alloc] initWithFrame:CGRectMake(0, 0, kLeftViewWidth, kItemWidth) HiddenWrods:YES];
+        self.top.backgroundColor = backGroundColor;
+        [self addSubview:self.top];
+        self.bottom = [[TopBottomView alloc] initWithFrame:CGRectMake(0, frame.size.height-kItemWidth, kLeftViewWidth, kItemWidth) HiddenWrods:NO];
+        self.bottom.backgroundColor = backGroundColor;
+        [self addSubview:self.bottom];
     }
     return self;
 }
@@ -171,6 +172,7 @@ static const CGFloat kLeftViewWidth = 60.0;
         contentWidth = self.frame.size.width - kLeftViewWidth;
         kItemWidth   = contentWidth/(CGFloat)numberCount;
     }
+    self.scrollView.frame = CGRectMake(0, kItemWidth, self.frame.size.width, self.frame.size.height-2*kItemWidth);
     CGSize contentSize    = CGSizeMake(contentWidth, kItemWidth*dataArray.count);
     self.scrollView.contentSize = CGSizeMake(contentSize.width+kLeftViewWidth, contentSize.height);
     self.scrollView.contentOffset = CGPointMake(0, 0);
@@ -187,6 +189,7 @@ static const CGFloat kLeftViewWidth = 60.0;
     self.topView.type   = type;
     [self.topView setNeedsDisplay];
     
+    self.periodsView.frame = CGRectMake(0, 0, kLeftViewWidth, contentSize.height);
     if (self.type != type)
     {
         NSMutableArray *periodsArray = [[NSMutableArray alloc]init];
@@ -200,14 +203,18 @@ static const CGFloat kLeftViewWidth = 60.0;
                 [periodsArray addObject:dic[@"period"]];
             }
         }
-        self.periodsView.frame = CGRectMake(0, 0, kLeftViewWidth, contentSize.height);
         self.periodsView.periodsArray = periodsArray;
-        [self.periodsView setNeedsDisplay];
     }
+    [self.periodsView setNeedsDisplay];
     
     self.bottomView.frame = CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth);
     self.bottomView.number = numberCount;
     [self.bottomView setNeedsDisplay];
+    
+    self.top.frame = CGRectMake(0, 0, kLeftViewWidth, kItemWidth);
+    [self.top setNeedsDisplay];
+    self.bottom.frame = CGRectMake(0, self.frame.size.height-kItemWidth, kLeftViewWidth, kItemWidth);
+    [self.bottom setNeedsDisplay];
     
     self.type      = type;
 }
