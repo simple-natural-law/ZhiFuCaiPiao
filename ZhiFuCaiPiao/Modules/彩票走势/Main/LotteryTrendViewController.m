@@ -171,7 +171,6 @@
 {
     [self hideHUD];
     
-    
     self.qxcDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
     
     NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
@@ -182,7 +181,8 @@
             NSMutableDictionary *dataDic = [dic mutableCopy];
             NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"num1_general"];
             [dataDic setObject:missNumArr forKey:@"missNumber"];
-            
+            NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
+            [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
             [dataArray addObject:dataDic];
         }
     }

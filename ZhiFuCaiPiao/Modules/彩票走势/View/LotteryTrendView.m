@@ -501,6 +501,9 @@ static const CGFloat kLeftViewWidth = 60.0;
         //绘制方法
         CGContextStrokePath(context);
     }
+    CGContextSetRGBStrokeColor(context, 0.8, 0.8, 0.8, 1);//线条颜色
+    CGContextMoveToPoint(context, kLeftViewWidth - 1.0, 0);
+    CGContextAddLineToPoint(context, kLeftViewWidth - 1.0, kItemWidth);
     //绘制方法
     CGContextStrokePath(context);
 }
