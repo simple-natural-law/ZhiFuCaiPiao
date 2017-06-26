@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^DidSelectedBlock)(NSInteger index);
+
 @interface LotteryTrendTypeSelectView : UIView
 
 @property (nonatomic, assign) BOOL isShow;
 
-+ (instancetype)showInView:(UIView *)view;
++ (instancetype)showInView:(UIView *)view didSelectedBlock:(DidSelectedBlock)block;
 
 - (void)show;
 

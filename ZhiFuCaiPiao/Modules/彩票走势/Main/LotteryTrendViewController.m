@@ -196,7 +196,14 @@
 {
     if (self.typeView == nil)
     {
-       self.typeView = [LotteryTrendTypeSelectView showInView:self.view];
+        __weak LotteryTrendViewController *weakself = self;
+        
+       self.typeView = [LotteryTrendTypeSelectView showInView:self.view didSelectedBlock:^(NSInteger index) {
+           
+           __strong LotteryTrendViewController *strongSelf = weakself;
+           
+           strongSelf.type = index - 40000;
+       }];
     }else
     {
         if (self.typeView.isShow)
