@@ -754,10 +754,10 @@
             </objects>
             <point key="canvasLocation" x="-282" y="24"/>
         </scene>
-        <!--彩票资讯-->
+        <!--金融资讯-->
         <scene sceneID="K3s-vS-7sA">
             <objects>
-                <viewController storyboardIdentifier="NewsViewController" title="彩票资讯" id="Cm7-F6-Qi7" customClass="NewsViewController" sceneMemberID="viewController">
+                <viewController title="金融资讯" id="Cm7-F6-Qi7" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gRb-As-2t1"/>
                         <viewControllerLayoutGuide type="bottom" id="pnR-W4-hbX"/>
@@ -767,7 +767,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="彩票资讯" id="Cgf-Ul-0O2"/>
+                    <navigationItem key="navigationItem" title="金融资讯" id="Cgf-Ul-0O2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTO-dj-jEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
