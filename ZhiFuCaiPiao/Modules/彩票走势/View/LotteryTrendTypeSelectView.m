@@ -32,7 +32,7 @@
     
     CGFloat width = (kScreenWidth-90.0)/2.0;
     
-    UIColor *normalColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    UIColor *normalColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
     
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
     button1.frame     = CGRectMake(30.0, 20, width, 30);
@@ -113,7 +113,7 @@
     
     UIButton *selectedButton = [self.customView viewWithTag:self.selecedIndex];
     selectedButton.selected = NO;
-    selectedButton.layer.borderColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0].CGColor;
+    selectedButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
     
     self.selecedIndex = button.tag;
     

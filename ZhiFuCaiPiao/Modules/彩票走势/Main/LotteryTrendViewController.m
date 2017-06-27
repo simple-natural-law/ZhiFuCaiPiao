@@ -49,10 +49,15 @@
     
     [self addMenuView];
     
-    LineView *line = [[LineView alloc] initWithFrame:CGRectMake(0, 119, kScreenWidth, 1.0)];
-    line.lineColor = [UIColor colorWithHexString:@"#cccccc"];
-    line.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:line];
+    LineView *topLine = [[LineView alloc] initWithFrame:CGRectMake(0, 119, kScreenWidth, 1.0)];
+    topLine.lineColor = [UIColor colorWithHexString:@"#cccccc"];
+    topLine.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:topLine];
+    
+    LineView *bottomLine = [[LineView alloc] initWithFrame:CGRectMake(0, kScreenHeight-83, kScreenWidth, 1.0)];
+    bottomLine.lineColor = [UIColor colorWithHexString:@"#cccccc"];
+    bottomLine.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:bottomLine];
     
     [self requestSsqData];
 }
@@ -121,7 +126,7 @@
             [dataArray addObject:dataDic];
         }
     }
-    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-213) type:LotteryTrendTypeSsq style:LotteryTrendStyleSsqRed dataArray:dataArray];
+    self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-203) type:LotteryTrendTypeSsq style:LotteryTrendStyleSsqRed dataArray:dataArray];
     [self.view addSubview:self.trendView];
 }
 

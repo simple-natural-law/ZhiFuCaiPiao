@@ -207,8 +207,9 @@ static const CGFloat kLeftViewWidth = 60.0;
     }
     [self.periodsView setNeedsDisplay];
     
-    self.bottomView.frame = CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth);
+    self.bottomView.frame  = CGRectMake(kLeftViewWidth, self.frame.size.height-kItemWidth, contentSize.width, kItemWidth);
     self.bottomView.number = numberCount;
+    self.bottomView.type   = type;
     [self.bottomView setNeedsDisplay];
     
     self.top.frame = CGRectMake(0, 0, kLeftViewWidth, kItemWidth);
