@@ -726,6 +726,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qLK-c5-e2d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="SNI-hz-99L" kind="relationship" relationship="rootViewController" id="blx-Om-46v"/>
@@ -743,6 +744,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QTk-WK-BS6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Cm7-F6-Qi7" kind="relationship" relationship="rootViewController" id="FSp-pI-GFj"/>
