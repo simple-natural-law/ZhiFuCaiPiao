@@ -10,6 +10,8 @@
 
 @interface OtherViewController ()<UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) NSArray *dataArray;
+
 @end
 
 @implementation OtherViewController
@@ -23,13 +25,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataArray.count;
 }
 
 
@@ -37,9 +39,62 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OtherCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"常见问题";
+    cell.textLabel.text = self.dataArray[indexPath.row][@"title"];
     
     return cell;
+}
+
+
+- (NSArray *)dataArray
+{
+    if (!_dataArray)
+    {
+        _dataArray = @[ @{
+                            @"title" : @"如何投注双色球",
+                            @"html" : @"ssq_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注大乐透",
+                            @"html" : @"dlt_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注11选5",
+                            @"html" : @"y11_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注广东11选5",
+                            @"html" : @"gdy11_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注快3",
+                            @"html" : @"k3_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注3D",
+                            @"html" : @"x3d_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注时时彩",
+                            @"html" : @"ssc_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注七星彩",
+                            @"html" : @"qxc_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注七乐彩",
+                            @"html" : @"qlc_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注排列5",
+                            @"html" : @"pl5_howto.html"
+                            },
+                        @{
+                            @"title" : @"如何投注排列3",
+                            @"html" : @"pl3_howto.html"
+                            }];
+    }
+    return _dataArray;
 }
 
 
