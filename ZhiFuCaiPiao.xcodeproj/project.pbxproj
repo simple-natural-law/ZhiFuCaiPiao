@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A091C1A1EF7D59600B1A028 /* CPHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A091C191EF7D59600B1A028 /* CPHttpRequest.m */; };
 		1A091C201EF7D63A00B1A028 /* CPHttpTaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A091C1F1EF7D63A00B1A028 /* CPHttpTaskInfo.m */; };
+		1A31D8EF1F025BDD005386FF /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8EE1F025BDD005386FF /* OtherViewController.m */; };
 		1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */; };
 		1A8FEB021EF8F84A009E4A39 /* LotteryHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB011EF8F84A009E4A39 /* LotteryHistoryCell.m */; };
 		1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB041EF8F85F009E4A39 /* LotteryHistoryViewController.m */; };
@@ -79,6 +80,8 @@
 		1A091C191EF7D59600B1A028 /* CPHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHttpRequest.m; sourceTree = "<group>"; };
 		1A091C1E1EF7D63A00B1A028 /* CPHttpTaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHttpTaskInfo.h; sourceTree = "<group>"; };
 		1A091C1F1EF7D63A00B1A028 /* CPHttpTaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHttpTaskInfo.m; sourceTree = "<group>"; };
+		1A31D8ED1F025BDD005386FF /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		1A31D8EE1F025BDD005386FF /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		1A8FEAFD1EF8CB29009E4A39 /* LotteryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryInfoCell.h; sourceTree = "<group>"; };
 		1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryInfoCell.m; sourceTree = "<group>"; };
 		1A8FEB001EF8F84A009E4A39 /* LotteryHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryHistoryCell.h; sourceTree = "<group>"; };
@@ -217,6 +220,32 @@
 			path = NetworkDataCenter;
 			sourceTree = "<group>";
 		};
+		1A31D8EA1F025955005386FF /* 其他 */ = {
+			isa = PBXGroup;
+			children = (
+				1A31D8EB1F02596E005386FF /* Base */,
+				1A31D8EC1F02596E005386FF /* Main */,
+			);
+			name = "其他";
+			path = "更多";
+			sourceTree = "<group>";
+		};
+		1A31D8EB1F02596E005386FF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1A31D8EC1F02596E005386FF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1A31D8ED1F025BDD005386FF /* OtherViewController.h */,
+				1A31D8EE1F025BDD005386FF /* OtherViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		1AE7CA791EFCFE7C00D65276 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +333,7 @@
 			children = (
 				341FED2B1EF2D06900CA37A9 /* 彩票走势 */,
 				341FED2E1EF2D06900CA37A9 /* 开奖信息 */,
+				1A31D8EA1F025955005386FF /* 其他 */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -762,6 +792,7 @@
 				341FED011EF17BA300CA37A9 /* NSDate+extend.m in Sources */,
 				1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */,
 				1AE7CA7C1EFCFE7C00D65276 /* LotteryTrendView.m in Sources */,
+				1A31D8EF1F025BDD005386FF /* OtherViewController.m in Sources */,
 				341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */,
 				341FECD71EF0327600CA37A9 /* TabBarViewController.m in Sources */,
 				341FED061EF17BA300CA37A9 /* UIColor+extend.m in Sources */,
