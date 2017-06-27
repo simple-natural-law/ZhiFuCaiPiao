@@ -1,24 +1,30 @@
 //
-//  NewsViewController.m
+//  OtherDetailViewController.m
 //  ZhiFuCaiPiao
 //
-//  Created by 讯心科技 on 2017/6/27.
+//  Created by 张诗健 on 2017/6/27.
 //  Copyright © 2017年 张诗健. All rights reserved.
 //
 
-#import "NewsViewController.h"
+#import "OtherDetailViewController.h"
 
-@interface NewsViewController ()
+@interface OtherDetailViewController ()
 
 @end
 
-@implementation NewsViewController
+@implementation OtherDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self loadURL:[NSURL URLWithString:@"http://zxwap.caipiao.163.com"] param:nil];
+    self.isShowHUD = NO;
+    
+    self.title = self.param[@"title"];
+
+    NSURL *url = [[NSBundle mainBundle] URLForResource:self.param[@"html"] withExtension:nil];
+    
+    [self loadURL:url param:nil];
 }
 
 - (void)didReceiveMemoryWarning {

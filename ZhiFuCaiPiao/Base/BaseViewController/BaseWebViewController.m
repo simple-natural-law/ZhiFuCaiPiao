@@ -25,6 +25,7 @@
     
     self.canSelectContent = NO;
     self.showWebTitleToNavigationTitle = NO;
+    self.isShowHUD = YES;
 }
 
 
@@ -34,16 +35,11 @@
 }
 
 #pragma mark-
-- (void)loadWebView:(WKWebView *)webView URLString:(NSString *)URLString param:(NSDictionary *)param
+- (void)loadWebView:(WKWebView *)webView URL:(NSURL *)URL param:(NSDictionary *)param
 {
     _webview = webView;
     
     self.param = param;
-    
-    if (URLString.length == 0)
-    {
-        return;
-    }
     
     if (_webview == nil)
     {
@@ -58,13 +54,13 @@
         [self.view addConstraints:@[topCons,leadingCons,trailingCons,bottomCons]];
     }
     
-    [_webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]]];
+    [_webview loadRequest:[NSURLRequest requestWithURL:URL]];
 }
 
 
-- (void)loadURLString:(NSString *)URLString param:(NSDictionary *)param
+- (void)loadURL:(NSURL *)URL param:(NSDictionary *)param
 {
-    [self loadWebView:nil URLString:URLString param:param];
+    [self loadWebView:nil URL:URL param:param];
 }
 
 
@@ -72,7 +68,10 @@
 // 开始加载
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
 {
-    [self showHUD];
+    if (self.isShowHUD)
+    {
+        [self showHUD];
+    }
 }
 
 // 加载完成
@@ -84,13 +83,19 @@
         self.title = self.webview.title;
     }
     
-    [self hideHUD];
+    if (self.isShowHUD)
+    {
+        [self hideHUD];
+    }
 }
 
 // 加载失败
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
-    [self hideHUD];
+    if (self.isShowHUD)
+    {
+        [self hideHUD];
+    }
     [self showHint:error.description];
 }
 

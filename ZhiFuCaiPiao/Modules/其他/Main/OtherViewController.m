@@ -7,6 +7,8 @@
 //
 
 #import "OtherViewController.h"
+#import "OtherDetailViewController.h"
+
 
 @interface OtherViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -44,6 +46,14 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self pushViewController:[[OtherDetailViewController alloc] init] param:self.dataArray[indexPath.row] animated:YES];
+}
+
+
 
 - (NSArray *)dataArray
 {
@@ -56,10 +66,6 @@
                         @{
                             @"title" : @"如何投注大乐透",
                             @"html" : @"dlt_howto.html"
-                            },
-                        @{
-                            @"title" : @"如何投注11选5",
-                            @"html" : @"y11_howto.html"
                             },
                         @{
                             @"title" : @"如何投注广东11选5",

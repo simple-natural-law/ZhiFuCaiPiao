@@ -20,8 +20,11 @@
 // 如果存在,显示网页标题到导航栏,默认NO
 @property (assign, nonatomic) BOOL showWebTitleToNavigationTitle;
 
+// 是否显示活动指示器,默认yes
+@property (assign, nonatomic) BOOL isShowHUD;
 
-- (void)loadURLString:(NSString *)URLString param:(NSDictionary *)param;
-- (void)loadWebView:(UIWebView *)webView URLString:(NSString *)URLString param:(NSDictionary *)param;
+
+- (void)loadURL:(NSURL *)URL param:(NSDictionary *)param;
+- (void)loadWebView:(UIWebView *)webView URL:(NSURL *)URL param:(NSDictionary *)param;
 
 @end
