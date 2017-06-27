@@ -18,8 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.isShowHUD = NO;
-    
     self.title = self.param[@"title"];
 
     NSURL *url = [[NSBundle mainBundle] URLForResource:self.param[@"html"] withExtension:nil];
