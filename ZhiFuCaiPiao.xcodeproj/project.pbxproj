@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1A091C1A1EF7D59600B1A028 /* CPHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A091C191EF7D59600B1A028 /* CPHttpRequest.m */; };
 		1A091C201EF7D63A00B1A028 /* CPHttpTaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A091C1F1EF7D63A00B1A028 /* CPHttpTaskInfo.m */; };
-		1A31D8EF1F025BDD005386FF /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8EE1F025BDD005386FF /* OtherViewController.m */; };
+		1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8F51F0265BE005386FF /* OtherViewController.m */; };
+		1A31D8FC1F0265FE005386FF /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */; };
+		1A31D8FF1F02669E005386FF /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8FE1F02669E005386FF /* NewsViewController.m */; };
 		1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */; };
 		1A8FEB021EF8F84A009E4A39 /* LotteryHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB011EF8F84A009E4A39 /* LotteryHistoryCell.m */; };
 		1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB041EF8F85F009E4A39 /* LotteryHistoryViewController.m */; };
@@ -80,8 +82,12 @@
 		1A091C191EF7D59600B1A028 /* CPHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHttpRequest.m; sourceTree = "<group>"; };
 		1A091C1E1EF7D63A00B1A028 /* CPHttpTaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHttpTaskInfo.h; sourceTree = "<group>"; };
 		1A091C1F1EF7D63A00B1A028 /* CPHttpTaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHttpTaskInfo.m; sourceTree = "<group>"; };
-		1A31D8ED1F025BDD005386FF /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
-		1A31D8EE1F025BDD005386FF /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		1A31D8F41F0265BE005386FF /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		1A31D8F51F0265BE005386FF /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		1A31D8FA1F0265FE005386FF /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		1A31D8FD1F02669E005386FF /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		1A31D8FE1F02669E005386FF /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		1A8FEAFD1EF8CB29009E4A39 /* LotteryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryInfoCell.h; sourceTree = "<group>"; };
 		1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryInfoCell.m; sourceTree = "<group>"; };
 		1A8FEB001EF8F84A009E4A39 /* LotteryHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryHistoryCell.h; sourceTree = "<group>"; };
@@ -220,28 +226,52 @@
 			path = NetworkDataCenter;
 			sourceTree = "<group>";
 		};
-		1A31D8EA1F025955005386FF /* 其他 */ = {
+		1A31D8F11F0265BE005386FF /* 其他 */ = {
 			isa = PBXGroup;
 			children = (
-				1A31D8EB1F02596E005386FF /* Base */,
-				1A31D8EC1F02596E005386FF /* Main */,
+				1A31D8F21F0265BE005386FF /* Base */,
+				1A31D8F31F0265BE005386FF /* Main */,
 			);
-			name = "其他";
-			path = "更多";
+			path = "其他";
 			sourceTree = "<group>";
 		};
-		1A31D8EB1F02596E005386FF /* Base */ = {
+		1A31D8F21F0265BE005386FF /* Base */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		1A31D8EC1F02596E005386FF /* Main */ = {
+		1A31D8F31F0265BE005386FF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1A31D8ED1F025BDD005386FF /* OtherViewController.h */,
-				1A31D8EE1F025BDD005386FF /* OtherViewController.m */,
+				1A31D8F41F0265BE005386FF /* OtherViewController.h */,
+				1A31D8F51F0265BE005386FF /* OtherViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1A31D8F61F0265BE005386FF /* 资讯 */ = {
+			isa = PBXGroup;
+			children = (
+				1A31D8F81F0265D7005386FF /* Base */,
+				1A31D8F91F0265D7005386FF /* Main */,
+			);
+			path = "资讯";
+			sourceTree = "<group>";
+		};
+		1A31D8F81F0265D7005386FF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1A31D8F91F0265D7005386FF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1A31D8FD1F02669E005386FF /* NewsViewController.h */,
+				1A31D8FE1F02669E005386FF /* NewsViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -333,7 +363,8 @@
 			children = (
 				341FED2B1EF2D06900CA37A9 /* 彩票走势 */,
 				341FED2E1EF2D06900CA37A9 /* 开奖信息 */,
-				1A31D8EA1F025955005386FF /* 其他 */,
+				1A31D8F11F0265BE005386FF /* 其他 */,
+				1A31D8F61F0265BE005386FF /* 资讯 */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -363,6 +394,8 @@
 			children = (
 				341FECD21EF0268600CA37A9 /* BaseViewController.h */,
 				341FECD31EF0268600CA37A9 /* BaseViewController.m */,
+				1A31D8FA1F0265FE005386FF /* BaseWebViewController.h */,
+				1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -764,6 +797,7 @@
 				342384BA1EF94E3E0074DAE1 /* AlertCenter.m in Sources */,
 				341FED001EF17BA300CA37A9 /* NSData+extend.m in Sources */,
 				341FED071EF17BA300CA37A9 /* UIDevice+extend.m in Sources */,
+				1A31D8FC1F0265FE005386FF /* BaseWebViewController.m in Sources */,
 				341FED051EF17BA300CA37A9 /* UIButton+extend.m in Sources */,
 				341FED081EF17BA300CA37A9 /* UIDevice+KeyChain.m in Sources */,
 				1A091C201EF7D63A00B1A028 /* CPHttpTaskInfo.m in Sources */,
@@ -785,6 +819,7 @@
 				341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */,
 				1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */,
 				341B2CB51EFF844100FA387E /* LineView.m in Sources */,
+				1A31D8FF1F02669E005386FF /* NewsViewController.m in Sources */,
 				341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */,
 				341FED0E1EF17BA300CA37A9 /* UIViewController+HUD.m in Sources */,
 				341FED041EF17BA300CA37A9 /* NSString+extend.m in Sources */,
@@ -792,7 +827,7 @@
 				341FED011EF17BA300CA37A9 /* NSDate+extend.m in Sources */,
 				1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */,
 				1AE7CA7C1EFCFE7C00D65276 /* LotteryTrendView.m in Sources */,
-				1A31D8EF1F025BDD005386FF /* OtherViewController.m in Sources */,
+				1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */,
 				341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */,
 				341FECD71EF0327600CA37A9 /* TabBarViewController.m in Sources */,
 				341FED061EF17BA300CA37A9 /* UIColor+extend.m in Sources */,

@@ -27,7 +27,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jng-0a-BXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-321" y="-650"/>
+            <point key="canvasLocation" x="-282" y="-1270"/>
         </scene>
         <!--开奖信息-->
         <scene sceneID="mHz-Pb-Xrw">
@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mq6-0D-iB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552.79999999999995" y="-651.72413793103453"/>
+            <point key="canvasLocation" x="538" y="-1271"/>
         </scene>
         <!--Lottery History View Controller-->
         <scene sceneID="miy-QU-KRC">
@@ -673,7 +673,8 @@
                     <connections>
                         <segue destination="jO7-N5-Is0" kind="relationship" relationship="viewControllers" id="mbK-Bw-pmM"/>
                         <segue destination="JHB-0H-nHd" kind="relationship" relationship="viewControllers" id="9pp-uo-llW"/>
-                        <segue destination="6VE-0k-c0l" kind="relationship" relationship="viewControllers" id="UpA-g6-9Fw"/>
+                        <segue destination="LxK-Fj-Iwc" kind="relationship" relationship="viewControllers" id="s2f-6Z-rB2"/>
+                        <segue destination="6VE-0k-c0l" kind="relationship" relationship="viewControllers" id="0ii-Oo-jBW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPn-lq-Cl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -696,7 +697,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml6-Ss-3Dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322" y="9"/>
+            <point key="canvasLocation" x="-282" y="-619"/>
         </scene>
         <!--彩票走势-->
         <scene sceneID="OBY-4Y-tg6">
@@ -715,7 +716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btF-00-aaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="9"/>
+            <point key="canvasLocation" x="537" y="-619"/>
         </scene>
         <!--其他-->
         <scene sceneID="f1e-Mo-bu9">
@@ -732,7 +733,43 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILE-Yj-0Zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-310" y="809"/>
+            <point key="canvasLocation" x="-282" y="732"/>
+        </scene>
+        <!--资讯-->
+        <scene sceneID="S4o-uV-ypU">
+            <objects>
+                <navigationController id="LxK-Fj-Iwc" customClass="CPNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="资讯" image="news44" id="YJh-oz-WwR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QTk-WK-BS6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Cm7-F6-Qi7" kind="relationship" relationship="rootViewController" id="FSp-pI-GFj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QXM-a5-LYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="24"/>
+        </scene>
+        <!--彩票资讯-->
+        <scene sceneID="K3s-vS-7sA">
+            <objects>
+                <viewController storyboardIdentifier="NewsViewController" title="彩票资讯" id="Cm7-F6-Qi7" customClass="NewsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gRb-As-2t1"/>
+                        <viewControllerLayoutGuide type="bottom" id="pnR-W4-hbX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5lJ-Jz-Jdc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="彩票资讯" id="Cgf-Ul-0O2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTO-dj-jEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533" y="30"/>
         </scene>
         <!--更多详情-->
         <scene sceneID="bJx-Jn-7Z0">
@@ -786,12 +823,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wp0-xs-5v3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="805"/>
+            <point key="canvasLocation" x="537" y="732"/>
         </scene>
     </scenes>
     <resources>
         <image name="banner" width="600" height="354"/>
         <image name="kaijiangxinxi" width="32" height="32"/>
+        <image name="news44" width="24" height="24"/>
         <image name="qita22" width="24" height="24"/>
         <image name="zoushi" width="32" height="32"/>
     </resources>
