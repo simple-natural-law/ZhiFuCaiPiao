@@ -38,6 +38,7 @@
 		341B2CF61F02930F00FA387E /* OtherDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CF51F02930F00FA387E /* OtherDetailViewController.m */; };
 		341B2CF91F02A67E00FA387E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CF81F02A67E00FA387E /* NewsViewController.m */; };
 		341B2CFC1F02AB8F00FA387E /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CFB1F02AB8F00FA387E /* NewsCell.m */; };
+		341B2CFF1F02AF4300FA387E /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CFE1F02AF4300FA387E /* NewsDetailViewController.m */; };
 		341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FECBA1EF01C2600CA37A9 /* AppDelegate.m */; };
 		341FECC61EF01C2600CA37A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FECBC1EF01C2600CA37A9 /* main.m */; };
 		341FECC81EF01C2600CA37A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341FECC11EF01C2600CA37A9 /* Assets.xcassets */; };
@@ -144,6 +145,8 @@
 		341B2CF81F02A67E00FA387E /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		341B2CFA1F02AB8F00FA387E /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
 		341B2CFB1F02AB8F00FA387E /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		341B2CFD1F02AF4300FA387E /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		341B2CFE1F02AF4300FA387E /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		341FECB91EF01C2600CA37A9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		341FECBA1EF01C2600CA37A9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		341FECBB1EF01C2600CA37A9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				341B2CF81F02A67E00FA387E /* NewsViewController.m */,
 				341B2CFA1F02AB8F00FA387E /* NewsCell.h */,
 				341B2CFB1F02AB8F00FA387E /* NewsCell.m */,
+				341B2CFD1F02AF4300FA387E /* NewsDetailViewController.h */,
+				341B2CFE1F02AF4300FA387E /* NewsDetailViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -903,6 +908,7 @@
 				341FECD71EF0327600CA37A9 /* TabBarViewController.m in Sources */,
 				341FED061EF17BA300CA37A9 /* UIColor+extend.m in Sources */,
 				341FECD01EF0265800CA37A9 /* EventCenter.m in Sources */,
+				341B2CFF1F02AF4300FA387E /* NewsDetailViewController.m in Sources */,
 				341FED031EF17BA300CA37A9 /* NSObject+extend.m in Sources */,
 				1A091C1A1EF7D59600B1A028 /* CPHttpRequest.m in Sources */,
 				341B2CF91F02A67E00FA387E /* NewsViewController.m in Sources */,

@@ -11,6 +11,8 @@
 #import "AlertCenter.h"
 #import "NewsCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "NewsDetailViewController.h"
+
 
 @interface NewsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -70,6 +72,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 90.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self pushViewController:[[NewsDetailViewController alloc] init] param:self.newslistArr[indexPath.row][@"url"] animated:YES];
 }
 
 
