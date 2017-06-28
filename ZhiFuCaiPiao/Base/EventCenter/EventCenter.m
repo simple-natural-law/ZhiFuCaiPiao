@@ -7,6 +7,8 @@
 //
 
 #import "EventCenter.h"
+#import "GuidePageViewController.h"
+#import "TabBarViewController.h"
 
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -20,12 +22,25 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
 /// 注册程序启动信息，如系统通知，第三方平台库等
 - (void)registerApplication:(UIApplication *)application launchOptions:(NSDictionary *)launchOptions
 {
+    application.delegate.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [application.delegate.window makeKeyAndVisible];
+    
     // 设置状态栏字体颜色为白色(在info.plist中，将View controller-based status bar appearance设为NO)
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
     [[UINavigationBar appearance] setBarTintColor:COLOR_RED];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    /* 程序是否为第一次启动 */
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"] == NO)
+    {
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
+        application.delegate.window.rootViewController = [[GuidePageViewController alloc] init];
+    }else
+    {
+        application.delegate.window.rootViewController = [UIViewController getViewControllerFormStoryboardName:@"Main" key:@"TabBarViewController"];
+    }
     
     // 集成JPush
     JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];

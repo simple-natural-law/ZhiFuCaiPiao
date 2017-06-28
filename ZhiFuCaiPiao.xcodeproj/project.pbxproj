@@ -11,6 +11,7 @@
 		1A091C201EF7D63A00B1A028 /* CPHttpTaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A091C1F1EF7D63A00B1A028 /* CPHttpTaskInfo.m */; };
 		1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8F51F0265BE005386FF /* OtherViewController.m */; };
 		1A31D8FC1F0265FE005386FF /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */; };
+		1A31D9031F0353C8005386FF /* GuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D9021F0353C8005386FF /* GuidePageViewController.m */; };
 		1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */; };
 		1A8FEB021EF8F84A009E4A39 /* LotteryHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB011EF8F84A009E4A39 /* LotteryHistoryCell.m */; };
 		1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB041EF8F85F009E4A39 /* LotteryHistoryViewController.m */; };
@@ -100,6 +101,8 @@
 		1A31D8F51F0265BE005386FF /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		1A31D8FA1F0265FE005386FF /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		1A31D9011F0353C8005386FF /* GuidePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageViewController.h; sourceTree = "<group>"; };
+		1A31D9021F0353C8005386FF /* GuidePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageViewController.m; sourceTree = "<group>"; };
 		1A8FEAFD1EF8CB29009E4A39 /* LotteryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryInfoCell.h; sourceTree = "<group>"; };
 		1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryInfoCell.m; sourceTree = "<group>"; };
 		1A8FEB001EF8F84A009E4A39 /* LotteryHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryHistoryCell.h; sourceTree = "<group>"; };
@@ -311,6 +314,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		1A31D9001F035393005386FF /* 引导页 */ = {
+			isa = PBXGroup;
+			children = (
+				1A31D9011F0353C8005386FF /* GuidePageViewController.h */,
+				1A31D9021F0353C8005386FF /* GuidePageViewController.m */,
+			);
+			path = "引导页";
+			sourceTree = "<group>";
+		};
 		1AE7CA791EFCFE7C00D65276 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +427,7 @@
 		341FECBF1EF01C2600CA37A9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1A31D9001F035393005386FF /* 引导页 */,
 				341FED2B1EF2D06900CA37A9 /* 彩票走势 */,
 				341FED2E1EF2D06900CA37A9 /* 开奖信息 */,
 				1A31D8F11F0265BE005386FF /* 其他 */,
@@ -885,6 +898,7 @@
 				1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */,
 				341B2CF61F02930F00FA387E /* OtherDetailViewController.m in Sources */,
 				341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */,
+				1A31D9031F0353C8005386FF /* GuidePageViewController.m in Sources */,
 				341FECD71EF0327600CA37A9 /* TabBarViewController.m in Sources */,
 				341FED061EF17BA300CA37A9 /* UIColor+extend.m in Sources */,
 				341FECD01EF0265800CA37A9 /* EventCenter.m in Sources */,
