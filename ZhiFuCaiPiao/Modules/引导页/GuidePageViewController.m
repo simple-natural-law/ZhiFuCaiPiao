@@ -7,17 +7,77 @@
 //
 
 #import "GuidePageViewController.h"
+#import "NetworkDataCenter.h"
+
 
 @interface GuidePageViewController ()
 
+@property (nonatomic, strong) UIScrollView *scrollview;
+
 @end
+
 
 @implementation GuidePageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.scrollview = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:self.scrollview];
+    self.scrollview.contentSize = CGSizeMake(kScreenWidth * 4, kScreenHeight);
+    self.scrollview.pagingEnabled = YES;
+    self.scrollview.bounces = NO;
+    self.scrollview.showsHorizontalScrollIndicator = NO;
+    
+    for (int i = 0; i < 4; i++)
+    {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*kScreenWidth, 0, kScreenWidth, kScreenHeight)];
+        [self.scrollview addSubview:imageView];
+        
+        if (i == 3)
+        {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame     = CGRectMake(kScreenWidth*3.5 - 80, kScreenHeight/2.0 + 100.0, 160, 40);
+            [button setTitle:@"点此进入" forState:UIControlStateNormal];
+            [button setTitle:@"点此进入" forState:UIControlStateHighlighted];
+            UIColor *textColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+            [button setTitleColor:textColor forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.7] forState:UIControlStateHighlighted];
+            button.layer.borderWidth = 1;
+            button.layer.borderColor = textColor.CGColor;
+            button.layer.cornerRadius = 3.0;
+            [button addTarget:self action:@selector(goMainPage) forControlEvents:UIControlEventTouchUpInside];
+            [self.scrollview addSubview:button];
+            
+            imageView.tag = 80000;
+            button.tag    = 80001;
+        }
+    }
 }
+
+
+- (void)goMainPage
+{
+    UIView *imageViewPic = [self.scrollview viewWithTag:80000];
+    UIView *button = [self.scrollview viewWithTag:80001];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        /* 改变透明度, 并重新指定跟视图 */
+        imageViewPic.alpha = 0.1;
+        button.alpha       = 0.1;
+        
+    } completion:^(BOOL finished) {
+        /* 重新指定跟视图 */
+        if (finished)
+        {
+            [UIApplication sharedApplication].delegate.window.rootViewController = [UIViewController getViewControllerFormStoryboardName:@"Main" key:@"TabBarViewController"];
+        }
+    }];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
