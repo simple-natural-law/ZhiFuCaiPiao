@@ -26,12 +26,21 @@
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message cancleButtonTitle:(NSString *)buttonTitle cancleBlock:(void (^ __nullable)(UIAlertAction *action))block
 {
-    if ([TabBarViewController shared].selectedViewController.presentedViewController == nil) // 避免重复弹出alert
+    if ([[UIApplication sharedApplication].delegate.window.rootViewController isKindOfClass:[UITabBarController class]])
+    {
+        if ([TabBarViewController shared].selectedViewController.presentedViewController == nil) // 避免重复弹出alert
+        {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:buttonTitle style:UIAlertActionStyleCancel handler:block];
+            [alertController addAction:cancelAction];
+            [[TabBarViewController shared].selectedViewController presentViewController:alertController animated:YES completion:nil];
+        }
+    }else
     {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:buttonTitle style:UIAlertActionStyleCancel handler:block];
         [alertController addAction:cancelAction];
-        [[TabBarViewController shared].selectedViewController presentViewController:alertController animated:YES completion:nil];
+        [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alertController animated:YES completion:nil];
     }
 }
 

@@ -34,12 +34,13 @@
     for (int i = 0; i < 4; i++)
     {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*kScreenWidth, 0, kScreenWidth, kScreenHeight)];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"guide%d",i+1]];
         [self.scrollview addSubview:imageView];
         
         if (i == 3)
         {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.frame     = CGRectMake(kScreenWidth*3.5 - 80, kScreenHeight/2.0 + 100.0, 160, 40);
+            button.frame     = CGRectMake(kScreenWidth*3.5 - 80, kScreenHeight - 50, 160, 40);
             [button setTitle:@"点此进入" forState:UIControlStateNormal];
             [button setTitle:@"点此进入" forState:UIControlStateHighlighted];
             UIColor *textColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
