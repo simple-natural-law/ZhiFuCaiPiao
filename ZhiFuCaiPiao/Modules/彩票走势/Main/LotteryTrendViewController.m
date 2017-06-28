@@ -210,7 +210,7 @@
         __weak typeof(self) weakself = self;
         self.typeView = [LotteryTrendTypeSelectView showInView:self.view didSelectedBlock:^(NSInteger index) {
            
-           weakself.type = index - 40000;
+           weakself.type = index;
            [weakself addMenuView];
            
            switch (weakself.type)
