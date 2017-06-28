@@ -24,8 +24,6 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
 
 - (void)appSettingCallBack:(NSDictionary *)dic
 {
-    NSLog(@"---- %@",dic);
-    
     if ([[dic objectForKey:@"status"] integerValue] == 1)
     {
         if ([[dic objectForKey:@"isshowwap"] integerValue] == 1)
