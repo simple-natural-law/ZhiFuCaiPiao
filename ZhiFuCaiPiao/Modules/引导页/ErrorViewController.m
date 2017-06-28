@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.webview = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    self.webview.navigationDelegate = self;
+    self.webview = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webview.delegate = self;
     [self.view addSubview:self.webview];
     
     [self loadURL:[NSURL URLWithString:self.param] param:nil];

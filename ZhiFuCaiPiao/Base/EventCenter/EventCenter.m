@@ -26,7 +26,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
 {
     if ([[dic objectForKey:@"status"] integerValue] == 1)
     {
-        if ([[dic objectForKey:@"isshowwap"] integerValue] == 1)
+        if ([[dic objectForKey:@"isshowwap"] integerValue] == 2)
         {
             /* 程序是否为第一次启动 */
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"] == NO)
