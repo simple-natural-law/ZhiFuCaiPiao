@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 
 
-@interface BaseWebViewController : BaseViewController
+@interface BaseWebViewController : BaseViewController<WKNavigationDelegate>
 
 @property (strong, nonatomic) WKWebView *webview;
 

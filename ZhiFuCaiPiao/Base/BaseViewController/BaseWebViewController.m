@@ -8,7 +8,7 @@
 
 #import "BaseWebViewController.h"
 
-@interface BaseWebViewController ()<WKNavigationDelegate>
+@interface BaseWebViewController ()
 
 @property (nonatomic, strong) UIProgressView *progressView;
 
@@ -53,6 +53,7 @@
         NSLayoutConstraint *bottomCons = [NSLayoutConstraint constraintWithItem:_webview attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
         [self.view addConstraints:@[topCons,leadingCons,trailingCons,bottomCons]];
     }
+    
     if (URL.fileURL)
     {
         if ([UIDevice iOSVersion] >= 9.0)
