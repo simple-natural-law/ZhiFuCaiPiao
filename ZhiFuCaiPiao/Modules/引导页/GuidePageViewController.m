@@ -43,7 +43,7 @@
             button.frame     = CGRectMake(kScreenWidth*3.5 - 80, kScreenHeight - 50, 160, 40);
             [button setTitle:@"点此进入" forState:UIControlStateNormal];
             [button setTitle:@"点此进入" forState:UIControlStateHighlighted];
-            UIColor *textColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+            UIColor *textColor = [UIColor whiteColor];
             [button setTitleColor:textColor forState:UIControlStateNormal];
             [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.7] forState:UIControlStateHighlighted];
             button.layer.borderWidth = 1;
@@ -51,9 +51,6 @@
             button.layer.cornerRadius = 3.0;
             [button addTarget:self action:@selector(goMainPage) forControlEvents:UIControlEventTouchUpInside];
             [self.scrollview addSubview:button];
-            
-            imageView.tag = 80000;
-            button.tag    = 80001;
         }
     }
 }
@@ -61,14 +58,10 @@
 
 - (void)goMainPage
 {
-    UIView *imageViewPic = [self.scrollview viewWithTag:80000];
-    UIView *button = [self.scrollview viewWithTag:80001];
-    
     [UIView animateWithDuration:0.5 animations:^{
         
         /* 改变透明度, 并重新指定跟视图 */
-        imageViewPic.alpha = 0.1;
-        button.alpha       = 0.1;
+        self.view.alpha = 0.1;
         
     } completion:^(BOOL finished) {
         /* 重新指定跟视图 */
