@@ -9,6 +9,8 @@
 #import "EventCenter.h"
 #import "GuidePageViewController.h"
 #import "TabBarViewController.h"
+#import "NetworkDataCenter.h"
+#import "MBProgressHUD.h"
 
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -19,11 +21,21 @@
 // 宏构造单例
 LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
 
+
+- (void)appSettingCallBack:(NSDictionary *)dic
+{
+    NSLog(@"---- %@",dic);
+}
+
+
 /// 注册程序启动信息，如系统通知，第三方平台库等
 - (void)registerApplication:(UIApplication *)application launchOptions:(NSDictionary *)launchOptions
 {
     application.delegate.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    application.delegate.window.backgroundColor = [UIColor whiteColor];
     [application.delegate.window makeKeyAndVisible];
+    
+    [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"2017062323"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
     
     // 设置状态栏字体颜色为白色(在info.plist中，将View controller-based status bar appearance设为NO)
     application.statusBarStyle = UIStatusBarStyleLightContent;

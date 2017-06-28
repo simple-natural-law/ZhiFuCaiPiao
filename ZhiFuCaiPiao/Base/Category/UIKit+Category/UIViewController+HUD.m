@@ -17,6 +17,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.animationType = MBProgressHUDModeIndeterminate;
     hud.minShowTime   = 0.4;
+    hud.removeFromSuperViewOnHide = YES;
     self.view.userInteractionEnabled = NO;
 }
 
@@ -26,6 +27,7 @@
     hud.animationType = MBProgressHUDModeIndeterminate;
     hud.minShowTime   = 0.4;
     hud.label.text = status;
+    hud.removeFromSuperViewOnHide = YES;
     self.view.userInteractionEnabled = NO;
 }
 
