@@ -318,7 +318,7 @@ static const CGFloat kLeftViewWidth = 60.0;
         for (int i = 0; i < numberArr.count; i++)
         {
             NSInteger num = 0;
-            if (self.type == LotteryTrendTypeQxc)
+            if (self.type == LotteryTrendTypeQxc || self.type == LotteryTrendTypePl3 || self.type == LotteryTrendTypePl5)
             {
                 num = numbIndex;
             }else
@@ -344,7 +344,7 @@ static const CGFloat kLeftViewWidth = 60.0;
                     }
                 }else
                 {
-                    if (self.type == LotteryTrendTypeQxc)
+                    if (self.type == LotteryTrendTypeQxc || self.type == LotteryTrendTypePl3 || self.type == LotteryTrendTypePl5)
                     {
                         numStr = [NSString stringWithFormat:@"%ld",[numberArr[i] integerValue]];
                     }else
@@ -362,7 +362,7 @@ static const CGFloat kLeftViewWidth = 60.0;
             {
                 UIColor *color = [self colorWithStyle:self.style];
                 // 绘制连线
-                if (self.style == LotteryTrendStyleSsqBlue || self.type == LotteryTrendTypeQxc)
+                if (self.style == LotteryTrendStyleSsqBlue || self.type == LotteryTrendTypeQxc || self.type == LotteryTrendTypePl3 || self.type == LotteryTrendTypePl5)
                 {
                     CGContextSetStrokeColorWithColor(context, color.CGColor);
                     CGContextSetLineWidth(context, 1.0);
@@ -383,7 +383,7 @@ static const CGFloat kLeftViewWidth = 60.0;
                 NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
                 para.alignment = NSTextAlignmentCenter;
                 NSString *numStr = nil;
-                if (self.type == LotteryTrendTypeQxc)
+                if (self.type == LotteryTrendTypeQxc || self.type == LotteryTrendTypePl3 || self.type == LotteryTrendTypePl5)
                 {
                     numStr = [NSString stringWithFormat:@"%ld",[awardArray[selectIndex] integerValue]];
                 }else
@@ -453,6 +453,30 @@ static const CGFloat kLeftViewWidth = 60.0;
         case LotteryTrendStyleQxcSeven:
             return COLOR_DAILV;
             break;
+        case LotteryTrendStylePl3One:
+            return COLOR_RED;
+            break;
+        case LotteryTrendStylePl3Two:
+            return COLOR_BLUE;
+            break;
+        case LotteryTrendStylePl3Three:
+            return COLOR_YELLOW;
+            break;
+        case LotteryTrendStylePl5One:
+            return COLOR_RED;
+            break;
+        case LotteryTrendStylePl5Two:
+            return COLOR_BLUE;
+            break;
+        case LotteryTrendStylePl5Three:
+            return COLOR_YELLOW;
+            break;
+        case LotteryTrendStylePl5Four:
+            return COLOR_BROWN;
+            break;
+        case LotteryTrendStylePl5Five:
+            return COLOR_GREEN;
+            break;
         default:
             return COLOR_RED;
             break;
@@ -487,7 +511,7 @@ static const CGFloat kLeftViewWidth = 60.0;
     for (NSInteger i = 1; i <= self.number ; i++)
     {
         NSString *numStr = nil;
-        if (self.type == LotteryTrendTypeQxc)
+        if (self.type == LotteryTrendTypeQxc || self.type == LotteryTrendTypePl3 || self.type == LotteryTrendTypePl5)
         {
             numStr = [NSString stringWithFormat:@"%ld",i-1];
         }else
@@ -538,7 +562,7 @@ static const CGFloat kLeftViewWidth = 60.0;
     for (NSInteger i = 1; i <= self.number ; i++)
     {
         NSString *numStr = nil;
-        if (self.type == LotteryTrendTypeQxc)
+        if (self.type == LotteryTrendTypeQxc || self.type == LotteryTrendTypePl3 || self.type == LotteryTrendTypePl5)
         {
             numStr = [NSString stringWithFormat:@"%ld",i-1];
         }else
