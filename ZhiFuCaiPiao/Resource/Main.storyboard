@@ -754,10 +754,10 @@
             </objects>
             <point key="canvasLocation" x="-282" y="24"/>
         </scene>
-        <!--金融资讯-->
+        <!--彩票资讯-->
         <scene sceneID="K3s-vS-7sA">
             <objects>
-                <viewController storyboardIdentifier="NewsViewController" title="金融资讯" id="Cm7-F6-Qi7" customClass="NewsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsViewController" title="彩票资讯" id="Cm7-F6-Qi7" customClass="NewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gRb-As-2t1"/>
                         <viewControllerLayoutGuide type="bottom" id="pnR-W4-hbX"/>
@@ -777,7 +777,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ghG-wp-hDt">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ghG-wp-hDt">
                                                     <rect key="frame" x="8" y="8" width="111" height="74"/>
                                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -790,7 +790,7 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKs-iY-SW1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKs-iY-SW1">
                                                     <rect key="frame" x="134" y="48" width="233" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -830,7 +830,7 @@
                             <constraint firstItem="pnR-W4-hbX" firstAttribute="top" secondItem="AT1-Pe-xp6" secondAttribute="bottom" id="v1e-JG-Brh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="金融资讯" id="Cgf-Ul-0O2"/>
+                    <navigationItem key="navigationItem" title="彩票资讯" id="Cgf-Ul-0O2"/>
                     <connections>
                         <outlet property="tableview" destination="AT1-Pe-xp6" id="qaO-MH-Bro"/>
                     </connections>
