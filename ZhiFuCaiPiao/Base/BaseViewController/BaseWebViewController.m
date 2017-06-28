@@ -53,8 +53,19 @@
         NSLayoutConstraint *bottomCons = [NSLayoutConstraint constraintWithItem:_webview attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
         [self.view addConstraints:@[topCons,leadingCons,trailingCons,bottomCons]];
     }
-    
-    [_webview loadRequest:[NSURLRequest requestWithURL:URL]];
+    if (URL.fileURL)
+    {
+        if ([UIDevice iOSVersion] >= 9.0)
+        {
+            [_webview loadFileURL:URL allowingReadAccessToURL:URL];
+        }else
+        {
+            [_webview loadRequest:[NSURLRequest requestWithURL:URL]];
+        }
+    }else
+    {
+        [_webview loadRequest:[NSURLRequest requestWithURL:URL]];
+    }
 }
 
 
