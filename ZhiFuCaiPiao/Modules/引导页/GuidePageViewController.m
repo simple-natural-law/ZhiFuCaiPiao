@@ -45,7 +45,7 @@
             [button setTitle:@"点此进入" forState:UIControlStateHighlighted];
             UIColor *textColor = [UIColor whiteColor];
             [button setTitleColor:textColor forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.7] forState:UIControlStateHighlighted];
+            [button setTitleColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7] forState:UIControlStateHighlighted];
             button.layer.borderWidth = 1;
             button.layer.borderColor = textColor.CGColor;
             button.layer.cornerRadius = 3.0;

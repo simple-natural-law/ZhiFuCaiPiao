@@ -11,7 +11,7 @@
 
 static NSString *appKey = @"877833e96925869b1b38bf52";
 static NSString *channel = @"Publish channel";
-static BOOL isProduction = NO;
+static BOOL isProduction = YES;
 
 @interface EventCenter : NSObject<JPUSHRegisterDelegate>
 
