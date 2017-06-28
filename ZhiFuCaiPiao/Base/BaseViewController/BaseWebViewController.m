@@ -54,6 +54,11 @@
         [self.view addConstraints:@[topCons,leadingCons,trailingCons,bottomCons]];
     }
     
+    if (self.isShowHUD)
+    {
+        [self showHUDWithStatus:@"加载中"];
+    }
+    
     if (URL.fileURL)
     {
         if ([UIDevice iOSVersion] >= 9.0)
@@ -80,10 +85,7 @@
 // 开始加载
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
 {
-    if (self.isShowHUD)
-    {
-        [self showHUD];
-    }
+    
 }
 
 // 加载完成
