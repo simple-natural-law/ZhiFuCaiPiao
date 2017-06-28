@@ -58,7 +58,7 @@
 
 - (void)goMainPage
 {
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         
         /* 改变透明度, 并重新指定跟视图 */
         self.view.alpha = 0.1;
