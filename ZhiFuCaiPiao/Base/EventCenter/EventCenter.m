@@ -58,7 +58,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
         }
     }else
     {
-        [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"2017062323"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
+        [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"1253443524"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
     }
 }
 
@@ -79,7 +79,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
     
     application.delegate.window.rootViewController = [[TransitionViewController alloc]init];
     
-    [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"2017062323"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
+    [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"1253443524"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
 
     // 集成JPush
     JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];
