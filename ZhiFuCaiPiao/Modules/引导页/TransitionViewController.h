@@ -1,5 +1,5 @@
 //
-//  GuidePageViewController.h
+//  TransitionViewController.h
 //  ZhiFuCaiPiao
 //
 //  Created by 讯心科技 on 2017/6/28.
@@ -8,8 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface GuidePageViewController : BaseViewController
-
-@property (nonatomic, assign) NSInteger toIndex;
+@interface TransitionViewController : BaseViewController
 
 @end

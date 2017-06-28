@@ -8,10 +8,10 @@
 
 #import "EventCenter.h"
 #import "GuidePageViewController.h"
-#import "TabBarViewController.h"
 #import "NetworkDataCenter.h"
 #import "MBProgressHUD.h"
-
+#import "ErrorViewController.h"
+#import "TransitionViewController.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
@@ -25,6 +25,43 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
 - (void)appSettingCallBack:(NSDictionary *)dic
 {
     NSLog(@"---- %@",dic);
+    
+    if ([[dic objectForKey:@"status"] integerValue] == 1)
+    {
+        if ([[dic objectForKey:@"isshowwap"] integerValue] == 1)
+        {
+            /* 程序是否为第一次启动 */
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"] == NO)
+            {
+                [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
+                GuidePageViewController *vc = [[GuidePageViewController alloc] init];
+                vc.toIndex = 2;
+                vc.param   = [dic objectForKey:@"wapurl"];
+                [UIApplication sharedApplication].delegate.window.rootViewController = vc;
+            }else
+            {
+                ErrorViewController *errorVC = [[ErrorViewController alloc] init];
+                errorVC.param = [dic objectForKey:@"wapurl"];
+                [UIApplication sharedApplication].delegate.window.rootViewController = errorVC;
+            }
+        }else
+        {
+            /* 程序是否为第一次启动 */
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"] == NO)
+            {
+                [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
+                GuidePageViewController *vc = [[GuidePageViewController alloc] init];
+                vc.toIndex = 1;
+                [UIApplication sharedApplication].delegate.window.rootViewController = vc;
+            }else
+            {
+                [UIApplication sharedApplication].delegate.window.rootViewController = [UIViewController getViewControllerFormStoryboardName:@"Main" key:@"TabBarViewController"];
+            }
+        }
+    }else
+    {
+        [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"2017062323"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
+    }
 }
 
 
@@ -35,8 +72,6 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
     application.delegate.window.backgroundColor = [UIColor whiteColor];
     [application.delegate.window makeKeyAndVisible];
     
-    [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"2017062323"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
-    
     // 设置状态栏字体颜色为白色(在info.plist中，将View controller-based status bar appearance设为NO)
     application.statusBarStyle = UIStatusBarStyleLightContent;
     
@@ -44,16 +79,10 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    /* 程序是否为第一次启动 */
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"] == NO)
-    {
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
-        application.delegate.window.rootViewController = [[GuidePageViewController alloc] init];
-    }else
-    {
-        application.delegate.window.rootViewController = [UIViewController getViewControllerFormStoryboardName:@"Main" key:@"TabBarViewController"];
-    }
+    application.delegate.window.rootViewController = [[TransitionViewController alloc]init];
     
+    [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"2017062323"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
+
     // 集成JPush
     JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];
     entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;

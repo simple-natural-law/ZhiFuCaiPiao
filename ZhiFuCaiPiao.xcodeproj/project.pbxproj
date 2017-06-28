@@ -12,6 +12,8 @@
 		1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8F51F0265BE005386FF /* OtherViewController.m */; };
 		1A31D8FC1F0265FE005386FF /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */; };
 		1A31D9031F0353C8005386FF /* GuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D9021F0353C8005386FF /* GuidePageViewController.m */; };
+		1A31D9061F036CB1005386FF /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D9051F036CB1005386FF /* ErrorViewController.m */; };
+		1A31D9091F036F39005386FF /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D9081F036F39005386FF /* TransitionViewController.m */; };
 		1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */; };
 		1A8FEB021EF8F84A009E4A39 /* LotteryHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB011EF8F84A009E4A39 /* LotteryHistoryCell.m */; };
 		1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB041EF8F85F009E4A39 /* LotteryHistoryViewController.m */; };
@@ -103,6 +105,10 @@
 		1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		1A31D9011F0353C8005386FF /* GuidePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageViewController.h; sourceTree = "<group>"; };
 		1A31D9021F0353C8005386FF /* GuidePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageViewController.m; sourceTree = "<group>"; };
+		1A31D9041F036CB1005386FF /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
+		1A31D9051F036CB1005386FF /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
+		1A31D9071F036F39005386FF /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
+		1A31D9081F036F39005386FF /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
 		1A8FEAFD1EF8CB29009E4A39 /* LotteryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryInfoCell.h; sourceTree = "<group>"; };
 		1A8FEAFE1EF8CB29009E4A39 /* LotteryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryInfoCell.m; sourceTree = "<group>"; };
 		1A8FEB001EF8F84A009E4A39 /* LotteryHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryHistoryCell.h; sourceTree = "<group>"; };
@@ -319,6 +325,10 @@
 			children = (
 				1A31D9011F0353C8005386FF /* GuidePageViewController.h */,
 				1A31D9021F0353C8005386FF /* GuidePageViewController.m */,
+				1A31D9041F036CB1005386FF /* ErrorViewController.h */,
+				1A31D9051F036CB1005386FF /* ErrorViewController.m */,
+				1A31D9071F036F39005386FF /* TransitionViewController.h */,
+				1A31D9081F036F39005386FF /* TransitionViewController.m */,
 			);
 			path = "引导页";
 			sourceTree = "<group>";
@@ -885,6 +895,7 @@
 				342384BD1EF975370074DAE1 /* LotteryDetailViewController.m in Sources */,
 				341B2CB81F014DCE00FA387E /* LotteryTrendTypeSelectView.m in Sources */,
 				341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */,
+				1A31D9061F036CB1005386FF /* ErrorViewController.m in Sources */,
 				1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */,
 				341B2CB51EFF844100FA387E /* LineView.m in Sources */,
 				341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */,
@@ -892,6 +903,7 @@
 				341FED041EF17BA300CA37A9 /* NSString+extend.m in Sources */,
 				1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */,
 				341FED011EF17BA300CA37A9 /* NSDate+extend.m in Sources */,
+				1A31D9091F036F39005386FF /* TransitionViewController.m in Sources */,
 				341B2CFC1F02AB8F00FA387E /* NewsCell.m in Sources */,
 				1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */,
 				1AE7CA7C1EFCFE7C00D65276 /* LotteryTrendView.m in Sources */,

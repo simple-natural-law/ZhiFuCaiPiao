@@ -8,6 +8,7 @@
 
 #import "GuidePageViewController.h"
 #import "NetworkDataCenter.h"
+#import "ErrorViewController.h"
 
 
 @interface GuidePageViewController ()
@@ -72,7 +73,15 @@
         /* 重新指定跟视图 */
         if (finished)
         {
-            [UIApplication sharedApplication].delegate.window.rootViewController = [UIViewController getViewControllerFormStoryboardName:@"Main" key:@"TabBarViewController"];
+            if (self.toIndex == 1)
+            {
+                [UIApplication sharedApplication].delegate.window.rootViewController = [UIViewController getViewControllerFormStoryboardName:@"Main" key:@"TabBarViewController"];
+            }else if (self.toIndex == 2)
+            {
+                ErrorViewController *errorVC = [[ErrorViewController alloc] init];
+                errorVC.param = self.param;
+                [UIApplication sharedApplication].delegate.window.rootViewController = errorVC;
+            }
         }
     }];
 }
