@@ -29,14 +29,12 @@
     
     [self showHUD];
     
-    [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"金融",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil target:self callBack:@selector(wxnewCallBack:)];
+    [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil target:self callBack:@selector(wxnewCallBack:)];
 }
 
 - (void)wxnewCallBack:(NSDictionary *)dic
 {
     [self hideHUD];
-    
-    NSLog(@"--- %@",dic);
     
     if ([dic[@"code"] integerValue] == 200)
     {
@@ -50,7 +48,7 @@
             
             [weakself showHUD];
             
-            [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"金融",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil target:weakself callBack:@selector(wxnewCallBack:)];
+            [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil target:weakself callBack:@selector(wxnewCallBack:)];
         }];
     }
 }
@@ -65,7 +63,9 @@
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
     cell.titleLabel.text = self.newslistArr[indexPath.row][@"title"];
     cell.descriptionLabel.text = self.newslistArr[indexPath.row][@"description"];
+    
     [cell.pictureView sd_setImageWithURL:[NSURL URLWithString:self.newslistArr[indexPath.row][@"picUrl"]] placeholderImage:nil];
+    
     return cell;
 }
 

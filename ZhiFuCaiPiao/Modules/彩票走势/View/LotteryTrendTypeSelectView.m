@@ -8,7 +8,48 @@
 
 #import "LotteryTrendTypeSelectView.h"
 
-@interface LotteryTrendTypeSelectView ()
+
+@interface LotteryItemCell : UICollectionViewCell
+
+@property (nonatomic, strong) UIImageView *iconImageView;
+
+@end
+
+@implementation LotteryItemCell
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if (self)
+    {
+        self.iconImageView = [[UIImageView alloc] init];
+        self.iconImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:self.iconImageView];
+        NSLayoutConstraint *widthCons_img = [NSLayoutConstraint constraintWithItem:self.iconImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:60.0];
+        NSLayoutConstraint *heightCons_img = [NSLayoutConstraint constraintWithItem:self.iconImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:60.0];
+        NSLayoutConstraint *centerXCons_img = [NSLayoutConstraint constraintWithItem:self.iconImageView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+        NSLayoutConstraint *centerYCons_img = [NSLayoutConstraint constraintWithItem:self.iconImageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
+        [self.contentView addConstraints:@[widthCons_img,heightCons_img,centerXCons_img,centerYCons_img]];
+    }
+    return self;
+}
+
+- (void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        self.backgroundColor = highlighted ? [UIColor colorWithHexString:@"f0f0f0"] : [UIColor whiteColor];
+    }];
+}
+
+@end
+
+
+
+@interface LotteryTrendTypeSelectView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UIView *customView;
 
@@ -16,112 +57,30 @@
 
 @property (nonatomic, weak) UIView *superView;
 
-@property (nonatomic, assign) NSInteger selecedIndex;
-
 @property (nonatomic, copy) DidSelectedBlock block;
 
 @end
-
 
 @implementation LotteryTrendTypeSelectView
 
 + (instancetype)showInView:(UIView *)view didSelectedBlock:(DidSelectedBlock)block
 {
-    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
+    UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionView *contentView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 160*(kScreenWidth/375.0)+10.0) collectionViewLayout:flowlayout];
     contentView.backgroundColor = [UIColor whiteColor];
-    
-    CGFloat width = (kScreenWidth-90.0)/2.0;
-    
-    UIColor *normalColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
-    
-    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame     = CGRectMake(30.0, 20, width, 30);
-    [button1 setTitle:@"双色球" forState:UIControlStateNormal];
-    [button1 setTitle:@"双色球" forState:UIControlStateSelected];
-    [button1 setTitleColor:normalColor forState:UIControlStateNormal];
-    [button1 setTitleColor:COLOR_RED forState:UIControlStateSelected];
-    button1.layer.borderColor  = COLOR_RED.CGColor;
-    button1.layer.borderWidth  = 1.0;
-    button1.layer.cornerRadius = 2.0;
-    button1.tag = 40000;
-    button1.selected = YES;
-    [contentView addSubview:button1];
-    
-    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button2.frame     = CGRectMake(60.0+width, 20, width, 30);
-    [button2 setTitle:@"大乐透" forState:UIControlStateNormal];
-    [button2 setTitle:@"大乐透" forState:UIControlStateSelected];
-    [button2 setTitleColor:normalColor forState:UIControlStateNormal];
-    [button2 setTitleColor:COLOR_RED forState:UIControlStateSelected];
-    button2.layer.borderColor  = normalColor.CGColor;
-    button2.layer.borderWidth  = 1.0;
-    button2.layer.cornerRadius = 2.0;
-    button2.tag = 40001;
-    button2.selected = NO;
-    [contentView addSubview:button2];
-    
-    UIButton *button3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button3.frame     = CGRectMake(30.0, 60, width, 30);
-    [button3 setTitle:@"七乐彩" forState:UIControlStateNormal];
-    [button3 setTitle:@"七乐彩" forState:UIControlStateSelected];
-    [button3 setTitleColor:normalColor forState:UIControlStateNormal];
-    [button3 setTitleColor:COLOR_RED forState:UIControlStateSelected];
-    button3.layer.borderColor  = normalColor.CGColor;
-    button3.layer.borderWidth  = 1.0;
-    button3.layer.cornerRadius = 2.0;
-    button3.tag = 40002;
-    button3.selected = NO;
-    [contentView addSubview:button3];
-    
-    UIButton *button4 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button4.frame     = CGRectMake(60.0+width, 60, width, 30);
-    [button4 setTitle:@"七星彩" forState:UIControlStateNormal];
-    [button4 setTitle:@"七星彩" forState:UIControlStateSelected];
-    [button4 setTitleColor:normalColor forState:UIControlStateNormal];
-    [button4 setTitleColor:COLOR_RED forState:UIControlStateSelected];
-    button4.layer.borderColor  = normalColor.CGColor;
-    button4.layer.borderWidth  = 1.0;
-    button4.layer.cornerRadius = 2.0;
-    button4.tag = 40003;
-    button4.selected = NO;
-    [contentView addSubview:button4];
     
     LotteryTrendTypeSelectView *typeView = [[LotteryTrendTypeSelectView alloc] initWithCustomView:contentView superView:view didSelectedBlock:block];
     
-    typeView.selecedIndex = 40000;
-    [button1 addTarget:typeView action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
-    [button2 addTarget:typeView action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
-    [button3 addTarget:typeView action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
-    [button4 addTarget:typeView action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
+    contentView.dataSource = typeView;
+    contentView.delegate   = typeView;
+    
+    [contentView registerClass:[LotteryItemCell class] forCellWithReuseIdentifier:@"LotteryItemCell"];
     
     [typeView show];
     
     return typeView;
 }
 
-
-- (void)didClickButton:(UIButton *)button
-{
-    [self hide];
-    
-    if (button.selected)
-    {
-        return;
-    }
-    button.layer.borderColor = COLOR_RED.CGColor;
-    button.selected = YES;
-    
-    UIButton *selectedButton = [self.customView viewWithTag:self.selecedIndex];
-    selectedButton.selected = NO;
-    selectedButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
-    
-    self.selecedIndex = button.tag;
-    
-    if (self.block)
-    {
-        self.block(self.selecedIndex);
-    }
-}
 
 
 - (instancetype)initWithCustomView:(UIView *)customView superView:(UIView *)view didSelectedBlock:(DidSelectedBlock)block
@@ -147,6 +106,74 @@
     return self;
 }
 
+#pragma mark- UICollectionViewDelegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 6;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LotteryItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LotteryItemCell" forIndexPath:indexPath];
+    switch (indexPath.row)
+    {
+        case 0:
+            cell.iconImageView.image = [UIImage imageNamed:@"shuangseqiu"];
+            break;
+        case 1:
+            cell.iconImageView.image = [UIImage imageNamed:@"daletou"];
+            break;
+        case 2:
+            cell.iconImageView.image = [UIImage imageNamed:@"7lecai"];
+            break;
+        case 3:
+            cell.iconImageView.image = [UIImage imageNamed:@"7cai"];
+            break;
+        case 4:
+            cell.iconImageView.image = [UIImage imageNamed:@"pailiesan"];
+            break;
+        case 5:
+            cell.iconImageView.image = [UIImage imageNamed:@"paliewu"];
+            break;
+        default:
+            break;
+    }
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(kScreenWidth/3.0, 80.0*(kScreenWidth/375.0));
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0.0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0.0;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10.0, 0.0, 0.0, 0.0);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self hide];
+    
+    if (self.block)
+    {
+        self.block(indexPath.row);
+    }
+}
+
+
+
 - (void)onBackgroundTouch
 {
     [self hide];
@@ -158,8 +185,7 @@
     [self.superView addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
-        
-        self.customView.transform = CGAffineTransformMakeTranslation(0, 100);
+        self.customView.transform = CGAffineTransformMakeTranslation(0, self.customView.frame.size.height);
         self.background.alpha = 1.0;
     }];
     

@@ -8,7 +8,7 @@
 
 #import "BaseWebViewController.h"
 
-@interface BaseWebViewController ()<WKNavigationDelegate>
+@interface BaseWebViewController ()
 
 @property (nonatomic, strong) UIProgressView *progressView;
 
@@ -35,7 +35,7 @@
 }
 
 #pragma mark-
-- (void)loadWebView:(WKWebView *)webView URL:(NSURL *)URL param:(NSDictionary *)param
+- (void)loadWebView:(UIWebView *)webView URL:(NSURL *)URL param:(NSDictionary *)param
 {
     _webview = webView;
     
@@ -43,15 +43,20 @@
     
     if (_webview == nil)
     {
-        _webview = [[WKWebView alloc]init];
+        _webview = [[UIWebView alloc]init];
         _webview.translatesAutoresizingMaskIntoConstraints = NO;
-        _webview.navigationDelegate = self;
+        _webview.delegate = self;
         [self.view addSubview:_webview];
         NSLayoutConstraint *topCons = [NSLayoutConstraint constraintWithItem:_webview attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
         NSLayoutConstraint *leadingCons = [NSLayoutConstraint constraintWithItem:_webview attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0];
         NSLayoutConstraint *trailingCons = [NSLayoutConstraint constraintWithItem:_webview attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0];
         NSLayoutConstraint *bottomCons = [NSLayoutConstraint constraintWithItem:_webview attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
         [self.view addConstraints:@[topCons,leadingCons,trailingCons,bottomCons]];
+    }
+    
+    if (self.isShowHUD)
+    {
+        [self showHUDWithStatus:@"加载中"];
     }
     
     [_webview loadRequest:[NSURLRequest requestWithURL:URL]];
@@ -64,33 +69,19 @@
 }
 
 
-#pragma mark- WKNavigationDelegate
-// 开始加载
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
+#pragma mark-
+- (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    if (self.isShowHUD)
-    {
-        [self showHUD];
-    }
-}
-
-// 加载完成
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
-{
-    if (self.title.length == 0)
-    {
-        // 获取网页标题并显示到导航栏
-        self.title = self.webview.title;
-    }
     
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
     if (self.isShowHUD)
     {
         [self hideHUD];
     }
 }
-
-// 加载失败
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     if (self.isShowHUD)
     {

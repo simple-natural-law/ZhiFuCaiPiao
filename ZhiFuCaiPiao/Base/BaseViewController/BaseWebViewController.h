@@ -7,12 +7,11 @@
 //
 
 #import "BaseViewController.h"
-#import <WebKit/WebKit.h>
 
 
-@interface BaseWebViewController : BaseViewController
+@interface BaseWebViewController : BaseViewController<UIWebViewDelegate>
 
-@property (strong, nonatomic) WKWebView *webview;
+@property (strong, nonatomic) UIWebView *webview;
 
 // 是否允许用户选择页面内容,默认NO
 @property (assign, nonatomic) BOOL canSelectContent;

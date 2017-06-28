@@ -14,6 +14,8 @@ typedef NS_ENUM(NSInteger,LotteryTrendType) {
     LotteryTrendTypeDlt  = 1,    // 大乐透走势图
     LotteryTrendTypeQlc  = 2,    // 七乐彩走势图
     LotteryTrendTypeQxc  = 3,    // 七星彩走势图
+    LotteryTrendTypePl3  = 4,    // 排列3走势图
+    LotteryTrendTypePl5  = 5     // 排列5走势图
 };
 
 typedef NS_ENUM(NSInteger,LotteryTrendStyle) {
@@ -29,6 +31,14 @@ typedef NS_ENUM(NSInteger,LotteryTrendStyle) {
     LotteryTrendStyleQxcFive    = 9,    // 七星彩第五位
     LotteryTrendStyleQxcSix     = 10,   // 七星彩第六位
     LotteryTrendStyleQxcSeven   = 11,   // 七星彩第七位
+    LotteryTrendStylePl3One     = 12,   // 排列3百位
+    LotteryTrendStylePl3Two     = 13,   // 排列3十位
+    LotteryTrendStylePl3Three   = 14,   // 排列3个位
+    LotteryTrendStylePl5One     = 15,   // 排列5万位
+    LotteryTrendStylePl5Two     = 16,   // 排列5千位
+    LotteryTrendStylePl5Three   = 17,   // 排列5百位
+    LotteryTrendStylePl5Four    = 18,   // 排列5十位
+    LotteryTrendStylePl5Five    = 19    // 排列5个位
 };
 
 

@@ -17,15 +17,18 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.animationType = MBProgressHUDModeIndeterminate;
     hud.minShowTime   = 0.4;
+    hud.removeFromSuperViewOnHide = YES;
     self.view.userInteractionEnabled = NO;
 }
 
 - (void)showHUDWithStatus:(NSString *)status
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.animationType = MBProgressHUDModeIndeterminate;
-    hud.minShowTime   = 0.4;
-    hud.label.text = status;
+    hud.animationType  = MBProgressHUDModeIndeterminate;
+    hud.minShowTime    = 0.4;
+    hud.label.text     = status;
+    hud.square         = YES;
+    hud.removeFromSuperViewOnHide = YES;
     self.view.userInteractionEnabled = NO;
 }
 
