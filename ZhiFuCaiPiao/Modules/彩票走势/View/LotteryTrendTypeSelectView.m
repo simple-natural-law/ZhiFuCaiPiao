@@ -185,7 +185,6 @@
     [self.superView addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
-        
         self.customView.transform = CGAffineTransformMakeTranslation(0, self.customView.frame.size.height);
         self.background.alpha = 1.0;
     }];
