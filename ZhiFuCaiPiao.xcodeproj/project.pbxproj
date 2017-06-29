@@ -1072,6 +1072,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b9455552-3b56-41dd-b7cc-fd2ce4864a81";
 				PROVISIONING_PROFILE_SPECIFIER = caipiaoDevProfile;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1100,6 +1101,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a38f9be5-5540-4801-a455-1edcc6d46837";
 				PROVISIONING_PROFILE_SPECIFIER = caipiaoDistributionProfile;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
