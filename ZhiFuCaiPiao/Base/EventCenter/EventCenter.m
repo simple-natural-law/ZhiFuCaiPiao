@@ -58,7 +58,17 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
         }
     }else
     {
-        [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"1253443524"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
+        /* 程序是否为第一次启动 */
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"] == NO)
+        {
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
+            GuidePageViewController *vc = [[GuidePageViewController alloc] init];
+            vc.toIndex = 1;
+            [UIApplication sharedApplication].delegate.window.rootViewController = vc;
+        }else
+        {
+            [UIApplication sharedApplication].delegate.window.rootViewController = [UIViewController getViewControllerFormStoryboardName:@"Main" key:@"TabBarViewController"];
+        }
     }
 }
 
@@ -79,7 +89,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
     
     application.delegate.window.rootViewController = [[TransitionViewController alloc]init];
     
-    [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"1253443524"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
+    [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"1253443524"} authorization:nil needsUpdateTimeoutInterval:YES target:self callBack:@selector(appSettingCallBack:)];
     
     // 集成JPush
     JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];

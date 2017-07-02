@@ -83,13 +83,26 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
 }
 
 
-+ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters  authorization:(NSString *)authorization target:(id)target callBack:(SEL)callBack
++ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters  authorization:(NSString *)authorization  needsUpdateTimeoutInterval:(BOOL)needsUpdateTimeoutInterval target:(id)target callBack:(SEL)callBack
 {
     NSURLSessionDataTask *dataTask = nil;
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     AFHTTPSessionManager *manager = [CPHttpRequest shared].manager;
+    
+    if (needsUpdateTimeoutInterval)
+    {
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 3.0;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    }else
+    {
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 60.0;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    }
+    
     if (authorization.length > 0)
     {
         [manager.requestSerializer setValue:authorization forHTTPHeaderField:@"Authorization"];
@@ -108,6 +121,11 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         
+        if (!needsUpdateTimeoutInterval)
+        {
+            [AlertCenter showWithTitle:@"提示" message:error.localizedDescription];
+        }
+        
         for (NSInteger i = (NSInteger)[CPHttpRequest shared].taskItems.count-1; i >= 0; i--)
         {
             CPHttpTaskInfo *taskInfo = [CPHttpRequest shared].taskItems[i];
@@ -117,7 +135,6 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
                 taskInfo.dataTask = nil;
                 [[CPHttpRequest shared].taskItems removeObject:taskInfo];
                 [[CPHttpRequest shared] callBackTask:taskInfo result:nil];
-                [AlertCenter showWithTitle:@"提示" message:error.localizedDescription];
                 break;
             }
         }

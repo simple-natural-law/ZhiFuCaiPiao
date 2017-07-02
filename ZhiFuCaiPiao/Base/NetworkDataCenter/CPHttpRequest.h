@@ -18,6 +18,7 @@
 + (void)GET:(NSString *)path
  parameters:(NSDictionary *)parameters
 authorization:(NSString *)authorization
+needsUpdateTimeoutInterval:(BOOL)needsUpdateTimeoutInterval
      target:(id)target
    callBack:(SEL)callBack;
 

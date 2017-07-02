@@ -29,7 +29,7 @@
     
     [self showHUD];
     
-    [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil target:self callBack:@selector(wxnewCallBack:)];
+    [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(wxnewCallBack:)];
 }
 
 - (void)wxnewCallBack:(NSDictionary *)dic
@@ -48,7 +48,7 @@
             
             [weakself showHUD];
             
-            [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil target:weakself callBack:@selector(wxnewCallBack:)];
+            [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil needsUpdateTimeoutInterval:NO target:weakself callBack:@selector(wxnewCallBack:)];
         }];
     }
 }
