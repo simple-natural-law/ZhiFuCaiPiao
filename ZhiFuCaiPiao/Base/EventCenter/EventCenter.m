@@ -80,7 +80,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(EventCenter, shared)
     application.delegate.window.rootViewController = [[TransitionViewController alloc]init];
     
     [NetworkDataCenter GET:@"http://appid.qq-app.com/frontApi/getAboutUs" parameters:@{@"appid":@"1253443524"} authorization:nil target:self callBack:@selector(appSettingCallBack:)];
-
+    
     // 集成JPush
     JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];
     entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
