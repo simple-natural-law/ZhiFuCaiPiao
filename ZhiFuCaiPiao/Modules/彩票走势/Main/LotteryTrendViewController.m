@@ -24,12 +24,7 @@
 
 @property (nonatomic, assign) LotteryTrendType type;
 
-@property (nonatomic, strong) NSArray *ssqDataArr; // 双色球
-@property (nonatomic, strong) NSArray *dltDataArr; // 大乐透
-@property (nonatomic, strong) NSArray *qlcDataArr; // 七星彩
-@property (nonatomic, strong) NSArray *qxcDataArr; // 七乐彩
-@property (nonatomic, strong) NSArray *pl3DataArr; // 排列3
-@property (nonatomic, strong) NSArray *pl5DataArr; // 排列5
+@property (nonatomic, strong) NSArray *dataArr; // 双色球
 
 @end
 
@@ -43,11 +38,10 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.87 alpha:1.0];
     
-    [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedLotteryType)];
-    
     self.automaticallyAdjustsScrollViewInsets = NO; // 关闭scrollview自动适应
     
-    self.type = LotteryTrendTypeSsq;
+    self.type  = [self.param[@"type"] integerValue];
+    self.title = self.param[@"title"];
     
     [self addMenuView];
     
@@ -61,7 +55,7 @@
     bottomLine.backgroundColor = [UIColor clearColor];
     [self.view addSubview:bottomLine];
     
-    [self requestSsqData];
+    [self requestData];
 }
 
 
@@ -69,6 +63,7 @@
 {
     [super viewWillAppear:animated];
 }
+
 
 - (void)addMenuView
 {
@@ -81,390 +76,156 @@
     [self.view insertSubview:self.menuView atIndex:0];
 }
 
-- (void)requestSsqData
+- (void)requestData
 {
     [self showHUD];
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"ssq"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(ssqNumberTrendCallBack:)];
+    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":self.param[@"en"]} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(numberTrendCallBack:)];
 }
 
-- (void)requestDltData
-{
-    [self showHUD];
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"dlt"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(dltNumberTrendCallBack:)];
-}
-
-- (void)requestQlcData
-{
-    [self showHUD];
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"qlc"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(qlcNumberTrendCallBack:)];
-}
-
-- (void)requestQxcData
-{
-    [self showHUD];
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"qxc"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(qxcNumberTrendCallBack:)];
-}
-
-- (void)requestpl3Data
-{
-    [self showHUD];
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"pl3"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(pl3NumberTrendCallBack:)];
-}
-
-- (void)requestpl5Data
-{
-    [self showHUD];
-    [NetworkDataCenter GET:@"http://api.caipiao.163.com/missNumber_trend.html" parameters:@{@"product":@"caipiao_client",@"mobileType":@"iphone",@"ver":@"4.33",@"channel":@"appstore",@"apiVer":@"1.1",@"apiLevel":@"27",@"deviceId":[UIDevice UDID],@"gameEn":@"pl5"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(pl5NumberTrendCallBack:)];
-}
 
 // 双色球
-- (void)ssqNumberTrendCallBack:(NSDictionary *)result
+- (void)numberTrendCallBack:(NSDictionary *)result
 {
     [self hideHUD];
     
     if ([result[@"result"] integerValue] == 100)
     {
-        self.ssqDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
+        self.dataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
         
         NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
         
-        for (NSDictionary *dic in self.ssqDataArr)
+        for (NSDictionary *dic in self.dataArr)
         {
             @autoreleasepool {
                 NSMutableDictionary *dataDic = [dic mutableCopy];
-                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 33)];
-                [dataDic setObject:missNumArr forKey:@"missNumber"];
                 
-                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 6)];
-                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                
-                [dataArray addObject:dataDic];
+                switch (self.type)
+                {
+                    case LotteryTrendTypeSsq:
+                    {
+                        NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 33)];
+                        [dataDic setObject:missNumArr forKey:@"missNumber"];
+                        
+                        NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 6)];
+                        [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                        
+                        [dataArray addObject:dataDic];
+                    }
+                        break;
+                    case LotteryTrendTypeDlt:
+                    {
+                        NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 35)];
+                        [dataDic setObject:missNumArr forKey:@"missNumber"];
+                        
+                        NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 5)];
+                        [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                        
+                        [dataArray addObject:dataDic];
+                    }
+                        break;
+                    case LotteryTrendTypeQlc:
+                    {
+                        NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"general"];
+                        [dataDic setObject:missNumArr forKey:@"missNumber"];
+                        
+                        [dataArray addObject:dataDic];
+                    }
+                        break;
+                    case LotteryTrendTypeQxc:
+                    {
+                        NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"num1_general"];
+                        [dataDic setObject:missNumArr forKey:@"missNumber"];
+                        NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
+                        [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                        [dataArray addObject:dataDic];
+                    }
+                        break;
+                    case LotteryTrendTypePl3:
+                    {
+                        NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"zhixuanfushi"] subarrayWithRange:NSMakeRange(0, 10)];
+                        [dataDic setObject:missNumArr forKey:@"missNumber"];
+                        NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
+                        [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                        [dataArray addObject:dataDic];
+                    }
+                        break;
+                    case LotteryTrendTypePl5:
+                    {
+                        NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"zhixuanfushi"] subarrayWithRange:NSMakeRange(0, 10)];
+                        [dataDic setObject:missNumArr forKey:@"missNumber"];
+                        NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
+                        [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
+                        [dataArray addObject:dataDic];
+                    }
+                        break;
+                    case LotteryTrendType3D:
+                    {
+                        
+                    }
+                        break;
+                    case LotteryTrendTypeSsc:
+                    {
+                        
+                    }
+                        break;
+                    case LotteryTrendTypeK3:
+                    {
+                        
+                    }
+                        break;
+                    case LotteryTrendType11x5:
+                    {
+                        
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
             }
         }
-        self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-203) type:LotteryTrendTypeSsq style:LotteryTrendStyleSsqRed dataArray:dataArray];
+        self.trendView = [[LotteryTrendView alloc] initWithFrame:CGRectMake(0, 120, kScreenWidth, kScreenHeight-203) type:self.type style:[self getDefaultStyle] dataArray:dataArray];
         [self.view addSubview:self.trendView];
     }
 }
 
-// 大乐透
-- (void)dltNumberTrendCallBack:(NSDictionary *)result
+- (LotteryTrendStyle)getDefaultStyle
 {
-    [self hideHUD];
-    
-    if ([result[@"result"] integerValue] == 100)
+    switch (self.type)
     {
-        self.dltDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
-        
-        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-        
-        for (NSDictionary *dic in self.dltDataArr)
-        {
-            @autoreleasepool {
-                NSMutableDictionary *dataDic = [dic mutableCopy];
-                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 35)];
-                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                
-                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 5)];
-                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                
-                [dataArray addObject:dataDic];
-            }
-        }
-        [self.trendView displayWithType:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
-    }
-}
-
-// 七乐彩
-- (void)qlcNumberTrendCallBack:(NSDictionary *)result
-{
-    [self hideHUD];
-    
-    if ([result[@"result"] integerValue] == 100)
-    {
-        self.qlcDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
-        
-        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-        
-        for (NSDictionary *dic in self.qlcDataArr)
-        {
-            @autoreleasepool {
-                NSMutableDictionary *dataDic = [dic mutableCopy];
-                NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"general"];
-                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                
-                [dataArray addObject:dataDic];
-            }
-        }
-        
-        [self.trendView displayWithType:LotteryTrendTypeQlc style:LotteryTrendStyleQlc dataArray:dataArray];
-    }
-}
-
-// 七星彩
-- (void)qxcNumberTrendCallBack:(NSDictionary *)result
-{
-    [self hideHUD];
-    
-    if ([result[@"result"] integerValue] == 100)
-    {
-        self.qxcDataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
-        
-        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-        
-        for (NSDictionary *dic in self.qxcDataArr)
-        {
-            @autoreleasepool {
-                NSMutableDictionary *dataDic = [dic mutableCopy];
-                NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"num1_general"];
-                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
-                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                [dataArray addObject:dataDic];
-            }
-        }
-        
-        [self.trendView displayWithType:LotteryTrendTypeQxc style:LotteryTrendStyleQxcOne dataArray:dataArray];
-    }
-}
-
-- (void)pl3NumberTrendCallBack:(NSDictionary *)result
-{
-    [self hideHUD];
-    
-    if ([result[@"result"] integerValue] == 100)
-    {
-        self.pl3DataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
-        
-        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-        
-        for (NSDictionary *dic in self.pl3DataArr)
-        {
-            @autoreleasepool {
-                NSMutableDictionary *dataDic = [dic mutableCopy];
-                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"zhixuanfushi"] subarrayWithRange:NSMakeRange(0, 10)];
-                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
-                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                [dataArray addObject:dataDic];
-            }
-        }
-        
-        [self.trendView displayWithType:LotteryTrendTypePl3 style:LotteryTrendStylePl3One dataArray:dataArray];
-    }
-}
-
-- (void)pl5NumberTrendCallBack:(NSDictionary *)result
-{
-    [self hideHUD];
-    
-    if ([result[@"result"] integerValue] == 100)
-    {
-        self.pl5DataArr = [result[@"data"] subarrayWithRange:NSMakeRange(0, 50)];
-        
-        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-        
-        for (NSDictionary *dic in self.pl5DataArr)
-        {
-            @autoreleasepool {
-                NSMutableDictionary *dataDic = [dic mutableCopy];
-                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"zhixuanfushi"] subarrayWithRange:NSMakeRange(0, 10)];
-                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
-                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                [dataArray addObject:dataDic];
-            }
-        }
-        
-        [self.trendView displayWithType:LotteryTrendTypePl5 style:LotteryTrendStylePl5One dataArray:dataArray];
-    }
-}
-
-#pragma mark-
-- (void)selectedLotteryType
-{
-    if (self.typeView == nil)
-    {
-        __weak typeof(self) weakself = self;
-        self.typeView = [LotteryTrendTypeSelectView showInView:self.view didSelectedBlock:^(NSInteger index) {
-            
-            weakself.type = index;
-            [weakself addMenuView];
-            
-            switch (weakself.type)
-            {
-                case LotteryTrendTypeSsq:
-                {
-                    weakself.title = @"双色球";
-                    if (weakself.ssqDataArr.count > 0)
-                    {
-                        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-                        
-                        for (NSDictionary *dic in weakself.ssqDataArr)
-                        {
-                            @autoreleasepool {
-                                NSMutableDictionary *dataDic = [dic mutableCopy];
-                                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 33)];
-                                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                                
-                                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 6)];
-                                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                                
-                                [dataArray addObject:dataDic];
-                            }
-                        }
-                        
-                        [weakself.trendView displayWithType:LotteryTrendTypeSsq style:LotteryTrendStyleSsqRed dataArray:dataArray];
-                    }else
-                    {
-                        [weakself requestSsqData];
-                    }
-                }
-                    break;
-                case LotteryTrendTypeDlt:
-                {
-                    weakself.title = @"大乐透";
-                    if (weakself.dltDataArr.count > 0)
-                    {
-                        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-                        
-                        for (NSDictionary *dic in weakself.dltDataArr)
-                        {
-                            @autoreleasepool {
-                                NSMutableDictionary *dataDic = [dic mutableCopy];
-                                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"general"] subarrayWithRange:NSMakeRange(0, 35)];
-                                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                                
-                                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 5)];
-                                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                                
-                                [dataArray addObject:dataDic];
-                            }
-                        }
-                        
-                        [weakself.trendView displayWithType:LotteryTrendTypeDlt style:LotteryTrendStyleDltInFront dataArray:dataArray];
-                    }else
-                    {
-                        [weakself requestDltData];
-                    }
-                }
-                    break;
-                case LotteryTrendTypeQlc:
-                {
-                    weakself.title = @"七乐彩";
-                    if (weakself.qlcDataArr.count > 0)
-                    {
-                        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-                        
-                        for (NSDictionary *dic in weakself.qlcDataArr)
-                        {
-                            @autoreleasepool {
-                                NSMutableDictionary *dataDic = [dic mutableCopy];
-                                NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"general"];
-                                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                                
-                                [dataArray addObject:dataDic];
-                            }
-                        }
-                        
-                        [weakself.trendView displayWithType:LotteryTrendTypeQlc style:LotteryTrendStyleQlc dataArray:dataArray];
-                    }else
-                    {
-                        [weakself requestQlcData];
-                    }
-                }
-                    break;
-                case LotteryTrendTypeQxc:
-                {
-                    weakself.title = @"七星彩";
-                    if (weakself.qxcDataArr.count > 0)
-                    {
-                        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-                        
-                        for (NSDictionary *dic in weakself.qxcDataArr)
-                        {
-                            @autoreleasepool {
-                                NSMutableDictionary *dataDic = [dic mutableCopy];
-                                NSArray *missNumArr = [[dic objectForKey:@"missNumber"] objectForKey:@"num1_general"];
-                                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
-                                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                                [dataArray addObject:dataDic];
-                            }
-                        }
-                        
-                        [weakself.trendView displayWithType:LotteryTrendTypeQxc style:LotteryTrendStyleQxcOne dataArray:dataArray];
-                    }else
-                    {
-                        [weakself requestQxcData];
-                    }
-                }
-                    break;
-                case LotteryTrendTypePl3:
-                {
-                    weakself.title = @"排列3";
-                    if (weakself.pl3DataArr.count > 0)
-                    {
-                        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-                        
-                        for (NSDictionary *dic in weakself.pl3DataArr)
-                        {
-                            @autoreleasepool {
-                                NSMutableDictionary *dataDic = [dic mutableCopy];
-                                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"zhixuanfushi"] subarrayWithRange:NSMakeRange(0, 10)];
-                                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
-                                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                                [dataArray addObject:dataDic];
-                            }
-                        }
-                        
-                        [weakself.trendView displayWithType:LotteryTrendTypePl3 style:LotteryTrendStylePl3One dataArray:dataArray];
-                    }else
-                    {
-                        [weakself requestpl3Data];
-                    }
-                }
-                    break;
-                case LotteryTrendTypePl5:
-                {
-                    weakself.title = @"排列5";
-                    
-                    if (weakself.pl5DataArr.count > 0)
-                    {
-                        NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
-                        
-                        for (NSDictionary *dic in self.pl5DataArr)
-                        {
-                            @autoreleasepool {
-                                NSMutableDictionary *dataDic = [dic mutableCopy];
-                                NSArray *missNumArr = [[[dic objectForKey:@"missNumber"] objectForKey:@"zhixuanfushi"] subarrayWithRange:NSMakeRange(0, 10)];
-                                [dataDic setObject:missNumArr forKey:@"missNumber"];
-                                NSArray *winnerNumberArr = [[dic objectForKey:@"winnerNumber"] subarrayWithRange:NSMakeRange(0, 1)];
-                                [dataDic setObject:winnerNumberArr forKey:@"winnerNumber"];
-                                [dataArray addObject:dataDic];
-                            }
-                        }
-                        
-                        [self.trendView displayWithType:LotteryTrendTypePl5 style:LotteryTrendStylePl5One dataArray:dataArray];
-                    }else
-                    {
-                        [weakself requestpl5Data];
-                    }
-                }
-                    break;
-                default:
-                    break;
-            }
-       }];
-    }else
-    {
-        if (self.typeView.isShow)
-        {
-            [self.typeView hide];
-        }else
-        {
-            [self.typeView show];
-        }
+        case LotteryTrendTypeSsq:
+            return LotteryTrendStyleSsqRed;
+            break;
+        case LotteryTrendTypeDlt:
+            return LotteryTrendStyleDltInFront;
+            break;
+        case LotteryTrendTypeQlc:
+            return LotteryTrendStyleQlc;
+            break;
+        case LotteryTrendTypeQxc:
+            return LotteryTrendStyleQxcOne;
+            break;
+        case LotteryTrendTypePl3:
+            return LotteryTrendStylePl3One;
+            break;
+        case LotteryTrendTypePl5:
+            return LotteryTrendStylePl5One;
+            break;
+        case LotteryTrendType3D:
+            return LotteryTrendStyleSsqRed;
+            break;
+        case LotteryTrendTypeSsc:
+            return LotteryTrendStyleSsqRed;
+            break;
+        case LotteryTrendTypeK3:
+            return LotteryTrendStyleSsqRed;
+            break;
+        case LotteryTrendType11x5:
+            return LotteryTrendStyleSsqRed;
+            break;
+        default:
+            return LotteryTrendStyleSsqRed;
+            break;
     }
 }
 
@@ -477,7 +238,7 @@
         {
             NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
             
-            for (NSDictionary *dic in self.ssqDataArr)
+            for (NSDictionary *dic in self.dataArr)
             {
                 @autoreleasepool {
                     NSMutableDictionary *dataDic = [dic mutableCopy];
@@ -496,7 +257,7 @@
         {
             NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
             
-            for (NSDictionary *dic in self.ssqDataArr)
+            for (NSDictionary *dic in self.dataArr)
             {
                 @autoreleasepool {
                     NSMutableDictionary *dataDic = [dic mutableCopy];
@@ -517,7 +278,7 @@
         {
             NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
             
-            for (NSDictionary *dic in self.dltDataArr)
+            for (NSDictionary *dic in self.dataArr)
             {
                 @autoreleasepool {
                     NSMutableDictionary *dataDic = [dic mutableCopy];
@@ -536,7 +297,7 @@
         {
             NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:50];
             
-            for (NSDictionary *dic in self.dltDataArr)
+            for (NSDictionary *dic in self.dataArr)
             {
                 @autoreleasepool {
                     NSMutableDictionary *dataDic = [dic mutableCopy];
@@ -594,7 +355,7 @@
                 break;
         }
         
-        for (NSDictionary *dic in self.qxcDataArr)
+        for (NSDictionary *dic in self.dataArr)
         {
             @autoreleasepool {
                 
@@ -636,7 +397,7 @@
                 break;
         }
 
-        for (NSDictionary *dic in self.pl3DataArr)
+        for (NSDictionary *dic in self.dataArr)
         {
             @autoreleasepool {
                 NSMutableDictionary *dataDic = [dic mutableCopy];
@@ -683,7 +444,7 @@
                 break;
         }
         
-        for (NSDictionary *dic in self.pl5DataArr)
+        for (NSDictionary *dic in self.dataArr)
         {
             @autoreleasepool {
                 NSMutableDictionary *dataDic = [dic mutableCopy];

@@ -85,7 +85,7 @@
         
     }else
     {
-        [self pushViewControllerKey:@"LotteryHistoryViewController" param:@{@"id":self.dataArr[indexPath.row-1][@"caipiaoid"],@"title":self.dataArr[indexPath.row-1][@"title"]} animated:YES];
+        [self pushViewControllerKey:@"LotteryHistoryViewController" param:self.dataArr[indexPath.row-1] animated:YES];
     }
 }
 
@@ -93,7 +93,17 @@
 {
     if (_dataArr == nil)
     {
-        _dataArr = [[NSMutableArray alloc] initWithObjects:@{@"title":@"双色球",@"description":@"每周二 四 日的21:15开奖",@"icon":@"shuangseqiu",@"caipiaoid":@(11)}, @{@"title":@"超级大乐透",@"description":@"每周一 三 六的20:30开奖",@"icon":@"daletou",@"caipiaoid":@(14)},@{@"title":@"福彩3D",@"description":@"每天的21:20开奖",@"icon":@"fucai3d",@"caipiaoid":@(12)},@{@"title":@"排列3",@"description":@"每天的20:30开奖",@"icon":@"pailiesan",@"caipiaoid":@(16)},@{@"title":@"排列5",@"description":@"每天的20:30开奖",@"icon":@"paliewu",@"caipiaoid":@(17)},@{@"title":@"七乐彩",@"description":@"每周一 三 五的21:15开奖",@"icon":@"7lecai",@"caipiaoid":@(13)},@{@"title":@"七星彩",@"description":@"每周二 五 日的20:30开奖",@"icon":@"7cai",@"caipiaoid":@(15)},@{@"title":@"新疆时时彩",@"description":@"每天96期,10:10起每10分钟一期",@"icon":@"xjssc",@"caipiaoid":@(90)},@{@"title":@"快3-湖北",@"description":@"每天78期,09:10起每10分钟一期",@"icon":@"k3",@"caipiaoid":@(80)},@{@"title":@"11选5-广东",@"description":@"每天84期,09:10起每10分钟一期",@"icon":@"gd11x5",@"caipiaoid":@(71)},nil];
+        _dataArr = [[NSMutableArray alloc] initWithObjects:
+                    @{@"title":@"双色球",@"description":@"每周二 四 日的21:15开奖",@"icon":@"shuangseqiu",@"caipiaoid":@(11),@"type":@(0),@"en":@"ssq"},
+                    @{@"title":@"超级大乐透",@"description":@"每周一 三 六的20:30开奖",@"icon":@"daletou",@"caipiaoid":@(14),@"type":@(1),@"en":@"dlt"},
+                    @{@"title":@"福彩3D",@"description":@"每天的21:20开奖",@"icon":@"fucai3d",@"caipiaoid":@(12),@"type":@(6),@"en":@"3d"},
+                    @{@"title":@"排列3",@"description":@"每天的20:30开奖",@"icon":@"pailiesan",@"caipiaoid":@(16),@"type":@(4),@"en":@"pl3"},
+                    @{@"title":@"排列5",@"description":@"每天的20:30开奖",@"icon":@"paliewu",@"caipiaoid":@(17),@"type":@(5),@"en":@"pl5"},
+                    @{@"title":@"七乐彩",@"description":@"每周一 三 五的21:15开奖",@"icon":@"7lecai",@"caipiaoid":@(13),@"type":@(2),@"en":@"qlc"},
+                    @{@"title":@"七星彩",@"description":@"每周二 五 日的20:30开奖",@"icon":@"7cai",@"caipiaoid":@(15),@"type":@(3),@"en":@"qxc"},
+                    @{@"title":@"新疆时时彩",@"description":@"每天96期,10:10起每10分钟一期",@"icon":@"xjssc",@"caipiaoid":@(90),@"type":@(7),@"en":@"ssc"},
+                    @{@"title":@"快3-湖北",@"description":@"每天78期,09:10起每10分钟一期",@"icon":@"k3",@"caipiaoid":@(80),@"type":@(8),@"en":@"k3"},
+                    @{@"title":@"11选5-广东",@"description":@"每天84期,09:10起每10分钟一期",@"icon":@"gd11x5",@"caipiaoid":@(71),@"type":@(9),@"en":@"11x5"},nil];
     }
     return _dataArr;
 }

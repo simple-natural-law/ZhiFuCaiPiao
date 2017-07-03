@@ -712,7 +712,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="双色球" id="a69-W4-veb"/>
+                    <navigationItem key="navigationItem" id="a69-W4-veb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btF-00-aaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

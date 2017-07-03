@@ -15,7 +15,11 @@ typedef NS_ENUM(NSInteger,LotteryTrendType) {
     LotteryTrendTypeQlc  = 2,    // 七乐彩走势图
     LotteryTrendTypeQxc  = 3,    // 七星彩走势图
     LotteryTrendTypePl3  = 4,    // 排列3走势图
-    LotteryTrendTypePl5  = 5     // 排列5走势图
+    LotteryTrendTypePl5  = 5,    // 排列5走势图
+    LotteryTrendType3D   = 6,    // 福彩3D
+    LotteryTrendTypeSsc  = 7,    // 时时彩
+    LotteryTrendTypeK3   = 8,    // 快3
+    LotteryTrendType11x5 = 9,    // 11选5
 };
 
 typedef NS_ENUM(NSInteger,LotteryTrendStyle) {
