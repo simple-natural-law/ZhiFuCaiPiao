@@ -19,12 +19,10 @@
 		1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB041EF8F85F009E4A39 /* LotteryHistoryViewController.m */; };
 		1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB071EF91582009E4A39 /* NetworkDataCenter.m */; };
 		1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB0A1EFA0611009E4A39 /* LotteryDetailCell.m */; };
-		1AE7CA7C1EFCFE7C00D65276 /* LotteryTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7CA7B1EFCFE7C00D65276 /* LotteryTrendView.m */; };
 		341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAA1EFF7FE100FA387E /* CPMenuItem.m */; };
 		341B2CB01EFF7FE100FA387E /* CPMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAC1EFF7FE100FA387E /* CPMenuView.m */; };
 		341B2CB11EFF7FE100FA387E /* CPProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAE1EFF7FE100FA387E /* CPProgressView.m */; };
 		341B2CB51EFF844100FA387E /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CB41EFF844100FA387E /* LineView.m */; };
-		341B2CB81F014DCE00FA387E /* LotteryTrendTypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CB71F014DCE00FA387E /* LotteryTrendTypeSelectView.m */; };
 		341B2CDA1F02907500FA387E /* dlt_howto.html in Resources */ = {isa = PBXBuildFile; fileRef = 341B2CBD1F02907500FA387E /* dlt_howto.html */; };
 		341B2CDB1F02907500FA387E /* f9_howto.html in Resources */ = {isa = PBXBuildFile; fileRef = 341B2CBE1F02907500FA387E /* f9_howto.html */; };
 		341B2CDC1F02907500FA387E /* gdy11_howto.html in Resources */ = {isa = PBXBuildFile; fileRef = 341B2CBF1F02907500FA387E /* gdy11_howto.html */; };
@@ -68,12 +66,14 @@
 		341FED0E1EF17BA300CA37A9 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FECFD1EF17BA300CA37A9 /* UIViewController+HUD.m */; };
 		341FED0F1EF17BA300CA37A9 /* UIViewController+Nav.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FECFF1EF17BA300CA37A9 /* UIViewController+Nav.m */; };
 		341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FED321EF2D10600CA37A9 /* LotteryInformationViewController.m */; };
-		341FED361EF2D13500CA37A9 /* LotteryTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341FED351EF2D13500CA37A9 /* LotteryTrendViewController.m */; };
 		342384BA1EF94E3E0074DAE1 /* AlertCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384B91EF94E3E0074DAE1 /* AlertCenter.m */; };
 		342384BD1EF975370074DAE1 /* LotteryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384BC1EF975370074DAE1 /* LotteryDetailViewController.m */; };
 		342384C01EFBF8D90074DAE1 /* CPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384BF1EFBF8D90074DAE1 /* CPNavigationController.m */; };
 		343973D61EEB952000C183D8 /* ZhiFuCaiPiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */; };
 		343973E11EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */; };
+		34FCDB351F0A7F1D00F7F2B6 /* LotteryTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */; };
+		34FCDB361F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB321F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m */; };
+		34FCDB371F0A7F1D00F7F2B6 /* LotteryTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB341F0A7F1D00F7F2B6 /* LotteryTrendView.m */; };
 		D41BF99CC9788D7ACC6F84D2 /* libPods-ZhiFuCaiPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C933D092E076852C2A341D70 /* libPods-ZhiFuCaiPiao.a */; };
 /* End PBXBuildFile section */
 
@@ -119,8 +119,6 @@
 		1A8FEB071EF91582009E4A39 /* NetworkDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkDataCenter.m; sourceTree = "<group>"; };
 		1A8FEB091EFA0611009E4A39 /* LotteryDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryDetailCell.h; sourceTree = "<group>"; };
 		1A8FEB0A1EFA0611009E4A39 /* LotteryDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryDetailCell.m; sourceTree = "<group>"; };
-		1AE7CA7A1EFCFE7C00D65276 /* LotteryTrendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendView.h; sourceTree = "<group>"; };
-		1AE7CA7B1EFCFE7C00D65276 /* LotteryTrendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendView.m; sourceTree = "<group>"; };
 		1FF2304038C3D3FD117E55A6 /* Pods-ZhiFuCaiPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiFuCaiPiao.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiFuCaiPiao/Pods-ZhiFuCaiPiao.release.xcconfig"; sourceTree = "<group>"; };
 		322E82216E8BD4D934469DB8 /* Pods-ZhiFuCaiPiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiFuCaiPiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiFuCaiPiao/Pods-ZhiFuCaiPiao.debug.xcconfig"; sourceTree = "<group>"; };
 		341B2CA91EFF7FE100FA387E /* CPMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMenuItem.h; sourceTree = "<group>"; };
@@ -131,8 +129,6 @@
 		341B2CAE1EFF7FE100FA387E /* CPProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPProgressView.m; sourceTree = "<group>"; };
 		341B2CB31EFF844100FA387E /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
 		341B2CB41EFF844100FA387E /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
-		341B2CB61F014DCD00FA387E /* LotteryTrendTypeSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendTypeSelectView.h; sourceTree = "<group>"; };
-		341B2CB71F014DCE00FA387E /* LotteryTrendTypeSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendTypeSelectView.m; sourceTree = "<group>"; };
 		341B2CBD1F02907500FA387E /* dlt_howto.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = dlt_howto.html; sourceTree = "<group>"; };
 		341B2CBE1F02907500FA387E /* f9_howto.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = f9_howto.html; sourceTree = "<group>"; };
 		341B2CBF1F02907500FA387E /* gdy11_howto.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = gdy11_howto.html; sourceTree = "<group>"; };
@@ -206,8 +202,6 @@
 		341FECFF1EF17BA300CA37A9 /* UIViewController+Nav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Nav.m"; sourceTree = "<group>"; };
 		341FED311EF2D10600CA37A9 /* LotteryInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryInformationViewController.h; sourceTree = "<group>"; };
 		341FED321EF2D10600CA37A9 /* LotteryInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryInformationViewController.m; sourceTree = "<group>"; };
-		341FED341EF2D13500CA37A9 /* LotteryTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendViewController.h; sourceTree = "<group>"; };
-		341FED351EF2D13500CA37A9 /* LotteryTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendViewController.m; sourceTree = "<group>"; };
 		342384B81EF94E3E0074DAE1 /* AlertCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertCenter.h; sourceTree = "<group>"; };
 		342384B91EF94E3E0074DAE1 /* AlertCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertCenter.m; sourceTree = "<group>"; };
 		342384BB1EF975370074DAE1 /* LotteryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryDetailViewController.h; sourceTree = "<group>"; };
@@ -222,6 +216,12 @@
 		343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhiFuCaiPiaoUITests.m; sourceTree = "<group>"; };
 		343973E21EEB952000C183D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		343973EE1EEB9C1600C183D8 /* ZhiFuCaiPiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhiFuCaiPiao.entitlements; sourceTree = "<group>"; };
+		34FCDB2E1F0A7F1D00F7F2B6 /* LotteryTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendViewController.h; sourceTree = "<group>"; };
+		34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendViewController.m; sourceTree = "<group>"; };
+		34FCDB311F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendTypeSelectView.h; sourceTree = "<group>"; };
+		34FCDB321F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendTypeSelectView.m; sourceTree = "<group>"; };
+		34FCDB331F0A7F1D00F7F2B6 /* LotteryTrendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendView.h; sourceTree = "<group>"; };
+		34FCDB341F0A7F1D00F7F2B6 /* LotteryTrendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendView.m; sourceTree = "<group>"; };
 		C933D092E076852C2A341D70 /* libPods-ZhiFuCaiPiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhiFuCaiPiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -333,17 +333,6 @@
 			path = "引导页";
 			sourceTree = "<group>";
 		};
-		1AE7CA791EFCFE7C00D65276 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1AE7CA7A1EFCFE7C00D65276 /* LotteryTrendView.h */,
-				1AE7CA7B1EFCFE7C00D65276 /* LotteryTrendView.m */,
-				341B2CB61F014DCD00FA387E /* LotteryTrendTypeSelectView.h */,
-				341B2CB71F014DCE00FA387E /* LotteryTrendTypeSelectView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1E30A2CCBD923B44A4162198 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,7 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				1A31D9001F035393005386FF /* 引导页 */,
-				341FED2B1EF2D06900CA37A9 /* 彩票走势 */,
+				34FCDB2B1F0A7F0900F7F2B6 /* 易经占卦 */,
 				341FED2E1EF2D06900CA37A9 /* 开奖信息 */,
 				1A31D8F11F0265BE005386FF /* 其他 */,
 				1A31D8F61F0265BE005386FF /* 资讯 */,
@@ -534,32 +523,6 @@
 			path = "UIKit+Category";
 			sourceTree = "<group>";
 		};
-		341FED2B1EF2D06900CA37A9 /* 彩票走势 */ = {
-			isa = PBXGroup;
-			children = (
-				341FED2C1EF2D06900CA37A9 /* Base */,
-				341FED2D1EF2D06900CA37A9 /* Main */,
-				1AE7CA791EFCFE7C00D65276 /* View */,
-			);
-			path = "彩票走势";
-			sourceTree = "<group>";
-		};
-		341FED2C1EF2D06900CA37A9 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		341FED2D1EF2D06900CA37A9 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				341FED341EF2D13500CA37A9 /* LotteryTrendViewController.h */,
-				341FED351EF2D13500CA37A9 /* LotteryTrendViewController.m */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		341FED2E1EF2D06900CA37A9 /* 开奖信息 */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +554,9 @@
 				1A8FEB0A1EFA0611009E4A39 /* LotteryDetailCell.m */,
 				342384BB1EF975370074DAE1 /* LotteryDetailViewController.h */,
 				342384BC1EF975370074DAE1 /* LotteryDetailViewController.m */,
+				34FCDB2E1F0A7F1D00F7F2B6 /* LotteryTrendViewController.h */,
+				34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */,
+				34FCDB301F0A7F1D00F7F2B6 /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -655,6 +621,40 @@
 				343973E21EEB952000C183D8 /* Info.plist */,
 			);
 			path = ZhiFuCaiPiaoUITests;
+			sourceTree = "<group>";
+		};
+		34FCDB2B1F0A7F0900F7F2B6 /* 易经占卦 */ = {
+			isa = PBXGroup;
+			children = (
+				34FCDB2C1F0A7F0900F7F2B6 /* Base */,
+				34FCDB2D1F0A7F0900F7F2B6 /* Main */,
+			);
+			path = "易经占卦";
+			sourceTree = "<group>";
+		};
+		34FCDB2C1F0A7F0900F7F2B6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		34FCDB2D1F0A7F0900F7F2B6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		34FCDB301F0A7F1D00F7F2B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				34FCDB311F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.h */,
+				34FCDB321F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m */,
+				34FCDB331F0A7F1D00F7F2B6 /* LotteryTrendView.h */,
+				34FCDB341F0A7F1D00F7F2B6 /* LotteryTrendView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8335D7664C7B4521EA785354 /* Frameworks */ = {
@@ -886,33 +886,33 @@
 				341FECD41EF0268600CA37A9 /* BaseViewController.m in Sources */,
 				341FECC61EF01C2600CA37A9 /* main.m in Sources */,
 				342384C01EFBF8D90074DAE1 /* CPNavigationController.m in Sources */,
-				341FED361EF2D13500CA37A9 /* LotteryTrendViewController.m in Sources */,
 				341FED0B1EF17BA300CA37A9 /* UINavigationController+extend.m in Sources */,
 				1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */,
 				341FED0D1EF17BA300CA37A9 /* UIViewController+Bar.m in Sources */,
 				341FED0C1EF17BA300CA37A9 /* UIView+extend.m in Sources */,
 				1A8FEB021EF8F84A009E4A39 /* LotteryHistoryCell.m in Sources */,
 				342384BD1EF975370074DAE1 /* LotteryDetailViewController.m in Sources */,
-				341B2CB81F014DCE00FA387E /* LotteryTrendTypeSelectView.m in Sources */,
 				341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */,
 				1A31D9061F036CB1005386FF /* ErrorViewController.m in Sources */,
 				1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */,
 				341B2CB51EFF844100FA387E /* LineView.m in Sources */,
 				341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */,
 				341FED0E1EF17BA300CA37A9 /* UIViewController+HUD.m in Sources */,
+				34FCDB351F0A7F1D00F7F2B6 /* LotteryTrendViewController.m in Sources */,
 				341FED041EF17BA300CA37A9 /* NSString+extend.m in Sources */,
 				1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */,
 				341FED011EF17BA300CA37A9 /* NSDate+extend.m in Sources */,
 				1A31D9091F036F39005386FF /* TransitionViewController.m in Sources */,
 				341B2CFC1F02AB8F00FA387E /* NewsCell.m in Sources */,
 				1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */,
-				1AE7CA7C1EFCFE7C00D65276 /* LotteryTrendView.m in Sources */,
 				1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */,
 				341B2CF61F02930F00FA387E /* OtherDetailViewController.m in Sources */,
 				341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */,
 				1A31D9031F0353C8005386FF /* GuidePageViewController.m in Sources */,
 				341FECD71EF0327600CA37A9 /* TabBarViewController.m in Sources */,
 				341FED061EF17BA300CA37A9 /* UIColor+extend.m in Sources */,
+				34FCDB361F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m in Sources */,
+				34FCDB371F0A7F1D00F7F2B6 /* LotteryTrendView.m in Sources */,
 				341FECD01EF0265800CA37A9 /* EventCenter.m in Sources */,
 				341B2CFF1F02AF4300FA387E /* NewsDetailViewController.m in Sources */,
 				341FED031EF17BA300CA37A9 /* NSObject+extend.m in Sources */,
