@@ -314,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvB-n1-Ue6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="-652.62368815592208"/>
+            <point key="canvasLocation" x="1393" y="-1271"/>
         </scene>
         <!--期次详情-->
         <scene sceneID="B72-fq-krq">
@@ -658,7 +658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3o-rI-KwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="-653.52323838080963"/>
+            <point key="canvasLocation" x="2254" y="-1699"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Yi1-nb-0Q2">
@@ -672,7 +672,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="jO7-N5-Is0" kind="relationship" relationship="viewControllers" id="mbK-Bw-pmM"/>
-                        <segue destination="JHB-0H-nHd" kind="relationship" relationship="viewControllers" id="9pp-uo-llW"/>
                         <segue destination="LxK-Fj-Iwc" kind="relationship" relationship="viewControllers" id="s2f-6Z-rB2"/>
                         <segue destination="6VE-0k-c0l" kind="relationship" relationship="viewControllers" id="0ii-Oo-jBW"/>
                     </connections>
@@ -680,24 +679,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPn-lq-Cl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1271" y="-231"/>
-        </scene>
-        <!--走势-->
-        <scene sceneID="0tt-Vz-GoZ">
-            <objects>
-                <navigationController id="JHB-0H-nHd" customClass="CPNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="走势" image="zoushi" id="hef-yL-G0L"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e2m-bX-VjR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Hcq-gv-xw9" kind="relationship" relationship="rootViewController" id="vQs-6L-gib"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml6-Ss-3Dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-282" y="-619"/>
         </scene>
         <!--彩票走势-->
         <scene sceneID="OBY-4Y-tg6">
@@ -716,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btF-00-aaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="-619"/>
+            <point key="canvasLocation" x="2254" y="-971"/>
         </scene>
         <!--其他-->
         <scene sceneID="f1e-Mo-bu9">
@@ -734,7 +715,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILE-Yj-0Zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="732"/>
+            <point key="canvasLocation" x="-202" y="732"/>
         </scene>
         <!--资讯-->
         <scene sceneID="S4o-uV-ypU">
@@ -752,7 +733,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXM-a5-LYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="24"/>
+            <point key="canvasLocation" x="-201" y="-232"/>
         </scene>
         <!--彩票资讯-->
         <scene sceneID="K3s-vS-7sA">
@@ -837,7 +818,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTO-dj-jEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="29.23538230884558"/>
+            <point key="canvasLocation" x="700" y="-232"/>
         </scene>
         <!--更多详情-->
         <scene sceneID="bJx-Jn-7Z0">
@@ -891,7 +872,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wp0-xs-5v3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="732"/>
+            <point key="canvasLocation" x="762" y="732"/>
         </scene>
     </scenes>
     <resources>
@@ -899,6 +880,5 @@
         <image name="kaijiangxinxi" width="32" height="32"/>
         <image name="news44" width="24" height="24"/>
         <image name="qita22" width="24" height="24"/>
-        <image name="zoushi" width="32" height="32"/>
     </resources>
 </document>
