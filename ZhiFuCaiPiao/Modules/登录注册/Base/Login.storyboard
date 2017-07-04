@@ -21,22 +21,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="T1I-hv-BAT">
-                                <rect key="frame" x="160.5" y="89" width="53" height="53"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="T1I-hv-BAT">
+                                <rect key="frame" x="147" y="89" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="53" id="Bt3-lb-LZX"/>
-                                    <constraint firstAttribute="height" constant="53" id="kl3-qe-hpE"/>
+                                    <constraint firstAttribute="width" constant="80" id="Bt3-lb-LZX"/>
+                                    <constraint firstAttribute="height" constant="80" id="kl3-qe-hpE"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_name" translatesAutoresizingMaskIntoConstraints="NO" id="0pT-Kt-CAc">
-                                <rect key="frame" x="30" y="232" width="24" height="24"/>
+                                <rect key="frame" x="30" y="259" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="5yu-z9-gwE"/>
                                     <constraint firstAttribute="width" constant="24" id="B40-Pj-oJl"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lkc-Xj-dfK">
-                                <rect key="frame" x="73" y="229" width="272" height="30"/>
+                                <rect key="frame" x="73" y="256" width="272" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="FQy-QS-rfg"/>
                                 </constraints>
@@ -45,7 +45,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KT0-L9-Iqe" customClass="LineView">
-                                <rect key="frame" x="28" y="264" width="319" height="2"/>
+                                <rect key="frame" x="28" y="291" width="319" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="QMg-B9-VbC"/>
@@ -57,14 +57,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="Yjf-0M-SW6">
-                                <rect key="frame" x="30" y="293" width="24" height="24"/>
+                                <rect key="frame" x="30" y="320" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="2Pl-d1-dFJ"/>
                                     <constraint firstAttribute="height" constant="24" id="yha-0C-mHn"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2BC-We-j8A">
-                                <rect key="frame" x="73" y="290" width="272" height="30"/>
+                                <rect key="frame" x="73" y="317" width="272" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hBE-8W-dNm"/>
                                 </constraints>
@@ -73,7 +73,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdT-e2-L5H" customClass="LineView">
-                                <rect key="frame" x="28" y="325" width="319" height="2"/>
+                                <rect key="frame" x="28" y="352" width="319" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="hsD-AQ-bVa"/>
@@ -85,7 +85,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwc-7d-bjL">
-                                <rect key="frame" x="277" y="342" width="70" height="30"/>
+                                <rect key="frame" x="277" y="369" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CBy-Nw-5Ad"/>
                                     <constraint firstAttribute="width" constant="70" id="RNh-IE-BHI"/>

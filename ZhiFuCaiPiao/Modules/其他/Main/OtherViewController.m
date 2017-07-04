@@ -22,8 +22,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self createAndSetRightButtonWithTitle:@"登录" touchUpInsideAction:@selector(login)];
 }
 
+- (void)login
+{
+    [self presentViewController:[UIViewController getViewControllerFormStoryboardName:@"Login" key:@"LoginViewController"] animated:YES completion:nil];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
