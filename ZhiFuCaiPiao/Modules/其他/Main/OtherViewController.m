@@ -28,7 +28,7 @@
 
 - (void)login
 {
-    [self presentViewController:[UIViewController getViewControllerFormStoryboardName:@"Login" key:@"LoginViewController"] animated:YES completion:nil];
+    [self presentViewController:[UIViewController getViewControllerFormStoryboardName:@"Login" key:@"LoginNaviViewController"] animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

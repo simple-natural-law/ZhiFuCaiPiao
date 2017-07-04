@@ -19,6 +19,13 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self createAndSetLeftButtonWithTitle:@"取消" touchUpInsideAction:@selector(back)];
+}
+
+- (void)back
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

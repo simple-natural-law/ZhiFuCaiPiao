@@ -62,7 +62,7 @@ static const char* WillToBeViewControllerItems = "WillToBeViewControllerItems";
 - (void)addBottomPushAnimation
 {
     CATransition *transition = [CATransition animation];
-    transition.duration = 0.3 * [[UIScreen  mainScreen] bounds].size.height/[[UIScreen  mainScreen] bounds].size.width;
+    transition.duration = 0.25 * [[UIScreen  mainScreen] bounds].size.height/[[UIScreen  mainScreen] bounds].size.width;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
     transition.type     = kCATransitionMoveIn;
     transition.subtype  = kCATransitionFromTop;
@@ -76,7 +76,7 @@ static const char* WillToBeViewControllerItems = "WillToBeViewControllerItems";
 - (void)addBottomPopAnimation
 {
     CATransition *transition = [CATransition animation];
-    transition.duration = 0.3 * [[UIScreen  mainScreen] bounds].size.height/[[UIScreen  mainScreen] bounds].size.width;
+    transition.duration = 0.25 * [[UIScreen  mainScreen] bounds].size.height/[[UIScreen  mainScreen] bounds].size.width;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
     transition.type     = kCATransitionReveal;
     transition.subtype  = kCATransitionFromBottom;

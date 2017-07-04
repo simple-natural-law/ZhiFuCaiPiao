@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZWX-Nw-lZt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xBb-J3-Ajl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5bR-Cw-nAJ">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNaviViewController" id="xBb-J3-Ajl" customClass="CPNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qop-Ry-4uz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZWX-Nw-lZt" kind="relationship" relationship="rootViewController" id="fXk-HG-Kt4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TS0-RE-Nhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-607" y="127"/>
+        </scene>
         <!--登录-->
         <scene sceneID="sCV-fa-sDc">
             <objects>
@@ -138,6 +154,7 @@
                             <constraint firstAttribute="trailing" secondItem="zwc-7d-bjL" secondAttribute="trailing" constant="28" id="vEk-Cv-hFb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="登录" id="51m-V5-VSB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1g-Yn-oM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
