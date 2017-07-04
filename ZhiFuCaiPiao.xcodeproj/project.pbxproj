@@ -71,6 +71,9 @@
 		342384C01EFBF8D90074DAE1 /* CPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384BF1EFBF8D90074DAE1 /* CPNavigationController.m */; };
 		343973D61EEB952000C183D8 /* ZhiFuCaiPiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */; };
 		343973E11EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */; };
+		3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3463E95E1F0BDBE0002A1144 /* Login.storyboard */; };
+		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
+		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
 		34FCDB351F0A7F1D00F7F2B6 /* LotteryTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */; };
 		34FCDB361F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB321F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m */; };
 		34FCDB371F0A7F1D00F7F2B6 /* LotteryTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB341F0A7F1D00F7F2B6 /* LotteryTrendView.m */; };
@@ -216,6 +219,11 @@
 		343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhiFuCaiPiaoUITests.m; sourceTree = "<group>"; };
 		343973E21EEB952000C183D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		343973EE1EEB9C1600C183D8 /* ZhiFuCaiPiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhiFuCaiPiao.entitlements; sourceTree = "<group>"; };
+		3463E95E1F0BDBE0002A1144 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3463E9661F0BE2C8002A1144 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3463E9671F0BE2C8002A1144 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3463E9691F0BE468002A1144 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		3463E96A1F0BE468002A1144 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		34FCDB2E1F0A7F1D00F7F2B6 /* LotteryTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendViewController.h; sourceTree = "<group>"; };
 		34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendViewController.m; sourceTree = "<group>"; };
 		34FCDB311F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendTypeSelectView.h; sourceTree = "<group>"; };
@@ -670,6 +678,7 @@
 		34FCDB391F0BD49B00F7F2B6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3463E95E1F0BDBE0002A1144 /* Login.storyboard */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -677,6 +686,10 @@
 		34FCDB3A1F0BD49B00F7F2B6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3463E9661F0BE2C8002A1144 /* LoginViewController.h */,
+				3463E9671F0BE2C8002A1144 /* LoginViewController.m */,
+				3463E9691F0BE468002A1144 /* RegisterViewController.h */,
+				3463E96A1F0BE468002A1144 /* RegisterViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -815,6 +828,7 @@
 				341B2CED1F02907500FA387E /* rule.css in Resources */,
 				341FECC91EF01C2600CA37A9 /* LaunchScreen.storyboard in Resources */,
 				341FECCC1EF01E9300CA37A9 /* InfoPlist.strings in Resources */,
+				3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */,
 				341FECC81EF01C2600CA37A9 /* Assets.xcassets in Resources */,
 				341FECCA1EF01C2600CA37A9 /* Main.storyboard in Resources */,
 				341B2CDB1F02907500FA387E /* f9_howto.html in Resources */,
@@ -907,9 +921,11 @@
 				1A091C201EF7D63A00B1A028 /* CPHttpTaskInfo.m in Sources */,
 				341FED0A1EF17BA300CA37A9 /* UIImage+Stretchable.m in Sources */,
 				341FED021EF17BA300CA37A9 /* NSFileManager+extend.m in Sources */,
+				3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */,
 				341FECD41EF0268600CA37A9 /* BaseViewController.m in Sources */,
 				341FECC61EF01C2600CA37A9 /* main.m in Sources */,
 				342384C01EFBF8D90074DAE1 /* CPNavigationController.m in Sources */,
+				3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */,
 				341FED0B1EF17BA300CA37A9 /* UINavigationController+extend.m in Sources */,
 				1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */,
 				341FED0D1EF17BA300CA37A9 /* UIViewController+Bar.m in Sources */,
