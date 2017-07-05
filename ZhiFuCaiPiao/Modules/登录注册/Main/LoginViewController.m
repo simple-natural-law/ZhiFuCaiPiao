@@ -58,7 +58,6 @@
     _activeTextField = nil;
 }
 
-
 - (IBAction)goRegisterVC:(id)sender
 {
     [self pushViewControllerKey:@"RegisterViewController" param:nil animated:YES];
@@ -67,13 +66,32 @@
 
 - (IBAction)login:(id)sender
 {
+    if (![self.userNameTextField.text isChinaMobileNumber])
+    {
+        [self showHint:@"请输入正确的手机号码"];
+        return;
+    }
     
+    if (![self.passwordTextField.text checkUserName])
+    {
+        [self showHint:@"密码只能由数字,字母和下划线组成"];
+        return;
+    }
+    
+    [self showHUDWithStatus:@"登录中"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self hideHUD];
+        
+        [self back];
+    });
 }
 
 
 - (void)back
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark-

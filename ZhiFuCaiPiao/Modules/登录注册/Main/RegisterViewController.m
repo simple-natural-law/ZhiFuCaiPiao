@@ -63,7 +63,32 @@
 
 - (IBAction)registerUser:(id)sender
 {
+    if (![self.userNameTextField.text isChinaMobileNumber])
+    {
+        [self showHint:@"请输入正确的手机号码"];
+        return;
+    }
     
+    if (![self.passwordTextField.text checkUserName])
+    {
+        [self showHint:@"密码只能由数字,字母和下划线组成"];
+        return;
+    }
+    
+    if (![self.passwordTextField.text isEqualToString:self.againPasswordTextField.text])
+    {
+        [self showHint:@"两次输入密码不一致"];
+        return;
+    }
+    
+    [self showHUDWithStatus:@"注册并登录"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self hideHUD];
+        
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    });
 }
 
 #pragma mark-
