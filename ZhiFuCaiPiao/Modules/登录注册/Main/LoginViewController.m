@@ -9,7 +9,9 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
-
+{
+    UITextField *_activeTextField;
+}
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -19,12 +21,41 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self createAndSetLeftButtonWithTitle:@"取消" touchUpInsideAction:@selector(back)];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_activeTextField)
+    {
+        [_activeTextField resignFirstResponder];
+    }
+}
+
+
+#pragma mark -UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _activeTextField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _activeTextField = nil;
 }
 
 
@@ -44,6 +75,16 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (_activeTextField)
+    {
+        [_activeTextField resignFirstResponder];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

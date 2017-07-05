@@ -8,7 +8,10 @@
 
 #import "RegisterViewController.h"
 
-@interface RegisterViewController ()
+@interface RegisterViewController ()<UITextFieldDelegate>
+{
+    UITextField *_activeTextField;
+}
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *againPasswordTextField;
@@ -22,10 +25,56 @@
     // Do any additional setup after loading the view.
     
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_activeTextField)
+    {
+        [_activeTextField resignFirstResponder];
+    }
+}
+
+
+#pragma mark -UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.passwordTextField)
+    {
+        [self.againPasswordTextField becomeFirstResponder];
+    }else
+    {
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _activeTextField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _activeTextField = nil;
+}
+
+
 - (IBAction)registerUser:(id)sender
 {
     
 }
+
+#pragma mark-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (_activeTextField)
+    {
+        [_activeTextField resignFirstResponder];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
