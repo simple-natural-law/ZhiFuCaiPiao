@@ -8,7 +8,11 @@
 
 #import "LoginViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
 
@@ -22,6 +26,19 @@
     
     [self createAndSetLeftButtonWithTitle:@"取消" touchUpInsideAction:@selector(back)];
 }
+
+
+- (IBAction)goRegisterVC:(id)sender
+{
+    [self pushViewControllerKey:@"RegisterViewController" param:nil animated:YES];
+}
+
+
+- (IBAction)login:(id)sender
+{
+    
+}
+
 
 - (void)back
 {

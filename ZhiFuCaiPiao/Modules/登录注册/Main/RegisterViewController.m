@@ -9,6 +9,9 @@
 #import "RegisterViewController.h"
 
 @interface RegisterViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *againPasswordTextField;
 
 @end
 
@@ -17,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+}
+- (IBAction)registerUser:(id)sender
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
