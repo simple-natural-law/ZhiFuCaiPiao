@@ -75,6 +75,7 @@
 		3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3463E95E1F0BDBE0002A1144 /* Login.storyboard */; };
 		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
 		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
+		3463E96E1F0E72F5002A1144 /* zyyc_yao_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3463E96D1F0E72F5002A1144 /* zyyc_yao_sound.mp3 */; };
 		34FCDB351F0A7F1D00F7F2B6 /* LotteryTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */; };
 		34FCDB361F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB321F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m */; };
 		34FCDB371F0A7F1D00F7F2B6 /* LotteryTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB341F0A7F1D00F7F2B6 /* LotteryTrendView.m */; };
@@ -227,6 +228,7 @@
 		3463E9671F0BE2C8002A1144 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3463E9691F0BE468002A1144 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		3463E96A1F0BE468002A1144 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		3463E96D1F0E72F5002A1144 /* zyyc_yao_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zyyc_yao_sound.mp3; sourceTree = "<group>"; };
 		34FCDB2E1F0A7F1D00F7F2B6 /* LotteryTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendViewController.h; sourceTree = "<group>"; };
 		34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendViewController.m; sourceTree = "<group>"; };
 		34FCDB311F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendTypeSelectView.h; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 		341FECC01EF01C2600CA37A9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3463E96C1F0E72F5002A1144 /* Audio */,
 				341B2CB91F02907500FA387E /* Html */,
 				341FECC11EF01C2600CA37A9 /* Assets.xcassets */,
 				341FECC21EF01C2600CA37A9 /* LaunchScreen.storyboard */,
@@ -660,6 +663,14 @@
 			path = ZhiFuCaiPiaoUITests;
 			sourceTree = "<group>";
 		};
+		3463E96C1F0E72F5002A1144 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				3463E96D1F0E72F5002A1144 /* zyyc_yao_sound.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		34FCDB301F0A7F1D00F7F2B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,6 +837,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341B2CEB1F02907500FA387E /* qlc_howto.html in Resources */,
+				3463E96E1F0E72F5002A1144 /* zyyc_yao_sound.mp3 in Resources */,
 				341B2CEA1F02907500FA387E /* pl5_howto.html in Resources */,
 				341B2CE81F02907500FA387E /* networkconnectedfailed.html in Resources */,
 				341B2CEC1F02907500FA387E /* qxc_howto.html in Resources */,
