@@ -10,6 +10,8 @@
 
 @interface DivinationDetialViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *guikeImageView;
+
 @end
 
 @implementation DivinationDetialViewController
@@ -17,6 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+
+- (IBAction)tapAction:(id)sender
+{
+    CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    shakeAnimation.fromValue = [NSNumber numberWithFloat:+0.1];
+    shakeAnimation.toValue = [NSNumber numberWithFloat:-0.1];
+    shakeAnimation.duration = 0.1;
+    shakeAnimation.autoreverses = YES; //是否重复
+    shakeAnimation.repeatCount = 3;
+    [self.guikeImageView.layer addAnimation:shakeAnimation forKey:@"shake"];
 }
 
 - (void)didReceiveMemoryWarning {
