@@ -7,6 +7,8 @@
 //
 
 #import "DivinationDetialViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
+
 
 @interface DivinationDetialViewController ()
 
@@ -31,6 +33,16 @@
     shakeAnimation.autoreverses = YES; //是否重复
     shakeAnimation.repeatCount = 3;
     [self.guikeImageView.layer addAnimation:shakeAnimation forKey:@"shake"];
+    
+    NSString *urlPath = [[NSBundle mainBundle] pathForResource:@"zyyc_yao_sound" ofType:@"mp3"];
+    
+    NSURL *url = [NSURL fileURLWithPath:urlPath];
+    
+    SystemSoundID soundId;
+    
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &soundId);
+    
+    AudioServicesPlaySystemSound(soundId);
 }
 
 - (void)didReceiveMemoryWarning {
