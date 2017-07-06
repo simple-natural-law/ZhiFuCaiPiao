@@ -19,6 +19,7 @@
 		1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB041EF8F85F009E4A39 /* LotteryHistoryViewController.m */; };
 		1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB071EF91582009E4A39 /* NetworkDataCenter.m */; };
 		1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FEB0A1EFA0611009E4A39 /* LotteryDetailCell.m */; };
+		1AC987C01F0E3CAF00F134B2 /* DivinationMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC987BF1F0E3CAF00F134B2 /* DivinationMainViewController.m */; };
 		341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAA1EFF7FE100FA387E /* CPMenuItem.m */; };
 		341B2CB01EFF7FE100FA387E /* CPMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAC1EFF7FE100FA387E /* CPMenuView.m */; };
 		341B2CB11EFF7FE100FA387E /* CPProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CAE1EFF7FE100FA387E /* CPProgressView.m */; };
@@ -122,6 +123,8 @@
 		1A8FEB071EF91582009E4A39 /* NetworkDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkDataCenter.m; sourceTree = "<group>"; };
 		1A8FEB091EFA0611009E4A39 /* LotteryDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryDetailCell.h; sourceTree = "<group>"; };
 		1A8FEB0A1EFA0611009E4A39 /* LotteryDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryDetailCell.m; sourceTree = "<group>"; };
+		1AC987BE1F0E3CAF00F134B2 /* DivinationMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivinationMainViewController.h; sourceTree = "<group>"; };
+		1AC987BF1F0E3CAF00F134B2 /* DivinationMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivinationMainViewController.m; sourceTree = "<group>"; };
 		1FF2304038C3D3FD117E55A6 /* Pods-ZhiFuCaiPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiFuCaiPiao.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiFuCaiPiao/Pods-ZhiFuCaiPiao.release.xcconfig"; sourceTree = "<group>"; };
 		322E82216E8BD4D934469DB8 /* Pods-ZhiFuCaiPiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiFuCaiPiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiFuCaiPiao/Pods-ZhiFuCaiPiao.debug.xcconfig"; sourceTree = "<group>"; };
 		341B2CA91EFF7FE100FA387E /* CPMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMenuItem.h; sourceTree = "<group>"; };
@@ -341,6 +344,31 @@
 			path = "引导页";
 			sourceTree = "<group>";
 		};
+		1AC987BB1F0E3C5E00F134B2 /* 易经占卜 */ = {
+			isa = PBXGroup;
+			children = (
+				1AC987BC1F0E3C5E00F134B2 /* Base */,
+				1AC987BD1F0E3C5E00F134B2 /* Main */,
+			);
+			path = "易经占卜";
+			sourceTree = "<group>";
+		};
+		1AC987BC1F0E3C5E00F134B2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1AC987BD1F0E3C5E00F134B2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1AC987BE1F0E3CAF00F134B2 /* DivinationMainViewController.h */,
+				1AC987BF1F0E3CAF00F134B2 /* DivinationMainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		1E30A2CCBD923B44A4162198 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,7 +464,7 @@
 			children = (
 				1A31D9001F035393005386FF /* 引导页 */,
 				34FCDB381F0BD49B00F7F2B6 /* 登录注册 */,
-				34FCDB2B1F0A7F0900F7F2B6 /* 易经占卦 */,
+				1AC987BB1F0E3C5E00F134B2 /* 易经占卜 */,
 				341FED2E1EF2D06900CA37A9 /* 开奖信息 */,
 				1A31D8F11F0265BE005386FF /* 其他 */,
 				1A31D8F61F0265BE005386FF /* 资讯 */,
@@ -630,29 +658,6 @@
 				343973E21EEB952000C183D8 /* Info.plist */,
 			);
 			path = ZhiFuCaiPiaoUITests;
-			sourceTree = "<group>";
-		};
-		34FCDB2B1F0A7F0900F7F2B6 /* 易经占卦 */ = {
-			isa = PBXGroup;
-			children = (
-				34FCDB2C1F0A7F0900F7F2B6 /* Base */,
-				34FCDB2D1F0A7F0900F7F2B6 /* Main */,
-			);
-			path = "易经占卦";
-			sourceTree = "<group>";
-		};
-		34FCDB2C1F0A7F0900F7F2B6 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		34FCDB2D1F0A7F0900F7F2B6 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		34FCDB301F0A7F1D00F7F2B6 /* View */ = {
@@ -960,6 +965,7 @@
 				341B2CF91F02A67E00FA387E /* NewsViewController.m in Sources */,
 				341FED091EF17BA300CA37A9 /* UIImage+extend.m in Sources */,
 				341B2CB11EFF7FE100FA387E /* CPProgressView.m in Sources */,
+				1AC987C01F0E3CAF00F134B2 /* DivinationMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1110,7 +1116,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shijian.ZhiFuCaiPiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7617762-813c-431a-bc07-849e308e7796";
+				PROVISIONING_PROFILE = "6592a423-c5cc-4555-aa3c-1ad558f17bc4";
 				PROVISIONING_PROFILE_SPECIFIER = caipiaoDevProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

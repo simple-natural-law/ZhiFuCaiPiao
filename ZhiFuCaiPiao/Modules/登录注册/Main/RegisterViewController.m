@@ -63,9 +63,9 @@
 
 - (IBAction)registerUser:(id)sender
 {
-    if (![self.userNameTextField.text isChinaMobileNumber])
+    if (![self.userNameTextField.text checkUserName])
     {
-        [self showHint:@"请输入正确的手机号码"];
+        [self showHint:@"账号只能由数字,字母和下划线组成"];
         return;
     }
     
