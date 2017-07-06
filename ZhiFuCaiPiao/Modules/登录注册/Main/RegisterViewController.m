@@ -40,7 +40,10 @@
 #pragma mark -UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField == self.passwordTextField)
+    if (textField == self.userNameTextField)
+    {
+        [self.passwordTextField becomeFirstResponder];
+    }else if (textField == self.passwordTextField)
     {
         [self.againPasswordTextField becomeFirstResponder];
     }else

@@ -45,7 +45,13 @@
 #pragma mark -UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    if (textField == self.userNameTextField)
+    {
+        [self.passwordTextField becomeFirstResponder];
+    }else
+    {
+        [textField resignFirstResponder];
+    }
     return YES;
 }
 
