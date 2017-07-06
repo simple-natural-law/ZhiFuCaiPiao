@@ -15,7 +15,7 @@
         <scene sceneID="yza-kP-Llj">
             <objects>
                 <navigationController id="jO7-N5-Is0" customClass="CPNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="开奖" image="kaijiangxinxi" id="JJE-Gh-7d2"/>
+                    <tabBarItem key="tabBarItem" title="开奖" image="kaijiang" id="JJE-Gh-7d2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xjZ-f9-Ktl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -915,9 +915,9 @@
     </scenes>
     <resources>
         <image name="banner" width="600" height="354"/>
-        <image name="kaijiangxinxi" width="32" height="32"/>
+        <image name="kaijiang" width="24" height="24"/>
         <image name="news44" width="24" height="24"/>
         <image name="qita22" width="24" height="24"/>
-        <image name="zhanbu_tabbar" width="32" height="32"/>
+        <image name="zhanbu_tabbar" width="24" height="24"/>
     </resources>
 </document>
