@@ -671,10 +671,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="5va-yJ-EOW" kind="relationship" relationship="viewControllers" id="xEy-Ev-vLK"/>
-                        <segue destination="jO7-N5-Is0" kind="relationship" relationship="viewControllers" id="5qF-qH-H3S"/>
-                        <segue destination="LxK-Fj-Iwc" kind="relationship" relationship="viewControllers" id="iA0-Ta-vw0"/>
-                        <segue destination="6VE-0k-c0l" kind="relationship" relationship="viewControllers" id="lvx-Gg-LMC"/>
+                        <segue destination="5va-yJ-EOW" kind="relationship" relationship="viewControllers" id="rcr-9d-S9v"/>
+                        <segue destination="jO7-N5-Is0" kind="relationship" relationship="viewControllers" id="KFG-V2-aZ6"/>
+                        <segue destination="LxK-Fj-Iwc" kind="relationship" relationship="viewControllers" id="fNr-7v-SWW"/>
+                        <segue destination="6VE-0k-c0l" kind="relationship" relationship="viewControllers" id="i0L-me-reA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPn-lq-Cl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -740,14 +740,14 @@
         <scene sceneID="lQR-Zw-9oh">
             <objects>
                 <navigationController title="易经占卜" id="5va-yJ-EOW" customClass="CPNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="占卜" id="v0Q-BR-wiu"/>
+                    <tabBarItem key="tabBarItem" title="占卜" image="zhanbu_tabbar" id="v0Q-BR-wiu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hQP-Dt-142">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tOr-XV-2DO" kind="relationship" relationship="rootViewController" id="4Bx-al-HF5"/>
+                        <segue destination="tOr-XV-2DO" kind="relationship" relationship="rootViewController" id="TN3-3X-BT5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvZ-iz-Lj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -918,5 +918,6 @@
         <image name="kaijiangxinxi" width="32" height="32"/>
         <image name="news44" width="24" height="24"/>
         <image name="qita22" width="24" height="24"/>
+        <image name="zhanbu_tabbar" width="32" height="32"/>
     </resources>
 </document>
