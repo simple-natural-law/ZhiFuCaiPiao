@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -765,13 +766,60 @@
                     <view key="view" contentMode="scaleToFill" id="QSR-LL-vpg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qiugua_bagua" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-ZY-9Ey">
+                                <rect key="frame" x="60" y="303" width="255" height="255"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yd4-ZY-9Ey" secondAttribute="height" id="xeo-ej-4H7"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAq-1f-5gb">
+                                <rect key="frame" x="143.5" y="386" width="89" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nAq-1f-5gb" secondAttribute="height" id="UeW-HW-pas"/>
+                                </constraints>
+                                <state key="normal" image="qiugua_taiji"/>
+                                <connections>
+                                    <action selector="goDivination:" destination="tOr-XV-2DO" eventType="touchUpInside" id="qjQ-e2-V21"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yd4-ZY-9Ey" firstAttribute="leading" secondItem="QSR-LL-vpg" secondAttribute="leading" constant="60" id="BQ0-nd-2wl"/>
+                            <constraint firstItem="nAq-1f-5gb" firstAttribute="centerX" secondItem="yd4-ZY-9Ey" secondAttribute="centerX" id="ELo-mV-gT7"/>
+                            <constraint firstAttribute="trailing" secondItem="yd4-ZY-9Ey" secondAttribute="trailing" constant="60" id="Gqr-6r-HfG"/>
+                            <constraint firstItem="nAq-1f-5gb" firstAttribute="centerY" secondItem="yd4-ZY-9Ey" secondAttribute="centerY" id="MV1-aJ-jV4"/>
+                            <constraint firstItem="nAq-1f-5gb" firstAttribute="width" secondItem="yd4-ZY-9Ey" secondAttribute="width" multiplier="0.35" id="SzH-mF-U9v"/>
+                            <constraint firstItem="vcJ-Lu-R62" firstAttribute="top" secondItem="yd4-ZY-9Ey" secondAttribute="bottom" constant="60" id="cGf-t1-tmN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="易经占卜" id="c5m-bD-i9u"/>
+                    <connections>
+                        <outlet property="taijiButton" destination="nAq-1f-5gb" id="QXg-s3-uGh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxT-SD-Vwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="554" y="-1140"/>
+        </scene>
+        <!--摇卦-->
+        <scene sceneID="nML-uE-36x">
+            <objects>
+                <viewController storyboardIdentifier="DivinationDetialViewController" title="摇卦" id="Nx8-Jk-91g" customClass="DivinationDetialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oeW-cc-w2e"/>
+                        <viewControllerLayoutGuide type="bottom" id="yIK-PJ-8GP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tc6-4Y-z04">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrF-DB-QOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1409" y="-1140"/>
         </scene>
         <!--彩票资讯-->
         <scene sceneID="K3s-vS-7sA">
@@ -918,6 +966,8 @@
         <image name="kaijiang" width="24" height="24"/>
         <image name="news44" width="24" height="24"/>
         <image name="qita22" width="24" height="24"/>
+        <image name="qiugua_bagua" width="231" height="231"/>
+        <image name="qiugua_taiji" width="78" height="78"/>
         <image name="zhanbu_tabbar" width="24" height="24"/>
     </resources>
 </document>

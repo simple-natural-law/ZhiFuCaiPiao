@@ -76,6 +76,7 @@
 		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
 		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
 		3463E96E1F0E72F5002A1144 /* zyyc_yao_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3463E96D1F0E72F5002A1144 /* zyyc_yao_sound.mp3 */; };
+		3463E9711F0E7B26002A1144 /* DivinationDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9701F0E7B26002A1144 /* DivinationDetialViewController.m */; };
 		34FCDB351F0A7F1D00F7F2B6 /* LotteryTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */; };
 		34FCDB361F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB321F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m */; };
 		34FCDB371F0A7F1D00F7F2B6 /* LotteryTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCDB341F0A7F1D00F7F2B6 /* LotteryTrendView.m */; };
@@ -229,6 +230,8 @@
 		3463E9691F0BE468002A1144 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		3463E96A1F0BE468002A1144 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		3463E96D1F0E72F5002A1144 /* zyyc_yao_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zyyc_yao_sound.mp3; sourceTree = "<group>"; };
+		3463E96F1F0E7B26002A1144 /* DivinationDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivinationDetialViewController.h; sourceTree = "<group>"; };
+		3463E9701F0E7B26002A1144 /* DivinationDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivinationDetialViewController.m; sourceTree = "<group>"; };
 		34FCDB2E1F0A7F1D00F7F2B6 /* LotteryTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendViewController.h; sourceTree = "<group>"; };
 		34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryTrendViewController.m; sourceTree = "<group>"; };
 		34FCDB311F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryTrendTypeSelectView.h; sourceTree = "<group>"; };
@@ -367,6 +370,8 @@
 			children = (
 				1AC987BE1F0E3CAF00F134B2 /* DivinationMainViewController.h */,
 				1AC987BF1F0E3CAF00F134B2 /* DivinationMainViewController.m */,
+				3463E96F1F0E7B26002A1144 /* DivinationDetialViewController.h */,
+				3463E9701F0E7B26002A1144 /* DivinationDetialViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -955,6 +960,7 @@
 				341B2CB51EFF844100FA387E /* LineView.m in Sources */,
 				341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */,
 				341FED0E1EF17BA300CA37A9 /* UIViewController+HUD.m in Sources */,
+				3463E9711F0E7B26002A1144 /* DivinationDetialViewController.m in Sources */,
 				34FCDB351F0A7F1D00F7F2B6 /* LotteryTrendViewController.m in Sources */,
 				341FED041EF17BA300CA37A9 /* NSString+extend.m in Sources */,
 				1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */,
