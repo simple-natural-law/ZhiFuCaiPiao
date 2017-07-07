@@ -11,7 +11,9 @@
 
 
 @interface DivinationDetialViewController ()
-
+{
+    SystemSoundID _soundId;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *guikeImageView;
 
 @end
@@ -21,10 +23,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSString *urlPath = [[NSBundle mainBundle] pathForResource:@"zyyc_yao_sound" ofType:@"mp3"];
+    
+    NSURL *url = [NSURL fileURLWithPath:urlPath];
+    
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &_soundId);
+    
+    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
+    
+    [self becomeFirstResponder];
 }
 
 
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:NO];
+    
+    [self resignFirstResponder];
+    
+    AudioServicesDisposeSystemSoundID(_soundId);  // 释放自定义系统声音
+}
+
+
+
 - (IBAction)tapAction:(id)sender
+{
+    [self startShakeAnimation];
+    
+    [self playSound];
+}
+
+- (void)startShakeAnimation
 {
     CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     shakeAnimation.fromValue = [NSNumber numberWithFloat:+0.1];
@@ -34,17 +73,40 @@
     shakeAnimation.repeatCount = 2;
     shakeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     [self.guikeImageView.layer addAnimation:shakeAnimation forKey:@"shake"];
-    
-    NSString *urlPath = [[NSBundle mainBundle] pathForResource:@"zyyc_yao_sound" ofType:@"mp3"];
-    
-    NSURL *url = [NSURL fileURLWithPath:urlPath];
-    
-    SystemSoundID soundId;
-    
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &soundId);
-    
-    AudioServicesPlaySystemSound(soundId);
 }
+
+- (void)playSound
+{
+    AudioServicesPlaySystemSound(_soundId);
+}
+
+
+#pragma mark- ShakeToEdit
+// 开始摇动
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        [self startShakeAnimation];
+    }
+}
+
+// 摇动结束
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(nullable UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        [self playSound];
+    }
+}
+
+// 摇动取消
+- (void)motionCancelled:(UIEventSubtype)motion withEvent:(nullable UIEvent *)event
+{
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
