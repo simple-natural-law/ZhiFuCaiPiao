@@ -116,6 +116,27 @@
             
         }
     }];
+    
+    [UIView animateWithDuration:0.2 delay:0.4 options:0 animations:^{
+        
+        CATransform3D transform3D = CATransform3DRotate(self.qianbiIcon1.layer.transform, M_PI*3, 1, 0, 0);
+        self.qianbiIcon1.layer.transform = transform3D;
+        self.qianbiIcon2.layer.transform = transform3D;
+        self.qianbiIcon3.layer.transform = transform3D;
+        
+    } completion:^(BOOL finished) {
+        
+        if (finished)
+        {
+            [UIView animateWithDuration:0.4 animations:^{
+                
+                CATransform3D transform3D = CATransform3DRotate(self.qianbiIcon1.layer.transform, M_PI*3, 1, 0, 0);
+                self.qianbiIcon1.layer.transform = transform3D;
+                self.qianbiIcon2.layer.transform = transform3D;
+                self.qianbiIcon3.layer.transform = transform3D;
+            }];
+        }
+    }];
 }
 
 // 0-正面 1-反面
