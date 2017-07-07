@@ -815,6 +815,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VBF-DF-8rb">
+                                <rect key="frame" x="156.5" y="191" width="61" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="xgX-6t-UTg"/>
+                                    <constraint firstAttribute="height" constant="61" id="zaU-DX-hHa"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cAm-eZ-Skz">
+                                <rect key="frame" x="156.5" y="191" width="61" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="0Jr-R4-CBh"/>
+                                    <constraint firstAttribute="width" constant="61" id="MMZ-vl-NgS"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZJx-Za-Wpv">
+                                <rect key="frame" x="156.5" y="191" width="61" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="CqT-A1-Mkr"/>
+                                    <constraint firstAttribute="height" constant="61" id="vVh-K1-E25"/>
+                                </constraints>
+                            </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qiugua_guike" translatesAutoresizingMaskIntoConstraints="NO" id="w31-hJ-Egy">
                                 <rect key="frame" x="113.5" y="74" width="148" height="183"/>
                                 <gestureRecognizers/>
@@ -829,12 +850,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VBF-DF-8rb" firstAttribute="centerX" secondItem="Tc6-4Y-z04" secondAttribute="centerX" id="2Wj-on-xFq"/>
                             <constraint firstItem="w31-hJ-Egy" firstAttribute="centerX" secondItem="Tc6-4Y-z04" secondAttribute="centerX" id="6YC-LW-taL"/>
+                            <constraint firstItem="cAm-eZ-Skz" firstAttribute="bottom" secondItem="VBF-DF-8rb" secondAttribute="bottom" id="C3A-QP-ol8"/>
+                            <constraint firstItem="ZJx-Za-Wpv" firstAttribute="centerX" secondItem="Tc6-4Y-z04" secondAttribute="centerX" id="C7Z-63-OcY"/>
+                            <constraint firstItem="VBF-DF-8rb" firstAttribute="bottom" secondItem="w31-hJ-Egy" secondAttribute="bottom" constant="-5" id="Mw2-nj-YJe"/>
+                            <constraint firstItem="cAm-eZ-Skz" firstAttribute="centerX" secondItem="Tc6-4Y-z04" secondAttribute="centerX" id="RXP-gF-PmR"/>
                             <constraint firstItem="w31-hJ-Egy" firstAttribute="top" secondItem="Tc6-4Y-z04" secondAttribute="top" constant="74" id="XAE-ZO-x9V"/>
+                            <constraint firstItem="ZJx-Za-Wpv" firstAttribute="bottom" secondItem="VBF-DF-8rb" secondAttribute="bottom" id="s5V-VG-1Cl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomCons" destination="Mw2-nj-YJe" id="755-OF-lFb"/>
+                        <outlet property="centerXCons1" destination="2Wj-on-xFq" id="bqn-9l-1B5"/>
+                        <outlet property="centerXCons3" destination="C7Z-63-OcY" id="RFN-rw-yGr"/>
                         <outlet property="guikeImageView" destination="w31-hJ-Egy" id="bKW-Ik-cai"/>
+                        <outlet property="qianbiIcon1" destination="VBF-DF-8rb" id="UkZ-d2-0yQ"/>
+                        <outlet property="qianbiIcon2" destination="cAm-eZ-Skz" id="2hu-7H-DcD"/>
+                        <outlet property="qianbiIcon3" destination="ZJx-Za-Wpv" id="dvR-h8-Uvo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrF-DB-QOs" userLabel="First Responder" sceneMemberID="firstResponder"/>

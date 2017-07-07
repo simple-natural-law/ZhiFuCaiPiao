@@ -10,11 +10,24 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 
-@interface DivinationDetialViewController ()
+@interface DivinationDetialViewController ()<CAAnimationDelegate>
 {
     SystemSoundID _soundId;
 }
+
 @property (weak, nonatomic) IBOutlet UIImageView *guikeImageView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *qianbiIcon1;
+
+@property (weak, nonatomic) IBOutlet UIImageView *qianbiIcon2;
+
+@property (weak, nonatomic) IBOutlet UIImageView *qianbiIcon3;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerXCons1;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerXCons3;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomCons;
 
 @end
 
@@ -58,26 +71,76 @@
 
 - (IBAction)tapAction:(id)sender
 {
+    self.centerXCons1.constant = 0.0;
+    self.centerXCons3.constant = 0.0;
+    self.bottomCons.constant   = -5.0;
+    [self.view layoutIfNeeded];
+    
     [self startShakeAnimation];
     
     [self playSound];
 }
 
+#pragma mark- methods
 - (void)startShakeAnimation
 {
+    [self.guikeImageView.layer removeAnimationForKey:@"shake"];
+    
     CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    shakeAnimation.delegate  = self;
     shakeAnimation.fromValue = [NSNumber numberWithFloat:+0.1];
-    shakeAnimation.toValue = [NSNumber numberWithFloat:-0.1];
-    shakeAnimation.duration = 0.1;
+    shakeAnimation.toValue   = [NSNumber numberWithFloat:-0.1];
+    shakeAnimation.duration  = 0.1;
     shakeAnimation.autoreverses = YES; //是否重复
-    shakeAnimation.repeatCount = 2;
+    shakeAnimation.repeatCount  = 2;
     shakeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     [self.guikeImageView.layer addAnimation:shakeAnimation forKey:@"shake"];
 }
 
+- (void)startGuaXiangAnimationWithGuaXiangArr:(NSArray *)array
+{
+    [self setImageWithGuaXiangArr:array];
+    
+    self.centerXCons1.constant = -80.0;
+    self.centerXCons3.constant = 80.0;
+    self.bottomCons.constant   = 120.0;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        
+        if (finished)
+        {
+            
+        }
+    }];
+}
+
+// 0-正面 1-反面
+- (void)setImageWithGuaXiangArr:(NSArray *)array
+{
+    self.qianbiIcon1.image = [array[0] integerValue] == 0 ? [UIImage imageNamed:@"qiugua_qianbi_zi"] : [UIImage imageNamed:@"qiugua_qianbi_hua"];
+    
+    self.qianbiIcon2.image = [array[1] integerValue] == 0 ? [UIImage imageNamed:@"qiugua_qianbi_zi"] : [UIImage imageNamed:@"qiugua_qianbi_hua"];
+    
+    self.qianbiIcon3.image = [array[2] integerValue] == 0 ? [UIImage imageNamed:@"qiugua_qianbi_zi"] : [UIImage imageNamed:@"qiugua_qianbi_hua"];
+}
+
+// 播放摇动声音
 - (void)playSound
 {
     AudioServicesPlaySystemSound(_soundId);
+}
+
+#pragma mark- CAAnimationDelegate
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if (flag)
+    {
+        [self startGuaXiangAnimationWithGuaXiangArr:@[@(0),@(1),@(0)]];
+    }
 }
 
 
@@ -87,7 +150,14 @@
 {
     if (motion == UIEventSubtypeMotionShake)
     {
+        self.centerXCons1.constant = 0.0;
+        self.centerXCons3.constant = 0.0;
+        self.bottomCons.constant   = -5.0;
+        [self.view layoutIfNeeded];
+        
         [self startShakeAnimation];
+        
+        [self playSound];
     }
 }
 
@@ -96,7 +166,7 @@
 {
     if (motion == UIEventSubtypeMotionShake)
     {
-        [self playSound];
+        [self startGuaXiangAnimationWithGuaXiangArr:@[@(0),@(1),@(0)]];
     }
 }
 
@@ -105,7 +175,6 @@
 {
     
 }
-
 
 
 - (void)didReceiveMemoryWarning {
