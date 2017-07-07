@@ -37,11 +37,31 @@
     [super setFrame:frame];
 }
 
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setGuaXingWithInfo:(NSDictionary *)info row:(NSInteger)row
+{
+    switch (row)
+    {
+        case 0:
+            self.textLabel.text = @"上爻";
+            break;
+        case 1:
+            self.textLabel.text = @"五爻";
+            break;
+        case 2:
+            self.textLabel.text = @"四爻";
+            break;
+        case 3:
+            self.textLabel.text = @"三爻";
+            break;
+        case 4:
+            self.textLabel.text = @"二爻";
+            break;
+        case 5:
+            self.textLabel.text = @"初爻";
+            break;
+        default:
+            break;
+    }
 }
 
 @end

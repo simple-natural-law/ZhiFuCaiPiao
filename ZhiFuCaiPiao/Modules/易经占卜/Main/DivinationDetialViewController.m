@@ -83,6 +83,8 @@
 {
     GuaXiangCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GuaXiangCell" forIndexPath:indexPath];
     
+    [cell setGuaXingWithInfo:nil row:indexPath.row];
+    
     return cell;
 }
 
