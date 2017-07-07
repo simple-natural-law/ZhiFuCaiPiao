@@ -31,7 +31,8 @@
     shakeAnimation.toValue = [NSNumber numberWithFloat:-0.1];
     shakeAnimation.duration = 0.1;
     shakeAnimation.autoreverses = YES; //是否重复
-    shakeAnimation.repeatCount = 3;
+    shakeAnimation.repeatCount = 2;
+    shakeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     [self.guikeImageView.layer addAnimation:shakeAnimation forKey:@"shake"];
     
     NSString *urlPath = [[NSBundle mainBundle] pathForResource:@"zyyc_yao_sound" ofType:@"mp3"];
