@@ -8,9 +8,10 @@
 
 #import "DivinationDetialViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "GuaXiangCell.h"
 
 
-@interface DivinationDetialViewController ()<CAAnimationDelegate>
+@interface DivinationDetialViewController ()<CAAnimationDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     SystemSoundID _soundId;
 }
@@ -29,6 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomCons;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
 @end
 
 @implementation DivinationDetialViewController
@@ -36,6 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
 
 }
 
@@ -68,6 +73,23 @@
 }
 
 
+#pragma mark- UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 6;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GuaXiangCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GuaXiangCell" forIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40.0;
+}
 
 - (IBAction)tapAction:(id)sender
 {

@@ -72,6 +72,7 @@
 		342384C01EFBF8D90074DAE1 /* CPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342384BF1EFBF8D90074DAE1 /* CPNavigationController.m */; };
 		343973D61EEB952000C183D8 /* ZhiFuCaiPiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */; };
 		343973E11EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */; };
+		343EEC181F0FDD8F00D25025 /* GuaXiangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */; };
 		3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3463E95E1F0BDBE0002A1144 /* Login.storyboard */; };
 		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
 		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
@@ -224,6 +225,8 @@
 		343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhiFuCaiPiaoUITests.m; sourceTree = "<group>"; };
 		343973E21EEB952000C183D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		343973EE1EEB9C1600C183D8 /* ZhiFuCaiPiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhiFuCaiPiao.entitlements; sourceTree = "<group>"; };
+		343EEC161F0FDD8F00D25025 /* GuaXiangCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuaXiangCell.h; sourceTree = "<group>"; };
+		343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuaXiangCell.m; sourceTree = "<group>"; };
 		3463E95E1F0BDBE0002A1144 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3463E9661F0BE2C8002A1144 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3463E9671F0BE2C8002A1144 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -370,6 +373,8 @@
 			children = (
 				1AC987BE1F0E3CAF00F134B2 /* DivinationMainViewController.h */,
 				1AC987BF1F0E3CAF00F134B2 /* DivinationMainViewController.m */,
+				343EEC161F0FDD8F00D25025 /* GuaXiangCell.h */,
+				343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */,
 				3463E96F1F0E7B26002A1144 /* DivinationDetialViewController.h */,
 				3463E9701F0E7B26002A1144 /* DivinationDetialViewController.m */,
 			);
@@ -951,6 +956,7 @@
 				341FED0B1EF17BA300CA37A9 /* UINavigationController+extend.m in Sources */,
 				1A8FEB051EF8F85F009E4A39 /* LotteryHistoryViewController.m in Sources */,
 				341FED0D1EF17BA300CA37A9 /* UIViewController+Bar.m in Sources */,
+				343EEC181F0FDD8F00D25025 /* GuaXiangCell.m in Sources */,
 				341FED0C1EF17BA300CA37A9 /* UIView+extend.m in Sources */,
 				1A8FEB021EF8F84A009E4A39 /* LotteryHistoryCell.m in Sources */,
 				342384BD1EF975370074DAE1 /* LotteryDetailViewController.m in Sources */,
