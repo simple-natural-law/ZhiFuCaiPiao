@@ -28,6 +28,8 @@
     
     self.contentView.layer.cornerRadius  = 2.0;
     self.contentView.layer.masksToBounds = YES;
+    
+    self.showGuaXiang = NO;
 }
 
 - (void)setFrame:(CGRect)frame
@@ -37,7 +39,7 @@
     [super setFrame:frame];
 }
 
-- (void)setGuaXingWithInfo:(NSDictionary *)info row:(NSInteger)row
+- (void)setGuaXingWithInfo:(NSArray *)info row:(NSInteger)row
 {
     switch (row)
     {
@@ -61,6 +63,16 @@
             break;
         default:
             break;
+    }
+    
+    if (self.showGuaXiang == YES)
+    {
+        self.leftView.hidden   = NO;
+        self.rightView.hidden  = NO;
+        self.centerView.hidden = [[info objectAtIndex:2] integerValue] == 0;
+    }else
+    {
+        self.showGuaXiang = YES;
     }
 }
 

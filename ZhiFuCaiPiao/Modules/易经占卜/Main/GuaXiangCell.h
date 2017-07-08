@@ -10,6 +10,8 @@
 
 @interface GuaXiangCell : UITableViewCell
 
-- (void)setGuaXingWithInfo:(NSDictionary *)info row:(NSInteger)row;
+@property (nonatomic, assign) BOOL showGuaXiang;
+
+- (void)setGuaXingWithInfo:(NSArray *)info row:(NSInteger)row;
 
 @end

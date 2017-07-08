@@ -32,6 +32,10 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
+@property (strong, nonatomic) NSArray<NSArray *> *guaXiangArray;
+
+@property (assign, nonatomic) int index;
+
 @end
 
 @implementation DivinationDetialViewController
@@ -40,8 +44,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
-
+    self.title = @"您预测的是:双色球";
+    
+    self.index = 5;
+    
+    self.guaXiangArray = @[@[@(1),@(1),@(0)],
+                           @[@(1),@(0),@(1)],
+                           @[@(0),@(0),@(1)],
+                           @[@(1),@(1),@(1)],
+                           @[@(1),@(0),@(0)],
+                           @[@(1),@(1),@(1)]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -83,7 +95,7 @@
 {
     GuaXiangCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GuaXiangCell" forIndexPath:indexPath];
     
-    [cell setGuaXingWithInfo:nil row:indexPath.row];
+    [cell setGuaXingWithInfo:self.guaXiangArray[indexPath.row] row:indexPath.row];
     
     return cell;
 }
@@ -137,7 +149,17 @@
         
         if (finished)
         {
+            [self.tableview beginUpdates];
+            [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableview endUpdates];
             
+            if (self.index == 0)
+            {
+                [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:NO];
+            }else
+            {
+                self.index--;
+            }
         }
     }];
     
