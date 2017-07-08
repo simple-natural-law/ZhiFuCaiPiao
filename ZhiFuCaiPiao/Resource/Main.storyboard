@@ -854,7 +854,7 @@
                                     <constraint firstAttribute="height" constant="240" id="Z0Z-QO-tRE"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GuaXiangCell" id="6Ih-7X-CXZ" customClass="GuaXiangCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GuaXiangCell" rowHeight="44" id="6Ih-7X-CXZ" customClass="GuaXiangCell">
                                         <rect key="frame" x="0.0" y="28" width="281" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Ih-7X-CXZ" id="4z7-8h-8G1">
@@ -888,7 +888,7 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVJ-Nc-uG6">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVJ-Nc-uG6">
                                                     <rect key="frame" x="120.5" y="17" width="40" height="10"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -896,14 +896,14 @@
                                                         <constraint firstAttribute="width" constant="40" id="KeN-cN-9XQ"/>
                                                     </constraints>
                                                 </view>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fkn-xF-kEb">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fkn-xF-kEb">
                                                     <rect key="frame" x="60" y="17" width="60.5" height="10"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="ktU-00-Dvk"/>
                                                     </constraints>
                                                 </view>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkh-JQ-9Fs">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkh-JQ-9Fs">
                                                     <rect key="frame" x="160.5" y="17" width="60.5" height="10"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -911,6 +911,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="1" green="0.90980392160000001" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="etm-tf-Ca0" firstAttribute="top" secondItem="4z7-8h-8G1" secondAttribute="top" id="33w-rp-0RJ"/>
                                                 <constraint firstItem="cFy-0f-TSi" firstAttribute="leading" secondItem="4z7-8h-8G1" secondAttribute="leading" constant="5" id="8o0-R4-YW1"/>
