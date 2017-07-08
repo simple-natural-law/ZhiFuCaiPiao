@@ -755,7 +755,7 @@
             </objects>
             <point key="canvasLocation" x="-255" y="-1140"/>
         </scene>
-        <!--易经占卜-->
+        <!--易经占卜-双色球-->
         <scene sceneID="VH8-DA-5oP">
             <objects>
                 <viewController storyboardIdentifier="DivinationMainViewController" id="tOr-XV-2DO" customClass="DivinationMainViewController" sceneMemberID="viewController">
@@ -768,14 +768,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qiugua_bagua" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-ZY-9Ey">
-                                <rect key="frame" x="72" y="393" width="215" height="215"/>
+                                <rect key="frame" x="80" y="393" width="215" height="215"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="215" id="UPZ-bd-7fx"/>
                                     <constraint firstAttribute="width" constant="215" id="jjD-Y9-N8u"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAq-1f-5gb">
-                                <rect key="frame" x="72" y="393" width="215" height="215"/>
+                                <rect key="frame" x="80" y="393" width="215" height="215"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nAq-1f-5gb" secondAttribute="height" id="UeW-HW-pas"/>
                                 </constraints>
@@ -804,17 +804,8 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="农历八月十五" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hci-KL-2rx">
-                                <rect key="frame" x="25" y="84" width="240" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="if0-2m-FTp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丁酉(鸡)年丁未月丙申日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzM-Jq-TV8">
-                                <rect key="frame" x="25" y="114" width="240" height="30"/>
+                                <rect key="frame" x="25" y="99" width="240" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="u7l-3n-5w3"/>
                                 </constraints>
@@ -848,7 +839,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订婚 会友 上梁 出行 祭祀 修饰 祈福 嫁娶 治病 扫舍 除服" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTJ-Tp-f2S">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="栽种 开井 结网 成服 修厨 作灶 塞穴 补垣 诉讼 上任 移徙" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTJ-Tp-f2S">
                                 <rect key="frame" x="65" y="206" width="285" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="ANJ-aJ-I1J"/>
@@ -875,7 +866,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="介绍:  三枚铜钱,掷六次成卦。配以卦爻及动变之后,通过测卦当日的干支,配以六亲及六兽,主要依靠用神的五行生旺结合易经的爻辞,预测您今天的财运,并根据卦象生成一组幸运彩票号码。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03O-gd-KWk">
-                                <rect key="frame" x="25" y="259.5" width="325" height="72"/>
+                                <rect key="frame" x="25" y="262" width="325" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -895,40 +886,36 @@
                             <constraint firstItem="nzM-Jq-TV8" firstAttribute="leading" secondItem="QSR-LL-vpg" secondAttribute="leading" constant="25" id="3Nf-W7-OJv"/>
                             <constraint firstAttribute="trailing" secondItem="03O-gd-KWk" secondAttribute="trailing" constant="25" id="3lO-6x-LzX"/>
                             <constraint firstAttribute="trailing" secondItem="qLf-6k-ApS" secondAttribute="trailing" constant="25" id="4OP-Ne-Adi"/>
+                            <constraint firstItem="qLf-6k-ApS" firstAttribute="top" secondItem="Yul-t1-s4S" secondAttribute="bottom" constant="8" id="7VN-0t-5W5"/>
                             <constraint firstItem="qLf-6k-ApS" firstAttribute="leading" secondItem="2tL-Xg-2yv" secondAttribute="trailing" constant="10" id="A9H-Re-iOd"/>
                             <constraint firstAttribute="trailing" secondItem="Yul-t1-s4S" secondAttribute="trailing" constant="25" id="C7M-4N-fM0"/>
                             <constraint firstItem="XTJ-Tp-f2S" firstAttribute="leading" secondItem="QSR-LL-vpg" secondAttribute="leading" constant="65" id="Cgv-Xq-kSs"/>
                             <constraint firstItem="Yul-t1-s4S" firstAttribute="leading" secondItem="nzM-Jq-TV8" secondAttribute="trailing" constant="5" id="DUf-Q8-X7Q"/>
+                            <constraint firstItem="03O-gd-KWk" firstAttribute="top" secondItem="XTJ-Tp-f2S" secondAttribute="bottom" constant="10" id="E1u-cq-3gg"/>
                             <constraint firstItem="nAq-1f-5gb" firstAttribute="centerX" secondItem="yd4-ZY-9Ey" secondAttribute="centerX" id="ELo-mV-gT7"/>
                             <constraint firstItem="XTJ-Tp-f2S" firstAttribute="leading" secondItem="2PZ-ng-6Ch" secondAttribute="trailing" constant="10" id="EQb-0X-OMo"/>
-                            <constraint firstItem="H5f-Ko-dAk" firstAttribute="leading" secondItem="hci-KL-2rx" secondAttribute="trailing" constant="5" id="ER4-KD-RDr"/>
                             <constraint firstItem="2PZ-ng-6Ch" firstAttribute="centerY" secondItem="XTJ-Tp-f2S" secondAttribute="centerY" id="EVD-nB-5WL"/>
                             <constraint firstAttribute="trailing" secondItem="f7X-0d-CW4" secondAttribute="trailing" id="FiI-AP-4ho"/>
                             <constraint firstItem="f7X-0d-CW4" firstAttribute="leading" secondItem="QSR-LL-vpg" secondAttribute="leading" id="GbN-zo-JEe"/>
-                            <constraint firstItem="hci-KL-2rx" firstAttribute="leading" secondItem="QSR-LL-vpg" secondAttribute="leading" constant="25" id="Jc7-gP-lGF"/>
-                            <constraint firstItem="qLf-6k-ApS" firstAttribute="top" secondItem="nzM-Jq-TV8" secondAttribute="bottom" constant="8" id="KFq-0T-36o"/>
                             <constraint firstItem="nAq-1f-5gb" firstAttribute="centerY" secondItem="yd4-ZY-9Ey" secondAttribute="centerY" id="MV1-aJ-jV4"/>
                             <constraint firstItem="nAq-1f-5gb" firstAttribute="width" secondItem="yd4-ZY-9Ey" secondAttribute="width" id="SzH-mF-U9v"/>
                             <constraint firstItem="yd4-ZY-9Ey" firstAttribute="top" relation="greaterThanOrEqual" secondItem="03O-gd-KWk" secondAttribute="bottom" constant="30" id="X57-DL-4gP"/>
                             <constraint firstItem="2tL-Xg-2yv" firstAttribute="centerY" secondItem="qLf-6k-ApS" secondAttribute="centerY" id="bg6-hg-Wuh"/>
                             <constraint firstItem="vcJ-Lu-R62" firstAttribute="top" secondItem="yd4-ZY-9Ey" secondAttribute="bottom" constant="10" id="cGf-t1-tmN"/>
-                            <constraint firstItem="03O-gd-KWk" firstAttribute="top" secondItem="2PZ-ng-6Ch" secondAttribute="bottom" constant="15" id="cdq-g4-sl4"/>
-                            <constraint firstItem="yd4-ZY-9Ey" firstAttribute="centerX" secondItem="QSR-LL-vpg" secondAttribute="centerX" constant="-8" id="dPr-0f-p93"/>
+                            <constraint firstItem="yd4-ZY-9Ey" firstAttribute="centerX" secondItem="QSR-LL-vpg" secondAttribute="centerX" id="dPr-0f-p93"/>
                             <constraint firstItem="H5f-Ko-dAk" firstAttribute="top" secondItem="nEG-Kr-DYz" secondAttribute="bottom" constant="20" id="eGE-Oe-bIQ"/>
+                            <constraint firstItem="nzM-Jq-TV8" firstAttribute="top" secondItem="nEG-Kr-DYz" secondAttribute="bottom" constant="35" id="hEi-pS-QGW"/>
                             <constraint firstItem="Yul-t1-s4S" firstAttribute="top" secondItem="H5f-Ko-dAk" secondAttribute="bottom" id="isc-kq-zsU"/>
                             <constraint firstItem="03O-gd-KWk" firstAttribute="leading" secondItem="QSR-LL-vpg" secondAttribute="leading" constant="25" id="kex-AP-TfQ"/>
                             <constraint firstAttribute="trailing" secondItem="H5f-Ko-dAk" secondAttribute="trailing" constant="25" id="nuP-9c-wdw"/>
-                            <constraint firstItem="nzM-Jq-TV8" firstAttribute="top" secondItem="hci-KL-2rx" secondAttribute="bottom" id="oMY-Ah-Fuo"/>
                             <constraint firstItem="XTJ-Tp-f2S" firstAttribute="top" secondItem="qLf-6k-ApS" secondAttribute="bottom" constant="8" id="qU8-En-PnS"/>
                             <constraint firstItem="qLf-6k-ApS" firstAttribute="leading" secondItem="QSR-LL-vpg" secondAttribute="leading" constant="65" id="spp-hA-VR3"/>
-                            <constraint firstItem="hci-KL-2rx" firstAttribute="top" secondItem="nEG-Kr-DYz" secondAttribute="bottom" constant="20" id="ui2-qH-Ib8"/>
                             <constraint firstItem="yd4-ZY-9Ey" firstAttribute="top" secondItem="f7X-0d-CW4" secondAttribute="bottom" id="vLh-qA-q4S"/>
                             <constraint firstAttribute="trailing" secondItem="XTJ-Tp-f2S" secondAttribute="trailing" constant="25" id="vbA-RB-tb9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="易经占卜" id="c5m-bD-i9u"/>
+                    <navigationItem key="navigationItem" title="易经占卜-双色球" id="c5m-bD-i9u"/>
                     <connections>
-                        <outlet property="chineseDateLabel" destination="hci-KL-2rx" id="1KI-zt-Gst"/>
                         <outlet property="chineseYearLabel" destination="nzM-Jq-TV8" id="zlx-ue-9uR"/>
                         <outlet property="dayLabel" destination="H5f-Ko-dAk" id="Rob-l2-8Zw"/>
                         <outlet property="jiContentLabel" destination="XTJ-Tp-f2S" id="BvR-wu-dv8"/>

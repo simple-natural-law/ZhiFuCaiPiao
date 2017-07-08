@@ -425,7 +425,7 @@
     
     //生成农历天干、地支、属相
     NSString *szShuXiang = (NSString *)[cShuXiang objectAtIndex:((wCurYear - 4) % 60) % 12];
-    NSString *szNongli = [NSString stringWithFormat:@"%@(%@%@)年",szShuXiang, (NSString *)[cTianGan objectAtIndex:((wCurYear - 4) % 60) % 10],(NSString *)[cDiZhi objectAtIndex:((wCurYear - 4) % 60) % 12]];
+    NSString *szNongli = [NSString stringWithFormat:@"%@%@(%@)年", (NSString *)[cTianGan objectAtIndex:((wCurYear - 4) % 60) % 10],(NSString *)[cDiZhi objectAtIndex:((wCurYear - 4) % 60) % 12],szShuXiang];
     
     //生成农历月、日
     NSString *szNongliDay;
@@ -436,7 +436,7 @@
         szNongliDay = (NSString *)[cMonName objectAtIndex:wCurMonth];
     }
     
-    NSString *lunarDate = [NSString stringWithFormat:@"%@ %@月 %@",isShowYear?szNongli:@"",szNongliDay,(NSString *)[cDayName objectAtIndex:wCurDay]];
+    NSString *lunarDate = [NSString stringWithFormat:@"%@%@月%@",isShowYear?szNongli:@"",szNongliDay,(NSString *)[cDayName objectAtIndex:wCurDay]];
     if (!isShowYear) {
         if (wCurDay==1) {
             return [NSString stringWithFormat:@"%@月",szNongliDay];

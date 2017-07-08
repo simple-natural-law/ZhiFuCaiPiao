@@ -35,6 +35,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSDate *date = [NSDate date];
+    
+    self.dayLabel.text = [NSString stringWithFormat:@"%02ld",[date getDay]];
+    self.yearLabel.text = [NSString stringWithFormat:@"%ld.%02ld",[date getYear],[date getMonth]];
+    self.chineseYearLabel.text = [NSDate lunarForSolar:date ShowYear:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
