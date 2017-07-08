@@ -46,7 +46,7 @@
     
     self.title = @"您预测的是:双色球";
     
-    self.index = 5;
+    self.index = 6;
     
     self.guaXiangArray = @[@[@(1),@(1),@(0)],
                            @[@(1),@(0),@(1)],
@@ -66,9 +66,9 @@
     
     AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &_soundId);
     
-    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
+//    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
     
-    [self becomeFirstResponder];
+//    [self becomeFirstResponder];
 }
 
 
@@ -77,9 +77,9 @@
 {
     [super viewWillDisappear:animated];
     
-    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:NO];
-    
-    [self resignFirstResponder];
+//    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:NO];
+//    
+//    [self resignFirstResponder];
     
     AudioServicesDisposeSystemSoundID(_soundId);  // 释放自定义系统声音
 }
@@ -95,7 +95,9 @@
 {
     GuaXiangCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GuaXiangCell" forIndexPath:indexPath];
     
-    [cell setGuaXingWithInfo:self.guaXiangArray[indexPath.row] row:indexPath.row];
+    BOOL show = self.index == indexPath.row;
+    
+    [cell setGuaXingWithInfo:self.guaXiangArray[indexPath.row] row:indexPath.row isShow:show];
     
     return cell;
 }
@@ -107,14 +109,17 @@
 
 - (IBAction)tapAction:(id)sender
 {
-    self.centerXCons1.constant = 0.0;
-    self.centerXCons3.constant = 0.0;
-    self.bottomCons.constant   = -5.0;
-    [self.view layoutIfNeeded];
-    
-    [self startShakeAnimation];
-    
-    [self playSound];
+    if (self.index > 0)
+    {
+        self.centerXCons1.constant = 0.0;
+        self.centerXCons3.constant = 0.0;
+        self.bottomCons.constant   = -5.0;
+        [self.view layoutIfNeeded];
+        
+        [self startShakeAnimation];
+        
+        [self playSound];
+    }
 }
 
 #pragma mark- methods
@@ -152,14 +157,6 @@
             [self.tableview beginUpdates];
             [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
             [self.tableview endUpdates];
-            
-            if (self.index == 0)
-            {
-                [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:NO];
-            }else
-            {
-                self.index--;
-            }
         }
     }];
     
@@ -206,7 +203,16 @@
 {
     if (flag)
     {
-        [self startGuaXiangAnimationWithGuaXiangArr:@[@(0),@(1),@(0)]];
+        if (self.index == 0)
+        {
+//            [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:NO];
+//            [self resignFirstResponder];
+        }else
+        {
+            self.index--;
+        }
+        
+        [self startGuaXiangAnimationWithGuaXiangArr:self.guaXiangArray[self.index]];
     }
 }
 
@@ -217,14 +223,17 @@
 {
     if (motion == UIEventSubtypeMotionShake)
     {
-        self.centerXCons1.constant = 0.0;
-        self.centerXCons3.constant = 0.0;
-        self.bottomCons.constant   = -5.0;
-        [self.view layoutIfNeeded];
-        
-        [self startShakeAnimation];
-        
-        [self playSound];
+        if (self.index > 0)
+        {
+            self.centerXCons1.constant = 0.0;
+            self.centerXCons3.constant = 0.0;
+            self.bottomCons.constant   = -5.0;
+            [self.view layoutIfNeeded];
+            
+            [self startShakeAnimation];
+            
+            [self playSound];
+        }
     }
 }
 
@@ -233,7 +242,7 @@
 {
     if (motion == UIEventSubtypeMotionShake)
     {
-        [self startGuaXiangAnimationWithGuaXiangArr:@[@(0),@(1),@(0)]];
+        
     }
 }
 

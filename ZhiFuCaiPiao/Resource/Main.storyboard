@@ -972,12 +972,13 @@
                                     <outletCollection property="gestureRecognizers" destination="kex-6w-R1b" appends="YES" id="jiI-LU-6ZD"/>
                                 </connections>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-hh-zUf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-hh-zUf">
                                 <rect key="frame" x="47" y="407" width="281" height="240"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Z0Z-QO-tRE"/>
                                 </constraints>
+                                <color key="sectionIndexBackgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GuaXiangCell" rowHeight="44" id="6Ih-7X-CXZ" customClass="GuaXiangCell">
                                         <rect key="frame" x="0.0" y="28" width="281" height="44"/>
@@ -1036,7 +1037,6 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.90980392160000001" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="etm-tf-Ca0" firstAttribute="top" secondItem="4z7-8h-8G1" secondAttribute="top" id="33w-rp-0RJ"/>
                                                 <constraint firstItem="cFy-0f-TSi" firstAttribute="leading" secondItem="4z7-8h-8G1" secondAttribute="leading" constant="5" id="8o0-R4-YW1"/>
@@ -1057,7 +1057,6 @@
                                                 <constraint firstItem="IVJ-Nc-uG6" firstAttribute="leading" secondItem="Fkn-xF-kEb" secondAttribute="trailing" id="tWJ-El-ItR"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.90980392156862744" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="centerView" destination="IVJ-Nc-uG6" id="w7K-Pn-0YW"/>
                                             <outlet property="detialLabel" destination="etm-tf-Ca0" id="whu-Rv-d5j"/>
