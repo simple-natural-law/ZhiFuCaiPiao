@@ -11,6 +11,18 @@
 @interface DivinationMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *taijiButton;
+// 农历月-日
+@property (weak, nonatomic) IBOutlet UILabel *chineseDateLabel;
+// 农历年
+@property (weak, nonatomic) IBOutlet UILabel *chineseYearLabel;
+// 年月
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
+// 日
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+// 宜
+@property (weak, nonatomic) IBOutlet UILabel *yiContentLabel;
+// 忌
+@property (weak, nonatomic) IBOutlet UILabel *jiContentLabel;
 
 @property (strong, nonatomic) dispatch_source_t animationTimer;
 
