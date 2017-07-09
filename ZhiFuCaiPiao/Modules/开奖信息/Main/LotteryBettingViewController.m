@@ -1,36 +1,30 @@
 //
-//  DivinationDescriptionViewController.m
+//  LotteryBettingViewController.m
 //  ZhiFuCaiPiao
 //
 //  Created by 张诗健 on 2017/7/9.
 //  Copyright © 2017年 张诗健. All rights reserved.
 //
 
-#import "DivinationDescriptionViewController.h"
 #import "LotteryBettingViewController.h"
 
-
-@interface DivinationDescriptionViewController ()
+@interface LotteryBettingViewController ()
 
 @end
 
-@implementation DivinationDescriptionViewController
+@implementation LotteryBettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"周易预测-双色球";
+    self.title = @"购彩中心";
     
-    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(touZhu)];
-}
-
-
-
-#pragma mark-
-- (void)touZhu
-{
-    [self pushViewController:[[LotteryBettingViewController alloc] init] param:@"http://wap.lecai.com/lottery/" animated:YES];
+    self.webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64)];
+    self.webview.delegate = self;
+    [self.view addSubview:self.webview];
+    
+    [self loadURL:[NSURL URLWithString:self.param] param:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -36,7 +36,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
-@property (strong, nonatomic) NSArray<NSArray *> *guaXiangArray;
+@property (strong, nonatomic) NSDictionary *guaXiangInfo;
 
 @property (assign, nonatomic) int index;
 
@@ -48,7 +48,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"您占卜的是:双色球";
+    self.title = @"您预测的是:双色球";
     
     self.index  = 6;
     
@@ -57,7 +57,7 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"GuaJie" ofType:@"plist"];
     NSArray *dataArr = [NSArray arrayWithContentsOfFile:filePath];
     
-    self.guaXiangArray = dataArr[0][@"GuaXiang"];
+    self.guaXiangInfo = dataArr[0];
     
     [self showMessageWithIsEnd:NO];
 }
@@ -103,7 +103,7 @@
     
     BOOL show = self.index == indexPath.row;
     
-    [cell setGuaXingWithInfo:self.guaXiangArray[indexPath.row] row:indexPath.row isShow:show];
+    [cell setGuaXingWithInfo:self.guaXiangInfo[@"GuaXiang"][indexPath.row] row:indexPath.row isShow:show];
     
     return cell;
 }
@@ -248,7 +248,7 @@
 // 查看卦解
 - (void)goGuaXiangDetial
 {
-    [self pushViewControllerKey:@"DivinationDescriptionViewController" param:nil animated:YES];
+    [self pushViewControllerKey:@"DivinationDescriptionViewController" param:self.guaXiangInfo animated:YES];
 }
 
 // 0-正面 1-反面
@@ -281,7 +281,7 @@
             self.index--;
         }
         
-        [self startGuaXiangAnimationWithGuaXiangArr:self.guaXiangArray[self.index]];
+        [self startGuaXiangAnimationWithGuaXiangArr:self.guaXiangInfo[@"GuaXiang"][self.index]];
     }
 }
 

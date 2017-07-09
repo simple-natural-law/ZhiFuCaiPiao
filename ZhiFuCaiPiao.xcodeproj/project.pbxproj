@@ -75,6 +75,7 @@
 		343EEC181F0FDD8F00D25025 /* GuaXiangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */; };
 		343EEC1B1F123A7C00D25025 /* DivinationDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */; };
 		343EEC1D1F126B8800D25025 /* GuaJie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 343EEC1C1F126B8800D25025 /* GuaJie.plist */; };
+		343EEC201F127FF000D25025 /* LotteryBettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC1F1F127FF000D25025 /* LotteryBettingViewController.m */; };
 		3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3463E95E1F0BDBE0002A1144 /* Login.storyboard */; };
 		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
 		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
@@ -232,6 +233,8 @@
 		343EEC191F123A7C00D25025 /* DivinationDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivinationDescriptionViewController.h; sourceTree = "<group>"; };
 		343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivinationDescriptionViewController.m; sourceTree = "<group>"; };
 		343EEC1C1F126B8800D25025 /* GuaJie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GuaJie.plist; sourceTree = "<group>"; };
+		343EEC1E1F127FF000D25025 /* LotteryBettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryBettingViewController.h; sourceTree = "<group>"; };
+		343EEC1F1F127FF000D25025 /* LotteryBettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryBettingViewController.m; sourceTree = "<group>"; };
 		3463E95E1F0BDBE0002A1144 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3463E9661F0BE2C8002A1144 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3463E9671F0BE2C8002A1144 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -614,6 +617,8 @@
 				342384BC1EF975370074DAE1 /* LotteryDetailViewController.m */,
 				34FCDB2E1F0A7F1D00F7F2B6 /* LotteryTrendViewController.h */,
 				34FCDB2F1F0A7F1D00F7F2B6 /* LotteryTrendViewController.m */,
+				343EEC1E1F127FF000D25025 /* LotteryBettingViewController.h */,
+				343EEC1F1F127FF000D25025 /* LotteryBettingViewController.m */,
 				34FCDB301F0A7F1D00F7F2B6 /* View */,
 			);
 			path = Main;
@@ -999,6 +1004,7 @@
 				341B2CF91F02A67E00FA387E /* NewsViewController.m in Sources */,
 				341FED091EF17BA300CA37A9 /* UIImage+extend.m in Sources */,
 				341B2CB11EFF7FE100FA387E /* CPProgressView.m in Sources */,
+				343EEC201F127FF000D25025 /* LotteryBettingViewController.m in Sources */,
 				1AC987C01F0E3CAF00F134B2 /* DivinationMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
