@@ -250,7 +250,7 @@
 // 查看卦解
 - (void)goGuaXiangDetial
 {
-    
+    [self pushViewControllerKey:@"DivinationDescriptionViewController" param:nil animated:YES];
 }
 
 // 0-正面 1-反面

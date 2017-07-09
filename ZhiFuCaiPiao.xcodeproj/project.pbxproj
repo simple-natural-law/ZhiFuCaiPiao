@@ -73,6 +73,7 @@
 		343973D61EEB952000C183D8 /* ZhiFuCaiPiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973D51EEB952000C183D8 /* ZhiFuCaiPiaoTests.m */; };
 		343973E11EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */; };
 		343EEC181F0FDD8F00D25025 /* GuaXiangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */; };
+		343EEC1B1F123A7C00D25025 /* DivinationDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */; };
 		3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3463E95E1F0BDBE0002A1144 /* Login.storyboard */; };
 		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
 		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
@@ -227,6 +228,8 @@
 		343973EE1EEB9C1600C183D8 /* ZhiFuCaiPiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhiFuCaiPiao.entitlements; sourceTree = "<group>"; };
 		343EEC161F0FDD8F00D25025 /* GuaXiangCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuaXiangCell.h; sourceTree = "<group>"; };
 		343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuaXiangCell.m; sourceTree = "<group>"; };
+		343EEC191F123A7C00D25025 /* DivinationDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivinationDescriptionViewController.h; sourceTree = "<group>"; };
+		343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivinationDescriptionViewController.m; sourceTree = "<group>"; };
 		3463E95E1F0BDBE0002A1144 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3463E9661F0BE2C8002A1144 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3463E9671F0BE2C8002A1144 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 				343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */,
 				3463E96F1F0E7B26002A1144 /* DivinationDetialViewController.h */,
 				3463E9701F0E7B26002A1144 /* DivinationDetialViewController.m */,
+				343EEC191F123A7C00D25025 /* DivinationDescriptionViewController.h */,
+				343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -979,6 +984,7 @@
 				341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */,
 				1A31D9031F0353C8005386FF /* GuidePageViewController.m in Sources */,
 				341FECD71EF0327600CA37A9 /* TabBarViewController.m in Sources */,
+				343EEC1B1F123A7C00D25025 /* DivinationDescriptionViewController.m in Sources */,
 				341FED061EF17BA300CA37A9 /* UIColor+extend.m in Sources */,
 				34FCDB361F0A7F1D00F7F2B6 /* LotteryTrendTypeSelectView.m in Sources */,
 				34FCDB371F0A7F1D00F7F2B6 /* LotteryTrendView.m in Sources */,

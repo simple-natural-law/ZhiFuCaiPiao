@@ -1119,6 +1119,24 @@
             </objects>
             <point key="canvasLocation" x="1408.8" y="-1140.1799100449775"/>
         </scene>
+        <!--周易解卦-->
+        <scene sceneID="0fc-eR-8Sy">
+            <objects>
+                <viewController storyboardIdentifier="DivinationDescriptionViewController" title="周易解卦" id="LD3-vd-g8s" customClass="DivinationDescriptionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gkM-Oc-lTu"/>
+                        <viewControllerLayoutGuide type="bottom" id="TSD-Qs-w9b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G2j-xE-fZW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sU-Mg-5de" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2162" y="-1143"/>
+        </scene>
         <!--彩票资讯-->
         <scene sceneID="K3s-vS-7sA">
             <objects>
