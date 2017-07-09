@@ -74,6 +74,7 @@
 		343973E11EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343973E01EEB952000C183D8 /* ZhiFuCaiPiaoUITests.m */; };
 		343EEC181F0FDD8F00D25025 /* GuaXiangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */; };
 		343EEC1B1F123A7C00D25025 /* DivinationDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */; };
+		343EEC1D1F126B8800D25025 /* GuaJie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 343EEC1C1F126B8800D25025 /* GuaJie.plist */; };
 		3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3463E95E1F0BDBE0002A1144 /* Login.storyboard */; };
 		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
 		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
@@ -230,6 +231,7 @@
 		343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuaXiangCell.m; sourceTree = "<group>"; };
 		343EEC191F123A7C00D25025 /* DivinationDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivinationDescriptionViewController.h; sourceTree = "<group>"; };
 		343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivinationDescriptionViewController.m; sourceTree = "<group>"; };
+		343EEC1C1F126B8800D25025 /* GuaJie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GuaJie.plist; sourceTree = "<group>"; };
 		3463E95E1F0BDBE0002A1144 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3463E9661F0BE2C8002A1144 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3463E9671F0BE2C8002A1144 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 				341FECC21EF01C2600CA37A9 /* LaunchScreen.storyboard */,
 				341FECC31EF01C2600CA37A9 /* Main.storyboard */,
 				341FECCB1EF01E9300CA37A9 /* InfoPlist.strings */,
+				343EEC1C1F126B8800D25025 /* GuaJie.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				341B2CDB1F02907500FA387E /* f9_howto.html in Resources */,
 				341B2CDA1F02907500FA387E /* dlt_howto.html in Resources */,
 				341B2CF11F02907500FA387E /* x3d_howto.html in Resources */,
+				343EEC1D1F126B8800D25025 /* GuaJie.plist in Resources */,
 				341B2CE51F02907500FA387E /* k3_howto.html in Resources */,
 				341B2CEF1F02907500FA387E /* ssc_howto.html in Resources */,
 				341B2CF01F02907500FA387E /* ssq_howto.html in Resources */,

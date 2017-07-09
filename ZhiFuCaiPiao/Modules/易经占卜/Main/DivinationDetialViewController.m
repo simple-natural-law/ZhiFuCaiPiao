@@ -54,12 +54,10 @@
     
     _isShakeing = NO;
     
-    self.guaXiangArray = @[@[@(1),@(1),@(0)],
-                           @[@(1),@(0),@(1)],
-                           @[@(0),@(0),@(1)],
-                           @[@(1),@(1),@(1)],
-                           @[@(1),@(0),@(0)],
-                           @[@(1),@(1),@(1)]];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"GuaJie" ofType:@"plist"];
+    NSArray *dataArr = [NSArray arrayWithContentsOfFile:filePath];
+    
+    self.guaXiangArray = dataArr[0][@"GuaXiang"];
     
     [self showMessageWithIsEnd:NO];
 }
@@ -179,7 +177,7 @@
                 [self showMessageWithIsEnd:YES];
             }else
             {
-                [self performSelector:@selector(showMessageWithIsEnd:) withObject:@(NO) afterDelay:2.0];
+                [self performSelector:@selector(showMessageWithIsEnd:) withObject:@(NO) afterDelay:5.0];
             }
         }
     }];

@@ -1006,9 +1006,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twn-Dd-Uo7">
-                                                    <rect key="frame" x="226" y="0.0" width="10" height="44"/>
+                                                    <rect key="frame" x="221" y="0.0" width="15" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="9hH-QF-mnU"/>
+                                                        <constraint firstAttribute="width" constant="15" id="9hH-QF-mnU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1050,7 +1050,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="twn-Dd-Uo7" secondAttribute="bottom" id="NGN-5i-J4A"/>
                                                 <constraint firstAttribute="bottom" secondItem="cFy-0f-TSi" secondAttribute="bottom" id="T9O-Ia-DAG"/>
                                                 <constraint firstAttribute="trailing" secondItem="etm-tf-Ca0" secondAttribute="trailing" constant="5" id="Vbv-fQ-OT0"/>
-                                                <constraint firstItem="twn-Dd-Uo7" firstAttribute="leading" secondItem="Nkh-JQ-9Fs" secondAttribute="trailing" constant="5" id="ZKg-r9-9UO"/>
+                                                <constraint firstItem="twn-Dd-Uo7" firstAttribute="leading" secondItem="Nkh-JQ-9Fs" secondAttribute="trailing" id="ZKg-r9-9UO"/>
                                                 <constraint firstItem="Nkh-JQ-9Fs" firstAttribute="leading" secondItem="IVJ-Nc-uG6" secondAttribute="trailing" id="ciH-Co-5Xd"/>
                                                 <constraint firstItem="IVJ-Nc-uG6" firstAttribute="centerY" secondItem="4z7-8h-8G1" secondAttribute="centerY" id="hfX-79-68a"/>
                                                 <constraint firstAttribute="bottom" secondItem="etm-tf-Ca0" secondAttribute="bottom" id="ldA-VY-9eG"/>
