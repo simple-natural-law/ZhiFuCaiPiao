@@ -36,22 +36,22 @@
     switch (row)
     {
         case 0:
-            self.titleLabel.text = @"上爻";
+            self.titleLabel.text = @"上爻->";
             break;
         case 1:
-            self.titleLabel.text = @"五爻";
+            self.titleLabel.text = @"五爻->";
             break;
         case 2:
-            self.titleLabel.text = @"四爻";
+            self.titleLabel.text = @"四爻->";
             break;
         case 3:
-            self.titleLabel.text = @"三爻";
+            self.titleLabel.text = @"三爻->";
             break;
         case 4:
-            self.titleLabel.text = @"二爻";
+            self.titleLabel.text = @"二爻->";
             break;
         case 5:
-            self.titleLabel.text = @"初爻";
+            self.titleLabel.text = @"初爻->";
             break;
         default:
             break;

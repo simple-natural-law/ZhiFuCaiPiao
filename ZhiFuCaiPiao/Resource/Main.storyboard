@@ -1037,7 +1037,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="etm-tf-Ca0" firstAttribute="top" secondItem="4z7-8h-8G1" secondAttribute="top" id="33w-rp-0RJ"/>
                                                 <constraint firstItem="cFy-0f-TSi" firstAttribute="leading" secondItem="4z7-8h-8G1" secondAttribute="leading" constant="5" id="8o0-R4-YW1"/>
@@ -1073,6 +1073,13 @@
                                     <outlet property="delegate" destination="Nx8-Jk-91g" id="mVH-QU-bmb"/>
                                 </connections>
                             </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkY-xa-N4H">
+                                <rect key="frame" x="87.5" y="116" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="AyL-eu-zGM"/>
+                                    <constraint firstAttribute="height" constant="100" id="MNA-Ru-2OX"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1082,11 +1089,13 @@
                             <constraint firstItem="cAm-eZ-Skz" firstAttribute="bottom" secondItem="VBF-DF-8rb" secondAttribute="bottom" id="C3A-QP-ol8"/>
                             <constraint firstItem="ZJx-Za-Wpv" firstAttribute="centerX" secondItem="Tc6-4Y-z04" secondAttribute="centerX" id="C7Z-63-OcY"/>
                             <constraint firstItem="VBF-DF-8rb" firstAttribute="bottom" secondItem="w31-hJ-Egy" secondAttribute="bottom" constant="-5" id="Mw2-nj-YJe"/>
+                            <constraint firstItem="KkY-xa-N4H" firstAttribute="centerY" secondItem="w31-hJ-Egy" secondAttribute="centerY" id="Pu0-bS-XnR"/>
                             <constraint firstItem="cAm-eZ-Skz" firstAttribute="centerX" secondItem="Tc6-4Y-z04" secondAttribute="centerX" id="RXP-gF-PmR"/>
                             <constraint firstItem="w31-hJ-Egy" firstAttribute="top" secondItem="Tc6-4Y-z04" secondAttribute="top" constant="74" id="XAE-ZO-x9V"/>
                             <constraint firstAttribute="bottom" secondItem="fEe-hh-zUf" secondAttribute="bottom" constant="20" id="mRf-ys-GbC"/>
                             <constraint firstItem="ZJx-Za-Wpv" firstAttribute="bottom" secondItem="VBF-DF-8rb" secondAttribute="bottom" id="s5V-VG-1Cl"/>
                             <constraint firstItem="fEe-hh-zUf" firstAttribute="width" secondItem="Tc6-4Y-z04" secondAttribute="width" multiplier="0.75" id="tSt-Fl-I1f"/>
+                            <constraint firstItem="KkY-xa-N4H" firstAttribute="centerX" secondItem="w31-hJ-Egy" secondAttribute="centerX" id="vvr-jL-jz5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1094,6 +1103,7 @@
                         <outlet property="centerXCons1" destination="2Wj-on-xFq" id="bqn-9l-1B5"/>
                         <outlet property="centerXCons3" destination="C7Z-63-OcY" id="RFN-rw-yGr"/>
                         <outlet property="guikeImageView" destination="w31-hJ-Egy" id="bKW-Ik-cai"/>
+                        <outlet property="messageButton" destination="KkY-xa-N4H" id="Dvi-iU-eTh"/>
                         <outlet property="qianbiIcon1" destination="VBF-DF-8rb" id="UkZ-d2-0yQ"/>
                         <outlet property="qianbiIcon2" destination="cAm-eZ-Skz" id="2hu-7H-DcD"/>
                         <outlet property="qianbiIcon3" destination="ZJx-Za-Wpv" id="dvR-h8-Uvo"/>

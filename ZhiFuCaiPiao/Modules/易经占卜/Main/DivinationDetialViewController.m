@@ -34,6 +34,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
+
 @property (strong, nonatomic) NSArray<NSArray *> *guaXiangArray;
 
 @property (assign, nonatomic) int index;
@@ -58,6 +60,8 @@
                            @[@(1),@(1),@(1)],
                            @[@(1),@(0),@(0)],
                            @[@(1),@(1),@(1)]];
+    
+    [self showMessageWithIsEnd:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -119,6 +123,8 @@
         
         _isShakeing = YES;
         
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showMessageWithIsEnd:) object:@(NO)];
+        
         self.centerXCons1.constant = 0.0;
         self.centerXCons3.constant = 0.0;
         self.bottomCons.constant   = -5.0;
@@ -167,6 +173,14 @@
             [self.tableview endUpdates];
             
             _isShakeing = NO;
+            
+            if (self.index == 0)
+            {
+                [self showMessageWithIsEnd:YES];
+            }else
+            {
+                [self performSelector:@selector(showMessageWithIsEnd:) withObject:@(NO) afterDelay:2.0];
+            }
         }
     }];
     
@@ -190,6 +204,53 @@
             }];
         }
     }];
+}
+
+- (void)showMessageWithIsEnd:(BOOL)isEnd
+{
+    if (isEnd)
+    {
+        [self.messageButton setImage:nil forState:UIControlStateNormal];
+        [self.messageButton setBackgroundImage:[UIImage imageNamed:@"qiugua_message_bg"] forState:UIControlStateNormal];
+        [self.messageButton setTitle:@"点击查看卦象" forState:UIControlStateNormal];
+        [self.messageButton setTitleColor:[UIColor colorWithHexString:@"#333333"] forState:UIControlStateNormal];
+        [self.messageButton addTarget:self action:@selector(goGuaXiangDetial) forControlEvents:UIControlEventTouchUpInside];
+    }else
+    {
+        [self.messageButton setImage:[UIImage imageNamed:@"qiugua_yao_icon"] forState:UIControlStateNormal];
+    }
+    self.messageButton.alpha = 0.0;
+    self.messageButton.hidden = NO;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        self.messageButton.alpha = 1.0;
+        
+    } completion:^(BOOL finished) {
+        
+        if (finished)
+        {
+            if (!isEnd)
+            {
+                [UIView animateWithDuration:0.5 delay:2.0 options:0 animations:^{
+                    
+                    self.messageButton.alpha = 0.0;
+                } completion:^(BOOL finished) {
+                    
+                    if (finished)
+                    {
+                        self.messageButton.hidden = YES;
+                    }
+                }];
+            }
+        }
+    }];
+}
+
+// 查看卦解
+- (void)goGuaXiangDetial
+{
+    
 }
 
 // 0-正面 1-反面
@@ -238,6 +299,8 @@
             if (_isShakeing) return;
             
             _isShakeing = YES;
+            
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showMessageWithIsEnd:) object:@(NO)];
             
             self.centerXCons1.constant = 0.0;
             self.centerXCons3.constant = 0.0;
