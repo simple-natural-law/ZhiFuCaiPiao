@@ -62,6 +62,27 @@
         self.leftView.hidden   = NO;
         self.rightView.hidden  = NO;
         self.centerView.hidden = [[info objectAtIndex:2] integerValue] == 0;
+        
+        // 0-反面 1-正面
+        int value = [info[0] intValue] + [info[1] intValue] + [info[2] intValue];
+        
+        if (value == 0) // 3个背面-老阳
+        {
+            self.detialLabel.text = @"老阳";
+            self.identifierLabel.text = @"○";
+        }else if (value == 1)
+        {
+            self.detialLabel.text = @"少阴";
+            self.identifierLabel.text = @"";
+        }else if (value == 2)
+        {
+            self.detialLabel.text = @"少阳";
+            self.identifierLabel.text = @"";
+        }else
+        {
+            self.detialLabel.text = @"老阴";
+            self.identifierLabel.text = @"X";
+        }
     }
 }
 

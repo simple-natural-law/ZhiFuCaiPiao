@@ -14,6 +14,8 @@
 @interface DivinationDetialViewController ()<CAAnimationDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     SystemSoundID _soundId;
+    
+    BOOL _isShakeing;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *guikeImageView;
@@ -44,9 +46,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"您预测的是:双色球";
+    self.title = @"您占卜的是:双色球";
     
-    self.index = 6;
+    self.index  = 6;
+    
+    _isShakeing = NO;
     
     self.guaXiangArray = @[@[@(1),@(1),@(0)],
                            @[@(1),@(0),@(1)],
@@ -111,6 +115,10 @@
 {
     if (self.index > 0)
     {
+        if (_isShakeing) return;
+        
+        _isShakeing = YES;
+        
         self.centerXCons1.constant = 0.0;
         self.centerXCons3.constant = 0.0;
         self.bottomCons.constant   = -5.0;
@@ -157,6 +165,8 @@
             [self.tableview beginUpdates];
             [self.tableview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
             [self.tableview endUpdates];
+            
+            _isShakeing = NO;
         }
     }];
     
@@ -225,6 +235,10 @@
     {
         if (self.index > 0)
         {
+            if (_isShakeing) return;
+            
+            _isShakeing = YES;
+            
             self.centerXCons1.constant = 0.0;
             self.centerXCons3.constant = 0.0;
             self.bottomCons.constant   = -5.0;
@@ -240,10 +254,7 @@
 // 摇动结束
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(nullable UIEvent *)event
 {
-    if (motion == UIEventSubtypeMotionShake)
-    {
-        
-    }
+    
 }
 
 // 摇动取消
