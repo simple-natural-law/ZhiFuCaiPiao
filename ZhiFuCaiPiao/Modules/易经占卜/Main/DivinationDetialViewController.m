@@ -57,7 +57,7 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"GuaJie" ofType:@"plist"];
     NSArray *dataArr = [NSArray arrayWithContentsOfFile:filePath];
     
-    self.guaXiangInfo = dataArr[0];
+    self.guaXiangInfo = dataArr[1];
     
     [self showMessageWithIsEnd:NO];
 }

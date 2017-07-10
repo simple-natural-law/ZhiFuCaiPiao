@@ -1581,26 +1581,13 @@
                                     <constraint firstItem="CnT-uD-FJT" firstAttribute="centerX" secondItem="h8i-AJ-ZBL" secondAttribute="centerX" id="kvq-jN-npb"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PyY-Ry-sDi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-Rw-xwk">
                                 <rect key="frame" x="0.0" y="274" width="375" height="393"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQF-d4-VOG">
-                                        <rect key="frame" x="8" y="8" width="0.0" height="385"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="385" id="AuJ-ph-Rh4"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="VQF-d4-VOG" firstAttribute="top" secondItem="PyY-Ry-sDi" secondAttribute="top" constant="8" id="FWm-0V-8vZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="VQF-d4-VOG" secondAttribute="bottom" constant="8" id="LRU-ed-C9P"/>
-                                    <constraint firstItem="VQF-d4-VOG" firstAttribute="leading" secondItem="PyY-Ry-sDi" secondAttribute="leading" constant="8" id="TUp-Pm-glv"/>
-                                    <constraint firstAttribute="trailing" secondItem="VQF-d4-VOG" secondAttribute="trailing" constant="8" id="hfp-RX-W49"/>
-                                </constraints>
-                            </scrollView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1610,12 +1597,12 @@
                             <constraint firstItem="yfY-Dt-xMu" firstAttribute="top" secondItem="3pb-c6-qin" secondAttribute="bottom" id="GJt-Hg-suK"/>
                             <constraint firstAttribute="trailing" secondItem="64V-So-NjS" secondAttribute="trailing" id="HFD-l7-zW8"/>
                             <constraint firstItem="yfY-Dt-xMu" firstAttribute="top" secondItem="G2j-xE-fZW" secondAttribute="top" constant="114" id="RKi-Hk-lZn"/>
-                            <constraint firstItem="TSD-Qs-w9b" firstAttribute="top" secondItem="PyY-Ry-sDi" secondAttribute="bottom" id="ZMZ-HI-0lv"/>
+                            <constraint firstAttribute="trailing" secondItem="Y4E-Rw-xwk" secondAttribute="trailing" id="bEG-tP-WGD"/>
+                            <constraint firstItem="TSD-Qs-w9b" firstAttribute="top" secondItem="Y4E-Rw-xwk" secondAttribute="bottom" id="eKS-qp-m6p"/>
                             <constraint firstItem="64V-So-NjS" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" id="fYb-Ey-ZzT"/>
-                            <constraint firstItem="PyY-Ry-sDi" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" id="fpM-JG-JxZ"/>
+                            <constraint firstItem="Y4E-Rw-xwk" firstAttribute="top" secondItem="64V-So-NjS" secondAttribute="bottom" id="gvd-Le-wMV"/>
                             <constraint firstItem="64V-So-NjS" firstAttribute="top" secondItem="yfY-Dt-xMu" secondAttribute="bottom" id="iuN-uq-VLh"/>
-                            <constraint firstItem="PyY-Ry-sDi" firstAttribute="top" secondItem="64V-So-NjS" secondAttribute="bottom" id="n79-A9-7JK"/>
-                            <constraint firstAttribute="trailing" secondItem="PyY-Ry-sDi" secondAttribute="trailing" id="vnu-om-4EC"/>
+                            <constraint firstItem="Y4E-Rw-xwk" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" id="wMR-5F-aiA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1626,8 +1613,6 @@
                         <outlet property="diView5" destination="TKe-tu-5pf" id="a2G-jU-Sa7"/>
                         <outlet property="diView6" destination="WP7-uf-M7l" id="BED-Tc-xY1"/>
                         <outlet property="diZhiLabel" destination="h8i-AJ-ZBL" id="PsX-Ya-dID"/>
-                        <outlet property="guaJieLabel" destination="VQF-d4-VOG" id="624-cM-diE"/>
-                        <outlet property="guaJieLabelHeightCons" destination="VQF-d4-VOG" id="A4W-bP-jA7"/>
                         <outlet property="numLabel1" destination="RXJ-IU-P40" id="aKa-EY-edr"/>
                         <outlet property="numLabel2" destination="3B9-l1-Jhv" id="kPh-ch-adi"/>
                         <outlet property="numLabel3" destination="7E4-HE-mNZ" id="Dg0-N1-abD"/>
@@ -1636,6 +1621,7 @@
                         <outlet property="numLabel6" destination="N0e-LM-Fhu" id="iHE-0Q-55Q"/>
                         <outlet property="numLabel7" destination="G9V-wf-bB4" id="FBl-ba-iiG"/>
                         <outlet property="numLabel8" destination="jSD-ln-bJ4" id="ydt-RP-q1d"/>
+                        <outlet property="textView" destination="Y4E-Rw-xwk" id="4GT-SA-C54"/>
                         <outlet property="tianGanLabel" destination="cmN-t9-mkh" id="dkP-o9-tdz"/>
                         <outlet property="tianView1" destination="Tmb-2q-W4E" id="AbV-rU-KTb"/>
                         <outlet property="tianView2" destination="rWB-yS-RVm" id="iez-oz-v3a"/>

@@ -36,8 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIView *diView5;
 @property (weak, nonatomic) IBOutlet UIView *diView6;
 
-@property (weak, nonatomic) IBOutlet UILabel *guaJieLabel;
-@property (weak, nonatomic) IBOutlet UILabel *guaJieLabelHeightCons;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
 @end
 
 @implementation DivinationDescriptionViewController
@@ -66,6 +66,12 @@
     self.diView4.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][3] integerValue] == 0;
     self.diView5.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][4] integerValue] == 0;
     self.diView6.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][5] integerValue] == 0;
+    
+//    CGFloat height = [self.param[@"GuaJie"] boundingRectWithSize:CGSizeMake(kScreenWidth-16.0, 0.0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil].size.height+10.0;
+    
+    NSString *str = [self.param[@"GuaJie"] stringByReplacingOccurrencesOfString:@"\n" withString:@"\r\n"];
+    
+    self.textView.text = str;
 }
 
 
