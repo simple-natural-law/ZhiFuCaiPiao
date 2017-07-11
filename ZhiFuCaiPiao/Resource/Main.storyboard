@@ -1565,29 +1565,32 @@
                                             <constraint firstItem="n0Z-s5-q0W" firstAttribute="height" secondItem="oZC-BA-RY3" secondAttribute="height" id="zOD-PB-KJh"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="之" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXC-Og-P0l">
+                                        <rect key="frame" x="139" y="0.0" width="97.5" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="cmN-t9-mkh" secondAttribute="bottom" id="0Ct-sF-RbW"/>
                                     <constraint firstItem="Oap-fl-JMF" firstAttribute="centerX" secondItem="cmN-t9-mkh" secondAttribute="centerX" id="8dS-Eu-FaW"/>
+                                    <constraint firstAttribute="bottom" secondItem="hXC-Og-P0l" secondAttribute="bottom" id="BnH-Y0-mP2"/>
                                     <constraint firstItem="h8i-AJ-ZBL" firstAttribute="leading" secondItem="cmN-t9-mkh" secondAttribute="trailing" id="FgT-WV-U5p"/>
                                     <constraint firstAttribute="centerX" secondItem="cmN-t9-mkh" secondAttribute="trailing" id="Isn-7T-AKT"/>
                                     <constraint firstItem="cmN-t9-mkh" firstAttribute="top" secondItem="Oap-fl-JMF" secondAttribute="bottom" id="Jqw-td-OR5"/>
                                     <constraint firstAttribute="height" constant="100" id="L2b-eE-TFI"/>
                                     <constraint firstItem="cmN-t9-mkh" firstAttribute="leading" secondItem="64V-So-NjS" secondAttribute="leading" id="Ui2-HY-aIL"/>
+                                    <constraint firstItem="hXC-Og-P0l" firstAttribute="top" secondItem="64V-So-NjS" secondAttribute="top" id="WT7-Hu-CA3"/>
+                                    <constraint firstItem="hXC-Og-P0l" firstAttribute="leading" secondItem="Oap-fl-JMF" secondAttribute="trailing" id="Z6r-xC-xNW"/>
                                     <constraint firstItem="h8i-AJ-ZBL" firstAttribute="top" secondItem="CnT-uD-FJT" secondAttribute="bottom" id="ZUj-9I-Uc3"/>
                                     <constraint firstAttribute="bottom" secondItem="h8i-AJ-ZBL" secondAttribute="bottom" id="jCc-gh-2Og"/>
                                     <constraint firstAttribute="trailing" secondItem="h8i-AJ-ZBL" secondAttribute="trailing" id="jSW-Hz-mZ7"/>
                                     <constraint firstItem="CnT-uD-FJT" firstAttribute="centerX" secondItem="h8i-AJ-ZBL" secondAttribute="centerX" id="kvq-jN-npb"/>
+                                    <constraint firstItem="CnT-uD-FJT" firstAttribute="leading" secondItem="hXC-Og-P0l" secondAttribute="trailing" id="uYa-Y4-EZY"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-Rw-xwk">
-                                <rect key="frame" x="0.0" y="274" width="375" height="393"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1597,12 +1600,8 @@
                             <constraint firstItem="yfY-Dt-xMu" firstAttribute="top" secondItem="3pb-c6-qin" secondAttribute="bottom" id="GJt-Hg-suK"/>
                             <constraint firstAttribute="trailing" secondItem="64V-So-NjS" secondAttribute="trailing" id="HFD-l7-zW8"/>
                             <constraint firstItem="yfY-Dt-xMu" firstAttribute="top" secondItem="G2j-xE-fZW" secondAttribute="top" constant="114" id="RKi-Hk-lZn"/>
-                            <constraint firstAttribute="trailing" secondItem="Y4E-Rw-xwk" secondAttribute="trailing" id="bEG-tP-WGD"/>
-                            <constraint firstItem="TSD-Qs-w9b" firstAttribute="top" secondItem="Y4E-Rw-xwk" secondAttribute="bottom" id="eKS-qp-m6p"/>
                             <constraint firstItem="64V-So-NjS" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" id="fYb-Ey-ZzT"/>
-                            <constraint firstItem="Y4E-Rw-xwk" firstAttribute="top" secondItem="64V-So-NjS" secondAttribute="bottom" id="gvd-Le-wMV"/>
                             <constraint firstItem="64V-So-NjS" firstAttribute="top" secondItem="yfY-Dt-xMu" secondAttribute="bottom" id="iuN-uq-VLh"/>
-                            <constraint firstItem="Y4E-Rw-xwk" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" id="wMR-5F-aiA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1621,7 +1620,7 @@
                         <outlet property="numLabel6" destination="N0e-LM-Fhu" id="iHE-0Q-55Q"/>
                         <outlet property="numLabel7" destination="G9V-wf-bB4" id="FBl-ba-iiG"/>
                         <outlet property="numLabel8" destination="jSD-ln-bJ4" id="ydt-RP-q1d"/>
-                        <outlet property="textView" destination="Y4E-Rw-xwk" id="4GT-SA-C54"/>
+                        <outlet property="numViewWidthCons" destination="Ufe-lg-NzG" id="Wps-Vw-oOg"/>
                         <outlet property="tianGanLabel" destination="cmN-t9-mkh" id="dkP-o9-tdz"/>
                         <outlet property="tianView1" destination="Tmb-2q-W4E" id="AbV-rU-KTb"/>
                         <outlet property="tianView2" destination="rWB-yS-RVm" id="iez-oz-v3a"/>

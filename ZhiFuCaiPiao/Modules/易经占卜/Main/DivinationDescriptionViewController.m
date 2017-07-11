@@ -11,6 +11,7 @@
 
 
 @interface DivinationDescriptionViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *numViewWidthCons;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel3;
@@ -36,8 +37,6 @@
 @property (weak, nonatomic) IBOutlet UIView *diView5;
 @property (weak, nonatomic) IBOutlet UIView *diView6;
 
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-
 @end
 
 @implementation DivinationDescriptionViewController
@@ -47,6 +46,8 @@
     // Do any additional setup after loading the view.
     
     self.title = @"周易预测-双色球";
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(touZhu)];
     
@@ -67,11 +68,18 @@
     self.diView5.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][4] integerValue] == 0;
     self.diView6.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][5] integerValue] == 0;
     
-//    CGFloat height = [self.param[@"GuaJie"] boundingRectWithSize:CGSizeMake(kScreenWidth-16.0, 0.0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil].size.height+10.0;
+    NSString *str = [self.param[@"GuaJie"] stringByReplacingOccurrencesOfString:@"n" withString:@"\r\n" ];
+    CGFloat height = [str boundingRectWithSize:CGSizeMake(kScreenWidth-24.0, 0.0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0]} context:nil].size.height+20.0;
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 274, kScreenWidth, kScreenHeight-274)];
+    scrollview.contentSize = CGSizeMake(kScreenWidth, height);
+    [self.view addSubview:scrollview];
     
-    NSString *str = [self.param[@"GuaJie"] stringByReplacingOccurrencesOfString:@"\n" withString:@"\r\n"];
-    
-    self.textView.text = str;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12, 10, kScreenWidth-24.0, height)];
+    label.font = [UIFont systemFontOfSize:18.0];
+    label.textColor = [UIColor colorWithHexString:@"#333333"];
+    label.numberOfLines = 0;
+    label.text = str;
+    [scrollview addSubview:label];
 }
 
 
