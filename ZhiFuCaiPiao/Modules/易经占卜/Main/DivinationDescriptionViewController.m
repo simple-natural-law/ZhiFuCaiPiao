@@ -51,24 +51,49 @@
     
     [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(touZhu)];
     
-    self.tianGanLabel.text = self.param[@"GuaMing"][@"TianGan"];
-    self.diZhiLabel.text   = self.param[@"GuaMing"][@"DiZhi"];
+    NSArray *numberArray1 = self.param[@"NumArr1"];
+    NSArray *numberArray2 = self.param[@"NumArr2"];
     
-    self.tianView1.hidden  = [self.param[@"GuaMing"][@"TianGanXiang"][0] integerValue] == 0;
-    self.tianView2.hidden  = [self.param[@"GuaMing"][@"TianGanXiang"][1] integerValue] == 0;
-    self.tianView3.hidden  = [self.param[@"GuaMing"][@"TianGanXiang"][2] integerValue] == 0;
-    self.tianView4.hidden  = [self.param[@"GuaMing"][@"TianGanXiang"][3] integerValue] == 0;
-    self.tianView5.hidden  = [self.param[@"GuaMing"][@"TianGanXiang"][4] integerValue] == 0;
-    self.tianView6.hidden  = [self.param[@"GuaMing"][@"TianGanXiang"][5] integerValue] == 0;
+    for (int i = 0; i < numberArray1.count; i++)
+    {
+        UILabel *label = [self.view viewWithTag:80000+i];
+        label.text     = numberArray1[i];
+        label.layer.backgroundColor = COLOR_RED.CGColor;
+        label.layer.cornerRadius    = 15.0;
+    }
     
-    self.diView1.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][0] integerValue] == 0;
-    self.diView2.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][1] integerValue] == 0;
-    self.diView3.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][2] integerValue] == 0;
-    self.diView4.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][3] integerValue] == 0;
-    self.diView5.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][4] integerValue] == 0;
-    self.diView6.hidden    = [self.param[@"GuaMing"][@"DiZhiXiang"][5] integerValue] == 0;
+    NSInteger offset = numberArray1.count;
     
-    NSString *str = [self.param[@"GuaJie"] stringByReplacingOccurrencesOfString:@"n" withString:@"\r\n" ];
+    for (int i = 0; i < numberArray2.count; i++)
+    {
+        UILabel *label = [self.view viewWithTag:80000+i+offset];
+        label.text     = numberArray2[i];
+        label.layer.backgroundColor = COLOR_BLUE.CGColor;
+        label.layer.cornerRadius    = 15.0;
+    }
+    
+    NSInteger count     = numberArray1.count+numberArray2.count;
+    CGFloat totalMargin = (count - 1) > 0 ? (count - 1)*5.0 : 0.0;
+    self.numViewWidthCons.constant = count*30.0+totalMargin;
+    
+    self.tianGanLabel.text = self.param[@"GuaXiang"][@"GuaMing"][@"TianGan"];
+    self.diZhiLabel.text   = self.param[@"GuaXiang"][@"GuaMing"][@"DiZhi"];
+    
+    self.tianView1.hidden  = [self.param[@"GuaXiang"][@"GuaMing"][@"TianGanXiang"][0] integerValue] == 0;
+    self.tianView2.hidden  = [self.param[@"GuaXiang"][@"GuaMing"][@"TianGanXiang"][1] integerValue] == 0;
+    self.tianView3.hidden  = [self.param[@"GuaXiang"][@"GuaMing"][@"TianGanXiang"][2] integerValue] == 0;
+    self.tianView4.hidden  = [self.param[@"GuaXiang"][@"GuaMing"][@"TianGanXiang"][3] integerValue] == 0;
+    self.tianView5.hidden  = [self.param[@"GuaXiang"][@"GuaMing"][@"TianGanXiang"][4] integerValue] == 0;
+    self.tianView6.hidden  = [self.param[@"GuaXiang"][@"GuaMing"][@"TianGanXiang"][5] integerValue] == 0;
+    
+    self.diView1.hidden    = [self.param[@"GuaXiang"][@"GuaMing"][@"DiZhiXiang"][0] integerValue] == 0;
+    self.diView2.hidden    = [self.param[@"GuaXiang"][@"GuaMing"][@"DiZhiXiang"][1] integerValue] == 0;
+    self.diView3.hidden    = [self.param[@"GuaXiang"][@"GuaMing"][@"DiZhiXiang"][2] integerValue] == 0;
+    self.diView4.hidden    = [self.param[@"GuaXiang"][@"GuaMing"][@"DiZhiXiang"][3] integerValue] == 0;
+    self.diView5.hidden    = [self.param[@"GuaXiang"][@"GuaMing"][@"DiZhiXiang"][4] integerValue] == 0;
+    self.diView6.hidden    = [self.param[@"GuaXiang"][@"GuaMing"][@"DiZhiXiang"][5] integerValue] == 0;
+    
+    NSString *str = [self.param[@"GuaXiang"][@"GuaJie"] stringByReplacingOccurrencesOfString:@"n" withString:@"\r\n" ];
     CGFloat height = [str boundingRectWithSize:CGSizeMake(kScreenWidth-24.0, 0.0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0]} context:nil].size.height+20.0;
     UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 274, kScreenWidth, kScreenHeight-274)];
     scrollview.contentSize = CGSizeMake(kScreenWidth, height);

@@ -248,7 +248,7 @@
 // 查看卦解
 - (void)goGuaXiangDetial
 {
-    [self pushViewControllerKey:@"DivinationDescriptionViewController" param:self.guaXiangInfo animated:YES];
+    [self pushViewControllerKey:@"DivinationDescriptionViewController" param:@{@"GuaXiang":self.guaXiangInfo,@"NumArr1":@[@"01",@"17",@"19",@"32",@"33"],@"NumArr2":@[@"02",@"11"]} animated:YES];
 }
 
 // 0-正面 1-反面
