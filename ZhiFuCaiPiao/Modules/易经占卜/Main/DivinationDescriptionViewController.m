@@ -95,12 +95,12 @@
     
     NSString *str = [self.param[@"GuaXiang"][@"GuaJie"] stringByReplacingOccurrencesOfString:@"n" withString:@"\r\n" ];
     CGFloat height = [str boundingRectWithSize:CGSizeMake(kScreenWidth-24.0, 0.0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0]} context:nil].size.height+20.0;
-    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 274, kScreenWidth, kScreenHeight-274)];
+    UIScrollView *scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 304, kScreenWidth, kScreenHeight-304)];
     scrollview.contentSize = CGSizeMake(kScreenWidth, height);
     [self.view addSubview:scrollview];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12, 10, kScreenWidth-24.0, height)];
-    label.font = [UIFont systemFontOfSize:18.0];
+    label.font = [UIFont systemFontOfSize:17.0];
     label.textColor = [UIColor colorWithHexString:@"#333333"];
     label.numberOfLines = 0;
     label.text = str;

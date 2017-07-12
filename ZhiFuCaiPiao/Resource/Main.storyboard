@@ -1223,17 +1223,23 @@
                                     <constraint firstItem="1el-gf-9Vr" firstAttribute="leading" secondItem="7E4-HE-mNZ" secondAttribute="trailing" constant="5" id="t7a-au-3X0"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预测号码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pb-c6-qin">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预测号码:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pb-c6-qin">
                                 <rect key="frame" x="12" y="84" width="363" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CDJ-ai-gUU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卦象解析:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyY-rd-l5Q">
+                                <rect key="frame" x="12" y="174" width="351" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64V-So-NjS">
-                                <rect key="frame" x="0.0" y="174" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="204" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmN-t9-mkh">
                                         <rect key="frame" x="0.0" y="70" width="187.5" height="30"/>
@@ -1597,11 +1603,15 @@
                             <constraint firstItem="yfY-Dt-xMu" firstAttribute="centerX" secondItem="G2j-xE-fZW" secondAttribute="centerX" id="2J2-or-gjd"/>
                             <constraint firstAttribute="trailing" secondItem="3pb-c6-qin" secondAttribute="trailing" id="6gQ-4J-w0s"/>
                             <constraint firstItem="3pb-c6-qin" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" constant="12" id="9GQ-uE-w9Y"/>
+                            <constraint firstItem="wyY-rd-l5Q" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" constant="12" id="ASY-FV-sOQ"/>
                             <constraint firstItem="yfY-Dt-xMu" firstAttribute="top" secondItem="3pb-c6-qin" secondAttribute="bottom" id="GJt-Hg-suK"/>
                             <constraint firstAttribute="trailing" secondItem="64V-So-NjS" secondAttribute="trailing" id="HFD-l7-zW8"/>
+                            <constraint firstAttribute="trailing" secondItem="wyY-rd-l5Q" secondAttribute="trailing" constant="12" id="Od3-LE-eWm"/>
                             <constraint firstItem="yfY-Dt-xMu" firstAttribute="top" secondItem="G2j-xE-fZW" secondAttribute="top" constant="114" id="RKi-Hk-lZn"/>
+                            <constraint firstItem="64V-So-NjS" firstAttribute="top" secondItem="wyY-rd-l5Q" secondAttribute="bottom" id="Wc6-lg-Jn3"/>
                             <constraint firstItem="64V-So-NjS" firstAttribute="leading" secondItem="G2j-xE-fZW" secondAttribute="leading" id="fYb-Ey-ZzT"/>
-                            <constraint firstItem="64V-So-NjS" firstAttribute="top" secondItem="yfY-Dt-xMu" secondAttribute="bottom" id="iuN-uq-VLh"/>
+                            <constraint firstItem="64V-So-NjS" firstAttribute="top" secondItem="yfY-Dt-xMu" secondAttribute="bottom" constant="30" id="iuN-uq-VLh"/>
+                            <constraint firstItem="wyY-rd-l5Q" firstAttribute="top" secondItem="yfY-Dt-xMu" secondAttribute="bottom" id="zwc-SS-gxj"/>
                         </constraints>
                     </view>
                     <connections>
