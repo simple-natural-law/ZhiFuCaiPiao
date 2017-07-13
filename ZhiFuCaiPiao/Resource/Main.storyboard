@@ -1643,6 +1643,59 @@
             </objects>
             <point key="canvasLocation" x="2160.8000000000002" y="-1143.7781109445277"/>
         </scene>
+        <!--周易六爻介绍-->
+        <scene sceneID="wPV-Q2-fl7">
+            <objects>
+                <viewController storyboardIdentifier="DivinationAboutInfoViewController" title="周易六爻介绍" id="NDM-X4-7vh" customClass="DivinationAboutInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uXK-gb-YZS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yce-sm-c0m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YBh-5Z-OPN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XA-4E-9e1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smg-wp-0tX">
+                                        <rect key="frame" x="10" y="10" width="355" height="657"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="657" id="1nb-4Q-1gn"/>
+                                            <constraint firstAttribute="width" constant="355" id="8Yh-CU-kGq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="smg-wp-0tX" firstAttribute="centerX" secondItem="7XA-4E-9e1" secondAttribute="centerX" id="Pgb-DR-2XJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="smg-wp-0tX" secondAttribute="bottom" constant="10" id="cJx-CU-sDj"/>
+                                    <constraint firstAttribute="trailing" secondItem="smg-wp-0tX" secondAttribute="trailing" constant="10" id="ehD-5l-NDM"/>
+                                    <constraint firstItem="smg-wp-0tX" firstAttribute="top" secondItem="7XA-4E-9e1" secondAttribute="top" constant="10" id="hey-MM-tD8"/>
+                                    <constraint firstItem="smg-wp-0tX" firstAttribute="leading" secondItem="7XA-4E-9e1" secondAttribute="leading" constant="10" id="yHI-zo-fDS"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7XA-4E-9e1" firstAttribute="leading" secondItem="YBh-5Z-OPN" secondAttribute="leading" id="FOk-99-tUC"/>
+                            <constraint firstAttribute="trailing" secondItem="7XA-4E-9e1" secondAttribute="trailing" id="M0S-jJ-27n"/>
+                            <constraint firstItem="Yce-sm-c0m" firstAttribute="top" secondItem="7XA-4E-9e1" secondAttribute="bottom" id="Z1L-bP-NcT"/>
+                            <constraint firstItem="7XA-4E-9e1" firstAttribute="top" secondItem="YBh-5Z-OPN" secondAttribute="top" id="fjQ-Ia-l3R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="smg-wp-0tX" id="KtD-SL-ZCM"/>
+                        <outlet property="labelHeightCons" destination="1nb-4Q-1gn" id="ifi-jb-ZQb"/>
+                        <outlet property="labelWidthCons" destination="8Yh-CU-kGq" id="o9a-Jl-AuP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mhg-xu-0GT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2997" y="-1151"/>
+        </scene>
         <!--彩票资讯-->
         <scene sceneID="K3s-vS-7sA">
             <objects>

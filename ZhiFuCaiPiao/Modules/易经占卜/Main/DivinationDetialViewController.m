@@ -48,7 +48,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"您预测的是:双色球";
+    if ([self.param isEqualToString:@"ssq"])
+    {
+        self.title = @"您预测的是:双色球";
+    }else if ([self.param isEqualToString:@"dlt"])
+    {
+        self.title = @"您预测的是:大乐透";
+    }else if ([self.param isEqualToString:@"qlc"])
+    {
+        self.title = @"您预测的是:七乐彩";
+    }else if ([self.param isEqualToString:@"qxc"])
+    {
+        self.title = @"您预测的是:七星彩";
+    }else if ([self.param isEqualToString:@"pl3"])
+    {
+        self.title = @"您预测的是:排列3";
+    }else
+    {
+        self.title = @"您预测的是:排列5";
+    }
     
     self.index  = 6;
     

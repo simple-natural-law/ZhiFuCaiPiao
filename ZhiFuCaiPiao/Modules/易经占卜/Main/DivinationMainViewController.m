@@ -7,6 +7,7 @@
 //
 
 #import "DivinationMainViewController.h"
+#import "LotteryTrendTypeSelectView.h"
 
 @interface DivinationMainViewController ()
 
@@ -24,6 +25,8 @@
 
 @property (strong, nonatomic) dispatch_source_t animationTimer;
 
+@property (strong, nonatomic) NSString *code;
+
 @end
 
 
@@ -32,6 +35,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self createAndSetLeftButtonWithNormalImage:[UIImage imageNamed:@"aboutInfo"] highlightedImage:[UIImage imageNamed:@"aboutInfo"] touchUpInsideAction:@selector(seeJieshao)];
+    
+    [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedType)];
+    
+    self.code = @"ssq";
     
     NSDate *date = [NSDate date];
     
@@ -67,10 +76,63 @@
 
 - (IBAction)goDivination:(id)sender
 {
-    [self pushViewControllerKey:@"DivinationDetialViewController" param:nil animated:YES];
+    [self pushViewControllerKey:@"DivinationDetialViewController" param:self.code animated:YES];
 }
 
+- (void)selectedType
+{
+    __weak typeof(self) weakself = self;
+    
+    [LotteryTrendTypeSelectView showInView:self.view didSelectedBlock:^(NSInteger index) {
+        
+        switch (index)
+        {
+            case 0:
+            {
+                weakself.title = @"易经占卜-双色球";
+                weakself.code = @"ssq";
+            }
+                break;
+            case 1:
+            {
+                weakself.title = @"易经占卜-大乐透";
+                weakself.code = @"dlt";
+            }
+                break;
+            case 2:
+            {
+                weakself.title = @"易经占卜-七乐彩";
+                weakself.code = @"qlc";
+            }
+                break;
+            case 3:
+            {
+                weakself.title = @"易经占卜-七星彩";
+                weakself.code = @"qxc";
+            }
+                break;
+            case 4:
+            {
+                weakself.title = @"易经占卜-排列3";
+                weakself.code = @"pl3";
+            }
+                break;
+            case 5:
+            {
+                weakself.title = @"易经占卜-排列5";
+                weakself.code = @"pl5";
+            }
+                break;
+            default:
+                break;
+        }
+    }];
+}
 
+- (void)seeJieshao
+{
+    [self pushViewControllerKey:@"DivinationAboutInfoViewController" param:nil animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
