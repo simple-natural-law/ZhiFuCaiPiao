@@ -1,29 +1,36 @@
 //
-//  OtherDetailViewController.m
+//  OtherViewController.m
 //  ZhiFuCaiPiao
 //
-//  Created by 张诗健 on 2017/6/27.
+//  Created by 讯心科技 on 2017/6/27.
 //  Copyright © 2017年 张诗健. All rights reserved.
 //
 
-#import "OtherDetailViewController.h"
+#import "UserCenterViewController.h"
 
-@interface OtherDetailViewController ()
+
+@interface UserCenterViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
-@implementation OtherDetailViewController
+@implementation UserCenterViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = self.param[@"title"];
-
-    NSURL *url = [[NSBundle mainBundle] URLForResource:self.param[@"html"] withExtension:nil];
-    
-    [self loadURL:url param:nil];
+    [self createAndSetRightButtonWithTitle:@"登录" touchUpInsideAction:@selector(login)];
 }
+
+- (void)login
+{
+    [self presentViewController:[UIViewController getViewControllerFormStoryboardName:@"Login" key:@"LoginNaviViewController"] animated:YES completion:nil];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
