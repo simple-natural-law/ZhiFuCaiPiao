@@ -11,8 +11,6 @@
 
 @interface UserCenterViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray *dataArray;
-
 @end
 
 @implementation UserCenterViewController
@@ -30,7 +28,27 @@
     [self presentViewController:[UIViewController getViewControllerFormStoryboardName:@"Login" key:@"LoginNaviViewController"] animated:YES completion:nil];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
 
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCenterCell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = @"常见问题";
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self pushViewControllerKey:@"CommonProblemViewController" param:nil animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

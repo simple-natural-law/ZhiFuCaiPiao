@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"常见问题";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
