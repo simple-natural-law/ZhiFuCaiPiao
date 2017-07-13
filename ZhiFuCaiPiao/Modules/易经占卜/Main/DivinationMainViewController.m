@@ -36,9 +36,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self createAndSetLeftButtonWithNormalImage:[UIImage imageNamed:@"aboutInfo"] highlightedImage:[UIImage imageNamed:@"aboutInfo"] touchUpInsideAction:@selector(seeJieshao)];
+    [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"aboutInfo"] highlightedImage:[UIImage imageNamed:@"aboutInfo"] touchUpInsideAction:@selector(seeJieshao)];
     
-    [self createAndSetRightButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedType)];
+    [self createAndSetLeftButtonWithNormalImage:[UIImage imageNamed:@"select_lottery_type"] highlightedImage:[UIImage imageNamed:@"select_lottery_type_highlighted"] touchUpInsideAction:@selector(selectedType)];
     
     self.code = @"ssq";
     

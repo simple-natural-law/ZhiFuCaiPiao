@@ -40,6 +40,10 @@
 
 @property (assign, nonatomic) int index;
 
+@property (strong, nonatomic) NSMutableArray *numArr1;
+
+@property (strong, nonatomic) NSMutableArray *numArr2;
+
 @end
 
 @implementation DivinationDetialViewController
@@ -51,21 +55,73 @@
     if ([self.param isEqualToString:@"ssq"])
     {
         self.title = @"您预测的是:双色球";
+        for (int i = 0; i < 6; i++)
+        {
+            int a = arc4random()%33 + 1;
+            [self.numArr1 addObject:[NSString stringWithFormat:@"%02d",a]];
+            
+            if (i == 0)
+            {
+                int b = arc4random()%16 + 1;
+                [self.numArr2 addObject:[NSString stringWithFormat:@"%02d",b]];
+            }
+        }
     }else if ([self.param isEqualToString:@"dlt"])
     {
         self.title = @"您预测的是:大乐透";
+        
+        for (int i = 0; i < 5; i++)
+        {
+            int a = arc4random()%35 + 1;
+            [self.numArr1 addObject:[NSString stringWithFormat:@"%02d",a]];
+            
+            if (i < 2)
+            {
+                int b = arc4random()%12 + 1;
+                [self.numArr2 addObject:[NSString stringWithFormat:@"%02d",b]];
+            }
+        }
     }else if ([self.param isEqualToString:@"qlc"])
     {
         self.title = @"您预测的是:七乐彩";
+        
+        for (int i = 0; i < 7; i++)
+        {
+            int a = arc4random()%30 + 1;
+            [self.numArr1 addObject:[NSString stringWithFormat:@"%02d",a]];
+            
+            if (i == 0)
+            {
+                int b = arc4random()%30 + 1;
+                [self.numArr2 addObject:[NSString stringWithFormat:@"%02d",b]];
+            }
+        }
+
     }else if ([self.param isEqualToString:@"qxc"])
     {
         self.title = @"您预测的是:七星彩";
+        for (int i = 0; i < 7; i++)
+        {
+            int a = arc4random()%10;
+            [self.numArr1 addObject:[NSString stringWithFormat:@"%02d",a]];
+        }
+
     }else if ([self.param isEqualToString:@"pl3"])
     {
         self.title = @"您预测的是:排列3";
+        for (int i = 0; i < 3; i++)
+        {
+            int a = arc4random()%10;
+            [self.numArr1 addObject:[NSString stringWithFormat:@"%02d",a]];
+        }
     }else
     {
         self.title = @"您预测的是:排列5";
+        for (int i = 0; i < 5; i++)
+        {
+            int a = arc4random()%10;
+            [self.numArr1 addObject:[NSString stringWithFormat:@"%02d",a]];
+        }
     }
     
     self.index  = 6;
@@ -75,7 +131,7 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"GuaJie" ofType:@"plist"];
     NSArray *dataArr = [NSArray arrayWithContentsOfFile:filePath];
     
-    self.guaXiangInfo = dataArr[5];
+    self.guaXiangInfo = dataArr[arc4random()%10];
     
     [self showMessageWithIsEnd:NO];
 }
@@ -266,7 +322,7 @@
 // 查看卦解
 - (void)goGuaXiangDetial
 {
-    [self pushViewControllerKey:@"DivinationDescriptionViewController" param:@{@"GuaXiang":self.guaXiangInfo,@"NumArr1":@[@"01",@"17",@"19",@"32",@"33"],@"NumArr2":@[@"02",@"11"]} animated:YES];
+    [self pushViewControllerKey:@"DivinationDescriptionViewController" param:@{@"GuaXiang":self.guaXiangInfo,@"NumArr1":self.numArr1,@"NumArr2":self.numArr2,@"code":self.param} animated:YES];
 }
 
 // 0-正面 1-反面
@@ -342,6 +398,24 @@
     
 }
 
+#pragma mark- 懒加载
+- (NSMutableArray *)numArr1
+{
+    if (_numArr1 == nil)
+    {
+        _numArr1 = [[NSMutableArray alloc] init];
+    }
+    return _numArr1;
+}
+
+- (NSMutableArray *)numArr2
+{
+    if (_numArr2 == nil)
+    {
+        _numArr2 = [[NSMutableArray alloc] init];
+    }
+    return _numArr2;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

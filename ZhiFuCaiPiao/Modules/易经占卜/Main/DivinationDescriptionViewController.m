@@ -45,7 +45,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"周易预测-双色球";
+    if ([self.param[@"code"] isEqualToString:@"ssq"])
+    {
+        self.title = @"周易预测-双色球";
+    }else if ([self.param[@"code"] isEqualToString:@"dlt"])
+    {
+        self.title = @"周易预测-大乐透";
+    }else if ([self.param[@"code"] isEqualToString:@"qlc"])
+    {
+        self.title = @"周易预测-七乐彩";
+    }else if ([self.param[@"code"] isEqualToString:@"qxc"])
+    {
+        self.title = @"周易预测-七星彩";
+    }else if ([self.param[@"code"] isEqualToString:@"pl3"])
+    {
+        self.title = @"周易预测-排列3";
+    }else
+    {
+        self.title = @"周易预测-排列5";
+    }
     
     self.view.backgroundColor = [UIColor whiteColor];
     

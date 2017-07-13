@@ -9,6 +9,7 @@
 #import "LotteryHistoryViewController.h"
 #import "LotteryHistoryCell.h"
 #import "NetworkDataCenter.h"
+#import "AlertCenter.h"
 
 
 @interface LotteryHistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -79,7 +80,13 @@
 
 - (void)goLotteryTrendViewController
 {
-    [self pushViewControllerKey:@"LotteryTrendViewController" param:self.param animated:YES];
+    if ([self.param[@"en"] isEqualToString:@"ssq"] || [self.param[@"en"] isEqualToString:@"dlt"] || [self.param[@"en"] isEqualToString:@"qlc"] || [self.param[@"en"] isEqualToString:@"qxc"] || [self.param[@"en"] isEqualToString:@"pl3"] || [self.param[@"en"] isEqualToString:@"pl5"])
+    {
+        [self pushViewControllerKey:@"LotteryTrendViewController" param:self.param animated:YES];
+    }else
+    {
+        [AlertCenter showWithTitle:@"抱歉" message:@"该彩票开奖号码走势正在努力开发中，敬请期待。"];
+    }
 }
 
 
