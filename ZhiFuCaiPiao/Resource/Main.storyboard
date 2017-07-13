@@ -701,19 +701,16 @@
             </objects>
             <point key="canvasLocation" x="2980" y="-458"/>
         </scene>
-        <!--其他-->
+        <!--我的-->
         <scene sceneID="f1e-Mo-bu9">
             <objects>
                 <navigationController id="6VE-0k-c0l" customClass="CPNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="其他" image="qita22" id="2z2-T3-HsK"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="qita22" id="2z2-T3-HsK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qLK-c5-e2d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="SNI-hz-99L" kind="relationship" relationship="rootViewController" id="blx-Om-46v"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILE-Yj-0Zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1781,10 +1778,10 @@
             </objects>
             <point key="canvasLocation" x="556" y="197"/>
         </scene>
-        <!--更多详情-->
+        <!--个人中心-->
         <scene sceneID="bJx-Jn-7Z0">
             <objects>
-                <viewController storyboardIdentifier="OtherViewController" title="更多详情" id="SNI-hz-99L" customClass="OtherViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtherViewController" title="个人中心" id="SNI-hz-99L" customClass="OtherViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4t4-ty-5jK"/>
                         <viewControllerLayoutGuide type="bottom" id="6vJ-4W-Ous"/>
@@ -1794,7 +1791,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hTF-gl-kOZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="OtherCell" textLabel="joU-3x-yte" rowHeight="44" style="IBUITableViewCellStyleDefault" id="uHS-UZ-7GY">
@@ -1829,11 +1826,11 @@
                             <constraint firstAttribute="trailing" secondItem="hTF-gl-kOZ" secondAttribute="trailing" id="vOG-BJ-yal"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="更多详情" id="k1h-in-fED"/>
+                    <navigationItem key="navigationItem" title="个人中心" id="k1h-in-fED"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wp0-xs-5v3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="862"/>
+            <point key="canvasLocation" x="1257" y="862"/>
         </scene>
     </scenes>
     <resources>
