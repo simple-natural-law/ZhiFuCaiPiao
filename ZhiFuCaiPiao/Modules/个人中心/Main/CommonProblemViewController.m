@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"常见问题";
+    self.title = @"更多详情";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

@@ -87,8 +87,6 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
 {
     NSURLSessionDataTask *dataTask = nil;
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
     AFHTTPSessionManager *manager = [CPHttpRequest shared].manager;
     
     if (needsUpdateTimeoutInterval)
@@ -101,6 +99,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
         [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
         manager.requestSerializer.timeoutInterval = 60.0;
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }
     
     if (authorization.length > 0)
