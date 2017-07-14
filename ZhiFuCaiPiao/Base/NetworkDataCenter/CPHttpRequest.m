@@ -92,7 +92,7 @@ LX_GTMOBJECT_SINGLETON_BOILERPLATE_WITH_SHARED(CPHttpRequest, shared)
     if (needsUpdateTimeoutInterval)
     {
         [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-        manager.requestSerializer.timeoutInterval = 3.0;
+        manager.requestSerializer.timeoutInterval = 4.0;
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     }else
     {
