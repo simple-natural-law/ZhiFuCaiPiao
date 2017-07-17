@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(goTouzhu)];
+//    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(goTouzhu)];
     
     self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.87 alpha:1.0];
     

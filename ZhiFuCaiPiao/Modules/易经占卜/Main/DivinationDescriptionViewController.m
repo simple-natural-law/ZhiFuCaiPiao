@@ -67,7 +67,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(touZhu)];
+//    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(touZhu)];
     
     NSArray *numberArray1 = self.param[@"NumArr1"];
     NSArray *numberArray2 = self.param[@"NumArr2"];

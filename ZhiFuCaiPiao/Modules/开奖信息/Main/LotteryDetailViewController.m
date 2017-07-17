@@ -31,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(goTouzhu)];
+//    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(goTouzhu)];
     
     [self.lastButton setBackgroundImage:[UIImage imageWithColor:COLOR_RED] forState:UIControlStateNormal];
     [self.lastButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:226/255.0 green:17/255.0 blue:0 alpha:0.7f]] forState:UIControlStateHighlighted];
