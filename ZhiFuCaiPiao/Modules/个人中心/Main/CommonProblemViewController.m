@@ -1,34 +1,27 @@
 //
-//  OtherViewController.m
+//  CommonProblemViewController.m
 //  ZhiFuCaiPiao
 //
-//  Created by 讯心科技 on 2017/6/27.
+//  Created by 张诗健 on 2017/7/13.
 //  Copyright © 2017年 张诗健. All rights reserved.
 //
 
-#import "OtherViewController.h"
-#import "OtherDetailViewController.h"
+#import "CommonProblemViewController.h"
+#import "ProblemDetialViewController.h"
 
-
-@interface OtherViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface CommonProblemViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
-@implementation OtherViewController
+@implementation CommonProblemViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self createAndSetRightButtonWithTitle:@"登录" touchUpInsideAction:@selector(login)];
-}
-
-- (void)login
-{
-    [self presentViewController:[UIViewController getViewControllerFormStoryboardName:@"Login" key:@"LoginNaviViewController"] animated:YES completion:nil];
+    self.title = @"更多详情";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -56,7 +49,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self pushViewController:[[OtherDetailViewController alloc] init] param:self.dataArray[indexPath.row] animated:YES];
+    [self pushViewController:[[ProblemDetialViewController alloc] init] param:self.dataArray[indexPath.row] animated:YES];
 }
 
 

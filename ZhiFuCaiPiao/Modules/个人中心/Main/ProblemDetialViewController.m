@@ -1,25 +1,25 @@
 //
-//  OtherDetailViewController.m
+//  ProblemDetialViewController.m
 //  ZhiFuCaiPiao
 //
-//  Created by 张诗健 on 2017/6/27.
+//  Created by 张诗健 on 2017/7/13.
 //  Copyright © 2017年 张诗健. All rights reserved.
 //
 
-#import "OtherDetailViewController.h"
+#import "ProblemDetialViewController.h"
 
-@interface OtherDetailViewController ()
+@interface ProblemDetialViewController ()
 
 @end
 
-@implementation OtherDetailViewController
+@implementation ProblemDetialViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.title = self.param[@"title"];
-
+    
     NSURL *url = [[NSBundle mainBundle] URLForResource:self.param[@"html"] withExtension:nil];
     
     [self loadURL:url param:nil];

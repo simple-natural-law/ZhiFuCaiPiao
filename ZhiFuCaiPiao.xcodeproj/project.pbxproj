@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A091C1A1EF7D59600B1A028 /* CPHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A091C191EF7D59600B1A028 /* CPHttpRequest.m */; };
 		1A091C201EF7D63A00B1A028 /* CPHttpTaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A091C1F1EF7D63A00B1A028 /* CPHttpTaskInfo.m */; };
-		1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8F51F0265BE005386FF /* OtherViewController.m */; };
 		1A31D8FC1F0265FE005386FF /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */; };
 		1A31D9031F0353C8005386FF /* GuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D9021F0353C8005386FF /* GuidePageViewController.m */; };
 		1A31D9061F036CB1005386FF /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31D9051F036CB1005386FF /* ErrorViewController.m */; };
@@ -37,7 +36,6 @@
 		341B2CEF1F02907500FA387E /* ssc_howto.html in Resources */ = {isa = PBXBuildFile; fileRef = 341B2CD21F02907500FA387E /* ssc_howto.html */; };
 		341B2CF01F02907500FA387E /* ssq_howto.html in Resources */ = {isa = PBXBuildFile; fileRef = 341B2CD31F02907500FA387E /* ssq_howto.html */; };
 		341B2CF11F02907500FA387E /* x3d_howto.html in Resources */ = {isa = PBXBuildFile; fileRef = 341B2CD41F02907500FA387E /* x3d_howto.html */; };
-		341B2CF61F02930F00FA387E /* OtherDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CF51F02930F00FA387E /* OtherDetailViewController.m */; };
 		341B2CF91F02A67E00FA387E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CF81F02A67E00FA387E /* NewsViewController.m */; };
 		341B2CFC1F02AB8F00FA387E /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CFB1F02AB8F00FA387E /* NewsCell.m */; };
 		341B2CFF1F02AF4300FA387E /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2CFE1F02AF4300FA387E /* NewsDetailViewController.m */; };
@@ -76,6 +74,10 @@
 		343EEC1B1F123A7C00D25025 /* DivinationDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC1A1F123A7C00D25025 /* DivinationDescriptionViewController.m */; };
 		343EEC1D1F126B8800D25025 /* GuaJie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 343EEC1C1F126B8800D25025 /* GuaJie.plist */; };
 		343EEC201F127FF000D25025 /* LotteryBettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC1F1F127FF000D25025 /* LotteryBettingViewController.m */; };
+		343EEC231F17B40F00D25025 /* DivinationAboutInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC221F17B40F00D25025 /* DivinationAboutInfoViewController.m */; };
+		343EEC2B1F17C0C600D25025 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC291F17C0C600D25025 /* UserCenterViewController.m */; };
+		343EEC2E1F17C15800D25025 /* CommonProblemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC2D1F17C15800D25025 /* CommonProblemViewController.m */; };
+		343EEC311F17C23600D25025 /* ProblemDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EEC301F17C23600D25025 /* ProblemDetialViewController.m */; };
 		3463E95F1F0BDBE0002A1144 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3463E95E1F0BDBE0002A1144 /* Login.storyboard */; };
 		3463E9681F0BE2C8002A1144 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E9671F0BE2C8002A1144 /* LoginViewController.m */; };
 		3463E96B1F0BE468002A1144 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463E96A1F0BE468002A1144 /* RegisterViewController.m */; };
@@ -109,8 +111,6 @@
 		1A091C191EF7D59600B1A028 /* CPHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHttpRequest.m; sourceTree = "<group>"; };
 		1A091C1E1EF7D63A00B1A028 /* CPHttpTaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHttpTaskInfo.h; sourceTree = "<group>"; };
 		1A091C1F1EF7D63A00B1A028 /* CPHttpTaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHttpTaskInfo.m; sourceTree = "<group>"; };
-		1A31D8F41F0265BE005386FF /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
-		1A31D8F51F0265BE005386FF /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		1A31D8FA1F0265FE005386FF /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		1A31D8FB1F0265FE005386FF /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		1A31D9011F0353C8005386FF /* GuidePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageViewController.h; sourceTree = "<group>"; };
@@ -154,8 +154,6 @@
 		341B2CD21F02907500FA387E /* ssc_howto.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ssc_howto.html; sourceTree = "<group>"; };
 		341B2CD31F02907500FA387E /* ssq_howto.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ssq_howto.html; sourceTree = "<group>"; };
 		341B2CD41F02907500FA387E /* x3d_howto.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = x3d_howto.html; sourceTree = "<group>"; };
-		341B2CF41F02930F00FA387E /* OtherDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherDetailViewController.h; sourceTree = "<group>"; };
-		341B2CF51F02930F00FA387E /* OtherDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherDetailViewController.m; sourceTree = "<group>"; };
 		341B2CF71F02A67E00FA387E /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		341B2CF81F02A67E00FA387E /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		341B2CFA1F02AB8F00FA387E /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
@@ -235,6 +233,14 @@
 		343EEC1C1F126B8800D25025 /* GuaJie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GuaJie.plist; sourceTree = "<group>"; };
 		343EEC1E1F127FF000D25025 /* LotteryBettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryBettingViewController.h; sourceTree = "<group>"; };
 		343EEC1F1F127FF000D25025 /* LotteryBettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryBettingViewController.m; sourceTree = "<group>"; };
+		343EEC211F17B40F00D25025 /* DivinationAboutInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivinationAboutInfoViewController.h; sourceTree = "<group>"; };
+		343EEC221F17B40F00D25025 /* DivinationAboutInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DivinationAboutInfoViewController.m; sourceTree = "<group>"; };
+		343EEC281F17C0C600D25025 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
+		343EEC291F17C0C600D25025 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		343EEC2C1F17C15700D25025 /* CommonProblemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProblemViewController.h; sourceTree = "<group>"; };
+		343EEC2D1F17C15800D25025 /* CommonProblemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonProblemViewController.m; sourceTree = "<group>"; };
+		343EEC2F1F17C23600D25025 /* ProblemDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemDetialViewController.h; sourceTree = "<group>"; };
+		343EEC301F17C23600D25025 /* ProblemDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemDetialViewController.m; sourceTree = "<group>"; };
 		3463E95E1F0BDBE0002A1144 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		3463E9661F0BE2C8002A1144 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3463E9671F0BE2C8002A1144 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -289,33 +295,6 @@
 				1A8FEB071EF91582009E4A39 /* NetworkDataCenter.m */,
 			);
 			path = NetworkDataCenter;
-			sourceTree = "<group>";
-		};
-		1A31D8F11F0265BE005386FF /* 其他 */ = {
-			isa = PBXGroup;
-			children = (
-				1A31D8F21F0265BE005386FF /* Base */,
-				1A31D8F31F0265BE005386FF /* Main */,
-			);
-			path = "其他";
-			sourceTree = "<group>";
-		};
-		1A31D8F21F0265BE005386FF /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		1A31D8F31F0265BE005386FF /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				1A31D8F41F0265BE005386FF /* OtherViewController.h */,
-				1A31D8F51F0265BE005386FF /* OtherViewController.m */,
-				341B2CF41F02930F00FA387E /* OtherDetailViewController.h */,
-				341B2CF51F02930F00FA387E /* OtherDetailViewController.m */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		1A31D8F61F0265BE005386FF /* 资讯 */ = {
@@ -381,6 +360,8 @@
 			children = (
 				1AC987BE1F0E3CAF00F134B2 /* DivinationMainViewController.h */,
 				1AC987BF1F0E3CAF00F134B2 /* DivinationMainViewController.m */,
+				343EEC211F17B40F00D25025 /* DivinationAboutInfoViewController.h */,
+				343EEC221F17B40F00D25025 /* DivinationAboutInfoViewController.m */,
 				343EEC161F0FDD8F00D25025 /* GuaXiangCell.h */,
 				343EEC171F0FDD8F00D25025 /* GuaXiangCell.m */,
 				3463E96F1F0E7B26002A1144 /* DivinationDetialViewController.h */,
@@ -488,7 +469,7 @@
 				34FCDB381F0BD49B00F7F2B6 /* 登录注册 */,
 				1AC987BB1F0E3C5E00F134B2 /* 易经占卜 */,
 				341FED2E1EF2D06900CA37A9 /* 开奖信息 */,
-				1A31D8F11F0265BE005386FF /* 其他 */,
+				343EEC241F17C0C600D25025 /* 个人中心 */,
 				1A31D8F61F0265BE005386FF /* 资讯 */,
 			);
 			path = Modules;
@@ -684,6 +665,27 @@
 				343973E21EEB952000C183D8 /* Info.plist */,
 			);
 			path = ZhiFuCaiPiaoUITests;
+			sourceTree = "<group>";
+		};
+		343EEC241F17C0C600D25025 /* 个人中心 */ = {
+			isa = PBXGroup;
+			children = (
+				343EEC251F17C0C600D25025 /* Main */,
+			);
+			path = "个人中心";
+			sourceTree = "<group>";
+		};
+		343EEC251F17C0C600D25025 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				343EEC281F17C0C600D25025 /* UserCenterViewController.h */,
+				343EEC291F17C0C600D25025 /* UserCenterViewController.m */,
+				343EEC2C1F17C15700D25025 /* CommonProblemViewController.h */,
+				343EEC2D1F17C15800D25025 /* CommonProblemViewController.m */,
+				343EEC2F1F17C23600D25025 /* ProblemDetialViewController.h */,
+				343EEC301F17C23600D25025 /* ProblemDetialViewController.m */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		3463E96C1F0E72F5002A1144 /* Audio */ = {
@@ -952,6 +954,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341FED0F1EF17BA300CA37A9 /* UIViewController+Nav.m in Sources */,
+				343EEC311F17C23600D25025 /* ProblemDetialViewController.m in Sources */,
 				341B2CB01EFF7FE100FA387E /* CPMenuView.m in Sources */,
 				342384BA1EF94E3E0074DAE1 /* AlertCenter.m in Sources */,
 				341FED001EF17BA300CA37A9 /* NSData+extend.m in Sources */,
@@ -976,6 +979,7 @@
 				342384BD1EF975370074DAE1 /* LotteryDetailViewController.m in Sources */,
 				341B2CAF1EFF7FE100FA387E /* CPMenuItem.m in Sources */,
 				1A31D9061F036CB1005386FF /* ErrorViewController.m in Sources */,
+				343EEC2E1F17C15800D25025 /* CommonProblemViewController.m in Sources */,
 				1A8FEB081EF91582009E4A39 /* NetworkDataCenter.m in Sources */,
 				341B2CB51EFF844100FA387E /* LineView.m in Sources */,
 				341FED331EF2D10600CA37A9 /* LotteryInformationViewController.m in Sources */,
@@ -984,12 +988,11 @@
 				34FCDB351F0A7F1D00F7F2B6 /* LotteryTrendViewController.m in Sources */,
 				341FED041EF17BA300CA37A9 /* NSString+extend.m in Sources */,
 				1A8FEAFF1EF8CB29009E4A39 /* LotteryInfoCell.m in Sources */,
+				343EEC2B1F17C0C600D25025 /* UserCenterViewController.m in Sources */,
 				341FED011EF17BA300CA37A9 /* NSDate+extend.m in Sources */,
 				1A31D9091F036F39005386FF /* TransitionViewController.m in Sources */,
 				341B2CFC1F02AB8F00FA387E /* NewsCell.m in Sources */,
 				1A8FEB0B1EFA0611009E4A39 /* LotteryDetailCell.m in Sources */,
-				1A31D8F71F0265BE005386FF /* OtherViewController.m in Sources */,
-				341B2CF61F02930F00FA387E /* OtherDetailViewController.m in Sources */,
 				341FECC41EF01C2600CA37A9 /* AppDelegate.m in Sources */,
 				1A31D9031F0353C8005386FF /* GuidePageViewController.m in Sources */,
 				341FECD71EF0327600CA37A9 /* TabBarViewController.m in Sources */,
@@ -1000,6 +1003,7 @@
 				341FECD01EF0265800CA37A9 /* EventCenter.m in Sources */,
 				341B2CFF1F02AF4300FA387E /* NewsDetailViewController.m in Sources */,
 				341FED031EF17BA300CA37A9 /* NSObject+extend.m in Sources */,
+				343EEC231F17B40F00D25025 /* DivinationAboutInfoViewController.m in Sources */,
 				1A091C1A1EF7D59600B1A028 /* CPHttpRequest.m in Sources */,
 				341B2CF91F02A67E00FA387E /* NewsViewController.m in Sources */,
 				341FED091EF17BA300CA37A9 /* UIImage+extend.m in Sources */,

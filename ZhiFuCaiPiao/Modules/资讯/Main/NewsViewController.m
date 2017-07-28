@@ -29,7 +29,7 @@
     
     [self showHUD];
     
-    [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(wxnewCallBack:)];
+    [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"财经",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil needsUpdateTimeoutInterval:NO target:self callBack:@selector(wxnewCallBack:)];
 }
 
 - (void)wxnewCallBack:(NSDictionary *)dic
@@ -48,7 +48,7 @@
             
             [weakself showHUD];
             
-            [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"彩票",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil needsUpdateTimeoutInterval:NO target:weakself callBack:@selector(wxnewCallBack:)];
+            [NetworkDataCenter GET:@"https://api.tianapi.com/wxnew" parameters:@{@"page":@"1",@"word":@"财经",@"key":@"ccec691455525502cec194483030a12d",@"num":@"20"} authorization:nil needsUpdateTimeoutInterval:NO target:weakself callBack:@selector(wxnewCallBack:)];
         }];
     }
 }
@@ -61,10 +61,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
-    cell.titleLabel.text = self.newslistArr[indexPath.row][@"title"];
-    cell.descriptionLabel.text = self.newslistArr[indexPath.row][@"description"];
+    NSInteger index = self.newslistArr.count - 1 - indexPath.row;
+    cell.titleLabel.text = self.newslistArr[index][@"title"];
+    cell.descriptionLabel.text = self.newslistArr[index][@"description"];
     
-    [cell.pictureView sd_setImageWithURL:[NSURL URLWithString:self.newslistArr[indexPath.row][@"picUrl"]] placeholderImage:nil];
+    [cell.pictureView sd_setImageWithURL:[NSURL URLWithString:self.newslistArr[index][@"picUrl"]] placeholderImage:nil];
     
     return cell;
 }

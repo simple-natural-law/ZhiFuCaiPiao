@@ -12,6 +12,7 @@
 #import "CPMenuView.h"
 #import "LineView.h"
 #import "LotteryTrendTypeSelectView.h"
+#import "LotteryBettingViewController.h"
 
 
 @interface LotteryTrendViewController ()<CPMenuViewDelegate,CPMenuViewDataSource>
@@ -35,6 +36,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    [self createAndSetRightButtonWithTitle:@"投注" touchUpInsideAction:@selector(goTouzhu)];
     
     self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.87 alpha:1.0];
     
@@ -618,6 +621,11 @@
     return @"";
 }
 
+
+- (void)goTouzhu
+{
+    [self pushViewController:[[LotteryBettingViewController alloc] init] param:@"http://wap.lecai.com/lottery/" animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
