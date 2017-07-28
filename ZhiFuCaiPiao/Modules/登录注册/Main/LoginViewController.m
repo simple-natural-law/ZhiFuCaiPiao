@@ -48,10 +48,10 @@
     if (textField == self.userNameTextField)
     {
         [self.passwordTextField becomeFirstResponder];
-    }else
-    {
-        [textField resignFirstResponder];
+        return NO;
     }
+    
+    [textField resignFirstResponder];
     return YES;
 }
 
